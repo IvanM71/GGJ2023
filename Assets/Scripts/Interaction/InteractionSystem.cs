@@ -57,7 +57,6 @@ namespace Apollo11.Interaction
 
         private void UpdateIcon(IInteractable obj)
         {
-            print("Showing icon");
             var pos = obj.GetPosition() + obj.GetIconOffset();
             interactionIcon.transform.position = pos;
             interactionIcon.SetActive(true);

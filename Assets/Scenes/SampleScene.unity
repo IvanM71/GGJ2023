@@ -291,6 +291,8 @@ GameObject:
   - component: {fileID: 170399658}
   - component: {fileID: 170399657}
   - component: {fileID: 170399659}
+  - component: {fileID: 170399661}
+  - component: {fileID: 170399660}
   m_Layer: 0
   m_Name: anvil
   m_TagString: Untagged
@@ -402,6 +404,31 @@ PolygonCollider2D:
       - {x: 0.47333336, y: -0.47166666}
       - {x: 0.5518566, y: -0.4286806}
       - {x: 0.5485112, y: -0.3684852}
+--- !u!114 &170399660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170399656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 045db7fb08324a5f9170519925e4ce3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armory: {fileID: 170399661}
+--- !u!114 &170399661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170399656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b237d0e2a4d452ca2d9c2650d8a2332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &428915626
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +726,8 @@ GameObject:
   - component: {fileID: 533954401}
   - component: {fileID: 533954400}
   - component: {fileID: 533954402}
+  - component: {fileID: 533954404}
+  - component: {fileID: 533954403}
   m_Layer: 0
   m_Name: smelter
   m_TagString: Untagged
@@ -806,6 +835,31 @@ PolygonCollider2D:
       - {x: -0.27478334, y: 0.22569597}
       - {x: -0.14255103, y: 0.3326376}
       - {x: 0.25670394, y: 0.31138557}
+--- !u!114 &533954403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533954399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaba10bf451faf8b18e1660e2e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factory: {fileID: 533954404}
+--- !u!114 &533954404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533954399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a02149d727b4bce92cedea7029063af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1338,8 @@ GameObject:
   - component: {fileID: 1666999702}
   - component: {fileID: 1666999701}
   - component: {fileID: 1666999703}
+  - component: {fileID: 1666999705}
+  - component: {fileID: 1666999704}
   m_Layer: 0
   m_Name: furnace
   m_TagString: Untagged
@@ -1394,6 +1450,31 @@ PolygonCollider2D:
       - {x: 0.41081688, y: 0.21436171}
       - {x: 0.5607545, y: 0.025908971}
       - {x: 0.5788832, y: -0.09136513}
+--- !u!114 &1666999704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666999700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4dfaba10bf451faf8b18e1660e2e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factory: {fileID: 1666999705}
+--- !u!114 &1666999705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666999700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a02149d727b4bce92cedea7029063af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1698113790
 GameObject:
   m_ObjectHideFlags: 0

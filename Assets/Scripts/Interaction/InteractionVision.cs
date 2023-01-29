@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using Apollo11.Interaction;
-using Apollo11.Items;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Interaction
 {
     public class InteractionVision : MonoBehaviour
     {

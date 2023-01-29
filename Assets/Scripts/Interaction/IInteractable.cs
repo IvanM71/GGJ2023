@@ -9,13 +9,13 @@ namespace Apollo11.Interaction
     
     public interface IInteractionButtonHold
     {
-        public void OnButtonUp();
+        public void OnInteractionStop();
     }
 
     public interface IInteractable
     {
         public Vector2 GetIconOffset();
         public Vector2 GetPosition();
-        public void OnButtonDown();
+        public void OnInteractionStart();
     }
 }

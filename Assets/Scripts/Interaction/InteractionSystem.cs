@@ -1,7 +1,6 @@
-using Apollo11.Interaction;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Interaction
 {
     public class InteractionSystem : MonoBehaviour
     {
@@ -19,7 +18,7 @@ namespace Apollo11
             {
                 if (closest == null)
                 {
-                    interactionIcon.SetActive(false);
+                    HideIcon();
                     return;
                 }
             
@@ -29,13 +28,13 @@ namespace Apollo11
             
             if (Input.GetKeyDown(KeyCode.E) && !InteractionLocked)
             {
-                closest.OnButtonDown();
+                closest.OnInteractionStart();
                 if (closest is IInteractionButtonHold)
                     LockInteraction(closest);
             }
             else if (Input.GetKeyUp(KeyCode.E) && InteractionLocked)
             {
-                ((IInteractionButtonHold)_lockedInteractable).OnButtonUp();
+                ((IInteractionButtonHold)_lockedInteractable).OnInteractionStop();
                 UnlockInteraction();
             }
         }
@@ -58,6 +57,7 @@ namespace Apollo11
 
         private void UpdateIcon(IInteractable obj)
         {
+            print("Showing icon");
             var pos = obj.GetPosition() + obj.GetIconOffset();
             interactionIcon.transform.position = pos;
             interactionIcon.SetActive(true);
@@ -65,7 +65,7 @@ namespace Apollo11
         
         private void HideIcon()
         {
-            interactionIcon.SetActive(true);
+            interactionIcon.SetActive(false);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Apollo11.Interaction;
-using Apollo11.Items;
 using UnityEngine;
 
 namespace Apollo11.Crafting
@@ -19,12 +18,12 @@ namespace Apollo11.Crafting
             return transform.position;
         }
 
-        public void OnButtonDown()
+        public void OnInteractionStart()
         {
             extractor.StartExtraction();
         }
 
-        public void OnButtonUp()
+        public void OnInteractionStop()
         {
             extractor.StopExtraction();
         }

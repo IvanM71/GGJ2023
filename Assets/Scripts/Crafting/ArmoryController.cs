@@ -18,7 +18,7 @@ namespace Apollo11.Crafting
             return transform.position;
         }
 
-        public void OnButtonDown()
+        public void OnInteractionStart()
         {
             
         }

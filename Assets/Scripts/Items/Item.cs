@@ -19,7 +19,7 @@ namespace Apollo11.Items
             return transform.position;
         }
 
-        public void OnButtonDown()
+        public void OnInteractionStart()
         {
             //take item
         }

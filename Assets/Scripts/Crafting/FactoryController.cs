@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Apollo11.Crafting
 {
-    public class FactoryController : MonoBehaviour, IInteractable
+    public class FactoryController : MonoBehaviour, IInteractable, IInteractionButtonHold
     {
         [SerializeField] private Factory factory;
         
@@ -23,6 +23,11 @@ namespace Apollo11.Crafting
         }
 
         public void OnInteractionStart()
+        {
+            
+        }
+
+        public void OnInteractionStop()
         {
             
         }

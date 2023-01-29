@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Apollo11.Crafting
 {
@@ -10,9 +13,17 @@ namespace Apollo11.Crafting
         [SerializeField] private Transform resourceSpawnPoint;
         [SerializeField] private float resourceSpawnRadius = 0.35f;
         [Space]
+        [SerializeField] private ProgressBar progressBar;
         [SerializeField] private float extractionTime = 3f;
 
         private Coroutine _extractionRoutine;
+        private Tween _extractionProgressTween;
+
+
+        private void Awake()
+        {
+            progressBar.gameObject.SetActive(false);
+        }
 
         public void StartExtraction()
         {
@@ -24,6 +35,9 @@ namespace Apollo11.Crafting
             if (_extractionRoutine == null) return;
             StopCoroutine(_extractionRoutine);
             _extractionRoutine = null;
+            
+            _extractionProgressTween.Kill();
+            progressBar.gameObject.SetActive(false);
         }
 
         private IEnumerator IE_Extraction()
@@ -31,6 +45,9 @@ namespace Apollo11.Crafting
             var wait = new WaitForSeconds(extractionTime);
             while (true)
             {
+                progressBar.gameObject.SetActive(true);
+                _extractionProgressTween = DOTween.To(progressBar.SetValue01, 0f, 1f, extractionTime).SetEase(Ease.Linear);
+                
                 yield return wait;
                 SpawnResource();
             }

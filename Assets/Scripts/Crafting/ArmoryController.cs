@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Apollo11.Crafting
 {
-    public class ArmoryController : MonoBehaviour, IInteractable
+    public class ArmoryController : MonoBehaviour, IInteractable, IInteractionButtonHold
     {
         [SerializeField] private Armory armory;
         
@@ -19,6 +19,11 @@ namespace Apollo11.Crafting
         }
 
         public void OnInteractionStart()
+        {
+            
+        }
+
+        public void OnInteractionStop()
         {
             
         }

@@ -44,15 +44,13 @@ namespace Apollo11.Interaction
             InteractionLocked = true;
             _lockedInteractable = obj;
             HideIcon();
-            //TODO player cant move
-            print("DONT MOVE");
+            SystemsLocator.Inst.PlayerMovement.LockMovement = true;
         }
         
         private void UnlockInteraction()
         {
             InteractionLocked = false;
-            //TODO player can move
-            print("MOVE");
+            SystemsLocator.Inst.PlayerMovement.LockMovement = false;
         }
 
         private void UpdateIcon(IInteractable obj)

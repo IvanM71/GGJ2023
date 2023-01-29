@@ -7,11 +7,19 @@ namespace Apollo11.Player
         [SerializeField] private float speed = 5f;
         [Space]
         [SerializeField] private Rigidbody2D rb2d;
-        
+
+        public bool LockMovement { get; set; }
+
         private Vector2 _movement;
         
         void Update()
         {
+            if (LockMovement)
+            {
+                _movement = Vector2.zero;
+                return;
+            }
+            
             Vector2 rawInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             _movement = Vector2.ClampMagnitude(rawInput, 1f);
         }

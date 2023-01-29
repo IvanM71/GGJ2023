@@ -38,11 +38,13 @@ namespace Apollo11.Crafting
 
         private void SpawnResource()
         {
+            print("Spawning resource");
             var offset1 = Random.Range(-resourceSpawnRadius, resourceSpawnRadius);
             var offset2 = Random.Range(-resourceSpawnRadius, resourceSpawnRadius);
             var pos = resourceSpawnPoint.position + new Vector3(offset1, offset2, 0);
             Instantiate(spawnedResourcePrefab, pos, Quaternion.identity);
         }
 
+        
     }
 }

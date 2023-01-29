@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Apollo11
@@ -13,13 +14,25 @@ namespace Apollo11
             if (obj == null)
             {
                 interactionIcon.SetActive(false);
+                return;
             }
-            else
+            
+            UpdateIcon(obj);
+
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                var pos = obj.GetPosition() + obj.GetIconOffset();
-                interactionIcon.transform.position = pos;
-                interactionIcon.SetActive(true);
+                obj.OnButtonDown();
+            }else if (Input.GetKeyUp(KeyCode.E))
+            {
+                obj.OnButtonUp();
             }
+        }
+
+        private void UpdateIcon(IInteractable obj)
+        {
+            var pos = obj.GetPosition() + obj.GetIconOffset();
+            interactionIcon.transform.position = pos;
+            interactionIcon.SetActive(true);
         }
     }
 }

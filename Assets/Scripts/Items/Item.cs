@@ -22,12 +22,12 @@ namespace Apollo11.Items
         {
             return transform.position;
         }
-    }
 
-    public interface IInteractable
-    {
-        public void OnSelect();
-        public Vector2 GetIconOffset();
-        public Vector2 GetPosition();
+        public void OnButtonDown()
+        {
+            //take item
+        }
+
+        public void OnButtonUp() { }
     }
 }

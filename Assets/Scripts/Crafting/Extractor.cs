@@ -8,7 +8,7 @@ namespace Apollo11.Crafting
         [SerializeField] private GameObject spawnedResourcePrefab;
         [Space]
         [SerializeField] private Transform resourceSpawnPoint;
-        [SerializeField] private float resourceSpawnRadius = 0.2f;
+        [SerializeField] private float resourceSpawnRadius = 0.35f;
         [Space]
         [SerializeField] private float extractionTime = 3f;
 

@@ -1,16 +1,13 @@
-﻿using Apollo11.Items;
+﻿using Apollo11.Interaction;
+using Apollo11.Items;
 using UnityEngine;
 
 namespace Apollo11.Crafting
 {
-    public class ExtractorController : MonoBehaviour, IInteractable
+    public class ExtractorController : MonoBehaviour, IInteractable, IInteractionButtonHold
     {
         [SerializeField] private Extractor extractor;
         
-        public void OnSelect()
-        {
-            
-        }
 
         public Vector2 GetIconOffset()
         {

@@ -1,6 +1,6 @@
 ﻿namespace Apollo11
 {
-    public class Enums
+    public static class Enums
     {
         public enum Items
         {

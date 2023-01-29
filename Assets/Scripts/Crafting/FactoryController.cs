@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Apollo11.Interaction;
+using UnityEngine;
 
 namespace Apollo11.Crafting
 {
@@ -22,11 +23,6 @@ namespace Apollo11.Crafting
         }
 
         public void OnButtonDown()
-        {
-            
-        }
-
-        public void OnButtonUp()
         {
             
         }

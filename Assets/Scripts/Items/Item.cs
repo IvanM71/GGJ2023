@@ -1,17 +1,13 @@
-﻿using UnityEngine;
+﻿using Apollo11.Interaction;
+using UnityEngine;
 
 namespace Apollo11.Items
 {
-    public class Item : MonoBehaviour, IInteractable
+    public class Item : MonoBehaviour, IInteractable, IInteractionTarget
     {
         [SerializeField] private Enums.Items itemType;
         public Enums.Items ItemType => itemType;
-        
-        
-        public void OnSelect()
-        {
-            //outline? scale up?
-        }
+
 
         public Vector2 GetIconOffset()
         {
@@ -28,6 +24,9 @@ namespace Apollo11.Items
             //take item
         }
 
-        public void OnButtonUp() { }
+        public void AtInteractionTargetSelected()
+        {
+            //outline? scale up?
+        }
     }
 }

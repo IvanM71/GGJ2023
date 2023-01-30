@@ -1,4 +1,5 @@
-﻿using Apollo11.Interaction;
+﻿using Apollo11.Core;
+using Apollo11.Interaction;
 using UnityEngine;
 
 namespace Apollo11.Crafting
@@ -6,6 +7,7 @@ namespace Apollo11.Crafting
     public class ExtractorController : MonoBehaviour, IInteractable, ILongInteraction
     {
         [SerializeField] private Extractor extractor;
+        [SerializeField] private Enums.HandWeapon extractionWeapon;
 
 
         public Enums.InteractableObjectType GetInteractableType() => Enums.InteractableObjectType.LongHoldAction;
@@ -23,11 +25,13 @@ namespace Apollo11.Crafting
         public void OnInteractionStart()
         {
             extractor.StartExtraction();
+            SystemsLocator.Inst.PlayerAnimation.PlayHandWeapon(extractionWeapon);
         }
 
         public void OnInteractionStop()
         {
             extractor.StopExtraction();
+            SystemsLocator.Inst.PlayerAnimation.StopHandWeapon();
         }
     }
 }

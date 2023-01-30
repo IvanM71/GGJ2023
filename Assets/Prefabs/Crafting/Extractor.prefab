@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   extractor: {fileID: 7431822313968496825}
+  extractionWeapon: 4
 --- !u!1001 &3797217931601590150
 PrefabInstance:
   m_ObjectHideFlags: 0

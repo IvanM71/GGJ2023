@@ -1502,6 +1502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1650923220}
   playerItemCarry: {fileID: 1650923224}
+  playerAnimation: {fileID: 2047372350}
 --- !u!1 &2028748136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,6 +1587,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2047372350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2663884752197585347, guid: 987af0daf45b981408c0056c4be62733, type: 3}
+  m_PrefabInstance: {fileID: 6580368357182260219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db085e181898ac448fb820c3f263b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6580368357182260219
 PrefabInstance:
   m_ObjectHideFlags: 0

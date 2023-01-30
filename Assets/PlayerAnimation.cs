@@ -1,4 +1,3 @@
-using System;
 using Apollo11.Player;
 using UnityEngine;
 
@@ -6,8 +5,11 @@ namespace Apollo11
 {
     public class PlayerAnimation : MonoBehaviour
     {
+        [SerializeField] private Animator animator;
         [SerializeField] private Transform visualToMirror;
         [SerializeField] private PlayerMovement playerMovement;
+        [SerializeField] private PlayerWeaponsInHand playerWeaponsInHand;
+        [SerializeField] private PlayerItemCarry playerItemCarry;
 
         private readonly Vector3 moveLeftScale = new (1f, 1f, 1f);
         private readonly Vector3 moveRightScale = new (-1f, 1f, 1f);
@@ -15,17 +17,26 @@ namespace Apollo11
 
         private void Update()
         {
+            animator.SetBool("Carries", playerItemCarry.IsHoldingItem);
+            
             if (playerMovement.Movement != Vector2.zero)
             {
-                PlayMove(playerMovement.Movement.x);
+                var xMoveDir = playerMovement.Movement.x;
+                visualToMirror.transform.localScale = xMoveDir < 0f ? moveLeftScale : moveRightScale;
+                
+                animator.SetBool("Walks", true);
+            }
+            else
+            {
+                animator.SetBool("Walks", false);
             }
         }
 
-        public void PlayMove(float xMoveDir)
+
+        public void PlayHandWeapon(Enums.HandWeapon weaponType)
         {
-            if (xMoveDir != 0f)
-                visualToMirror.transform.localScale = xMoveDir < 0f ? moveLeftScale : moveRightScale;
-            
+            playerWeaponsInHand.SelectWeapon(weaponType);
+            animator.SetBool("Hits", true);
         }
     }
 }

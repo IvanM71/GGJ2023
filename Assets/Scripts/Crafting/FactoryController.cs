@@ -1,4 +1,5 @@
-﻿using Apollo11.Interaction;
+﻿using Apollo11.Core;
+using Apollo11.Interaction;
 using Apollo11.Items;
 using UnityEngine;
 
@@ -26,6 +27,11 @@ namespace Apollo11.Crafting
         }
 
         public void OnInteractionStart()
+        {
+            ReceiveItem(SystemsLocator.Inst.PlayerItemCarry.DeleteItemFromHands());
+        }
+
+        private void ReceiveItem(Enums.Items itemType)
         {
             
         }

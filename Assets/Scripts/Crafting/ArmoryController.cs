@@ -1,10 +1,11 @@
-﻿using Apollo11.Interaction;
+﻿using Apollo11.Core;
+using Apollo11.Interaction;
 using Apollo11.Items;
 using UnityEngine;
 
 namespace Apollo11.Crafting
 {
-    public class ArmoryController : MonoBehaviour, IInteractable, ILongInteraction, ICraftingInteraction
+    public class ArmoryController : MonoBehaviour, IInteractable, ICraftingInteraction
     {
         [SerializeField] private Armory armory;
 
@@ -27,10 +28,10 @@ namespace Apollo11.Crafting
 
         public void OnInteractionStart()
         {
-            
+            ReceiveItem(SystemsLocator.Inst.PlayerItemCarry.DeleteItemFromHands());
         }
 
-        public void OnInteractionStop()
+        private void ReceiveItem(Enums.Items itemType)
         {
             
         }

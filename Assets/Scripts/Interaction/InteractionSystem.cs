@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Apollo11.Core;
+using Apollo11.Player;
 using UnityEngine;
 
 namespace Apollo11.Interaction
@@ -59,10 +60,16 @@ namespace Apollo11.Interaction
                 }
             }
 
-            if (closest == null) return; //drop held item?
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SystemsLocator.Inst.PlayerItemCarry.DropItem();
+                InteractionState = Enums.PlayerInteractionState.None;
+                return;
+            }
 
             if (Input.GetKeyDown(KeyCode.E))
             {
+                if (closest == null) return;
                 closest.OnInteractionStart();
                 
                 if (closest.GetInteractableType() == Enums.InteractableObjectType.LongHoldAction)

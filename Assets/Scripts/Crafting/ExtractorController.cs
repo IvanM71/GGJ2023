@@ -3,10 +3,12 @@ using UnityEngine;
 
 namespace Apollo11.Crafting
 {
-    public class ExtractorController : MonoBehaviour, IInteractable, IInteractionButtonHold
+    public class ExtractorController : MonoBehaviour, IInteractable, ILongInteraction
     {
         [SerializeField] private Extractor extractor;
-        
+
+
+        public Enums.InteractableObjectType GetInteractableType() => Enums.InteractableObjectType.LongHoldAction;
 
         public Vector2 GetIconOffset()
         {

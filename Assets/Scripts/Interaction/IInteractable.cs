@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Apollo11.Items;
+using UnityEngine;
 
 namespace Apollo11.Interaction
 {
@@ -7,13 +8,19 @@ namespace Apollo11.Interaction
         void AtInteractionTargetSelected();
     }
     
-    public interface IInteractionButtonHold
+    public interface ILongInteraction
     {
         public void OnInteractionStop();
+    }
+    
+    public interface ICraftingInteraction
+    {
+        public bool AcceptsItem(Item item);
     }
 
     public interface IInteractable
     {
+        public Enums.InteractableObjectType GetInteractableType();
         public Vector2 GetIconOffset();
         public Vector2 GetPosition();
         public void OnInteractionStart();

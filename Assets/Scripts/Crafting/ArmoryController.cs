@@ -1,12 +1,19 @@
 ﻿using Apollo11.Interaction;
+using Apollo11.Items;
 using UnityEngine;
 
 namespace Apollo11.Crafting
 {
-    public class ArmoryController : MonoBehaviour, IInteractable, IInteractionButtonHold
+    public class ArmoryController : MonoBehaviour, IInteractable, ILongInteraction, ICraftingInteraction
     {
         [SerializeField] private Armory armory;
-        
+
+
+        public Enums.InteractableObjectType GetInteractableType() => Enums.InteractableObjectType.Crafter;
+        public bool AcceptsItem(Item item)
+        {
+            return true; //TODO
+        }
 
         public Vector2 GetIconOffset()
         {

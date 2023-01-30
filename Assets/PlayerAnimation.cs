@@ -22,8 +22,9 @@ namespace Apollo11
             if (playerMovement.Movement != Vector2.zero)
             {
                 var xMoveDir = playerMovement.Movement.x;
-                visualToMirror.transform.localScale = xMoveDir < 0f ? moveLeftScale : moveRightScale;
-                
+                if (xMoveDir < 0f) visualToMirror.transform.localScale = moveLeftScale;
+                else if (xMoveDir > 0f) visualToMirror.transform.localScale = moveRightScale;
+
                 animator.SetBool("Walks", true);
             }
             else

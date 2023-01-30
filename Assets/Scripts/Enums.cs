@@ -11,5 +11,16 @@
             Iron
             
         }
+        
+        public enum HandWeapon
+        {
+            Unknown,
+            Axe,
+            Saw,
+            Shears,
+            Pickaxe,
+            Sprayer
+
+        }
     }
 }

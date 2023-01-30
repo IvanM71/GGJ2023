@@ -1629,10 +1629,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gnome
       objectReference: {fileID: 0}
-    - target: {fileID: 7669792592825717520, guid: 987af0daf45b981408c0056c4be62733, type: 3}
-      propertyPath: m_Name
-      value: InteractionVision
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 987af0daf45b981408c0056c4be62733, type: 3}
 --- !u!1001 &8835174428972163822

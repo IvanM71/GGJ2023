@@ -288,15 +288,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1232240213116269087, guid: 97c4b7df9b5e9144baf975348401dba7, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.00012779981
+      value: 0.00051791593
       objectReference: {fileID: 0}
     - target: {fileID: 1232240213116269087, guid: 97c4b7df9b5e9144baf975348401dba7, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.00051161647
+      value: 0.000049099326
       objectReference: {fileID: 0}
     - target: {fileID: 1232240213116269087, guid: 97c4b7df9b5e9144baf975348401dba7, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 0.045272153
+      value: 0.058767874
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232240213116269087, guid: 97c4b7df9b5e9144baf975348401dba7, type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 0.17943934
       objectReference: {fileID: 0}
     - target: {fileID: 6471358243168062799, guid: 97c4b7df9b5e9144baf975348401dba7, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -341,3 +345,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 97c4b7df9b5e9144baf975348401dba7, type: 3}
   m_PrefabInstance: {fileID: 6580368357158293440}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6680498474938183293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: 97c4b7df9b5e9144baf975348401dba7, type: 3}
+  m_PrefabInstance: {fileID: 6580368357158293440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1519519940
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680498474938183293}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e506bb73c61e0b2458c50b18e2d2c344, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

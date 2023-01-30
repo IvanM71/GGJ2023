@@ -1,4 +1,5 @@
-﻿using Apollo11.Interaction;
+﻿using Apollo11.Core;
+using Apollo11.Interaction;
 using UnityEngine;
 
 namespace Apollo11.Items
@@ -21,7 +22,7 @@ namespace Apollo11.Items
 
         public void OnInteractionStart()
         {
-            //take item
+            SystemsLocator.Inst.PlayerItemCarry.TakeItem(this);
         }
 
         public void AtInteractionTargetSelected()

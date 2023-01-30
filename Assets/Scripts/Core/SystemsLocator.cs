@@ -1,8 +1,7 @@
-using System;
 using Apollo11.Player;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Core
 {
     public class SystemsLocator : MonoBehaviour
     {
@@ -13,7 +12,7 @@ namespace Apollo11
         [SerializeField] private PlayerMovement playerMovement;
         public PlayerMovement PlayerMovement => playerMovement;
         
-        /*[SerializeField] private PlayerAnimation playerAnimation;
-        public PlayerAnimation PlayerAnimation => playerAnimation;*/
+        [SerializeField] private PlayerItemCarry playerItemCarry;
+        public PlayerItemCarry PlayerItemCarry => playerItemCarry;
     }
 }

@@ -12,5 +12,8 @@ namespace Apollo11
 
         [SerializeField] private PlayerMovement playerMovement;
         public PlayerMovement PlayerMovement => playerMovement;
+        
+        /*[SerializeField] private PlayerAnimation playerAnimation;
+        public PlayerAnimation PlayerAnimation => playerAnimation;*/
     }
 }

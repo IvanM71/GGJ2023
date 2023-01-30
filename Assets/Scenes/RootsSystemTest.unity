@@ -2512,50 +2512,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &810096930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 810096932}
-  - component: {fileID: 810096931}
-  m_Layer: 0
-  m_Name: RootsModel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &810096931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810096930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61dafa25ff52e604f8b874bdcaf4df63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &810096932
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810096930}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.789171, y: 0.49493667, z: 0.08289773}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &929489914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2737,7 +2693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaba9b2a6fb88024598c92f81f7b6840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 810096931}
   field: {fileID: 704832557}
   rootPrefab: {fileID: 5564167511017562334, guid: 010e630be45901c468a996d437d6c6ad, type: 3}
   sprites:

@@ -5,10 +5,10 @@ using UnityEngine;
 public class Root
 {
     public RootStages stage;
-    public bool[] _growDirections = new bool[4]; // 0 - up, 1 - down, 2 - left, 3 - right
-    public Root(RootStages stage, bool[] growDirections)
+    public bool[] _growDirections; // 0 - up, 1 - down, 2 - left, 3 - right
+    public Root(RootStages stage)
     {
         this.stage = stage;
-        _growDirections = growDirections;
+        _growDirections = new bool[4] { false, false, false, false };
     }
 }

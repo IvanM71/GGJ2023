@@ -65,6 +65,7 @@ public class RootsController : MonoBehaviour
             growCountdown -= Time.deltaTime;
         else
         {
+            StageUp();
             Grow();
             growCountdown += 5;
         }
@@ -123,11 +124,40 @@ public class RootsController : MonoBehaviour
                 }
             }
         }
-        possibleGrow[Random.Range(0, possibleGrow.Count)].stage++;
+
+        if(possibleGrow.Count > 0)
+            possibleGrow[Random.Range(0, possibleGrow.Count)].stage++;
     }
 
     void StageUp()
     {
+        List<Root> possibleGrow = new List<Root>();
+        for (int x = 0; x < roots.GetLength(0); x++)
+        {
+            for (int y = 0; y < roots.GetLength(1); y++)
+            {
+                if (model.roots[x, y].stage > Enums.RootStages.STAGE_0)
+                {
+                    if (x > 0)
+                        if (model.roots[x - 1, y].stage > Enums.RootStages.STAGE_0 && model.roots[x - 1, y].stage < Enums.RootStages.STAGE_3)
+                            possibleGrow.Add(model.roots[x - 1, y]);
 
+                    if (y > 0)
+                        if (model.roots[x, y - 1].stage > Enums.RootStages.STAGE_0 && model.roots[x, y - 1].stage < Enums.RootStages.STAGE_3)
+                            possibleGrow.Add(model.roots[x, y - 1]);
+
+                    if (x < roots.GetLength(0) - 1)
+                        if (model.roots[x + 1, y].stage > Enums.RootStages.STAGE_0 && model.roots[x + 1, y].stage < Enums.RootStages.STAGE_3)
+                            possibleGrow.Add(model.roots[x + 1, y]);
+
+                    if (y < roots.GetLength(1) - 1)
+                        if (model.roots[x, y + 1].stage > Enums.RootStages.STAGE_0 && model.roots[x, y + 1].stage < Enums.RootStages.STAGE_3)
+                            possibleGrow.Add(model.roots[x, y + 1]);
+                }
+            }
+        }
+
+        if(possibleGrow.Count > 0)
+            possibleGrow[Random.Range(0, possibleGrow.Count)].stage++;
     }
 }

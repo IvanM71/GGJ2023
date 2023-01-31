@@ -23,6 +23,20 @@
 
         }
 
+        public enum PlayerInteractionState
+        {
+            None,
+            HoldsItem,
+            InLongInteraction
+        }
+
+        public enum InteractableObjectType
+        {
+            Item,
+            LongHoldAction,
+            Crafter
+        }
+
         public enum RootStages
         {
             STAGE_0, 

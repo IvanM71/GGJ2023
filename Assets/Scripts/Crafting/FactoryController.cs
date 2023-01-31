@@ -13,7 +13,7 @@ namespace Apollo11.Crafting
 
         public bool AcceptsItem(Item item)
         {
-            return true; //TODO
+            return factory.ItemsSlots.AcceptsItem(item);
         }
 
         public Vector2 GetIconOffset()
@@ -33,7 +33,7 @@ namespace Apollo11.Crafting
 
         private void ReceiveItem(Enums.Items itemType)
         {
-            
+            factory.ItemsSlots.ReceiveItem(itemType);
         }
     }
 }

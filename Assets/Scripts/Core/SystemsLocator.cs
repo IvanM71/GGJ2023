@@ -1,3 +1,4 @@
+using Apollo11.Items;
 using Apollo11.Player;
 using UnityEngine;
 
@@ -17,5 +18,11 @@ namespace Apollo11.Core
         
         [SerializeField] private PlayerAnimation playerAnimation;
         public PlayerAnimation PlayerAnimation => playerAnimation;
+
+        [SerializeField] private SO_ItemsPrefabs itemsPrefabs;
+        public SO_ItemsPrefabs SO_ItemsPrefabs => itemsPrefabs;
+        
+        
+        
     }
 }

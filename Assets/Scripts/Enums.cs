@@ -20,7 +20,14 @@
             Shears,
             Pickaxe,
             Sprayer
+        }
 
+        public enum RootType
+        {
+            Unknown,
+            TypeA,
+            TypeB,
+            TypeC
         }
 
         public enum PlayerInteractionState

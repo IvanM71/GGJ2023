@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 7431822313968496826}
   - component: {fileID: 7431822313968496825}
   - component: {fileID: 7431822313968496824}
+  - component: {fileID: 6363448528092306926}
   m_Layer: 0
   m_Name: Extractor
   m_TagString: Untagged
@@ -217,6 +218,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extractor: {fileID: 7431822313968496825}
   extractionWeapon: 4
+--- !u!114 &6363448528092306926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7431822313968496829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a3459121894831867ead88f50b319d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive: 3
+  givesChargesNotItems: 0
+  chargeToGive: 0
+  amount: 1
+  resourceSpawnPoint: {fileID: 7431822313927163237}
+  resourceSpawnRadius: 0.3
 --- !u!1001 &3797217931601590150
 PrefabInstance:
   m_ObjectHideFlags: 0

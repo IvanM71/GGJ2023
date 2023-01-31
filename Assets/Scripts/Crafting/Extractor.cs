@@ -2,19 +2,15 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Apollo11.Crafting
 {
-    public class Extractor : MonoBehaviour
+    public class Extractor : MonoBehaviour, IOnProductionDone
     {
-        [SerializeField] private GameObject spawnedResourcePrefab;
-        [Space]
-        [SerializeField] private Transform resourceSpawnPoint;
-        [SerializeField] private float resourceSpawnRadius = 0.35f;
-        [Space]
         [SerializeField] private ProgressBar progressBar;
         [SerializeField] private float extractionTime = 3f;
+        
+        public event Action OnProductionDone;
 
         private Coroutine _extractionRoutine;
         private Tween _extractionProgressTween;
@@ -49,19 +45,12 @@ namespace Apollo11.Crafting
                 _extractionProgressTween = DOTween.To(progressBar.SetValue01, 0f, 1f, extractionTime).SetEase(Ease.Linear);
                 
                 yield return wait;
-                SpawnResource();
+                OnProductionDone?.Invoke();
             }
         }
 
-        private void SpawnResource()
-        {
-            print("Spawning resource");
-            var offset1 = Random.Range(-resourceSpawnRadius, resourceSpawnRadius);
-            var offset2 = Random.Range(-resourceSpawnRadius, resourceSpawnRadius);
-            var pos = resourceSpawnPoint.position + new Vector3(offset1, offset2, 0);
-            Instantiate(spawnedResourcePrefab, pos, Quaternion.identity);
-        }
 
-        
+
+      
     }
 }

@@ -22,19 +22,28 @@
             Sprayer
 
         }
-        
+
         public enum PlayerInteractionState
         {
             None,
             HoldsItem,
             InLongInteraction
         }
-        
+
         public enum InteractableObjectType
         {
             Item,
             LongHoldAction,
             Crafter
+        }
+
+        public enum RootStages
+        {
+            STAGE_0, 
+            STAGE_1, 
+            STAGE_2, 
+            STAGE_3, 
+            MAIN
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Apollo11;
 
 public class RootsController : MonoBehaviour
 {
@@ -31,8 +32,7 @@ public class RootsController : MonoBehaviour
 
         // Create model array
         model = new RootsModel();
-        model.view = new Root[field.size.y, field.size.x];
-        model.buffer = new Root[field.size.y, field.size.x];
+        model.roots = new Root[field.size.y, field.size.x];
 
         // Create view array
         roots = new GameObject[field.size.y, field.size.x];
@@ -44,23 +44,16 @@ public class RootsController : MonoBehaviour
                 Vector3 cellPosition = field.CellToWorld(new Vector3Int(y, x, 0));
                 Vector3 rootPosition = new Vector3(cellPosition.x + cellSize.x / 2, cellPosition.y + cellSize.y / 2, -1);
 
-                model.view[xModel, yModel] = new Root(RootStages.STAGE_0);
-                model.buffer[xModel, yModel] = new Root(RootStages.STAGE_0);
+                model.roots[xModel, yModel] = new Root(Enums.RootStages.STAGE_0);
                 roots[xModel, yModel] = Instantiate(rootPrefab, rootPosition, Quaternion.identity);
             }
         }
 
-        model.view[8, 15].stage = RootStages.MAIN;
-        model.view[8, 15]._growDirections[0] = true;   // up
-        model.view[8, 15]._growDirections[1] = true;   // down
-        model.view[8, 15]._growDirections[2] = true;   // left
-        model.view[8, 15]._growDirections[3] = true;   // right
-
-        model.buffer[8, 15].stage = RootStages.MAIN;
-        model.buffer[8, 15]._growDirections[0] = true;   // up
-        model.buffer[8, 15]._growDirections[1] = true;   // down
-        model.buffer[8, 15]._growDirections[2] = true;   // left
-        model.buffer[8, 15]._growDirections[3] = true;   // right
+        model.roots[8, 15].stage = Enums.RootStages.MAIN;
+        model.roots[8, 15]._growDirections[0] = true;   // up
+        model.roots[8, 15]._growDirections[1] = true;   // down
+        model.roots[8, 15]._growDirections[2] = true;   // left
+        model.roots[8, 15]._growDirections[3] = true;   // right
 
         field.gameObject.SetActive(false);
     }
@@ -72,6 +65,7 @@ public class RootsController : MonoBehaviour
             growCountdown -= Time.deltaTime;
         else
         {
+            StageUp();
             Grow();
             growCountdown += 5;
         }
@@ -80,22 +74,22 @@ public class RootsController : MonoBehaviour
         {
             for (int y = 0; y < roots.GetLength(1); y++)
             {
-                switch (model.view[x, y].stage)
+                switch (model.roots[x, y].stage)
                 {
-                    case RootStages.STAGE_0:
+                    case Enums.RootStages.STAGE_0:
                         roots[x, y].SetActive(false);
                         break;
-                    case RootStages.STAGE_1:
+                    case Enums.RootStages.STAGE_1:
                         roots[x, y].SetActive(true);
                         roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[0];
                         break;
-                    case RootStages.STAGE_2:
+                    case Enums.RootStages.STAGE_2:
                         roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[1];
                         break;
-                    case RootStages.STAGE_3:
+                    case Enums.RootStages.STAGE_3:
                         roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[2];
                         break;
-                    case RootStages.MAIN:
+                    case Enums.RootStages.MAIN:
                         roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[3];
                         break;
                 }
@@ -105,112 +99,65 @@ public class RootsController : MonoBehaviour
 
     void Grow()
     {
-        for (int x = 0; x < model.buffer.GetLength(0); x++)
+        List<Root> possibleGrow = new List<Root>();
+        for(int x = 0; x < roots.GetLength(0); x++)
         {
-            for (int y = 0; y < model.buffer.GetLength(1); y++)
+            for(int y = 0; y < roots.GetLength(1); y++)
             {
-                if (model.view[x, y].stage == RootStages.STAGE_0)
-                    continue;
-                // up
-                if (model.view[x, y]._growDirections[0])
+                if (model.roots[x, y].stage > Enums.RootStages.STAGE_0)
                 {
-                    Debug.Log($"{x} {y} up");
-                    if (x + 1 < model.buffer.GetLength(0))
-                    {
-                        if (model.view[x + 1, y].stage != RootStages.STAGE_3 && model.view[x + 1, y].stage != RootStages.MAIN)
-                        {
-                            if (model.view[x + 1, y].stage == RootStages.STAGE_0)
-                            {
-                                model.buffer[x + 1, y]._growDirections[0] = true;
-                                model.buffer[x + 1, y]._growDirections[1] = true;
-                                model.buffer[x + 1, y]._growDirections[2] = true;
-                                model.buffer[x + 1, y]._growDirections[3] = true;
-                            }
-                            model.buffer[x + 1, y].stage++;
-                        }
-                        else
-                            model.buffer[x, y]._growDirections[0] = false;
-                    }
-                    else
-                        model.buffer[x, y]._growDirections[0] = false;
-                }
+                    if (x > 0)
+                        if (model.roots[x - 1, y].stage == Enums.RootStages.STAGE_0)
+                            possibleGrow.Add(model.roots[x - 1, y]);
 
-                // down
-                if (model.view[x, y]._growDirections[1])
-                {
-                    Debug.Log($"{x} {y} down");
-                    if (x - 1 >= 0)
-                    {
-                        if (model.view[x - 1, y].stage != RootStages.STAGE_3 && model.view[x - 1, y].stage != RootStages.MAIN)
-                        {
-                            if (model.view[x - 1, y].stage == RootStages.STAGE_0)
-                            {
-                                model.buffer[x - 1, y]._growDirections[0] = true;
-                                model.buffer[x - 1, y]._growDirections[1] = true;
-                                model.buffer[x - 1, y]._growDirections[2] = true;
-                                model.buffer[x - 1, y]._growDirections[3] = true;
-                            }
-                            model.buffer[x - 1, y].stage++;
-                        }
-                        else
-                            model.buffer[x, y]._growDirections[1] = false;
-                    }
-                    else
-                        model.buffer[x, y]._growDirections[1] = false;
-                }
+                    if (y > 0)
+                        if (model.roots[x, y - 1].stage == Enums.RootStages.STAGE_0)
+                            possibleGrow.Add(model.roots[x, y - 1]);
 
-                // left
-                if (model.view[x, y]._growDirections[2])
-                {
-                    if (x - 1 >= 0)
-                    {
-                        if (y - 1 >= 0)
-                        {
-                            if (model.view[x, y - 1].stage != RootStages.STAGE_3 && model.view[x - 1, y].stage != RootStages.MAIN)
-                            {
-                                if (model.view[x, y - 1].stage == RootStages.STAGE_0)
-                                {
-                                    model.buffer[x, y - 1]._growDirections[0] = true;
-                                    model.buffer[x, y - 1]._growDirections[1] = true;
-                                    model.buffer[x, y - 1]._growDirections[2] = true;
-                                    model.buffer[x, y - 1]._growDirections[3] = true;
-                                }
-                                Debug.Log($"{x} {y} left");
-                                model.buffer[x, y - 1].stage++;
-                            }
-                            else
-                                model.buffer[x, y]._growDirections[2] = false;
-                        }
-                        else
-                            model.buffer[x, y]._growDirections[2] = false;
-                    }
-                }
+                    if (x < roots.GetLength(0) - 1)
+                        if (model.roots[x + 1, y].stage == Enums.RootStages.STAGE_0)
+                            possibleGrow.Add(model.roots[x + 1, y]);
 
-                // right
-                if (model.view[x, y]._growDirections[3])
-                {
-                    Debug.Log($"{x} {y} right");
-                    if (y + 1 < model.buffer.GetLength(1))
-                    {
-                        if (model.view[x, y + 1].stage != RootStages.STAGE_3 && model.view[x, y + 1].stage != RootStages.MAIN)
-                        {
-                            if (model.view[x, y + 1].stage == RootStages.STAGE_0)
-                            {
-                                model.buffer[x, y + 1]._growDirections[0] = true;
-                                model.buffer[x, y + 1]._growDirections[1] = true;
-                                model.buffer[x, y + 1]._growDirections[2] = true;
-                                model.buffer[x, y + 1]._growDirections[3] = true;
-                            }
-                            model.buffer[x, y + 1].stage++;
-                        }
-                        else
-                            model.buffer[x, y]._growDirections[3] = false;
-                    }
-                    else
-                        model.buffer[x, y]._growDirections[3] = false;
+                    if(y < roots.GetLength(1) - 1)
+                        if (model.roots[x, y + 1].stage == Enums.RootStages.STAGE_0)
+                            possibleGrow.Add(model.roots[x, y + 1]);
                 }
             }
         }
-        model.Swap();
+
+        if(possibleGrow.Count > 0)
+            possibleGrow[Random.Range(0, possibleGrow.Count)].stage++;
+    }
+
+    void StageUp()
+    {
+        List<Root> possibleGrow = new List<Root>();
+        for (int x = 0; x < roots.GetLength(0); x++)
+        {
+            for (int y = 0; y < roots.GetLength(1); y++)
+            {
+                if (model.roots[x, y].stage > Enums.RootStages.STAGE_0)
+                {
+                    if (x > 0)
+                        if (model.roots[x - 1, y].stage > Enums.RootStages.STAGE_0 && model.roots[x - 1, y].stage < Enums.RootStages.STAGE_3)
+                            possibleGrow.Add(model.roots[x - 1, y]);
+
+                    if (y > 0)
+                        if (model.roots[x, y - 1].stage > Enums.RootStages.STAGE_0 && model.roots[x, y - 1].stage < Enums.RootStages.STAGE_3)
+                            possibleGrow.Add(model.roots[x, y - 1]);
+
+                    if (x < roots.GetLength(0) - 1)
+                        if (model.roots[x + 1, y].stage > Enums.RootStages.STAGE_0 && model.roots[x + 1, y].stage < Enums.RootStages.STAGE_3)
+                            possibleGrow.Add(model.roots[x + 1, y]);
+
+                    if (y < roots.GetLength(1) - 1)
+                        if (model.roots[x, y + 1].stage > Enums.RootStages.STAGE_0 && model.roots[x, y + 1].stage < Enums.RootStages.STAGE_3)
+                            possibleGrow.Add(model.roots[x, y + 1]);
+                }
+            }
+        }
+
+        if(possibleGrow.Count > 0)
+            possibleGrow[Random.Range(0, possibleGrow.Count)].stage++;
     }
 }

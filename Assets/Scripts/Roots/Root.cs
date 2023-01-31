@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Apollo11;
 
 public class Root
 {
-    public RootStages stage;
+    public Enums.RootStages stage;
     public bool[] _growDirections; // 0 - up, 1 - down, 2 - left, 3 - right
-    public Root(RootStages stage)
+    public Root(Enums.RootStages stage)
     {
         this.stage = stage;
         _growDirections = new bool[4] { false, false, false, false };

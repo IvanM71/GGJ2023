@@ -12,5 +12,7 @@ namespace Apollo11.Items.Crafting
 
         public bool AcceptsItem(Enums.Items itemType);
         public bool AcceptsItem(Item item) => AcceptsItem(item.ItemType);
+
+        public void TogglePanelVisible(bool b);
     }
 }

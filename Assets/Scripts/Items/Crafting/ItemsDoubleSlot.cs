@@ -10,7 +10,6 @@ namespace Apollo11.Items.Crafting
         [SerializeField] private Enums.Items Item2Type;
         [SerializeField] private int Item1Needed;
         [SerializeField] private int Item2Needed;
-        
         [Space]
         [SerializeField] ItemsDoublePanel panel;
         
@@ -55,7 +54,10 @@ namespace Apollo11.Items.Crafting
 
             return false;
         }
-        
 
+        public void TogglePanelVisible(bool b)
+        {
+            panel.gameObject.SetActive(b);
+        }
     }
 }

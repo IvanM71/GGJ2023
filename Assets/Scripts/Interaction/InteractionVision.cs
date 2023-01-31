@@ -31,6 +31,8 @@ namespace Apollo11.Interaction
             if (col.gameObject.TryGetComponent<IInteractable>(out var interactable))
             {
                 InteractablesInVision.Add(interactable);
+                if (interactable is IInPlayerVision ipv)
+                    ipv.AtPlayerVisionEnter();
             }
         }
         
@@ -39,6 +41,8 @@ namespace Apollo11.Interaction
             if (col.gameObject.TryGetComponent<IInteractable>(out var interactable))
             {
                 InteractablesInVision.Remove(interactable);
+                if (interactable is IInPlayerVision ipv)
+                    ipv.AtPlayerVisionExit();
             }
         }
     }

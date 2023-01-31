@@ -7,7 +7,9 @@ namespace Apollo11.Items
     public class Item : MonoBehaviour, IInteractable, IInteractionTarget
     {
         [SerializeField] private Enums.Items itemType;
+        [SerializeField] private Sprite iconSprite;
         public Enums.Items ItemType => itemType;
+        public Sprite IconSprite => iconSprite;
 
 
         public Enums.InteractableObjectType GetInteractableType() => Enums.InteractableObjectType.Item;

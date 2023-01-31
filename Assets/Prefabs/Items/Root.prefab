@@ -63,5 +63,9 @@ PrefabInstance:
       propertyPath: itemType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8835174430142137197, guid: f4e71a134d848224fb86d191c0eb990c, type: 3}
+      propertyPath: iconSprite
+      value: 
+      objectReference: {fileID: 1982137754, guid: ed4276efdf7c00044a6e27da429bf841, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4e71a134d848224fb86d191c0eb990c, type: 3}

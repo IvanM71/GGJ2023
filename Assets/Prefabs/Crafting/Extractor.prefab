@@ -199,9 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb45b22455b40e0b010bd5814b28aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedResourcePrefab: {fileID: 8835174430142137196, guid: f4e71a134d848224fb86d191c0eb990c, type: 3}
-  resourceSpawnPoint: {fileID: 7431822313927163237}
-  resourceSpawnRadius: 0.3
   progressBar: {fileID: 7431822314386700869}
   extractionTime: 1
 --- !u!114 &7431822313968496824

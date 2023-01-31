@@ -1,4 +1,5 @@
 using System;
+using Apollo11.Core;
 using UnityEngine;
 
 namespace Apollo11.Items.Crafting
@@ -10,10 +11,21 @@ namespace Apollo11.Items.Crafting
         [SerializeField] private int Item1Needed;
         [SerializeField] private int Item2Needed;
         
+        [Space]
+        [SerializeField] ItemsDoublePanel panel;
+        
         public int Item1Count { get; private set; }
         public int Item2Count { get; private set; }
 
         public event Action OnFull;
+
+        private void Awake()
+        {
+            Reset();
+            var sprite1 = SystemsLocator.Inst.SO_ItemsPrefabs.Dictionary[Item1Type].IconSprite;
+            var sprite2 = SystemsLocator.Inst.SO_ItemsPrefabs.Dictionary[Item2Type].IconSprite;
+            panel.SetIcons(sprite1, sprite2);
+        }
 
         public void ReceiveItem(Enums.Items i)
         {
@@ -26,12 +38,14 @@ namespace Apollo11.Items.Crafting
             {
                 OnFull?.Invoke();
             }
+            panel.SetValues(Item1Count, Item1Needed, Item2Count, Item2Needed);
         }
         
         public void Reset()
         {
             Item1Count = 0;
             Item2Count = 0;
+            panel.SetValues(0, Item1Needed, 0, Item2Needed);
         }
 
         public bool AcceptsItem(Enums.Items itemType)
@@ -41,6 +55,7 @@ namespace Apollo11.Items.Crafting
 
             return false;
         }
+        
 
     }
 }

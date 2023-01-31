@@ -7,6 +7,6 @@ namespace Apollo11.Items
     [CreateAssetMenu(fileName = "ItemsPrefabsConfig", menuName = "Apollo11/SO/ItemsPrefabsConfig")]
     public class SO_ItemsPrefabs : SerializedScriptableObject
     {
-        public Dictionary<Enums.Items, GameObject> Dictionary;
+        public Dictionary<Enums.Items, Item> Dictionary;
     }
 }

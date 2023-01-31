@@ -16,10 +16,10 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 3827617635283054661, guid: d9d431c29ea10ac41937f84b8c55432c, type: 3}
-    - {fileID: 3827617635283054661, guid: 818840c22ce4cda45aea0941593a597e, type: 3}
-    - {fileID: 3827617635283054661, guid: 61a8d81a60f03564f927dd012c0b2732, type: 3}
-    - {fileID: 3827617635283054661, guid: 13d661bedfd78df448e9fc529fdfe7c6, type: 3}
+    - {fileID: 3827617635283054660, guid: d9d431c29ea10ac41937f84b8c55432c, type: 3}
+    - {fileID: 3827617635283054660, guid: 818840c22ce4cda45aea0941593a597e, type: 3}
+    - {fileID: 3827617635283054660, guid: 61a8d81a60f03564f927dd012c0b2732, type: 3}
+    - {fileID: 3827617635283054660, guid: 13d661bedfd78df448e9fc529fdfe7c6, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -27,8 +27,8 @@ MonoBehaviour:
     SerializationNodes:
     - Name: Dictionary
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Apollo11.Enums+Items, Assembly-CSharp],[UnityEngine.GameObject,
-        UnityEngine.CoreModule]], mscorlib
+      Data: 0|System.Collections.Generic.Dictionary`2[[Apollo11.Enums+Items, Assembly-CSharp],[Apollo11.Items.Item,
+        Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
       Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Apollo11.Enums+Items,

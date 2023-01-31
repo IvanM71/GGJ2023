@@ -14,5 +14,8 @@ namespace Apollo11.Core
         
         [SerializeField] private PlayerItemCarry playerItemCarry;
         public PlayerItemCarry PlayerItemCarry => playerItemCarry;
+        
+        [SerializeField] private PlayerAnimation playerAnimation;
+        public PlayerAnimation PlayerAnimation => playerAnimation;
     }
 }

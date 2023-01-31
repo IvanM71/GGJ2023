@@ -39,5 +39,11 @@ namespace Apollo11
             playerWeaponsInHand.SelectWeapon(weaponType);
             animator.SetBool("Hits", true);
         }
+        
+        public void StopHandWeapon()
+        {
+            playerWeaponsInHand.DeselectWeapon();
+            animator.SetBool("Hits", false);
+        }
     }
 }

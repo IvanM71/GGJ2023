@@ -10,6 +10,8 @@ namespace Apollo11.Items
         public Enums.Items ItemType => itemType;
 
 
+        public Enums.InteractableObjectType GetInteractableType() => Enums.InteractableObjectType.Item;
+
         public Vector2 GetIconOffset()
         {
             return new Vector2(0, 0.2f);

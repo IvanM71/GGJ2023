@@ -5,26 +5,16 @@ namespace Apollo11.Interaction
 {
     public class InteractionVision : MonoBehaviour
     {
-        private readonly List<IInteractable> _interactablesInVision = new();
+        public List<IInteractable> InteractablesInVision { get; } = new();
 
-        public IInteractable ClosestInteractable { get; private set; }
-
-        private void Update()
+        public IInteractable FindClosestInteractable(List<IInteractable> list)
         {
-            FindClosestInteractable();
-        }
+            if (list.Count == 0)
+                return null;
 
-        private void FindClosestInteractable()
-        {
-            if (_interactablesInVision.Count == 0)
-            {
-                ClosestInteractable = null;
-                return;
-            }
-
-            ClosestInteractable = _interactablesInVision[0];
+            var ClosestInteractable = list[0];
             var playerPos = transform.position;
-            foreach (var interactable in _interactablesInVision)
+            foreach (var interactable in list)
             {
                 var itemPos = interactable.GetPosition();
                 var thisItemDistance = Vector2.Distance(playerPos, itemPos);
@@ -32,13 +22,15 @@ namespace Apollo11.Interaction
                 if (thisItemDistance < closesItemDistance)
                     ClosestInteractable = interactable;
             }
+
+            return ClosestInteractable;
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.TryGetComponent<IInteractable>(out var interactable))
             {
-                _interactablesInVision.Add(interactable);
+                InteractablesInVision.Add(interactable);
             }
         }
         
@@ -46,7 +38,7 @@ namespace Apollo11.Interaction
         {
             if (col.gameObject.TryGetComponent<IInteractable>(out var interactable))
             {
-                _interactablesInVision.Remove(interactable);
+                InteractablesInVision.Remove(interactable);
             }
         }
     }

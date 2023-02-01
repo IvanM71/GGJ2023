@@ -1,12 +1,13 @@
-using Apollo11;
-
-public class Root
+namespace Apollo11.Roots
 {
-    public Enums.RootStages stage;
-    public bool[] _growDirections; // 0 - up, 1 - down, 2 - left, 3 - right
-    public Root(Enums.RootStages stage)
+    public class Root
     {
-        this.stage = stage;
-        _growDirections = new bool[4] { false, false, false, false };
+        public Enums.RootStages stage;
+        public bool[] _growDirections; // 0 - up, 1 - down, 2 - left, 3 - right
+        public Root(Enums.RootStages stage)
+        {
+            this.stage = stage;
+            _growDirections = new bool[4] { false, false, false, false };
+        }
     }
 }

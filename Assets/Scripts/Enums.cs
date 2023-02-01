@@ -20,7 +20,22 @@
             Shears,
             Pickaxe,
             Sprayer
+        }
+        
+        public enum RootWeapon
+        {
+            Unknown,
+            Axe,
+            Saw,
+            Sprayer
+        }
 
+        public enum RootType
+        {
+            Unknown,
+            TypeA,
+            TypeB,
+            TypeC
         }
 
         public enum PlayerInteractionState

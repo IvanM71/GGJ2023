@@ -5,20 +5,21 @@ using UnityEngine;
 
 namespace Apollo11.Crafting
 {
-    public class FactoryController : MonoBehaviour, IInteractable, ICraftingInteraction
+    public class FactoryController : MonoBehaviour, IInteractable, ICraftingInteraction, IInPlayerVision
     {
         [SerializeField] private Factory factory;
+        [SerializeField] private Vector2 interactionIconOffset = new(0f, 0.65f);
 
         public Enums.InteractableObjectType GetInteractableType() => Enums.InteractableObjectType.Crafter;
 
         public bool AcceptsItem(Item item)
         {
-            return true; //TODO
+            return factory.ItemsSlots.AcceptsItem(item);
         }
 
         public Vector2 GetIconOffset()
         {
-            return new Vector2(0, 0.5f);
+            return interactionIconOffset;
         }
 
         public Vector2 GetPosition()
@@ -33,7 +34,17 @@ namespace Apollo11.Crafting
 
         private void ReceiveItem(Enums.Items itemType)
         {
-            
+            factory.ItemsSlots.ReceiveItem(itemType);
+        }
+
+        public void AtPlayerVisionEnter()
+        {
+            factory.ItemsSlots.TogglePanelVisible(true);
+        }
+
+        public void AtPlayerVisionExit()
+        {
+            factory.ItemsSlots.TogglePanelVisible(false);
         }
     }
 }

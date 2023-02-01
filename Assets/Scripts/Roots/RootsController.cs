@@ -22,10 +22,6 @@ namespace Apollo11.Roots
         // 2d array of roots
         private GameObject[,] roots;
 
-        // Grow countdown
-        //private float growCountdown = 2f;
-        //private float stageUpCountdown = 4f;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -65,15 +61,6 @@ namespace Apollo11.Roots
         // Update is called once per frame
         void Update()
         {
-            //if (growCountdown > 0)
-            //    growCountdown -= Time.deltaTime;
-            //else
-            //{
-            //    StageUp();
-            //    Grow();
-            //    growCountdown += 2;
-            //}
-
             for (int x = 0; x < roots.GetLength(0); x++)
             {
                 for (int y = 0; y < roots.GetLength(1); y++)

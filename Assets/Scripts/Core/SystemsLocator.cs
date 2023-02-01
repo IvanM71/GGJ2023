@@ -31,6 +31,10 @@ namespace Apollo11.Core
         public WeaponsCharges WeaponsCharges => weaponsCharges;
         
         
+        [SerializeField] private AttackSystem attackSystem;
+        public AttackSystem AttackSystem => attackSystem;
+        
+        
         
     }
 }

@@ -29,17 +29,19 @@ namespace Apollo11.WeaponCharges
             UpdateValues();
         }
 
-        public void TakeCharges(Enums.RootWeapon type, int amount)
+        public bool TakeCharges(Enums.RootWeapon type, int amount)
         {
             var available = data[type];
             if (available - amount < 0)
             {
                 //TODO indication
-                return;
+                return false;
             }
             
             data[type] -= amount;
             UpdateValues();
+
+            return true;
         }
 
         private void UpdateValues()

@@ -6031,6 +6031,7 @@ GameObject:
   - component: {fileID: 1702722979}
   - component: {fileID: 1702722980}
   - component: {fileID: 1702722981}
+  - component: {fileID: 1702722982}
   m_Layer: 0
   m_Name: SystemsLocator
   m_TagString: Untagged
@@ -6070,6 +6071,7 @@ MonoBehaviour:
   playerAnimation: {fileID: 2047372350}
   itemsPrefabs: {fileID: 11400000, guid: 97e656c96203326498f941fe2e93041f, type: 2}
   weaponsCharges: {fileID: 1702722981}
+  attackSystem: {fileID: 1702722982}
 --- !u!114 &1702722981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6082,8 +6084,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cfaedc33255f5f4381cb54553934e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startCharges: {x: 0, y: 0, z: 0}
+  startCharges: {x: 10, y: 0, z: 0}
   uiPanel: {fileID: 1609446332}
+--- !u!114 &1702722982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702722978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4bf1e06f90fa984c8d0f27407f63f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1716418755
 GameObject:
   m_ObjectHideFlags: 0
@@ -6394,7 +6408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3ec49456ac34644bcb2beded7382e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponToKill: 0
+  weaponToKill: 1
 --- !u!1 &1832942157
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.WorldUI
 {
     public class ItemsSinglePanel : MonoBehaviour
     {

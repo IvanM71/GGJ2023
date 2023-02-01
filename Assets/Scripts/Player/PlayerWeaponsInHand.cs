@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Player
 {
     public class PlayerWeaponsInHand : MonoBehaviour
     {

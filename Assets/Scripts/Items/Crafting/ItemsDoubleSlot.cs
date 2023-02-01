@@ -1,5 +1,6 @@
 using System;
 using Apollo11.Core;
+using Apollo11.WorldUI;
 using UnityEngine;
 
 namespace Apollo11.Items.Crafting
@@ -24,6 +25,7 @@ namespace Apollo11.Items.Crafting
             var sprite1 = SystemsLocator.Inst.SO_ItemsPrefabs.Dictionary[Item1Type].IconSprite;
             var sprite2 = SystemsLocator.Inst.SO_ItemsPrefabs.Dictionary[Item2Type].IconSprite;
             panel.SetIcons(sprite1, sprite2);
+            TogglePanelVisible(false);
         }
 
         public void ReceiveItem(Enums.Items i)

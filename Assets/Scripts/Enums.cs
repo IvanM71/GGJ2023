@@ -21,6 +21,14 @@
             Pickaxe,
             Sprayer
         }
+        
+        public enum RootWeapon
+        {
+            Unknown,
+            Axe,
+            Saw,
+            Sprayer
+        }
 
         public enum RootType
         {

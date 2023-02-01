@@ -9,7 +9,7 @@ namespace Apollo11.Crafting
     {
         [SerializeField] private Enums.Items itemToGive;
         [SerializeField] private bool givesChargesNotItems;
-        [SerializeField] private Enums.RootType chargeToGive;
+        [SerializeField] private Enums.RootWeapon chargeTypeToGive;
         [SerializeField] private int amount = 1;
         [SerializeField] private Transform resourceSpawnPoint;
         [SerializeField] private float resourceSpawnRadius = 0.3f;
@@ -29,11 +29,11 @@ namespace Apollo11.Crafting
             _producer.OnProductionDone -= Spawn;
         }
 
-        public void Spawn()
+        private void Spawn()
         {
             if (givesChargesNotItems)
             {
-                
+                SystemsLocator.Inst.WeaponsCharges.AddCharges(chargeTypeToGive, amount);
             }
             else
             {

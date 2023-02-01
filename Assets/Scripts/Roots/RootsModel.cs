@@ -1,5 +1,8 @@
 
-public class RootsModel
+namespace Apollo11.Roots
 {
-    public Root[,] roots;
+    public class RootsModel
+    {
+        public Root[,] roots;
+    }
 }

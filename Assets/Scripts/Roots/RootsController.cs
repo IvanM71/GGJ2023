@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -21,9 +22,9 @@ namespace Apollo11.Roots
         // 2d array of roots
         private GameObject[,] roots;
 
-    // Grow countdown
-    //private float growCountdown = 2f;
-    //private float stageUpCountdown = 4f;
+        // Grow countdown
+        //private float growCountdown = 2f;
+        //private float stageUpCountdown = 4f;
 
         // Start is called before the first frame update
         void Start()
@@ -56,22 +57,22 @@ namespace Apollo11.Roots
             model.roots[8, 15]._growDirections[2] = true;   // left
             model.roots[8, 15]._growDirections[3] = true;   // right
 
-        field.gameObject.SetActive(false);
+            field.gameObject.SetActive(false);
 
-        StartCoroutine(IE_Timer());
-    }
+            StartCoroutine(IE_Timer());
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //if (growCountdown > 0)
-        //    growCountdown -= Time.deltaTime;
-        //else
-        //{
-        //    StageUp();
-        //    Grow();
-        //    growCountdown += 2;
-        //}
+        // Update is called once per frame
+        void Update()
+        {
+            //if (growCountdown > 0)
+            //    growCountdown -= Time.deltaTime;
+            //else
+            //{
+            //    StageUp();
+            //    Grow();
+            //    growCountdown += 2;
+            //}
 
             for (int x = 0; x < roots.GetLength(0); x++)
             {
@@ -100,305 +101,306 @@ namespace Apollo11.Roots
             }
         }
 
-    bool TryGrow()
-    {
-        List<Root> possibleGrow = new List<Root>();
-        List<int> weights = new List<int>();
-        //int maxWeight = 0;
-        for(int x = 0; x < roots.GetLength(0); x++)
+        bool TryGrow()
         {
-            for(int y = 0; y < roots.GetLength(1); y++)
+            List<Root> possibleGrow = new List<Root>();
+            List<int> weights = new List<int>();
+            //int maxWeight = 0;
+            for (int x = 0; x < roots.GetLength(0); x++)
             {
-                if (model.roots[x, y].stage == Enums.RootStages.STAGE_0)
+                for (int y = 0; y < roots.GetLength(1); y++)
                 {
-                    int weight = 0;
-                    if (x > 0)
+                    if (model.roots[x, y].stage == Enums.RootStages.STAGE_0)
                     {
-                        if (model.roots[x - 1, y].stage == Enums.RootStages.MAIN)
-                            weight += (int)model.roots[x - 1, y].stage + 5;
-                        else
-                            weight += (int)model.roots[x - 1, y].stage;
-                    }
-                    //if (model.roots[x - 1, y].stage == Enums.RootStages.STAGE_0)
-                    //    possibleGrow.Add(model.roots[x - 1, y]);
-
-                    if (y > 0)
-                    {
-                        if (model.roots[x, y - 1].stage == Enums.RootStages.MAIN)
-                            weight += (int)model.roots[x, y - 1].stage + 5;
-                        else
-                            weight += (int)model.roots[x, y - 1].stage;
-                    }
-                    //if (model.roots[x, y - 1].stage == Enums.RootStages.STAGE_0)
-                    //    possibleGrow.Add(model.roots[x, y - 1]);
-
-                    if (x < roots.GetLength(0) - 1)
-                    {
-                        if (model.roots[x + 1, y].stage == Enums.RootStages.MAIN)
-                            weight += (int)model.roots[x + 1, y].stage + 5;
-                        else
-                            weight += (int)model.roots[x + 1, y].stage;
-                    }
-                    //if (model.roots[x + 1, y].stage == Enums.RootStages.STAGE_0)
-                    //    possibleGrow.Add(model.roots[x + 1, y]);
-
-                    if (y < roots.GetLength(1) - 1)
-                    {
-                        if (model.roots[x, y + 1].stage == Enums.RootStages.MAIN)
-                            weight += (int)model.roots[x, y + 1].stage + 5;
-                        else
-                            weight += (int)model.roots[x, y + 1].stage;
-                    }
-                    //if (model.roots[x, y + 1].stage == Enums.RootStages.STAGE_0)
-                    //    possibleGrow.Add(model.roots[x, y + 1]);
-                    if(weight > 0)
-                    {
-                        //if (weight > maxWeight)
-                        //    maxWeight = weight;
-
-                        //possibleGrow.Add(model.roots[x, y]);
-                        //weights.Add(weight);
-
-                        for (int i = 0; i < weight; i++)
+                        int weight = 0;
+                        if (x > 0)
                         {
-                            possibleGrow.Add(model.roots[x, y]);
-                            weights.Add(weight);
+                            if (model.roots[x - 1, y].stage == Enums.RootStages.MAIN)
+                                weight += (int)model.roots[x - 1, y].stage + 5;
+                            else
+                                weight += (int)model.roots[x - 1, y].stage;
+                        }
+                        //if (model.roots[x - 1, y].stage == Enums.RootStages.STAGE_0)
+                        //    possibleGrow.Add(model.roots[x - 1, y]);
+
+                        if (y > 0)
+                        {
+                            if (model.roots[x, y - 1].stage == Enums.RootStages.MAIN)
+                                weight += (int)model.roots[x, y - 1].stage + 5;
+                            else
+                                weight += (int)model.roots[x, y - 1].stage;
+                        }
+                        //if (model.roots[x, y - 1].stage == Enums.RootStages.STAGE_0)
+                        //    possibleGrow.Add(model.roots[x, y - 1]);
+
+                        if (x < roots.GetLength(0) - 1)
+                        {
+                            if (model.roots[x + 1, y].stage == Enums.RootStages.MAIN)
+                                weight += (int)model.roots[x + 1, y].stage + 5;
+                            else
+                                weight += (int)model.roots[x + 1, y].stage;
+                        }
+                        //if (model.roots[x + 1, y].stage == Enums.RootStages.STAGE_0)
+                        //    possibleGrow.Add(model.roots[x + 1, y]);
+
+                        if (y < roots.GetLength(1) - 1)
+                        {
+                            if (model.roots[x, y + 1].stage == Enums.RootStages.MAIN)
+                                weight += (int)model.roots[x, y + 1].stage + 5;
+                            else
+                                weight += (int)model.roots[x, y + 1].stage;
+                        }
+                        //if (model.roots[x, y + 1].stage == Enums.RootStages.STAGE_0)
+                        //    possibleGrow.Add(model.roots[x, y + 1]);
+                        if (weight > 0)
+                        {
+                            //if (weight > maxWeight)
+                            //    maxWeight = weight;
+
+                            //possibleGrow.Add(model.roots[x, y]);
+                            //weights.Add(weight);
+
+                            for (int i = 0; i < weight; i++)
+                            {
+                                possibleGrow.Add(model.roots[x, y]);
+                                weights.Add(weight);
+                            }
                         }
                     }
                 }
             }
-        }
-
-        if (possibleGrow.Count > 0)
-        {
-            //List<Root> maxWeightsRoots = new List<Root>();
-
-            //for (int i = 0; i < possibleGrow.Count; i++)
-            //{
-            //    if (weights[i] == maxWeight)
-            //        maxWeightsRoots.Add(possibleGrow[i]);
-            //}
-
-            //if (maxWeightsRoots.Count > 0)
-            //    maxWeightsRoots[Random.Range(0, maxWeightsRoots.Count)].stage++;
-
-            possibleGrow[Random.Range(0, possibleGrow.Count)].stage++;
-            return true;
-        }
-        else
-            return false;
-    }
-
-    bool TryStageUp()
-    {
-        List<Root> possibleGrow = new List<Root>();
-        List<int> weights = new List<int>();
-        //int maxWeight = 0;
-        for (int x = 0; x < roots.GetLength(0); x++)
-        {
-            for (int y = 0; y < roots.GetLength(1); y++)
-            {
-                if (model.roots[x, y].stage > Enums.RootStages.STAGE_0 && model.roots[x, y].stage < Enums.RootStages.STAGE_3)
-                {
-                    int weight = 0;
-                    int isRounded = 0;
-                    if (x > 0)
-                    {
-                        if (model.roots[x - 1, y].stage != Enums.RootStages.STAGE_0)
-                        {
-                            weight += (int)model.roots[x - 1, y].stage - 1;
-
-                            if (model.roots[x - 1, y].stage >= model.roots[x, y].stage)
-                                isRounded++;
-
-                            //if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
-                            //{
-                            //    if (model.roots[x - 1, y].stage == Enums.RootStages.STAGE_2)
-                            //        isRounded++;
-                            //}
-                            //else
-                            //    isRounded++;
-
-                            //switch (model.roots[x, y].stage)
-                            //{
-                            //    case Enums.RootStages.STAGE_1:
-                            //        if (model.roots[x - 1, y].stage == Enums.RootStages.STAGE_1)
-                            //            isRounded++;
-                            //        break;
-                            //    case Enums.RootStages.STAGE_2:
-                            //        if (model.roots[x - 1, y].stage == Enums.RootStages.STAGE_1)
-                            //            isRounded++;
-                            //        break;
-                            //    default:
-                            //        break;
-                            //}
-                        }
-                    }
-                    //if (model.roots[x - 1, y].stage > Enums.RootStages.STAGE_0 && model.roots[x - 1, y].stage < Enums.RootStages.STAGE_3)
-                    //    possibleGrow.Add(model.roots[x - 1, y]);
-
-                    if (y > 0)
-                    {
-                        if (model.roots[x, y - 1].stage != Enums.RootStages.STAGE_0)
-                        {
-                            weight += (int)model.roots[x, y - 1].stage - 1;
-
-                            if (model.roots[x, y - 1].stage >= model.roots[x, y].stage)
-                                isRounded++;
-
-                            //if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
-                            //{
-                            //    if (model.roots[x, y - 1].stage == Enums.RootStages.STAGE_2)
-                            //        isRounded++;
-                            //}
-                            //else
-                            //    isRounded++;
-
-                            //switch (model.roots[x, y].stage)
-                            //{
-                            //    case Enums.RootStages.STAGE_1:
-                            //        if (model.roots[x, y - 1].stage == Enums.RootStages.STAGE_1)
-                            //            isRounded++;
-                            //        break;
-                            //    case Enums.RootStages.STAGE_2:
-                            //        if (model.roots[x, y - 1].stage == Enums.RootStages.STAGE_2)
-                            //            isRounded++;
-                            //        break;
-                            //    default:
-                            //        break;
-                            //}
-                        }
-                    }
-                    //if (model.roots[x, y - 1].stage > Enums.RootStages.STAGE_0 && model.roots[x, y - 1].stage < Enums.RootStages.STAGE_3)
-                    //    possibleGrow.Add(model.roots[x, y - 1]);
-
-                    if (x < roots.GetLength(0) - 1)
-                    {
-                        if (model.roots[x + 1, y].stage != Enums.RootStages.STAGE_0)
-                        {
-                            weight += (int)model.roots[x + 1, y].stage - 1;
-
-                            if (model.roots[x + 1, y].stage >= model.roots[x, y].stage)
-                                isRounded++;
-
-                            //if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
-                            //{
-                            //    if (model.roots[x + 1, y].stage == Enums.RootStages.STAGE_2)
-                            //        isRounded++;
-                            //}
-                            //else
-                            //    isRounded++;
-
-                            //switch (model.roots[x, y].stage)
-                            //{
-                            //    case Enums.RootStages.STAGE_1:
-                            //        if (model.roots[x + 1, y].stage == Enums.RootStages.STAGE_1)
-                            //            isRounded++;
-                            //        break;
-                            //    case Enums.RootStages.STAGE_2:
-                            //        if (model.roots[x + 1, y].stage == Enums.RootStages.STAGE_2)
-                            //            isRounded++;
-                            //        break;
-                            //    default:
-                            //        break;
-                            //}
-                        }
-                    }
-                    //if (model.roots[x + 1, y].stage > Enums.RootStages.STAGE_0 && model.roots[x + 1, y].stage < Enums.RootStages.STAGE_3)
-                    //    possibleGrow.Add(model.roots[x + 1, y]);
-
-                    if (y < roots.GetLength(1) - 1)
-                    {
-                        if (model.roots[x, y + 1].stage != Enums.RootStages.STAGE_0)
-                        {
-                            weight += (int)model.roots[x, y + 1].stage - 1;
-
-                            if (model.roots[x, y + 1].stage >= model.roots[x, y].stage)
-                                isRounded++;
-
-                            //if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
-                            //{
-                            //    if (model.roots[x, y + 1].stage == Enums.RootStages.STAGE_2)
-                            //        isRounded++;
-                            //}
-                            //else
-                            //    isRounded++;
-
-                            //switch (model.roots[x, y].stage)
-                            //{
-                            //    case Enums.RootStages.STAGE_1:
-                            //        if (model.roots[x, y + 1].stage == Enums.RootStages.STAGE_1)
-                            //            isRounded++;
-                            //        break;
-                            //    case Enums.RootStages.STAGE_2:
-                            //        if (model.roots[x, y + 1].stage == Enums.RootStages.STAGE_2)
-                            //            isRounded++;
-                            //        break;
-                            //    default:
-                            //        break;
-                            //}
-                        }
-                    }
-                    //if (model.roots[x, y + 1].stage > Enums.RootStages.STAGE_0 && model.roots[x, y + 1].stage < Enums.RootStages.STAGE_3)
-                    //    possibleGrow.Add(model.roots[x, y + 1]);
-
-                    if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
-                        weight += 1;
-                    else if (model.roots[x, y].stage == Enums.RootStages.STAGE_1)
-                        weight += 2;
-
-                    if (isRounded < 3)
-                        weight = 0;
-
-                    if(weight > 0)
-                    {
-                        //if (weight > maxWeight)
-                        //    maxWeight = weight;
-
-                        for (int i = 0; i < weight; i++)
-                        {
-                            possibleGrow.Add(model.roots[x, y]);
-                            weights.Add(weight);
-                        }
-
-                        //possibleGrow.Add(model.roots[x, y]);
-                        //weights.Add(weight);
-                    }
-                }
-            }
-        }
-
-        if (possibleGrow.Count > 0)
-        {
-            //List<Root> maxWeightsRoots = new List<Root>();
-
-            //for (int i = 0; i < possibleGrow.Count; i++)
-            //{
-            //    if (weights[i] == maxWeight)
-            //        maxWeightsRoots.Add(possibleGrow[i]);
-            //}
-
-            //if (maxWeightsRoots.Count > 0)
-            //    maxWeightsRoots[Random.Range(0, maxWeightsRoots.Count)].stage++;
 
             if (possibleGrow.Count > 0)
+            {
+                //List<Root> maxWeightsRoots = new List<Root>();
+
+                //for (int i = 0; i < possibleGrow.Count; i++)
+                //{
+                //    if (weights[i] == maxWeight)
+                //        maxWeightsRoots.Add(possibleGrow[i]);
+                //}
+
+                //if (maxWeightsRoots.Count > 0)
+                //    maxWeightsRoots[Random.Range(0, maxWeightsRoots.Count)].stage++;
+
                 possibleGrow[Random.Range(0, possibleGrow.Count)].stage++;
-
-            return true;
+                return true;
+            }
+            else
+                return false;
         }
-        else
-            return false;
-    }
 
-    private IEnumerator IE_Timer()
-    {
-        var tick = new WaitForSeconds(2f);
-        while (true) //or while root is alive
+        bool TryStageUp()
         {
-            if(TryStageUp())
-                yield return tick;
-            if(TryGrow())
-                yield return tick;
+            List<Root> possibleGrow = new List<Root>();
+            List<int> weights = new List<int>();
+            //int maxWeight = 0;
+            for (int x = 0; x < roots.GetLength(0); x++)
+            {
+                for (int y = 0; y < roots.GetLength(1); y++)
+                {
+                    if (model.roots[x, y].stage > Enums.RootStages.STAGE_0 && model.roots[x, y].stage < Enums.RootStages.STAGE_3)
+                    {
+                        int weight = 0;
+                        int isRounded = 0;
+                        if (x > 0)
+                        {
+                            if (model.roots[x - 1, y].stage != Enums.RootStages.STAGE_0)
+                            {
+                                weight += (int)model.roots[x - 1, y].stage - 1;
+
+                                if (model.roots[x - 1, y].stage >= model.roots[x, y].stage)
+                                    isRounded++;
+
+                                //if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
+                                //{
+                                //    if (model.roots[x - 1, y].stage == Enums.RootStages.STAGE_2)
+                                //        isRounded++;
+                                //}
+                                //else
+                                //    isRounded++;
+
+                                //switch (model.roots[x, y].stage)
+                                //{
+                                //    case Enums.RootStages.STAGE_1:
+                                //        if (model.roots[x - 1, y].stage == Enums.RootStages.STAGE_1)
+                                //            isRounded++;
+                                //        break;
+                                //    case Enums.RootStages.STAGE_2:
+                                //        if (model.roots[x - 1, y].stage == Enums.RootStages.STAGE_1)
+                                //            isRounded++;
+                                //        break;
+                                //    default:
+                                //        break;
+                                //}
+                            }
+                        }
+                        //if (model.roots[x - 1, y].stage > Enums.RootStages.STAGE_0 && model.roots[x - 1, y].stage < Enums.RootStages.STAGE_3)
+                        //    possibleGrow.Add(model.roots[x - 1, y]);
+
+                        if (y > 0)
+                        {
+                            if (model.roots[x, y - 1].stage != Enums.RootStages.STAGE_0)
+                            {
+                                weight += (int)model.roots[x, y - 1].stage - 1;
+
+                                if (model.roots[x, y - 1].stage >= model.roots[x, y].stage)
+                                    isRounded++;
+
+                                //if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
+                                //{
+                                //    if (model.roots[x, y - 1].stage == Enums.RootStages.STAGE_2)
+                                //        isRounded++;
+                                //}
+                                //else
+                                //    isRounded++;
+
+                                //switch (model.roots[x, y].stage)
+                                //{
+                                //    case Enums.RootStages.STAGE_1:
+                                //        if (model.roots[x, y - 1].stage == Enums.RootStages.STAGE_1)
+                                //            isRounded++;
+                                //        break;
+                                //    case Enums.RootStages.STAGE_2:
+                                //        if (model.roots[x, y - 1].stage == Enums.RootStages.STAGE_2)
+                                //            isRounded++;
+                                //        break;
+                                //    default:
+                                //        break;
+                                //}
+                            }
+                        }
+                        //if (model.roots[x, y - 1].stage > Enums.RootStages.STAGE_0 && model.roots[x, y - 1].stage < Enums.RootStages.STAGE_3)
+                        //    possibleGrow.Add(model.roots[x, y - 1]);
+
+                        if (x < roots.GetLength(0) - 1)
+                        {
+                            if (model.roots[x + 1, y].stage != Enums.RootStages.STAGE_0)
+                            {
+                                weight += (int)model.roots[x + 1, y].stage - 1;
+
+                                if (model.roots[x + 1, y].stage >= model.roots[x, y].stage)
+                                    isRounded++;
+
+                                //if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
+                                //{
+                                //    if (model.roots[x + 1, y].stage == Enums.RootStages.STAGE_2)
+                                //        isRounded++;
+                                //}
+                                //else
+                                //    isRounded++;
+
+                                //switch (model.roots[x, y].stage)
+                                //{
+                                //    case Enums.RootStages.STAGE_1:
+                                //        if (model.roots[x + 1, y].stage == Enums.RootStages.STAGE_1)
+                                //            isRounded++;
+                                //        break;
+                                //    case Enums.RootStages.STAGE_2:
+                                //        if (model.roots[x + 1, y].stage == Enums.RootStages.STAGE_2)
+                                //            isRounded++;
+                                //        break;
+                                //    default:
+                                //        break;
+                                //}
+                            }
+                        }
+                        //if (model.roots[x + 1, y].stage > Enums.RootStages.STAGE_0 && model.roots[x + 1, y].stage < Enums.RootStages.STAGE_3)
+                        //    possibleGrow.Add(model.roots[x + 1, y]);
+
+                        if (y < roots.GetLength(1) - 1)
+                        {
+                            if (model.roots[x, y + 1].stage != Enums.RootStages.STAGE_0)
+                            {
+                                weight += (int)model.roots[x, y + 1].stage - 1;
+
+                                if (model.roots[x, y + 1].stage >= model.roots[x, y].stage)
+                                    isRounded++;
+
+                                //if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
+                                //{
+                                //    if (model.roots[x, y + 1].stage == Enums.RootStages.STAGE_2)
+                                //        isRounded++;
+                                //}
+                                //else
+                                //    isRounded++;
+
+                                //switch (model.roots[x, y].stage)
+                                //{
+                                //    case Enums.RootStages.STAGE_1:
+                                //        if (model.roots[x, y + 1].stage == Enums.RootStages.STAGE_1)
+                                //            isRounded++;
+                                //        break;
+                                //    case Enums.RootStages.STAGE_2:
+                                //        if (model.roots[x, y + 1].stage == Enums.RootStages.STAGE_2)
+                                //            isRounded++;
+                                //        break;
+                                //    default:
+                                //        break;
+                                //}
+                            }
+                        }
+                        //if (model.roots[x, y + 1].stage > Enums.RootStages.STAGE_0 && model.roots[x, y + 1].stage < Enums.RootStages.STAGE_3)
+                        //    possibleGrow.Add(model.roots[x, y + 1]);
+
+                        if (model.roots[x, y].stage == Enums.RootStages.STAGE_2)
+                            weight += 1;
+                        else if (model.roots[x, y].stage == Enums.RootStages.STAGE_1)
+                            weight += 2;
+
+                        if (isRounded < 3)
+                            weight = 0;
+
+                        if (weight > 0)
+                        {
+                            //if (weight > maxWeight)
+                            //    maxWeight = weight;
+
+                            for (int i = 0; i < weight; i++)
+                            {
+                                possibleGrow.Add(model.roots[x, y]);
+                                weights.Add(weight);
+                            }
+
+                            //possibleGrow.Add(model.roots[x, y]);
+                            //weights.Add(weight);
+                        }
+                    }
+                }
+            }
+
+            if (possibleGrow.Count > 0)
+            {
+                //List<Root> maxWeightsRoots = new List<Root>();
+
+                //for (int i = 0; i < possibleGrow.Count; i++)
+                //{
+                //    if (weights[i] == maxWeight)
+                //        maxWeightsRoots.Add(possibleGrow[i]);
+                //}
+
+                //if (maxWeightsRoots.Count > 0)
+                //    maxWeightsRoots[Random.Range(0, maxWeightsRoots.Count)].stage++;
+
+                if (possibleGrow.Count > 0)
+                    possibleGrow[Random.Range(0, possibleGrow.Count)].stage++;
+
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private IEnumerator IE_Timer()
+        {
+            var tick = new WaitForSeconds(2f);
+            while (true) //or while root is alive
+            {
+                if (TryStageUp())
+                    yield return tick;
+                if (TryGrow())
+                    yield return tick;
+            }
         }
     }
 }

@@ -2696,10 +2696,10 @@ MonoBehaviour:
   field: {fileID: 704832557}
   rootPrefab: {fileID: 5564167511017562334, guid: 010e630be45901c468a996d437d6c6ad, type: 3}
   sprites:
-  - {fileID: -204308752, guid: f8b0c7bc68b1a0c41b3b7748a75d87e5, type: 3}
-  - {fileID: 118313898, guid: f8b0c7bc68b1a0c41b3b7748a75d87e5, type: 3}
-  - {fileID: 475422336, guid: f8b0c7bc68b1a0c41b3b7748a75d87e5, type: 3}
-  - {fileID: 7482667652216324306, guid: 75bf6d66d4a424349987627c3a3812ca, type: 3}
+  - {fileID: 21300000, guid: 8e4b4b3830c262843b4e45bb146dec39, type: 3}
+  - {fileID: 21300000, guid: 1515202e42210e34798f113790be4089, type: 3}
+  - {fileID: 21300000, guid: 6212b1a70860ea44397785dc084b9689, type: 3}
+  - {fileID: 21300000, guid: 284f740fdc75b2140940f4be89d43ef6, type: 3}
 --- !u!4 &1427227903
 Transform:
   m_ObjectHideFlags: 0

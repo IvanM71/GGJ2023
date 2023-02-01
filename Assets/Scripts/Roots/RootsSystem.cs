@@ -12,6 +12,7 @@ namespace Apollo11
     {
         RootsView rootsView;
         RootsModel rootsModel;
+        Sprite[,] rootsSprites;
 
         [SerializeField] private Tilemap spawnpointsTilemap;
         [SerializeField] private GameObject rootPrefab;
@@ -30,6 +31,8 @@ namespace Apollo11
             rootsView = new RootsView();
             rootsView.roots = new GameObject[bounds.size.y, bounds.size.x];
 
+            rootsSprites = new Sprite[bounds.size.y, bounds.size.x];
+
             List<int> xPossible = new List<int>();
             List<int> yPossible = new List<int>();
 
@@ -44,6 +47,7 @@ namespace Apollo11
                     {
                         rootsModel.roots[xModel, yModel] = new Root(Enums.RootStages.STAGE_0, Enums.RootType.Unknown);
                         rootsView.roots[xModel, yModel] = Instantiate(rootPrefab, rootPosition, Quaternion.identity, this.transform);
+                        rootsSprites[xModel, yModel] = rootsView.roots[xModel, yModel].GetComponent<SpriteRenderer>().sprite;
                         xPossible.Add(xModel);
                         yPossible.Add(yModel);
                     }
@@ -51,6 +55,7 @@ namespace Apollo11
                     {
                         rootsModel.roots[xModel, yModel] = null;
                         rootsView.roots[xModel, yModel] = null;
+                        rootsSprites[xModel, yModel] = null;
                     }
                 }
             }
@@ -80,9 +85,98 @@ namespace Apollo11
 
             for (int i = 0; i < rootsControllers.Length; i++)
             {
-                //rootsControllers[i].StartCoroutine(rootsControllers[i].IE_Timer());
-                rootsControllers[i].StartRoutine(rootsModel, rootsView);
+                rootsControllers[i].rootsModel = rootsModel;
+                rootsControllers[i].rootsView= rootsView;
             }
+
+            for (int i = 0; i < rootsControllers.Length; i++)
+            {
+                StartCoroutine(IE_Timer(rootsControllers[i], i + 0.5f));
+            }
+        }
+        private IEnumerator IE_Timer(RootsController controller, float delay)
+        {
+            var tick = new WaitForSeconds(delay);
+            while (true) //or while root is alive
+            {
+                //for (int i = 0; i < rootsControllers.Length; i++)
+                //{
+                //    var canStageUp = rootsControllers[i].TryStageUp();
+                //    rootsControllers[i].UpdateView();
+                //    if (canStageUp)
+                //        yield return tick;
+
+                //    var canGrow = rootsControllers[i].TryGrow();
+                //    rootsControllers[i].UpdateView();
+                //    if (canGrow)
+                //        yield return tick;
+                //}
+                var canStageUp = controller.TryStageUp();
+                controller.UpdateView();
+                if (canStageUp)
+                    yield return tick;
+
+                var canGrow = controller.TryGrow();
+                controller.UpdateView();
+
+                if (canGrow)
+                {
+                    if (isLose())
+                    {
+                        StopAllCoroutines();
+                        break;
+                    }
+                    yield return tick;
+                }
+            }
+        }
+        private void UpdateView()
+        {
+            for (int x = 0; x < rootsModel.roots.GetLength(0); x++)
+            {
+                for (int y = 0; y < rootsModel.roots.GetLength(1); y++)
+                {
+                    if (rootsModel.roots[x, y] == null) continue;
+                    switch (rootsModel.roots[x, y].stage)
+                    {
+                        case Enums.RootStages.STAGE_0:
+                            rootsView.roots[x, y].SetActive(false);
+                            break;
+                        case Enums.RootStages.STAGE_1:
+                            if (rootsModel.roots[x, y].type == rootType)
+                            {
+                                rootsView.roots[x, y].SetActive(true);
+                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[0];
+                            }
+                            break;
+                        case Enums.RootStages.STAGE_2:
+                            if (rootsModel.roots[x, y].type == rootType)
+                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[1];
+                            break;
+                        case Enums.RootStages.STAGE_3:
+                            if (rootsModel.roots[x, y].type == rootType)
+                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[2];
+                            break;
+                        case Enums.RootStages.MAIN:
+                            if (rootsModel.roots[x, y].type == rootType)
+                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[3];
+                            break;
+                    }
+                }
+            }
+        }
+        bool isLose()
+        {
+            for(int x = 0; x < rootsModel.roots.GetLength(0); x++) 
+            {
+                for(int y = 0; y < rootsModel.roots.GetLength(1); y++)
+                {
+                    if (rootsModel.roots[x, y] != null)
+                        if (rootsModel.roots[x, y].stage == RootStages.STAGE_0)
+                            return false;
+                }
+            }
+            return true;
         }
     }
 }

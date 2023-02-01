@@ -23,7 +23,7 @@ namespace Apollo11.Roots
         private GameObject[,] roots;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             BoundsInt bounds = field.cellBounds;
             Vector3 cellSize = field.cellSize;
@@ -43,7 +43,7 @@ namespace Apollo11.Roots
                     Vector3 rootPosition = new Vector3(cellPosition.x + cellSize.x / 2, cellPosition.y + cellSize.y / 2, -1);
 
                     model.roots[xModel, yModel] = new Root(Enums.RootStages.STAGE_0);
-                    roots[xModel, yModel] = Instantiate(rootPrefab, rootPosition, Quaternion.identity);
+                    roots[xModel, yModel] = Instantiate(rootPrefab, rootPosition, Quaternion.identity, this.transform);
                 }
             }
 
@@ -57,9 +57,9 @@ namespace Apollo11.Roots
 
             StartCoroutine(IE_Timer());
         }
+        
 
-        // Update is called once per frame
-        void Update()
+        private void UpdateView()
         {
             for (int x = 0; x < roots.GetLength(0); x++)
             {
@@ -383,9 +383,14 @@ namespace Apollo11.Roots
             var tick = new WaitForSeconds(2f);
             while (true) //or while root is alive
             {
-                if (TryStageUp())
+                var canStageUp = TryStageUp();
+                UpdateView();
+                if (canStageUp)
                     yield return tick;
-                if (TryGrow())
+                
+                var canGrow = TryGrow();
+                UpdateView();
+                if (canGrow)
                     yield return tick;
             }
         }

@@ -57,31 +57,31 @@ namespace Apollo11
 
             int index = Random.Range(0, xPossible.Count);
 
-            rootsModel.roots[xPossible[index], yPossible[index]].stage = RootStages.MAIN;
-            rootsModel.roots[xPossible[index], yPossible[index]].type = RootType.TypeA;
+            rootsModel.roots[xPossible[index], yPossible[index]].Stage = RootStages.MAIN;
+            rootsModel.roots[xPossible[index], yPossible[index]].Type = RootType.TypeA;
 
             xPossible.RemoveAt(index);
             yPossible.RemoveAt(index);
 
             index = Random.Range(0, xPossible.Count);
 
-            rootsModel.roots[xPossible[index], yPossible[index]].stage = RootStages.MAIN;
-            rootsModel.roots[xPossible[index], yPossible[index]].type = RootType.TypeB;
+            rootsModel.roots[xPossible[index], yPossible[index]].Stage = RootStages.MAIN;
+            rootsModel.roots[xPossible[index], yPossible[index]].Type = RootType.TypeB;
 
             xPossible.RemoveAt(index);
             yPossible.RemoveAt(index);
 
             index = Random.Range(0, xPossible.Count);
 
-            rootsModel.roots[xPossible[index], yPossible[index]].stage = RootStages.MAIN;
-            rootsModel.roots[xPossible[index], yPossible[index]].type = RootType.TypeC;
+            rootsModel.roots[xPossible[index], yPossible[index]].Stage = RootStages.MAIN;
+            rootsModel.roots[xPossible[index], yPossible[index]].Type = RootType.TypeC;
 
             spawnpointsTilemap.gameObject.SetActive(false);
 
             for (int i = 0; i < rootsControllers.Length; i++)
             {
                 rootsControllers[i].rootsModel = rootsModel;
-                rootsControllers[i].rootsView= rootsView;
+                rootsControllers[i].rootsView = rootsView;
             }
 
             for (int i = 0; i < rootsControllers.Length; i++)
@@ -132,7 +132,7 @@ namespace Apollo11
                 for(int y = 0; y < rootsModel.roots.GetLength(1); y++)
                 {
                     if (rootsModel.roots[x, y] != null)
-                        if (rootsModel.roots[x, y].stage == RootStages.STAGE_0)
+                        if (rootsModel.roots[x, y].Stage == RootStages.STAGE_0)
                             return false;
                 }
             }

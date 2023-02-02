@@ -54,7 +54,7 @@ namespace Apollo11
                     if (spawnpointsTilemap.GetTile(new Vector3Int(y, x, 0)) != null)
                     {
                         rootsModel.roots[xModel, yModel] = new Root(Enums.RootStages.STAGE_0, Enums.RootType.Unknown);
-                        rootsView.roots[xModel, yModel] = Instantiate(rootPrefab, rootPosition, Quaternion.identity, null);
+                        rootsView.roots[xModel, yModel] = Instantiate(rootPrefab, rootPosition, Quaternion.identity, this.transform);
                         rootsView.roots[xModel, yModel].GetComponent<RootDamageReceiver>().X = xModel;
                         rootsView.roots[xModel, yModel].GetComponent<RootDamageReceiver>().Y = yModel;
                         xPossible.Add(xModel);

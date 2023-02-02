@@ -16,6 +16,8 @@ namespace Apollo11.Roots
                 SystemsLocator.Inst.RootsSystem.RootsModel.roots[X, Y].Stage = Enums.RootStages.STAGE_0;
             else
                 SystemsLocator.Inst.RootsSystem.RootsModel.roots[X, Y].Stage -= damage;
+
+            SystemsLocator.Inst.RootsSystem.UpdateView();
         }
 
         public Enums.RootWeapon GetWeapon()

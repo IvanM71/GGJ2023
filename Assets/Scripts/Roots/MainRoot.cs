@@ -7,6 +7,7 @@ namespace Apollo11.Roots
     public class MainRoot : MonoBehaviour, IDamagable
     {
         [SerializeField] private Enums.RootWeapon weaponToKill;
+        [SerializeField] private Enums.RootType rootType;
         public int Health { get; private set; } = 7;
 
         public void TakeDamage(int dmg)
@@ -20,6 +21,7 @@ namespace Apollo11.Roots
         }
 
         public Enums.RootWeapon GetWeapon() => weaponToKill;
+        public Enums.RootType GetRootType() => rootType;
         public Vector2 GetPosition() => transform.position;
         public Vector2 GetIconPosition() => transform.position;
 

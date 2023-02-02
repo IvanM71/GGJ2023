@@ -49,7 +49,7 @@ namespace Apollo11.Roots
                             break;
                         case Enums.RootStages.MAIN:
                             if (rootsModel.roots[x, y].Type == rootType)
-                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[3];
+                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[2];
                             break;
                     }
                 }

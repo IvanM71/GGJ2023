@@ -5590,6 +5590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersInteractionVision: {fileID: 1028774931}
   interactionIcon: {fileID: 778546137}
+  attackIcon: {fileID: 0}
 --- !u!1 &1405925273
 GameObject:
   m_ObjectHideFlags: 0
@@ -7024,6 +7025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2071492153}
   - component: {fileID: 2071492154}
+  - component: {fileID: 2071492155}
   m_Layer: 0
   m_Name: AttackIcon
   m_TagString: Untagged
@@ -7098,6 +7100,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2071492155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071492152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518ed65d20aa9c04997b2e9026d7772a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSprite: {fileID: 0}
+  axeIcon: {fileID: 0}
+  sawIcon: {fileID: 0}
+  sprayerIcon: {fileID: 0}
+  buttonSpriteRenderer: {fileID: 0}
+  weaponSpriteRenderer: {fileID: 0}
 --- !u!1 &2127295088
 GameObject:
   m_ObjectHideFlags: 0

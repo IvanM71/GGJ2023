@@ -206,7 +206,7 @@ namespace Apollo11.Roots
                                 if (rootsModel.roots[x + 1, y].Type == rootType)
                                 {
                                     if (rootsModel.roots[x + 1, y].Stage != Enums.RootStages.STAGE_0)
-                                    {   
+                                    {
                                         weight += (int)rootsModel.roots[x + 1, y].Stage - 1;
 
                                         if (rootsModel.roots[x + 1, y].Stage > rootsModel.roots[x, y].Stage)
@@ -223,7 +223,7 @@ namespace Apollo11.Roots
                             if (rootsModel.roots[x, y + 1] != null)
                             {
                                 if (rootsModel.roots[x, y + 1].Type == rootType)
-                                {   
+                                {
                                     if (rootsModel.roots[x, y + 1].Stage != Enums.RootStages.STAGE_0)
                                     {
                                         weight += (int)rootsModel.roots[x, y + 1].Stage - 1;
@@ -261,30 +261,11 @@ namespace Apollo11.Roots
 
             if (possibleGrow.Count > 0)
             {
-                if (possibleGrow.Count > 0)
-                    possibleGrow[Random.Range(0, possibleGrow.Count)].Stage++;
-
+                possibleGrow[Random.Range(0, possibleGrow.Count)].Stage++;
                 return true;
             }
             else
                 return false;
         }
-
-        //private IEnumerator IE_Timer()
-        //{
-        //    var tick = new WaitForSeconds(0.5f);
-        //    while (true) //or while root is alive
-        //    {
-        //        var canStageUp = TryStageUp();
-        //        UpdateView();
-        //        if (canStageUp)
-        //            yield return tick;
-                
-        //        var canGrow = TryGrow();
-        //        UpdateView();
-        //        if (canGrow)
-        //            yield return tick;
-        //    }
-        //}
     }
 }

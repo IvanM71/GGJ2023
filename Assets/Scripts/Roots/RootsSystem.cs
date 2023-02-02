@@ -24,12 +24,10 @@ namespace Apollo11
             set { rootsModel = value; }
         }
 
-        //[SerializeField] private MainRoot[] mainRoots;
+        [SerializeField] private MainRoot[] mainRoots;
 
         [SerializeField] private Tilemap spawnpointsTilemap;
-        [SerializeField] private Tilemap mainrootsSpawnpointsTilemap;
         [SerializeField] private GameObject rootPrefab;
-        [SerializeField] private GameObject mainrootPrefab;
         [SerializeField] private RootsController[] rootsControllers;
 
         private void Awake()
@@ -45,7 +43,10 @@ namespace Apollo11
             rootsView = new RootsView();
             rootsView.roots = new GameObject[bounds.size.y, bounds.size.x];
 
-            Enums.RootType rootType = Enums.RootType.TypeA;
+            Debug.Log($"{bounds.xMax}, {bounds.xMin} --- {bounds.yMax} {bounds.yMin}");
+            Debug.Log($"{spawnpointsTilemap.size.x} {spawnpointsTilemap.size.y}");
+
+            //Enums.RootType rootType = Enums.RootType.TypeA;
 
             for (int x = bounds.yMin, xModel = 0; x < bounds.yMax; x++, xModel++)
             {
@@ -56,14 +57,6 @@ namespace Apollo11
 
                     if (spawnpointsTilemap.GetTile(new Vector3Int(y, x, 0)) != null)
                     {
-                        if(mainrootsSpawnpointsTilemap.GetTile(new Vector3Int(y, x, 0)) != null)
-                        {
-                            rootsModel.roots[xModel, yModel] = new Root(Enums.RootStages.MAIN, rootType);
-                            rootType++;
-                            rootsView.roots[xModel, yModel] = Instantiate(rootPrefab, rootPosition, Quaternion.identity, this.transform);
-                            Instantiate(mainrootPrefab, rootPosition, Quaternion.identity, this.transform);
-                            continue;
-                        }
                         rootsModel.roots[xModel, yModel] = new Root(Enums.RootStages.STAGE_0, Enums.RootType.Unknown);
                         rootsView.roots[xModel, yModel] = Instantiate(rootPrefab, rootPosition, Quaternion.identity, this.transform);
                         rootsView.roots[xModel, yModel].GetComponent<RootDamageReceiver>().X = xModel;
@@ -77,7 +70,15 @@ namespace Apollo11
                 }
             }
 
-            spawnpointsTilemap.gameObject.SetActive(false);
+            for (int i = 0; i < mainRoots.Length; i++)
+            {
+                Vector3Int cellPosition = spawnpointsTilemap.WorldToCell(mainRoots[i].transform.position);
+                int x = cellPosition.y - bounds.yMin;
+                int y = cellPosition.x - bounds.xMin;
+                rootsModel.roots[x, y].Stage = RootStages.MAIN;
+                rootsModel.roots[x, y].Type = mainRoots[i].GetRootType();
+                Debug.Log(rootsModel.roots[x, y].Type);
+            }
 
             for (int i = 0; i < rootsControllers.Length; i++)
             {
@@ -112,6 +113,8 @@ namespace Apollo11
                     }
                     yield return tick;
                 }
+
+                yield return null;
             }
         }
         bool isLose()

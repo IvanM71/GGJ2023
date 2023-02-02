@@ -9,8 +9,7 @@ namespace Apollo11.Interaction
     {
         [SerializeField] private GameObject interactionIcon;
         [SerializeField] private AttackIcon attackIcon;
-
-        //public bool InteractionLocked { get; private set; }
+        
         public Enums.PlayerInteractionState InteractionState { get; private set; }
 
         private InteractionVision _playersInteractionVision;
@@ -19,6 +18,7 @@ namespace Apollo11.Interaction
         private void Awake()
         {
             _playersInteractionVision = SystemsLocator.Inst.PlayerSystems.InteractionVision;
+            attackIcon.ToggleShow(false);
         }
 
         private void Update()

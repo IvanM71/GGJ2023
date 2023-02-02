@@ -669,10 +669,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9418d30420e1854084e036fc3cc05a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraFollowPoint: {fileID: 2445368504068966796}
   playerMovement: {fileID: 8563030748494377462}
   playerItemCarry: {fileID: 3769033518070629083}
   playerAnimation: {fileID: 2663884752197585347}
+  interactionVision: {fileID: 2139629218330429935}
+  cameraFollowPoint: {fileID: 2445368504068966796}
 --- !u!114 &8563030748494377462
 MonoBehaviour:
   m_ObjectHideFlags: 0

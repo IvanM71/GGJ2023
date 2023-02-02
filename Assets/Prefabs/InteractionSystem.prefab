@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ed65d20aa9c04997b2e9026d7772a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonSprite: {fileID: 0}
+  buttonSprite: {fileID: 21300000, guid: a1ed8f2aa2c7b514183a044fe864e2ea, type: 3}
   axeIcon: {fileID: 21300000, guid: d4332378d89172a44929ec822ce188b3, type: 3}
   sawIcon: {fileID: 21300000, guid: dbdf9f1cbd246314fa946e20675b50d1, type: 3}
   sprayerIcon: {fileID: 21300000, guid: ee6ffe1531346e543b37220b3779f441, type: 3}

@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3ec49456ac34644bcb2beded7382e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponToKill: 0
+  weaponToKill: 2
 --- !u!61 &96320163
 BoxCollider2D:
   m_ObjectHideFlags: 0

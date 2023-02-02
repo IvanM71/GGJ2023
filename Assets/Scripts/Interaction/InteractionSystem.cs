@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Apollo11.Core;
+using Apollo11.Roots;
 using UnityEngine;
 
 namespace Apollo11.Interaction
@@ -11,6 +13,7 @@ namespace Apollo11.Interaction
         [SerializeField] private AttackIcon attackIcon;
         
         public Enums.PlayerInteractionState InteractionState { get; private set; }
+        public bool InAttack { get; private set; }
 
         private InteractionVision _playersInteractionVision;
         private ILongInteraction _currentLongInteractable;
@@ -23,38 +26,86 @@ namespace Apollo11.Interaction
 
         private void Update()
         {
-            var inVision = _playersInteractionVision.InteractablesInVision;
+            var interactablesInVision = _playersInteractionVision.InteractablesInVision;
+            var damagablesInVision = _playersInteractionVision.DamagablesInVision;
 
-            IInteractable closest;
+            IInteractable closestInteractable = null;
+            IDamagable closestDamagable = null;
+
+            if (InAttack)
+            {
+                ShowIcons(null, null);
+                return;
+            }
+            
             switch (InteractionState)
             {
                 case Enums.PlayerInteractionState.None:
-                    var suitable1 = inVision.Where(
+                    var suitable1 = interactablesInVision.Where(
                             inter => inter.GetInteractableType() == Enums.InteractableObjectType.Item ||
                             inter.GetInteractableType() == Enums.InteractableObjectType.LongHoldAction)
                         .ToList();
-                    closest = _playersInteractionVision.FindClosestFromList(suitable1);
+                    closestInteractable = _playersInteractionVision.FindClosestFromList(suitable1);
+                    closestDamagable = FindPossibleDamagable(damagablesInVision);
                     break;
                 case Enums.PlayerInteractionState.HoldsItem:
-                    var suitable2 = inVision.Where(
+                    var suitable2 = interactablesInVision.Where(
                             inter => inter.GetInteractableType() == Enums.InteractableObjectType.Crafter &&
                                 ((ICraftingInteraction)inter).AcceptsItem(SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.CurrentItem))
                         .ToList();
-                    closest = _playersInteractionVision.FindClosestFromList(suitable2);
+                    closestInteractable = _playersInteractionVision.FindClosestFromList(suitable2);
+                    closestDamagable = null;
                     break;
                 case Enums.PlayerInteractionState.InLongInteraction:
-                    closest = null;
+                    closestInteractable = null;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            ShowIcon(closest);
-            HandleInput(closest);
+            ShowIcons(closestInteractable, closestDamagable);
+            HandleInput(closestInteractable, closestDamagable);
         }
 
-        private void HandleInput(IInteractable closest)
+        private IDamagable FindPossibleDamagable(List<IDamagable> list)
         {
+            var chargesSystem = SystemsLocator.Inst.WeaponsCharges;
+            var suitable = list.Where(d => chargesSystem.EnoughCharges(d.GetWeapon(), 1)).ToList();
+            var res = _playersInteractionVision.FindClosestFromList(suitable);
+            return res;
+        }
+
+        private void ShowIcons(IInteractable closestInteractable, IDamagable closestDamagable)
+        {
+            if (closestInteractable == null)
+            {
+                interactionIcon.SetActive(false);
+            }
+            else
+            {
+                var pos = closestInteractable.GetIconPosition();
+                interactionIcon.transform.position = pos;
+                interactionIcon.SetActive(true);
+            }
+            
+            if (closestDamagable == null)
+            {
+                attackIcon.ToggleShow(false);
+            }
+            else
+            {
+                var pos = closestDamagable.GetIconPosition();
+                attackIcon.Place(closestDamagable.GetWeapon(), pos);
+                attackIcon.ToggleShow(true);
+            }
+            
+           
+        }
+
+        private void HandleInput(IInteractable closestInteractable, IDamagable closestDamagable)
+        {
+            if (InAttack) return;
+
             if (InteractionState == Enums.PlayerInteractionState.InLongInteraction)
             {
                 if (Input.GetKeyUp(KeyCode.E))
@@ -62,6 +113,13 @@ namespace Apollo11.Interaction
                     UnlockInteraction();
                     return;
                 }
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                
+                SystemsLocator.Inst.AttackSystem.TryAttack(closestDamagable);
+                return;
             }
 
             if (Input.GetKeyDown(KeyCode.R))
@@ -73,14 +131,14 @@ namespace Apollo11.Interaction
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (closest == null) return;
-                closest.OnInteractionStart();
+                if (closestInteractable == null) return;
+                closestInteractable.OnInteractionStart();
                 
-                if (closest.GetInteractableType() == Enums.InteractableObjectType.LongHoldAction)
-                    LockInteraction(closest);
-                else if (closest.GetInteractableType() == Enums.InteractableObjectType.Item)
+                if (closestInteractable.GetInteractableType() == Enums.InteractableObjectType.LongHoldAction)
+                    LockInteraction(closestInteractable);
+                else if (closestInteractable.GetInteractableType() == Enums.InteractableObjectType.Item)
                     InteractionState = Enums.PlayerInteractionState.HoldsItem;
-                else if (closest.GetInteractableType() == Enums.InteractableObjectType.Crafter)
+                else if (closestInteractable.GetInteractableType() == Enums.InteractableObjectType.Crafter)
                     InteractionState = Enums.PlayerInteractionState.None;
             }
             
@@ -103,15 +161,7 @@ namespace Apollo11.Interaction
 
         private void ShowIcon(IInteractable obj)
         {
-            if (obj == null)
-            {
-                interactionIcon.SetActive(false);
-                return;
-            }
             
-            var pos = obj.GetIconPosition();
-            interactionIcon.transform.position = pos;
-            interactionIcon.SetActive(true);
         }
         
     }

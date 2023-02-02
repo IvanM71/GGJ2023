@@ -13,6 +13,11 @@ namespace Apollo11
         [SerializeField] private SpriteRenderer buttonSpriteRenderer;
         [SerializeField] private SpriteRenderer weaponSpriteRenderer;
 
+        private void Awake()
+        {
+            buttonSpriteRenderer.sprite = buttonSprite;
+        }
+
         public void ToggleShow(bool show)
         {
             gameObject.SetActive(show);
@@ -24,13 +29,13 @@ namespace Apollo11
             switch (weapon)
             {
                 case Enums.RootWeapon.Axe:
-                    buttonSpriteRenderer.sprite = axeIcon;
+                    weaponSpriteRenderer.sprite = axeIcon;
                     break;
                 case Enums.RootWeapon.Saw:
-                    buttonSpriteRenderer.sprite = sawIcon;
+                    weaponSpriteRenderer.sprite = sawIcon;
                     break;
                 case Enums.RootWeapon.Sprayer:
-                    buttonSpriteRenderer.sprite = sprayerIcon;
+                    weaponSpriteRenderer.sprite = sprayerIcon;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(weapon), weapon, null);

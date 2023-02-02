@@ -8,6 +8,8 @@ namespace Apollo11
     {
         public void TryAttack(IDamagable target)
         {
+            if (target == null) return;
+
             var type = target.GetWeapon();
             if (SystemsLocator.Inst.WeaponsCharges.TakeCharges(type, 1))
             {

@@ -1,4 +1,6 @@
-﻿namespace Apollo11
+﻿using System;
+
+namespace Apollo11
 {
     public static class Enums
     {
@@ -29,6 +31,23 @@
             Axe,
             Saw,
             Sprayer
+        }
+
+        public static HandWeapon RootWeaponToHandWeapon(RootWeapon rw)
+        {
+            switch (rw)
+            {
+                case RootWeapon.Unknown:
+                    return HandWeapon.Unknown;
+                case RootWeapon.Axe:
+                    return HandWeapon.Axe;
+                case RootWeapon.Saw:
+                    return HandWeapon.Saw;
+                case RootWeapon.Sprayer:
+                    return HandWeapon.Sprayer;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(rw), rw, null);
+            }
         }
 
         public enum RootType

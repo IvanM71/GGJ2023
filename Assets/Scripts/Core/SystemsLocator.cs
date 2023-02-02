@@ -1,3 +1,4 @@
+using Apollo11.Interaction;
 using Apollo11.Items;
 using Apollo11.Player;
 using Apollo11.WeaponCharges;
@@ -13,6 +14,9 @@ namespace Apollo11.Core
 
         [SerializeField] private PlayerSystems playerSystems;
         public PlayerSystems PlayerSystems => playerSystems;
+        
+        [SerializeField] private InteractionSystem interactionSystem;
+        public InteractionSystem InteractionSystem => interactionSystem;
 
         
         

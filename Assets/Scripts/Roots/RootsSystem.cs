@@ -80,9 +80,63 @@ namespace Apollo11
 
             for (int i = 0; i < rootsControllers.Length; i++)
             {
-                //rootsControllers[i].StartCoroutine(rootsControllers[i].IE_Timer());
-                rootsControllers[i].StartRoutine(rootsModel, rootsView);
+                rootsControllers[i].rootsModel = rootsModel;
+                rootsControllers[i].rootsView= rootsView;
             }
+
+            for (int i = 0; i < rootsControllers.Length; i++)
+            {
+                StartCoroutine(IE_Timer(rootsControllers[i], i + 0.5f));
+            }
+        }
+        private IEnumerator IE_Timer(RootsController controller, float delay)
+        {
+            var tick = new WaitForSeconds(delay);
+            while (true) //or while root is alive
+            {
+                //for (int i = 0; i < rootsControllers.Length; i++)
+                //{
+                //    var canStageUp = rootsControllers[i].TryStageUp();
+                //    rootsControllers[i].UpdateView();
+                //    if (canStageUp)
+                //        yield return tick;
+
+                //    var canGrow = rootsControllers[i].TryGrow();
+                //    rootsControllers[i].UpdateView();
+                //    if (canGrow)
+                //        yield return tick;
+                //}
+                var canStageUp = controller.TryStageUp();
+                controller.UpdateView();
+                if (canStageUp)
+                    yield return tick;
+
+                var canGrow = controller.TryGrow();
+                controller.UpdateView();
+
+                if (canGrow)
+                {
+                    if (isLose())
+                    {
+                        StopAllCoroutines();
+                        break;
+                    }
+                    yield return tick;
+                }
+            }
+        }
+        bool isLose()
+        {
+            for(int x = 0; x < rootsModel.roots.GetLength(0); x++) 
+            {
+                for(int y = 0; y < rootsModel.roots.GetLength(1); y++)
+                {
+                    if (rootsModel.roots[x, y] != null)
+                        if (rootsModel.roots[x, y].stage == RootStages.STAGE_0)
+                            return false;
+                }
+            }
+            return true;
         }
     }
 }

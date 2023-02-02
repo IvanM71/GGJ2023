@@ -19,7 +19,7 @@ namespace Apollo11.Items
 
         public void OnInteractionStart()
         {
-            SystemsLocator.Inst.PlayerItemCarry.TakeItem(this);
+            SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.TakeItem(this);
         }
 
         public void AtInteractionTargetSelected()

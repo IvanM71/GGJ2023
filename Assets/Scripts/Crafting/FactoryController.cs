@@ -23,7 +23,7 @@ namespace Apollo11.Crafting
 
         public void OnInteractionStart()
         {
-            ReceiveItem(SystemsLocator.Inst.PlayerItemCarry.DeleteItemFromHands());
+            ReceiveItem(SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.DeleteItemFromHands());
         }
 
         private void ReceiveItem(Enums.Items itemType)

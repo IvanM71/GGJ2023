@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using Apollo11.Core;
-using Apollo11.Roots;
 using UnityEngine;
 
 namespace Apollo11.Interaction
@@ -10,7 +9,7 @@ namespace Apollo11.Interaction
     {
         [SerializeField] private InteractionVision playersInteractionVision;
         [SerializeField] private GameObject interactionIcon;
-        [SerializeField] private GameObject attackIcon;
+        [SerializeField] private AttackIcon attackIcon;
 
         //public bool InteractionLocked { get; private set; }
         public Enums.PlayerInteractionState InteractionState { get; private set; }
@@ -35,7 +34,7 @@ namespace Apollo11.Interaction
                 case Enums.PlayerInteractionState.HoldsItem:
                     var suitable2 = inVision.Where(
                             inter => inter.GetInteractableType() == Enums.InteractableObjectType.Crafter &&
-                                ((ICraftingInteraction)inter).AcceptsItem(SystemsLocator.Inst.PlayerItemCarry.CurrentItem))
+                                ((ICraftingInteraction)inter).AcceptsItem(SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.CurrentItem))
                         .ToList();
                     closest = playersInteractionVision.FindClosestFromList(suitable2);
                     break;
@@ -63,7 +62,7 @@ namespace Apollo11.Interaction
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                SystemsLocator.Inst.PlayerItemCarry.DropItem();
+                SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.DropItem();
                 InteractionState = Enums.PlayerInteractionState.None;
                 return;
             }
@@ -87,7 +86,7 @@ namespace Apollo11.Interaction
         {
             InteractionState = Enums.PlayerInteractionState.InLongInteraction;
             _currentLongInteractable = (ILongInteraction)obj;
-            SystemsLocator.Inst.PlayerMovement.LockMovement = true;
+            SystemsLocator.Inst.PlayerSystems.PlayerMovement.LockMovement = true;
         }
         
         private void UnlockInteraction()
@@ -95,7 +94,7 @@ namespace Apollo11.Interaction
             InteractionState = Enums.PlayerInteractionState.None;
             _currentLongInteractable.OnInteractionStop();
             _currentLongInteractable = null;
-            SystemsLocator.Inst.PlayerMovement.LockMovement = false;
+            SystemsLocator.Inst.PlayerSystems.PlayerMovement.LockMovement = false;
         }
 
         private void ShowIcon(IInteractable obj)

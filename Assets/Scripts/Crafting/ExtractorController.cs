@@ -21,13 +21,13 @@ namespace Apollo11.Crafting
         public void OnInteractionStart()
         {
             extractor.StartExtraction();
-            SystemsLocator.Inst.PlayerAnimation.PlayHandWeapon(extractionWeapon);
+            SystemsLocator.Inst.PlayerSystems.PlayerAnimation.PlayHandWeapon(extractionWeapon);
         }
 
         public void OnInteractionStop()
         {
             extractor.StopExtraction();
-            SystemsLocator.Inst.PlayerAnimation.StopHandWeapon();
+            SystemsLocator.Inst.PlayerSystems.PlayerAnimation.StopHandWeapon();
         }
     }
 }

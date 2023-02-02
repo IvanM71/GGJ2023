@@ -11,22 +11,13 @@ namespace Apollo11.Core
         private void Awake() => Inst = this;
 
 
-        [SerializeField] private PlayerMovement playerMovement;
-        public PlayerMovement PlayerMovement => playerMovement;
-        
-        
-        [SerializeField] private PlayerItemCarry playerItemCarry;
-        public PlayerItemCarry PlayerItemCarry => playerItemCarry;
-        
-        
-        [SerializeField] private PlayerAnimation playerAnimation;
-        public PlayerAnimation PlayerAnimation => playerAnimation;
+        [SerializeField] private PlayerSystems playerSystems;
+        public PlayerSystems PlayerSystems => playerSystems;
 
         
-        [SerializeField] private SO_ItemsPrefabs itemsPrefabs;
-        public SO_ItemsPrefabs SO_ItemsPrefabs => itemsPrefabs;
         
         
+        [Space]
         [SerializeField] private WeaponsCharges weaponsCharges;
         public WeaponsCharges WeaponsCharges => weaponsCharges;
         
@@ -35,6 +26,9 @@ namespace Apollo11.Core
         public AttackSystem AttackSystem => attackSystem;
         
         
+        [Space]
+        [SerializeField] private SO_ItemsPrefabs itemsPrefabs;
+        public SO_ItemsPrefabs SO_ItemsPrefabs => itemsPrefabs;
         
     }
 }

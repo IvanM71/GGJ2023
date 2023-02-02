@@ -29,6 +29,9 @@ namespace Apollo11.Core
         [Space]
         [SerializeField] private SO_ItemsPrefabs itemsPrefabs;
         public SO_ItemsPrefabs SO_ItemsPrefabs => itemsPrefabs;
+
+        [SerializeField] private RootsSystem rootsSystem;
+        public RootsSystem RootsSystem => rootsSystem;
         
     }
 }

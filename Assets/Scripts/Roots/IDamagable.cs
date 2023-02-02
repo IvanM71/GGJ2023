@@ -4,11 +4,8 @@ namespace Apollo11.Roots
 {
     public interface IDamagable : IGetPosition, IGetIconPosition
     {
-        public int Health { get;}
         public void TakeDamage(int dmg);
         public Enums.RootWeapon GetWeapon();
-        
-        
         
     }
 

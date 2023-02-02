@@ -8945,6 +8945,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: spawnpointsTilemap
+      value: 
+      objectReference: {fileID: 468473902}
     - target: {fileID: 5948463579879250314, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: uiPanel
       value: 

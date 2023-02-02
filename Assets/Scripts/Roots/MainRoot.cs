@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace Apollo11.Roots
 {
-    public class MainRoot : MonoBehaviour, IDamagable, IPointerClickHandler
+    public class MainRoot : MonoBehaviour, IDamagable
     {
         [SerializeField] private Enums.RootWeapon weaponToKill;
         public int Health { get; private set; } = 7;
@@ -20,19 +20,15 @@ namespace Apollo11.Roots
         }
 
         public Enums.RootWeapon GetWeapon() => weaponToKill;
+        public Vector2 GetPosition() => transform.position;
+        public Vector2 GetIconPosition() => transform.position;
 
-        public void OnPointerClick(PointerEventData eventData)
+        /*public void OnPointerClick(PointerEventData eventData)
         {
             print("click");
-            //TODO playerAttackSystem.TryAttack(this);
             SystemsLocator.Inst.AttackSystem.TryAttack(this);
-        }
-    }
+        }*/
 
-    public interface IDamagable
-    {
-        public int Health { get;}
-        public void TakeDamage(int dmg);
-        public Enums.RootWeapon GetWeapon();
+        
     }
 }

@@ -17,19 +17,13 @@ namespace Apollo11.Crafting
             return factory.ItemsSlots.AcceptsItem(item);
         }
 
-        public Vector2 GetIconOffset()
-        {
-            return interactionIconOffset;
-        }
+        public Vector2 GetIconPosition() => GetPosition() + interactionIconOffset;
 
-        public Vector2 GetPosition()
-        {
-            return transform.position;
-        }
+        public Vector2 GetPosition() => transform.position;
 
         public void OnInteractionStart()
         {
-            ReceiveItem(SystemsLocator.Inst.PlayerItemCarry.DeleteItemFromHands());
+            ReceiveItem(SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.DeleteItemFromHands());
         }
 
         private void ReceiveItem(Enums.Items itemType)

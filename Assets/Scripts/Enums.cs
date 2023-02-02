@@ -19,7 +19,8 @@
             Saw,
             Shears,
             Pickaxe,
-            Sprayer
+            Sprayer,
+            Bucket
         }
         
         public enum RootWeapon

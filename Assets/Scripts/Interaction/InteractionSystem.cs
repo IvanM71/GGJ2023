@@ -13,7 +13,7 @@ namespace Apollo11.Interaction
         [SerializeField] private AttackIcon attackIcon;
         
         public Enums.PlayerInteractionState InteractionState { get; private set; }
-        public bool InAttack { get; private set; }
+        public bool InAttack { get; set; }
 
         private InteractionVision _playersInteractionVision;
         private ILongInteraction _currentLongInteractable;

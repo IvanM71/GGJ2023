@@ -34,7 +34,5 @@ namespace Apollo11.Core
         [SerializeField] private AttackSystem attackSystem;
         public AttackSystem AttackSystem => attackSystem;
         
-        
-        
     }
 }

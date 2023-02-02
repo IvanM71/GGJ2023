@@ -27,28 +27,28 @@ namespace Apollo11.Roots
                 for (int y = 0; y < rootsModel.roots.GetLength(1); y++)
                 {
                     if (rootsModel.roots[x, y] == null) continue;
-                    switch (rootsModel.roots[x, y].stage)
+                    switch (rootsModel.roots[x, y].Stage)
                     {
                         case Enums.RootStages.STAGE_0:
                             rootsView.roots[x, y].SetActive(false);
                             break;
                         case Enums.RootStages.STAGE_1:
-                            if (rootsModel.roots[x, y].type == rootType)
+                            if (rootsModel.roots[x, y].Type == rootType)
                             {
                                 rootsView.roots[x, y].SetActive(true);
                                 rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[0];
                             }
                             break;
                         case Enums.RootStages.STAGE_2:
-                            if (rootsModel.roots[x, y].type == rootType)
+                            if (rootsModel.roots[x, y].Type == rootType)
                                 rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[1];
                             break;
                         case Enums.RootStages.STAGE_3:
-                            if (rootsModel.roots[x, y].type == rootType)
+                            if (rootsModel.roots[x, y].Type == rootType)
                                 rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[2];
                             break;
                         case Enums.RootStages.MAIN:
-                            if (rootsModel.roots[x, y].type == rootType)
+                            if (rootsModel.roots[x, y].Type == rootType)
                                 rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[3];
                             break;
                     }
@@ -65,19 +65,19 @@ namespace Apollo11.Roots
                 for (int y = 0; y < rootsModel.roots.GetLength(1); y++)
                 {
                     if (rootsModel.roots[x, y] == null) continue;
-                    if (rootsModel.roots[x, y].stage == Enums.RootStages.STAGE_0)
+                    if (rootsModel.roots[x, y].Stage == Enums.RootStages.STAGE_0)
                     {
                         int weight = 0;
                         if (x > 0)
                         {
                             if (rootsModel.roots[x - 1, y] != null)
                             {
-                                if (rootsModel.roots[x - 1, y].type == rootType)
+                                if (rootsModel.roots[x - 1, y].Type == rootType)
                                 {
-                                    if (rootsModel.roots[x - 1, y].stage == Enums.RootStages.MAIN)
-                                        weight += (int)rootsModel.roots[x - 1, y].stage + 5;
+                                    if (rootsModel.roots[x - 1, y].Stage == Enums.RootStages.MAIN)
+                                        weight += (int)rootsModel.roots[x - 1, y].Stage + 5;
                                     else
-                                        weight += (int)rootsModel.roots[x - 1, y].stage;
+                                        weight += (int)rootsModel.roots[x - 1, y].Stage;
                                 }
                             }
                         }
@@ -86,13 +86,13 @@ namespace Apollo11.Roots
                         {
                             if (rootsModel.roots[x, y - 1] != null)
                             {
-                                if (rootsModel.roots[x, y - 1].type == rootType)
+                                if (rootsModel.roots[x, y - 1].Type == rootType)
                                 {
-                                    if (rootsModel.roots[x, y - 1].stage == Enums.RootStages.MAIN)
-                                        weight += (int)rootsModel.roots[x, y - 1].stage + 5;
+                                    if (rootsModel.roots[x, y - 1].Stage == Enums.RootStages.MAIN)
+                                        weight += (int)rootsModel.roots[x, y - 1].Stage + 5;
                                     else
-                                        weight += (int)rootsModel.roots[x, y - 1].stage;
-                                }
+                                        weight += (int)rootsModel.roots[x, y - 1].Stage;
+                                }   
                             }
                         }
 
@@ -100,12 +100,12 @@ namespace Apollo11.Roots
                         {
                             if (rootsModel.roots[x + 1, y] != null)
                             {
-                                if (rootsModel.roots[x + 1, y].type == rootType)
+                                if (rootsModel.roots[x + 1, y].Type == rootType)
                                 {
-                                    if (rootsModel.roots[x + 1, y].stage == Enums.RootStages.MAIN)
-                                        weight += (int)rootsModel.roots[x + 1, y].stage + 5;
+                                    if (rootsModel.roots[x + 1, y].Stage == Enums.RootStages.MAIN)
+                                        weight += (int)rootsModel.roots[x + 1, y].Stage + 5;
                                     else
-                                        weight += (int)rootsModel.roots[x + 1, y].stage;
+                                        weight += (int)rootsModel.roots[x + 1, y].Stage;
                                 }
                             }
                         }
@@ -114,12 +114,12 @@ namespace Apollo11.Roots
                         {
                             if (rootsModel.roots[x, y + 1] != null)
                             {
-                                if (rootsModel.roots[x, y + 1].type == rootType)
+                                if (rootsModel.roots[x, y + 1].Type == rootType)
                                 {
-                                    if (rootsModel.roots[x, y + 1].stage == Enums.RootStages.MAIN)
-                                        weight += (int)rootsModel.roots[x, y + 1].stage + 5;
+                                    if (rootsModel.roots[x, y + 1].Stage == Enums.RootStages.MAIN)
+                                        weight += (int)rootsModel.roots[x, y + 1].Stage + 5;
                                     else
-                                        weight += (int)rootsModel.roots[x, y + 1].stage;
+                                        weight += (int)rootsModel.roots[x, y + 1].Stage;
                                 }
                             }
                         }
@@ -139,8 +139,8 @@ namespace Apollo11.Roots
             if (possibleGrow.Count > 0)
             {
                 int index = Random.Range(0, possibleGrow.Count);
-                possibleGrow[index].stage++;
-                possibleGrow[index].type = rootType;
+                possibleGrow[index].Stage++;
+                possibleGrow[index].Type = rootType;
                 return true;
             }
             else
@@ -156,7 +156,7 @@ namespace Apollo11.Roots
                 for (int y = 0; y < rootsModel.roots.GetLength(1); y++)
                 {
                     if (rootsModel.roots[x, y] == null) continue;
-                    if (rootsModel.roots[x, y].stage > Enums.RootStages.STAGE_0 && rootsModel.roots[x, y].stage < Enums.RootStages.STAGE_3)
+                    if (rootsModel.roots[x, y].Stage > Enums.RootStages.STAGE_0 && rootsModel.roots[x, y].Stage < Enums.RootStages.STAGE_3)
                     {
                         int weight = 0;
                         int roundedBySame = 0;
@@ -165,15 +165,15 @@ namespace Apollo11.Roots
                         {
                             if (rootsModel.roots[x - 1, y] != null)
                             {
-                                if (rootsModel.roots[x - 1, y].type == rootType)
+                                if (rootsModel.roots[x - 1, y].Type == rootType)
                                 {
-                                    if (rootsModel.roots[x - 1, y].stage != Enums.RootStages.STAGE_0)
+                                    if (rootsModel.roots[x - 1, y].Stage != Enums.RootStages.STAGE_0)
                                     {
-                                        weight += (int)rootsModel.roots[x - 1, y].stage - 1;
+                                        weight += (int)rootsModel.roots[x - 1, y].Stage - 1;
 
-                                        if (rootsModel.roots[x - 1, y].stage > rootsModel.roots[x, y].stage)
+                                        if (rootsModel.roots[x - 1, y].Stage > rootsModel.roots[x, y].Stage)
                                             roundedByHigher++;
-                                        else if (rootsModel.roots[x - 1, y].stage > rootsModel.roots[x, y].stage)
+                                        else if (rootsModel.roots[x - 1, y].Stage > rootsModel.roots[x, y].Stage)
                                             roundedBySame++;
                                     }
                                 }
@@ -184,15 +184,15 @@ namespace Apollo11.Roots
                         {
                             if (rootsModel.roots[x, y - 1] != null)
                             {
-                                if (rootsModel.roots[x, y - 1].type == rootType)
+                                if (rootsModel.roots[x, y - 1].Type == rootType)
                                 {
-                                    if (rootsModel.roots[x, y - 1].stage != Enums.RootStages.STAGE_0)
+                                    if (rootsModel.roots[x, y - 1].Stage != Enums.RootStages.STAGE_0)
                                     {
-                                        weight += (int)rootsModel.roots[x, y - 1].stage - 1;
+                                        weight += (int)rootsModel.roots[x, y - 1].Stage - 1;
 
-                                        if (rootsModel.roots[x, y - 1].stage > rootsModel.roots[x, y].stage)
+                                        if (rootsModel.roots[x, y - 1].Stage > rootsModel.roots[x, y].Stage)
                                             roundedByHigher++;
-                                        else if (rootsModel.roots[x, y - 1].stage > rootsModel.roots[x, y].stage)
+                                        else if (rootsModel.roots[x, y - 1].Stage > rootsModel.roots[x, y].Stage)
                                             roundedBySame++;
                                     }
                                 }
@@ -203,15 +203,15 @@ namespace Apollo11.Roots
                         {
                             if (rootsModel.roots[x + 1, y] != null)
                             {
-                                if (rootsModel.roots[x + 1, y].type == rootType)
+                                if (rootsModel.roots[x + 1, y].Type == rootType)
                                 {
-                                    if (rootsModel.roots[x + 1, y].stage != Enums.RootStages.STAGE_0)
-                                    {
-                                        weight += (int)rootsModel.roots[x + 1, y].stage - 1;
+                                    if (rootsModel.roots[x + 1, y].Stage != Enums.RootStages.STAGE_0)
+                                    {   
+                                        weight += (int)rootsModel.roots[x + 1, y].Stage - 1;
 
-                                        if (rootsModel.roots[x + 1, y].stage > rootsModel.roots[x, y].stage)
+                                        if (rootsModel.roots[x + 1, y].Stage > rootsModel.roots[x, y].Stage)
                                             roundedByHigher++;
-                                        else if (rootsModel.roots[x + 1, y].stage > rootsModel.roots[x, y].stage)
+                                        else if (rootsModel.roots[x + 1, y].Stage > rootsModel.roots[x, y].Stage)
                                             roundedBySame++;
                                     }
                                 }
@@ -222,24 +222,24 @@ namespace Apollo11.Roots
                         {
                             if (rootsModel.roots[x, y + 1] != null)
                             {
-                                if (rootsModel.roots[x, y + 1].type == rootType)
-                                {
-                                    if (rootsModel.roots[x, y + 1].stage != Enums.RootStages.STAGE_0)
+                                if (rootsModel.roots[x, y + 1].Type == rootType)
+                                {   
+                                    if (rootsModel.roots[x, y + 1].Stage != Enums.RootStages.STAGE_0)
                                     {
-                                        weight += (int)rootsModel.roots[x, y + 1].stage - 1;
+                                        weight += (int)rootsModel.roots[x, y + 1].Stage - 1;
 
-                                        if (rootsModel.roots[x, y + 1].stage > rootsModel.roots[x, y].stage)
+                                        if (rootsModel.roots[x, y + 1].Stage > rootsModel.roots[x, y].Stage)
                                             roundedByHigher++;
-                                        else if (rootsModel.roots[x, y + 1].stage > rootsModel.roots[x, y].stage)
+                                        else if (rootsModel.roots[x, y + 1].Stage > rootsModel.roots[x, y].Stage)
                                             roundedBySame++;
                                     }
                                 }
                             }
                         }
 
-                        if (rootsModel.roots[x, y].stage == Enums.RootStages.STAGE_2)
+                        if (rootsModel.roots[x, y].Stage == Enums.RootStages.STAGE_2)
                             weight += 1;
-                        else if (rootsModel.roots[x, y].stage == Enums.RootStages.STAGE_1)
+                        else if (rootsModel.roots[x, y].Stage == Enums.RootStages.STAGE_1)
                             weight += 2;
 
                         if (roundedBySame + roundedByHigher < 3)
@@ -262,7 +262,7 @@ namespace Apollo11.Roots
             if (possibleGrow.Count > 0)
             {
                 if (possibleGrow.Count > 0)
-                    possibleGrow[Random.Range(0, possibleGrow.Count)].stage++;
+                    possibleGrow[Random.Range(0, possibleGrow.Count)].Stage++;
 
                 return true;
             }
@@ -270,21 +270,21 @@ namespace Apollo11.Roots
                 return false;
         }
 
-        private IEnumerator IE_Timer()
-        {
-            var tick = new WaitForSeconds(0.5f);
-            while (true) //or while root is alive
-            {
-                var canStageUp = TryStageUp();
-                UpdateView();
-                if (canStageUp)
-                    yield return tick;
+        //private IEnumerator IE_Timer()
+        //{
+        //    var tick = new WaitForSeconds(0.5f);
+        //    while (true) //or while root is alive
+        //    {
+        //        var canStageUp = TryStageUp();
+        //        UpdateView();
+        //        if (canStageUp)
+        //            yield return tick;
                 
-                var canGrow = TryGrow();
-                UpdateView();
-                if (canGrow)
-                    yield return tick;
-            }
-        }
+        //        var canGrow = TryGrow();
+        //        UpdateView();
+        //        if (canGrow)
+        //            yield return tick;
+        //    }
+        //}
     }
 }

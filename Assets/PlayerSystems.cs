@@ -1,3 +1,4 @@
+using Apollo11.Interaction;
 using Apollo11.Player;
 using UnityEngine;
 
@@ -15,6 +16,9 @@ namespace Apollo11
         
         [SerializeField] private PlayerAnimation playerAnimation;
         public PlayerAnimation PlayerAnimation => playerAnimation;
+        
+        [SerializeField] private InteractionVision interactionVision;
+        public InteractionVision InteractionVision => interactionVision;
         
         public Transform cameraFollowPoint;
     }

@@ -7,19 +7,23 @@ namespace Apollo11.Interaction
 {
     public class InteractionSystem : MonoBehaviour
     {
-        [SerializeField] private InteractionVision playersInteractionVision;
         [SerializeField] private GameObject interactionIcon;
         [SerializeField] private AttackIcon attackIcon;
 
         //public bool InteractionLocked { get; private set; }
         public Enums.PlayerInteractionState InteractionState { get; private set; }
 
+        private InteractionVision _playersInteractionVision;
         private ILongInteraction _currentLongInteractable;
 
+        private void Awake()
+        {
+            _playersInteractionVision = SystemsLocator.Inst.PlayerSystems.InteractionVision;
+        }
 
         private void Update()
         {
-            var inVision = playersInteractionVision.InteractablesInVision;
+            var inVision = _playersInteractionVision.InteractablesInVision;
 
             IInteractable closest;
             switch (InteractionState)
@@ -29,14 +33,14 @@ namespace Apollo11.Interaction
                             inter => inter.GetInteractableType() == Enums.InteractableObjectType.Item ||
                             inter.GetInteractableType() == Enums.InteractableObjectType.LongHoldAction)
                         .ToList();
-                    closest = playersInteractionVision.FindClosestFromList(suitable1);
+                    closest = _playersInteractionVision.FindClosestFromList(suitable1);
                     break;
                 case Enums.PlayerInteractionState.HoldsItem:
                     var suitable2 = inVision.Where(
                             inter => inter.GetInteractableType() == Enums.InteractableObjectType.Crafter &&
                                 ((ICraftingInteraction)inter).AcceptsItem(SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.CurrentItem))
                         .ToList();
-                    closest = playersInteractionVision.FindClosestFromList(suitable2);
+                    closest = _playersInteractionVision.FindClosestFromList(suitable2);
                     break;
                 case Enums.PlayerInteractionState.InLongInteraction:
                     closest = null;

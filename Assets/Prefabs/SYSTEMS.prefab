@@ -54,7 +54,7 @@ MonoBehaviour:
   weaponsCharges: {fileID: 5948463579879250314}
   attackSystem: {fileID: 5948463579879250313}
   itemsPrefabs: {fileID: 11400000, guid: 97e656c96203326498f941fe2e93041f, type: 2}
-  rootsSystem: {fileID: 0}
+  rootsSystem: {fileID: 1279114532951847800}
 --- !u!114 &5948463579879250314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +279,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3818da0766ad0d144a6492225e25c8be, type: 3}
+--- !u!114 &1279114532951847800 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6417104175966470544, guid: 3818da0766ad0d144a6492225e25c8be, type: 3}
+  m_PrefabInstance: {fileID: 5246255804239721192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cf16d83c9b8614ab48f92702babcb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1279114532951847801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6417104175966470545, guid: 3818da0766ad0d144a6492225e25c8be, type: 3}

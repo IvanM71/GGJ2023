@@ -8,19 +8,15 @@ namespace Apollo11.Crafting
     {
         [SerializeField] private Extractor extractor;
         [SerializeField] private Enums.HandWeapon extractionWeapon;
+        [Space]
+        [SerializeField] private Vector2 interactionIconOffset = new(0f, 0.5f);
 
 
         public Enums.InteractableObjectType GetInteractableType() => Enums.InteractableObjectType.LongHoldAction;
 
-        public Vector2 GetIconOffset()
-        {
-            return new Vector2(0, 0.5f);
-        }
 
-        public Vector2 GetPosition()
-        {
-            return transform.position;
-        }
+        public Vector2 GetIconPosition() => GetPosition() + interactionIconOffset;
+        public Vector2 GetPosition() => transform.position;
 
         public void OnInteractionStart()
         {

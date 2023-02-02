@@ -20,19 +20,15 @@ namespace Apollo11.Roots
         }
 
         public Enums.RootWeapon GetWeapon() => weaponToKill;
+        public Vector2 GetPosition() => transform.position;
+        public Vector2 GetIconPosition() => transform.position;
 
         public void OnPointerClick(PointerEventData eventData)
         {
             print("click");
-            //TODO playerAttackSystem.TryAttack(this);
             SystemsLocator.Inst.AttackSystem.TryAttack(this);
         }
-    }
 
-    public interface IDamagable
-    {
-        public int Health { get;}
-        public void TakeDamage(int dmg);
-        public Enums.RootWeapon GetWeapon();
+        
     }
 }

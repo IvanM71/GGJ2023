@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Apollo11.Roots;
 using UnityEngine;
 
 namespace Apollo11.Interaction
@@ -6,24 +7,26 @@ namespace Apollo11.Interaction
     public class InteractionVision : MonoBehaviour
     {
         public List<IInteractable> InteractablesInVision { get; } = new();
-
-        public IInteractable FindClosestInteractable(List<IInteractable> list)
+        public List<IDamagable> DamagablesInVision { get; } = new();
+        
+        
+        public T FindClosestFromList<T>(List<T> list) where T : IGetPosition
         {
             if (list.Count == 0)
-                return null;
+                return default;
 
-            var ClosestInteractable = list[0];
+            var closestElement = list[0];
             var playerPos = transform.position;
-            foreach (var interactable in list)
+            foreach (var element in list)
             {
-                var itemPos = interactable.GetPosition();
-                var thisItemDistance = Vector2.Distance(playerPos, itemPos);
-                var closesItemDistance = Vector2.Distance(playerPos, ClosestInteractable.GetPosition());
+                var elementPos = element.GetPosition();
+                var thisItemDistance = Vector2.Distance(playerPos, elementPos);
+                var closesItemDistance = Vector2.Distance(playerPos, closestElement.GetPosition());
                 if (thisItemDistance < closesItemDistance)
-                    ClosestInteractable = interactable;
+                    closestElement = element;
             }
 
-            return ClosestInteractable;
+            return closestElement;
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -34,6 +37,12 @@ namespace Apollo11.Interaction
                 if (interactable is IInPlayerVision ipv)
                     ipv.AtPlayerVisionEnter();
             }
+            if (col.gameObject.TryGetComponent<IDamagable>(out var damagable))
+            {
+                DamagablesInVision.Add(damagable);
+                if (damagable is IInPlayerVision ipv)
+                    ipv.AtPlayerVisionEnter();
+            }
         }
         
         private void OnTriggerExit2D(Collider2D col)
@@ -42,6 +51,12 @@ namespace Apollo11.Interaction
             {
                 InteractablesInVision.Remove(interactable);
                 if (interactable is IInPlayerVision ipv)
+                    ipv.AtPlayerVisionExit();
+            }
+            if (col.gameObject.TryGetComponent<IDamagable>(out var damagable))
+            {
+                DamagablesInVision.Remove(damagable);
+                if (damagable is IInPlayerVision ipv)
                     ipv.AtPlayerVisionExit();
             }
         }

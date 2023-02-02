@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using Apollo11.Core;
-using Apollo11.Player;
+using Apollo11.Roots;
 using UnityEngine;
 
 namespace Apollo11.Interaction
@@ -10,6 +10,7 @@ namespace Apollo11.Interaction
     {
         [SerializeField] private InteractionVision playersInteractionVision;
         [SerializeField] private GameObject interactionIcon;
+        [SerializeField] private GameObject attackIcon;
 
         //public bool InteractionLocked { get; private set; }
         public Enums.PlayerInteractionState InteractionState { get; private set; }
@@ -29,14 +30,14 @@ namespace Apollo11.Interaction
                             inter => inter.GetInteractableType() == Enums.InteractableObjectType.Item ||
                             inter.GetInteractableType() == Enums.InteractableObjectType.LongHoldAction)
                         .ToList();
-                    closest = playersInteractionVision.FindClosestInteractable(suitable1);
+                    closest = playersInteractionVision.FindClosestFromList(suitable1);
                     break;
                 case Enums.PlayerInteractionState.HoldsItem:
                     var suitable2 = inVision.Where(
                             inter => inter.GetInteractableType() == Enums.InteractableObjectType.Crafter &&
                                 ((ICraftingInteraction)inter).AcceptsItem(SystemsLocator.Inst.PlayerItemCarry.CurrentItem))
                         .ToList();
-                    closest = playersInteractionVision.FindClosestInteractable(suitable2);
+                    closest = playersInteractionVision.FindClosestFromList(suitable2);
                     break;
                 case Enums.PlayerInteractionState.InLongInteraction:
                     closest = null;
@@ -60,7 +61,7 @@ namespace Apollo11.Interaction
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 SystemsLocator.Inst.PlayerItemCarry.DropItem();
                 InteractionState = Enums.PlayerInteractionState.None;
@@ -93,6 +94,7 @@ namespace Apollo11.Interaction
         {
             InteractionState = Enums.PlayerInteractionState.None;
             _currentLongInteractable.OnInteractionStop();
+            _currentLongInteractable = null;
             SystemsLocator.Inst.PlayerMovement.LockMovement = false;
         }
 
@@ -104,7 +106,7 @@ namespace Apollo11.Interaction
                 return;
             }
             
-            var pos = obj.GetPosition() + obj.GetIconOffset();
+            var pos = obj.GetIconPosition();
             interactionIcon.transform.position = pos;
             interactionIcon.SetActive(true);
         }

@@ -1,5 +1,5 @@
 ﻿using Apollo11.Items;
-using UnityEngine;
+using Apollo11.Roots;
 
 namespace Apollo11.Interaction
 {
@@ -18,11 +18,10 @@ namespace Apollo11.Interaction
         public bool AcceptsItem(Item item);
     }
 
-    public interface IInteractable
+    public interface IInteractable : IGetPosition, IGetIconPosition
     {
         public Enums.InteractableObjectType GetInteractableType();
-        public Vector2 GetIconOffset();
-        public Vector2 GetPosition();
+
         public void OnInteractionStart();
     }
 }

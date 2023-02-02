@@ -11,6 +11,7 @@ namespace Apollo11
             if (SystemsLocator.Inst.InteractionSystem.InAttack)
             {
                 SystemsLocator.Inst.PlayerSystems.PlayerAnimation.StopHandWeapon();
+                SystemsLocator.Inst.PlayerSystems.PlayerMovement.LockMovement = false;
                 SystemsLocator.Inst.InteractionSystem.InAttack = false;
             }
            

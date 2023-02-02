@@ -14,6 +14,7 @@ namespace Apollo11
             if (SystemsLocator.Inst.WeaponsCharges.TakeCharges(type, 1))
             {
                 SystemsLocator.Inst.InteractionSystem.InAttack = true;
+                SystemsLocator.Inst.PlayerSystems.PlayerMovement.LockMovement = true;
                 SystemsLocator.Inst.PlayerSystems.PlayerAnimation.PlayHandWeapon(Enums.RootWeaponToHandWeapon(type));
                 target.TakeDamage(1);
             }

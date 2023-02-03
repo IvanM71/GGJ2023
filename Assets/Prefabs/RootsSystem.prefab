@@ -103,6 +103,18 @@ MonoBehaviour:
   - {fileID: 6417104176979640371}
   - {fileID: 6417104176229049154}
   - {fileID: 6417104175413219441}
+  typeASprites:
+  - {fileID: 21300000, guid: f9d577e29a0c1d7439772ae44b330a4c, type: 3}
+  - {fileID: 21300000, guid: 42dafa91e0882ec48a39a9d282735d6c, type: 3}
+  - {fileID: 21300000, guid: 12d5aad78c89fc74fae9c999c5559f29, type: 3}
+  typeBSprites:
+  - {fileID: 21300000, guid: ae50d955b939418489c75fc5da829c9f, type: 3}
+  - {fileID: 21300000, guid: f7cedbbfd45a3c24ab1eafd73ee765e0, type: 3}
+  - {fileID: 21300000, guid: 331b6e9ab95ce2e49b80809d431ef7d7, type: 3}
+  typeCSprites:
+  - {fileID: 21300000, guid: e44bd5e635843d64e9e098a00029f18a, type: 3}
+  - {fileID: 21300000, guid: 934e9dc4ffc2cb84c9b6c1c701acbcbf, type: 3}
+  - {fileID: 21300000, guid: d2a0967e417f34641ae5ddddd537d010, type: 3}
 --- !u!1 &6417104176229049155
 GameObject:
   m_ObjectHideFlags: 0

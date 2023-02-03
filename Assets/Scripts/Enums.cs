@@ -10,8 +10,13 @@ namespace Apollo11
             Root,
             Coal,
             IronOre,
-            Iron
-            
+            Iron,
+            MagicOre,
+            MagicIron,
+            Leave,
+            Biomass,
+            Water
+
         }
         
         public enum HandWeapon

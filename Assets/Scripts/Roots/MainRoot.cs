@@ -28,6 +28,7 @@ namespace Apollo11.Roots
             healthBar.SetValue01((float)Health / _startHealth);
             if (Health<=0) 
             {
+                SystemsLocator.Inst.RootsSystem.OnMainRootDeath(rootType);
                 Destroy(gameObject); //TODO
             }
         }

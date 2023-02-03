@@ -11,50 +11,11 @@ namespace Apollo11.Roots
         // Roots model
         public RootsModel rootsModel;
 
-        // Roots view
-        public RootsView rootsView;
-
         // Sprites for this controller
         [SerializeField] Sprite[] sprites;
 
         // Root type for this controller
-        [SerializeField] Enums.RootType rootType;
-
-        public void UpdateView()
-        {
-            for (int x = 0; x < rootsModel.roots.GetLength(0); x++)
-            {
-                for (int y = 0; y < rootsModel.roots.GetLength(1); y++)
-                {
-                    if (rootsModel.roots[x, y] == null) continue;
-                    switch (rootsModel.roots[x, y].Stage)
-                    {
-                        case Enums.RootStages.STAGE_0:
-                            rootsView.roots[x, y].SetActive(false);
-                            break;
-                        case Enums.RootStages.STAGE_1:
-                            if (rootsModel.roots[x, y].Type == rootType)
-                            {
-                                rootsView.roots[x, y].SetActive(true);
-                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[0];
-                            }
-                            break;
-                        case Enums.RootStages.STAGE_2:
-                            if (rootsModel.roots[x, y].Type == rootType)
-                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[1];
-                            break;
-                        case Enums.RootStages.STAGE_3:
-                            if (rootsModel.roots[x, y].Type == rootType)
-                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[2];
-                            break;
-                        case Enums.RootStages.MAIN:
-                            if (rootsModel.roots[x, y].Type == rootType)
-                                rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = sprites[2];
-                            break;
-                    }
-                }
-            }
-        }
+        [SerializeField] public Enums.RootType rootType;
 
         public bool TryGrow()
         {

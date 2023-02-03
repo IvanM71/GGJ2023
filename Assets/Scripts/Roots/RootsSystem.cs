@@ -1,6 +1,7 @@
 using Apollo11.Roots;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -24,11 +25,14 @@ namespace Apollo11
             set { rootsModel = value; }
         }
 
-        [SerializeField] private MainRoot[] mainRoots;
+        private List<MainRoot> mainRoots;
 
         [SerializeField] private Tilemap spawnpointsTilemap;
         [SerializeField] private GameObject rootPrefab;
-        [SerializeField] private RootsController[] rootsControllers;
+        [SerializeField] private List<RootsController> rootsControllers;
+        [SerializeField] private Sprite[] typeASprites;
+        [SerializeField] private Sprite[] typeBSprites;
+        [SerializeField] private Sprite[] typeCSprites;
 
         private void Awake()
         {
@@ -42,9 +46,6 @@ namespace Apollo11
             // Create view array
             rootsView = new RootsView();
             rootsView.roots = new GameObject[bounds.size.y, bounds.size.x];
-
-            Debug.Log($"{bounds.xMax}, {bounds.xMin} --- {bounds.yMax} {bounds.yMin}");
-            Debug.Log($"{spawnpointsTilemap.size.x} {spawnpointsTilemap.size.y}");
 
             //Enums.RootType rootType = Enums.RootType.TypeA;
 
@@ -70,47 +71,64 @@ namespace Apollo11
                 }
             }
 
-            for (int i = 0; i < mainRoots.Length; i++)
-            {
-                Vector3Int cellPosition = spawnpointsTilemap.WorldToCell(mainRoots[i].transform.position);
-                int x = cellPosition.y - bounds.yMin;
-                int y = cellPosition.x - bounds.xMin;
-                rootsModel.roots[x, y].Stage = RootStages.MAIN;
-                rootsModel.roots[x, y].Type = mainRoots[i].GetRootType();
-                Debug.Log(rootsModel.roots[x, y].Type);
-            }
-
-            for (int i = 0; i < rootsControllers.Length; i++)
+            for (int i = 0; i < rootsControllers.Count; i++)
             {
                 rootsControllers[i].rootsModel = rootsModel;
-                rootsControllers[i].rootsView = rootsView;
             }
 
-            for (int i = 0; i < rootsControllers.Length; i++)
+            StartCoroutine(IE_Timer());
+        }
+        private void Start()
+        {
+            mainRoots = new List<MainRoot>(FindObjectsOfType<MainRoot>());
+
+            for (int i = 0; i < mainRoots.Count; i++)
             {
-                StartCoroutine(IE_Timer(rootsControllers[i], 3f));
+                Vector3Int cellPosition = spawnpointsTilemap.WorldToCell(mainRoots[i].transform.position);
+                int x = cellPosition.y - spawnpointsTilemap.cellBounds.yMin;
+                int y = cellPosition.x - spawnpointsTilemap.cellBounds.xMin;
+                rootsModel.roots[x, y].Stage = RootStages.MAIN;
+                rootsModel.roots[x, y].Type = mainRoots[i].GetRootType();
             }
         }
-        private IEnumerator IE_Timer(RootsController controller, float delay)
+        private IEnumerator IE_Timer()
         {
-            var tick = new WaitForSeconds(delay);
+            var tick = new WaitForSeconds(3f);
             while (true) //or while root is alive
             {
-                var canStageUp = controller.TryStageUp();
-                controller.UpdateView();
-                if (canStageUp)
+                bool isTick = false;
+                for (int i = 0; i < rootsControllers.Count; i++)
+                {
+                    var canStageUp = rootsControllers[i].TryStageUp();
+                    if (canStageUp)
+                        isTick = true;
+                }
+
+                UpdateView();
+
+                if (isTick)
                     yield return tick;
 
-                var canGrow = controller.TryGrow();
-                controller.UpdateView();
+                isTick = false;
 
-                if (canGrow)
+                for (int i = 0; i < rootsControllers.Count; i++)
                 {
-                    if (isLose())
+                    var canGrow = rootsControllers[i].TryGrow();
+                    if (canGrow)
                     {
-                        StopAllCoroutines();
-                        break;
+                        if (isLose())
+                        {
+                            StopAllCoroutines();
+                            break;
+                        }
+                        isTick = true;
                     }
+                }
+
+                UpdateView();
+
+                if (isTick)
+                {
                     yield return tick;
                 }
 
@@ -132,9 +150,59 @@ namespace Apollo11
         }
         public void UpdateView()
         {
-            for(int i = 0; i < rootsControllers.Length; i++)
+            for (int x = 0; x < rootsModel.roots.GetLength(0); x++)
             {
-                rootsControllers[i].UpdateView();
+                for (int y = 0; y < rootsModel.roots.GetLength(1); y++)
+                {
+                    if (rootsModel.roots[x, y] == null) continue;
+
+                    int spriteIndex = 0;
+                    if (rootsModel.roots[x, y].Stage == RootStages.STAGE_0)
+                        rootsView.roots[x, y].SetActive(false);
+                    else if (rootsModel.roots[x, y].Stage == RootStages.MAIN)
+                    {
+                        rootsView.roots[x, y].SetActive(true);
+                        spriteIndex = 2;
+                    }
+                    else
+                    {
+                        rootsView.roots[x, y].SetActive(true);
+                        spriteIndex = (int)rootsModel.roots[x, y].Stage - 1;
+                    }
+
+                    switch (rootsModel.roots[x, y].Type)
+                    {
+                        case RootType.TypeA:
+                            rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = typeASprites[spriteIndex];
+                            break;
+                        case RootType.TypeB:
+                            rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = typeBSprites[spriteIndex];
+                            break;
+                        case RootType.TypeC:
+                            rootsView.roots[x, y].GetComponent<SpriteRenderer>().sprite = typeCSprites[spriteIndex];
+                            break;
+                    }
+                }
+            }
+        }
+        public void OnMainRootDeath(Enums.RootType type)
+        {
+            for(int i = 0; i < rootsControllers.Count; i++)
+            {
+                if (rootsControllers[i].rootType == type)
+                {
+                    RootsController remove = rootsControllers[i];
+                    rootsControllers.RemoveAt(i);
+                    Destroy(remove);
+                }
+            }
+
+            for (int i = 0; i < mainRoots.Count; i++)
+            {
+                if (mainRoots[i].GetRootType() == type)
+                {
+                    mainRoots.RemoveAt(i);
+                }
             }
         }
     }

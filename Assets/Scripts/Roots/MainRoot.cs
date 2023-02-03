@@ -33,6 +33,7 @@ namespace Apollo11.Roots
             if (Health<=0) 
             {
                 SystemsLocator.Inst.SoundController.PlayRootDefeated();
+                SystemsLocator.Inst.RootsSystem.OnMainRootDeath(rootType);
                 Destroy(gameObject); //TODO
             }
         }

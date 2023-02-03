@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponToKill: 2
   rootType: 2
+  healthBar: {fileID: 0}
 --- !u!61 &96320163
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -282,6 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponToKill: 3
   rootType: 3
+  healthBar: {fileID: 0}
 --- !u!61 &288032823
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4667,6 +4669,54 @@ PrefabInstance:
       propertyPath: mainRoots.Array.data[2]
       value: 
       objectReference: {fileID: 96320162}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeASprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeBSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeCSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeASprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: f9d577e29a0c1d7439772ae44b330a4c, type: 3}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeASprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 42dafa91e0882ec48a39a9d282735d6c, type: 3}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeASprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 12d5aad78c89fc74fae9c999c5559f29, type: 3}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeBSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: ae50d955b939418489c75fc5da829c9f, type: 3}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeBSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: f7cedbbfd45a3c24ab1eafd73ee765e0, type: 3}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeBSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 331b6e9ab95ce2e49b80809d431ef7d7, type: 3}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeCSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: e44bd5e635843d64e9e098a00029f18a, type: 3}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeCSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 934e9dc4ffc2cb84c9b6c1c701acbcbf, type: 3}
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: typeCSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: d2a0967e417f34641ae5ddddd537d010, type: 3}
     - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: mainrootsSpawnpointsTilemap
       value: 

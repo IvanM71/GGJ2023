@@ -22,5 +22,20 @@ namespace Apollo11
         {
             SystemsLocator.Inst.AttackSystem.AtAttackAnimation();
         }
+
+        public void AtStep()
+        {
+            SystemsLocator.Inst.SoundController.PlayStep();
+        }
+
+        public void AtToolWhoop()
+        {
+            SystemsLocator.Inst.SoundController.PlayToolWoosh();
+        }
+
+        public void AtToolHit()
+        {
+            SystemsLocator.Inst.PlayerSystems.PlayerWeaponsInHand.PlayHitSoundForSelectedWeapon();
+        }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Apollo11.Core;
 using UnityEngine;
 
 namespace Apollo11.Player
@@ -8,6 +9,9 @@ namespace Apollo11.Player
         [SerializeField] private List<Enums.HandWeapon> handWeaponsType;
         [SerializeField] private List<SpriteRenderer> handWeapons;
 
+
+        private Enums.HandWeapon _selectedHandWeapon;
+        
         private void Awake()
         {
             DeselectWeapon();
@@ -21,6 +25,7 @@ namespace Apollo11.Player
                 return;
             }
             handWeapons[handWeaponsType.IndexOf(w)].enabled = true;
+            _selectedHandWeapon = w;
         }
 
         public void DeselectWeapon()
@@ -29,6 +34,13 @@ namespace Apollo11.Player
             {
                 w.enabled = false;
             }
+
+            _selectedHandWeapon = Enums.HandWeapon.Unknown;
+        }
+
+        public void PlayHitSoundForSelectedWeapon()
+        {
+            SystemsLocator.Inst.SoundController.PlayToolHit(_selectedHandWeapon);
         }
     }
 }

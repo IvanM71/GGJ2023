@@ -43,6 +43,14 @@ namespace Apollo11.Player
         {
             playerWeaponsInHand.DeselectWeapon();
             animator.SetBool("Hits", false);
+            animator.SetBool("Attacks", false);
+        }
+
+
+        public void PlayAttack(Enums.HandWeapon weaponType)
+        {
+            animator.SetBool("Attacks", true);
+            playerWeaponsInHand.SelectWeapon(weaponType);
         }
     }
 }

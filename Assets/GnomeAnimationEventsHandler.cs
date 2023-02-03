@@ -17,5 +17,10 @@ namespace Apollo11
            
             
         }
+
+        public void AtDealDamage()
+        {
+            SystemsLocator.Inst.AttackSystem.AtAttackAnimation();
+        }
     }
 }

@@ -6,6 +6,8 @@ namespace Apollo11
 {
     public class AttackSystem : MonoBehaviour
     {
+        private IDamagable _currentTarget;
+        
         public void TryAttack(IDamagable target)
         {
             if (target == null) return;
@@ -15,9 +17,15 @@ namespace Apollo11
             {
                 SystemsLocator.Inst.InteractionSystem.InAttack = true;
                 SystemsLocator.Inst.PlayerSystems.PlayerMovement.LockMovement = true;
-                SystemsLocator.Inst.PlayerSystems.PlayerAnimation.PlayHandWeapon(Enums.RootWeaponToHandWeapon(type));
-                target.TakeDamage(1);
+                SystemsLocator.Inst.PlayerSystems.PlayerAnimation.PlayAttack(Enums.RootWeaponToHandWeapon(type));
+                _currentTarget = target;
+                
             }
+        }
+
+        public void AtAttackAnimation()
+        {
+            _currentTarget?.TakeDamage(1);
         }
     }
 }

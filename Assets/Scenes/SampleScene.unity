@@ -2297,6 +2297,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1763846023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1279114532951847802, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+  m_PrefabInstance: {fileID: 5948463581446038575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1763846026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763846023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4904691e8a5a6f94b80ef3975b0b5440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToGive: 1
+  amount: 1
+  resourceSpawnPoint: {x: 0, y: 0, z: 0}
+  resourceSpawnRadius: 0.3
+  prefab: {fileID: 3827617635283054661, guid: d9d431c29ea10ac41937f84b8c55432c, type: 3}
 --- !u!1001 &1790810816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4827,6 +4849,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: dropSpawner
+      value: 
+      objectReference: {fileID: 1763846026}
     - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: spawnpointsTilemap
       value: 

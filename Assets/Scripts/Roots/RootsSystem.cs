@@ -34,6 +34,7 @@ namespace Apollo11
         [SerializeField] private Sprite[] typeASprites;
         [SerializeField] private Sprite[] typeBSprites;
         [SerializeField] private Sprite[] typeCSprites;
+        [SerializeField] private RootDropSpawner dropSpawner;
 
         private void Awake()
         {
@@ -211,6 +212,10 @@ namespace Apollo11
             }
 
             
+        }
+        public void Spawn(Vector3 spawnPosition)
+        {
+            dropSpawner.Spawn(spawnPosition);
         }
     }
 }

@@ -13,9 +13,13 @@ namespace Apollo11.Roots
         public void TakeDamage(int damage)
         {
             SystemsLocator.Inst.SoundController.PlayRootsImpact();
-            
-            if ((int)SystemsLocator.Inst.RootsSystem.RootsModel.roots[X, Y].Stage < damage)
+
+            if (SystemsLocator.Inst.RootsSystem.RootsModel.roots[X, Y].Stage == Enums.RootStages.STAGE_1)
+            {
                 SystemsLocator.Inst.RootsSystem.RootsModel.roots[X, Y].Stage = Enums.RootStages.STAGE_0;
+                SystemsLocator.Inst.RootsSystem.Spawn(transform.position);
+                Debug.Log("Root is dead");
+            }
             else
                 SystemsLocator.Inst.RootsSystem.RootsModel.roots[X, Y].Stage -= damage;
 

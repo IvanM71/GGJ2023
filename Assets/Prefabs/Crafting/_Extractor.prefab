@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 7431822313968496824}
   - component: {fileID: 6363448528092306926}
   m_Layer: 0
-  m_Name: Extractor
+  m_Name: _Extractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

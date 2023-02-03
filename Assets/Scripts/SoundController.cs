@@ -42,7 +42,7 @@ namespace Apollo11
         }
         public void PlayBucketHit()
         {
-            audioSource.PlayOneShot(axeHits[Random.Range(0, axeHits.Length)]);
+            audioSource.PlayOneShot(bucketHits[Random.Range(0, bucketHits.Length)]);
         }
         public void PlaySawHit()
         {

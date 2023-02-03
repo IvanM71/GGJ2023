@@ -38,103 +38,83 @@ namespace Apollo11
 
         public void PlayAxeHit()
         {
-            audioSource.clip = axeHits[Random.Range(0, axeHits.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(axeHits[Random.Range(0, axeHits.Length)]);
         }
         public void PlayBucketHit()
         {
-            audioSource.clip = axeHits[Random.Range(0, axeHits.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(axeHits[Random.Range(0, axeHits.Length)]);
         }
         public void PlaySawHit()
         {
-            audioSource.clip = sawHits[Random.Range(0, sawHits.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(sawHits[Random.Range(0, sawHits.Length)]);
         }
         public void PlayScissorsHit()
         {
-            audioSource.clip = scissorsHits[Random.Range(0, scissorsHits.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(scissorsHits[Random.Range(0, scissorsHits.Length)]);
         }
         public void PlaySprayerHit()
         {
-            audioSource.clip = sprayerHits[Random.Range(0, sprayerHits.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(sprayerHits[Random.Range(0, sprayerHits.Length)]);
         }
         public void PlayPickaxeHit()
         {
-            audioSource.clip = pickaxeHits[Random.Range(0, pickaxeHits.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(pickaxeHits[Random.Range(0, pickaxeHits.Length)]);
         }
         public void PlayGetDamage()
         {
-            audioSource.clip = getDamage[Random.Range(0, getDamage.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(getDamage[Random.Range(0, getDamage.Length)]);
         }
         public void PlayStep()
         {
-            audioSource.clip = steps[Random.Range(0, steps.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(steps[Random.Range(0, steps.Length)]);
         }
         public void PlayRootDefeated()
         {
-            audioSource.clip = rootDefeated;
-            audioSource.Play();
+            audioSource.PlayOneShot(rootDefeated);
         }
         public void PlayRootsGrow()
         {
-            audioSource.clip = rootsGrow[Random.Range(0, rootsGrow.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(rootsGrow[Random.Range(0, rootsGrow.Length)]);
         }
         public void PlayRootsImpact()
-        {
-            audioSource.clip = rootsImpact[Random.Range(0, rootsImpact.Length)];
-            audioSource.Play();
+        { 
+            audioSource.PlayOneShot(rootsImpact[Random.Range(0, rootsImpact.Length)]);
         }
         public void PlayRootsRoar()
         {
-            audioSource.clip = rootsRoar[Random.Range(0, rootsRoar.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(rootsRoar[Random.Range(0, rootsRoar.Length)]);
         }
         public void PlayItemOut()
         {
-            audioSource.clip = itemOut;
-            audioSource.Play();
+            audioSource.PlayOneShot(itemOut);
         }
         public void PlayItemIn()
         {
-            audioSource.clip = itemIn[Random.Range(0, itemIn.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(itemIn[Random.Range(0, itemIn.Length)]);
         }
         public void PlayPickItem()
-        {
-            audioSource.clip = pickItem[Random.Range(0, pickItem.Length)];
-            audioSource.Play();
+        { ;
+            audioSource.PlayOneShot(pickItem[Random.Range(0, pickItem.Length)]);
         }
         public void PlayThrowItem()
         {
-            audioSource.clip = throwItem[Random.Range(0, throwItem.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(throwItem[Random.Range(0, throwItem.Length)]);
         }
         public void PlayToolCrafted()
         {
-            audioSource.clip = toolCrafted[Random.Range(0, toolCrafted.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(toolCrafted[Random.Range(0, toolCrafted.Length)]);
         }
         public void PlayToolWoosh()
         {
-            audioSource.clip = toolWoosh[Random.Range(0, toolWoosh.Length)];
-            audioSource.Play();
+            audioSource.PlayOneShot(toolWoosh[Random.Range(0, toolWoosh.Length)]);
         }
         public void PlayWin()
         {
-            audioSource.clip = winSound;
-            audioSource.Play();
+            audioSource.PlayOneShot(winSound);
         }
         public void PlayLose()
         {
-            audioSource.clip = loseSound;
-            audioSource.Play();
+            audioSource.PlayOneShot(loseSound);
         }
         public void PlayTheme()
         {

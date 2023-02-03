@@ -29,6 +29,7 @@ namespace Apollo11.Crafting
         private void ReceiveItem(Enums.Items itemType)
         {
             factory.ItemsSlots.ReceiveItem(itemType);
+            SystemsLocator.Inst.SoundController.PlayItemIn();
         }
 
         public void AtPlayerVisionEnter()

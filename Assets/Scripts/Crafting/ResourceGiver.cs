@@ -34,6 +34,7 @@ namespace Apollo11.Crafting
             if (givesChargesNotItems)
             {
                 SystemsLocator.Inst.WeaponsCharges.AddCharges(chargeTypeToGive, amount);
+                SystemsLocator.Inst.SoundController.PlayToolCrafted();
             }
             else
             {
@@ -44,8 +45,12 @@ namespace Apollo11.Crafting
                     var offset2 = Random.Range(-resourceSpawnRadius, resourceSpawnRadius);
                     var pos = resourceSpawnPoint.position + new Vector3(offset1, offset2, 0);
                     Instantiate(itemPrefab, pos, Quaternion.identity);
+                    SystemsLocator.Inst.SoundController.PlayItemOut();
+                    //SystemsLocator.Inst.SoundController.PlayThrowItem();
                 }
             }
+            
+            
             
         }
     }

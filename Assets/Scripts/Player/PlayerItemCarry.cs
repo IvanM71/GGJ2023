@@ -1,4 +1,5 @@
 using System;
+using Apollo11.Core;
 using Apollo11.Items;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ namespace Apollo11.Player
             item.transform.parent = itemHolder;
             item.transform.localPosition = Vector3.zero;
             item.transform.localRotation = Quaternion.Euler(Vector3.zero);
+            
+            SystemsLocator.Inst.SoundController.PlayPickItem();
         }
 
         public void DropItem()
@@ -35,6 +38,8 @@ namespace Apollo11.Player
             CurrentItem.transform.localRotation = Quaternion.Euler(Vector3.zero);
 
             CurrentItem = null;
+            
+            SystemsLocator.Inst.SoundController.PlayThrowItem();
         }
 
         public Enums.Items DeleteItemFromHands()

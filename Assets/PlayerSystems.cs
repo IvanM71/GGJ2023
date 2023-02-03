@@ -13,6 +13,9 @@ namespace Apollo11
         [SerializeField] private PlayerItemCarry playerItemCarry;
         public PlayerItemCarry PlayerItemCarry => playerItemCarry;
         
+        [SerializeField] private PlayerWeaponsInHand playerWeaponsInHand;
+        public PlayerWeaponsInHand PlayerWeaponsInHand => playerWeaponsInHand;
+        
         
         [SerializeField] private PlayerAnimation playerAnimation;
         public PlayerAnimation PlayerAnimation => playerAnimation;

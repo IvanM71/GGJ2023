@@ -756,6 +756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 8563030748494377462}
   playerItemCarry: {fileID: 3769033518070629083}
+  playerWeaponsInHand: {fileID: 8894694141742605951}
   playerAnimation: {fileID: 2663884752197585347}
   interactionVision: {fileID: 2139629218330429935}
   cameraFollowPoint: {fileID: 2445368504068966796}

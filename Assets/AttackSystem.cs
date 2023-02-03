@@ -20,13 +20,18 @@ namespace Apollo11
                 SystemsLocator.Inst.PlayerSystems.PlayerAnimation.PlayAttack(Enums.RootWeaponToHandWeapon(type));
                 _currentTarget = target;
                 
+                
             }
         }
 
         public void AtAttackAnimation()
         {
-            _currentTarget?.TakeDamage(1);
-            
+            if (_currentTarget == null) return;
+                
+            _currentTarget.TakeDamage(1);
+            SystemsLocator.Inst.SoundController.PlayToolHit(Enums.RootWeaponToHandWeapon(_currentTarget.GetWeapon()));
+
+
         }
     }
 }

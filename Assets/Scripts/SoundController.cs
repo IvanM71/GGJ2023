@@ -61,6 +61,8 @@ namespace Apollo11
                 case Enums.HandWeapon.Bucket:
                     audioSource.PlayOneShot(bucketHits[Random.Range(0, bucketHits.Length)]);
                     break;
+                case Enums.HandWeapon.Unknown:
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(weapon), weapon, null);
             }

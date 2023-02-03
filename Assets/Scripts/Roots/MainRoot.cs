@@ -22,12 +22,17 @@ namespace Apollo11.Roots
         public void TakeDamage(int dmg)
         {
             print("Root takes damage!");
+            
+            SystemsLocator.Inst.SoundController.PlayRootsImpact();
+            SystemsLocator.Inst.SoundController.PlayRootsRoar();
+            
             Health -= dmg;
             if (Health < 0) Health = 0;
 
             healthBar.SetValue01((float)Health / _startHealth);
             if (Health<=0) 
             {
+                SystemsLocator.Inst.SoundController.PlayRootDefeated();
                 Destroy(gameObject); //TODO
             }
         }

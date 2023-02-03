@@ -37,5 +37,8 @@ namespace Apollo11.Core
         [SerializeField] private RootsSystem rootsSystem;
         public RootsSystem RootsSystem => rootsSystem;
         
+        [SerializeField] private SoundController soundController;
+        public SoundController SoundController => soundController;
+        
     }
 }

@@ -4828,10 +4828,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 468473902}
     - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
-      propertyPath: mainRoots.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: mainRoots.Array.data[0]
       value: 
       objectReference: {fileID: 198964576}
@@ -4847,18 +4843,6 @@ PrefabInstance:
       propertyPath: uiPanel
       value: 
       objectReference: {fileID: 1609446332}
-    - target: {fileID: 5948463579879250314, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
-      propertyPath: startCharges.x
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 5948463579879250314, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
-      propertyPath: startCharges.y
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 5948463579879250314, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
-      propertyPath: startCharges.z
-      value: 99
-      objectReference: {fileID: 0}
     - target: {fileID: 5948463579879250315, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: playerSystems
       value: 

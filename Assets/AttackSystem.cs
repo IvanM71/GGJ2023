@@ -26,6 +26,7 @@ namespace Apollo11
         public void AtAttackAnimation()
         {
             _currentTarget?.TakeDamage(1);
+            
         }
     }
 }

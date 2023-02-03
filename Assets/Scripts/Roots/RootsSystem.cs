@@ -1,3 +1,4 @@
+using Apollo11.Core;
 using Apollo11.Roots;
 using System.Collections;
 using System.Collections.Generic;
@@ -101,7 +102,10 @@ namespace Apollo11
                 {
                     var canStageUp = rootsControllers[i].TryStageUp();
                     if (canStageUp)
+                    {
+                        SystemsLocator.Inst.SoundController.PlayRootsGrow();
                         isTick = true;
+                    }
                 }
 
                 UpdateView();
@@ -116,6 +120,7 @@ namespace Apollo11
                     var canGrow = rootsControllers[i].TryGrow();
                     if (canGrow)
                     {
+                        SystemsLocator.Inst.SoundController.PlayRootsGrow();
                         if (isLose())
                         {
                             StopAllCoroutines();
@@ -204,6 +209,8 @@ namespace Apollo11
                     mainRoots.RemoveAt(i);
                 }
             }
+
+            
         }
     }
 }

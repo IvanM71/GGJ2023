@@ -17,7 +17,7 @@ namespace Apollo11.Roots
             if (SystemsLocator.Inst.RootsSystem.RootsModel.roots[X, Y].Stage == Enums.RootStages.STAGE_1)
             {
                 SystemsLocator.Inst.RootsSystem.RootsModel.roots[X, Y].Stage = Enums.RootStages.STAGE_0;
-                SystemsLocator.Inst.RootsSystem.Spawn(transform.position);
+                SystemsLocator.Inst.RootsSystem.SpawnDrop(transform.position);
                 Debug.Log("Root is dead");
             }
             else

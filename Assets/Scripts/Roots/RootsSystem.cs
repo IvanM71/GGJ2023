@@ -213,7 +213,7 @@ namespace Apollo11
 
             
         }
-        public void Spawn(Vector3 spawnPosition)
+        public void SpawnDrop(Vector3 spawnPosition)
         {
             dropSpawner.Spawn(spawnPosition);
         }

@@ -1,5 +1,6 @@
 using Apollo11.Core;
 using Apollo11.Roots;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -27,6 +28,8 @@ namespace Apollo11
         }
 
         private List<MainRoot> mainRoots;
+
+        public event Action OnAllMainRootsDead;
 
         [SerializeField] private Tilemap spawnpointsTilemap;
         [SerializeField] private GameObject rootPrefab;
@@ -211,6 +214,10 @@ namespace Apollo11
                 }
             }
 
+            if(mainRoots.Count == 0)
+            {
+                OnAllMainRootsDead?.Invoke();
+            }
             
         }
         public void Spawn(Vector3 spawnPosition)

@@ -12,7 +12,7 @@ namespace Apollo11.Core
         public static SystemsLocator Inst;
         private void Awake() => Inst = this;
 
-        public bool InPause { get; set; }
+        public bool InPause;
 
 
         public PlayerSystems PlayerSystems { get; set; }

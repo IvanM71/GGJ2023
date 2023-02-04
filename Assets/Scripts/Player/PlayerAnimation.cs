@@ -52,5 +52,10 @@ namespace Apollo11.Player
             animator.SetBool("Attacks", true);
             playerWeaponsInHand.SelectWeapon(weaponType);
         }
+
+        public void PlayDeath()
+        {
+            animator.SetBool("Death", true);
+        }
     }
 }

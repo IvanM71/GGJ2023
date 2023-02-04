@@ -10,6 +10,9 @@ namespace Apollo11
         [SerializeField] private float damageInterval = 0.5f;
         [SerializeField] private float healInterval = 1f;
         [SerializeField] private float healDelay = 3f;
+
+        [Space]
+        [SerializeField] private PlayerDamageIndication damageIndication;
         
         [NonSerialized] public readonly List<RootTileObject> RootsPlayerTouches = new();
 
@@ -39,6 +42,7 @@ namespace Apollo11
             {
                 _lastDamageTime = DateTime.Now;
                 _health--;
+                damageIndication.Blink();
                 if (_health <= 0) 
                 {
                     _health = 0;
@@ -65,6 +69,9 @@ namespace Apollo11
         private void AtDeath()
         {
             SystemsLocator.Inst.SoundController.PlayThrowItem(); //TODO
+            SystemsLocator.Inst.PlayerSystems.PlayerMovement.LockMovement = true;
+            SystemsLocator.Inst.PlayerSystems.PlayerAnimation.PlayDeath();
+            SystemsLocator.Inst.InteractionSystem.InAttack = true;
             OnPlayerDead?.Invoke();
         }
     }

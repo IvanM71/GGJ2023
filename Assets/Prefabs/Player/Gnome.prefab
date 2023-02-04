@@ -756,6 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 8563030748494377462}
+  playerHealth: {fileID: 398740123286203964}
   playerItemCarry: {fileID: 3769033518070629083}
   playerWeaponsInHand: {fileID: 8894694141742605951}
   playerAnimation: {fileID: 2663884752197585347}
@@ -790,7 +791,6 @@ MonoBehaviour:
   damageInterval: 0.5
   healInterval: 1
   healDelay: 3
-  RootsPlayerTouches: []
 --- !u!114 &3769033518070629083
 MonoBehaviour:
   m_ObjectHideFlags: 0

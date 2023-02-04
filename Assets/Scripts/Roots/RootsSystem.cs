@@ -2,16 +2,18 @@ using Apollo11.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Apollo11.Enums;
+using Random = UnityEngine.Random;
 
 namespace Apollo11
 {
     public class RootsSystem : MonoBehaviour
     {
+        [SerializeField] private float tickTimeFrom = 3f;
+        [SerializeField] private float tickTimeTo = 5f;
+        
         RootsView rootsView;
         RootsModel rootsModel;
 
@@ -98,7 +100,7 @@ namespace Apollo11
         }
         private IEnumerator IE_Timer()
         {
-            var tick = new WaitForSeconds(3f);
+            //var tick = new WaitForSeconds(3f);
             while (true) //or while root is alive
             {
                 bool isTick = false;
@@ -115,7 +117,7 @@ namespace Apollo11
                 UpdateView();
 
                 if (isTick)
-                    yield return tick;
+                    yield return GetTickTime();
 
                 isTick = false;
 
@@ -138,12 +140,15 @@ namespace Apollo11
 
                 if (isTick)
                 {
-                    yield return tick;
+                    yield return GetTickTime();
                 }
 
                 yield return null;
             }
         }
+
+        private WaitForSeconds GetTickTime() => new (Random.Range(tickTimeFrom, tickTimeTo));
+        
         bool isLose()
         {
             for(int x = 0; x < rootsModel.roots.GetLength(0); x++) 

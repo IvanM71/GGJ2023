@@ -1,4 +1,5 @@
 using System;
+using Apollo11.Core;
 using UnityEngine;
 
 namespace Apollo11
@@ -6,8 +7,6 @@ namespace Apollo11
     public class UI_PausePanel : MonoBehaviour
     {
         [SerializeField] private GameObject pausePanel;
-
-        private bool _inPause;
 
         private void Awake()
         {
@@ -18,17 +17,17 @@ namespace Apollo11
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (_inPause)
+                if (SystemsLocator.Inst.InPause)
                 {
                     Time.timeScale = 1f;
                     pausePanel.SetActive(false);
-                    _inPause = false;
+                    SystemsLocator.Inst.InPause = false;
                 }
                 else
                 {
                     Time.timeScale = 0f;
                     pausePanel.SetActive(true);
-                    _inPause = true;
+                    SystemsLocator.Inst.InPause = true;
                 }
             }
         }

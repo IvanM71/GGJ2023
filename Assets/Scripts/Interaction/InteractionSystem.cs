@@ -103,7 +103,7 @@ namespace Apollo11.Interaction
 
         private void HandleInput(IInteractable closestInteractable, IDamagable closestDamagable)
         {
-            if (InAttack) return;
+            if (InAttack || SystemsLocator.Inst.InPause) return;
 
             if (InteractionState == Enums.PlayerInteractionState.InLongInteraction)
             {

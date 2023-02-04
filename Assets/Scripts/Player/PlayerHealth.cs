@@ -19,8 +19,8 @@ namespace Apollo11
         public event Action OnPlayerDead;
 
         private int _health = 10;
-        private DateTime _lastDamageTime;
-        private DateTime _lastHealTime;
+        private double _lastDamageTime;
+        private double _lastHealTime;
 
         private bool _isDead;
 
@@ -38,9 +38,9 @@ namespace Apollo11
 
         private void TryGetDamage()
         {
-            if ((DateTime.Now - _lastDamageTime).TotalSeconds > damageInterval)
+            if (Time.time - _lastDamageTime > damageInterval)
             {
-                _lastDamageTime = DateTime.Now;
+                _lastDamageTime = Time.time;
                 _health--;
                 damageIndication.Blink();
                 if (_health <= 0) 
@@ -56,9 +56,9 @@ namespace Apollo11
 
         private void TryHeal()
         {
-            if ((DateTime.Now - _lastDamageTime).TotalSeconds > healDelay && (DateTime.Now - _lastHealTime).TotalSeconds > healInterval)
+            if (Time.timeAsDouble - _lastDamageTime > healDelay && Time.timeAsDouble - _lastHealTime > healInterval)
             {
-                _lastHealTime = DateTime.Now;
+                _lastHealTime = Time.timeAsDouble;
                 _health++;
                 if (_health > 10) _health = 10;
                 

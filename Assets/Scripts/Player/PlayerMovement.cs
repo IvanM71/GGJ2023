@@ -1,3 +1,4 @@
+using Apollo11.Core;
 using UnityEngine;
 
 namespace Apollo11.Player
@@ -15,6 +16,8 @@ namespace Apollo11.Player
         
         void Update()
         {
+            if (SystemsLocator.Inst.InPause) return;
+
             if (LockMovement)
             {
                 Movement = Vector2.zero;
@@ -28,6 +31,8 @@ namespace Apollo11.Player
 
         private void FixedUpdate()
         {
+            if (SystemsLocator.Inst.InPause) return;
+            
             var direction = (Vector3)Movement;
             rb2d.velocity = (direction * (speed));
         }

@@ -1,10 +1,8 @@
-using System;
 using Apollo11.Core;
 using Apollo11.WorldUI;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-namespace Apollo11.Roots
+namespace Apollo11
 {
     public class MainRoot : MonoBehaviour, IDamagable
     {

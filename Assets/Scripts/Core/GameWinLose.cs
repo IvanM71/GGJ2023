@@ -1,9 +1,7 @@
-using System;
-using Apollo11.Core;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Core
 {
     public class GameWinLose : MonoBehaviour
     {

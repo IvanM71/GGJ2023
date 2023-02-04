@@ -1,7 +1,7 @@
 using Apollo11.Core;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Player
 {
     public class GnomeAnimationEventsHandler : MonoBehaviour
     {

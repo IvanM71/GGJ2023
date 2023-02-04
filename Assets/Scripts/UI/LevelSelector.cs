@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Apollo11
+namespace Apollo11.UI
 {
     public class LevelSelector : MonoBehaviour
     {

@@ -1,8 +1,7 @@
 using Apollo11.Interaction;
-using Apollo11.Player;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Player
 {
     public class PlayerSystems : MonoBehaviour
     {

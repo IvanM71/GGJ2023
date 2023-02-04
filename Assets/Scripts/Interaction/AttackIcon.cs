@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Interaction
 {
     public class AttackIcon : MonoBehaviour
     {

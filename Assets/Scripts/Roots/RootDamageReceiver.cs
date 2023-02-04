@@ -1,9 +1,7 @@
 using Apollo11.Core;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Apollo11.Roots
+namespace Apollo11
 {
     public class RootDamageReceiver : MonoBehaviour, IDamagable
     {

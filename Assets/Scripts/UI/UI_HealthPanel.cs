@@ -2,8 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-namespace Apollo11
+namespace Apollo11.UI
 {
     public class UI_HealthPanel : MonoBehaviour
     {

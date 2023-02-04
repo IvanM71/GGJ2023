@@ -1,5 +1,6 @@
 using Apollo11.Interaction;
 using Apollo11.Items;
+using Apollo11.Player;
 using Apollo11.WeaponCharges;
 using UnityEngine;
 

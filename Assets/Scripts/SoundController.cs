@@ -26,7 +26,7 @@ namespace Apollo11
         [SerializeField] AudioClip[] rootsImpact;
         [SerializeField] AudioClip[] rootsRoar;
 
-        [SerializeField] AudioClip itemOut;
+        [SerializeField] AudioClip[] itemOut;
         [SerializeField] AudioClip[] itemIn;
         [SerializeField] AudioClip[] pickItem;
         [SerializeField] AudioClip[] throwItem;
@@ -36,6 +36,7 @@ namespace Apollo11
 
         [SerializeField] AudioClip winSound;
         [SerializeField] AudioClip loseSound;
+        [SerializeField] AudioClip deathSound;
 
         [SerializeField] AudioClip theme;
 
@@ -97,7 +98,7 @@ namespace Apollo11
         }
         public void PlayItemOut()
         {
-            audioSource.PlayOneShot(itemOut);
+            audioSource.PlayOneShot(itemOut[Random.Range(0, itemOut.Length)]);
         }
         public void PlayItemIn()
         {
@@ -126,6 +127,10 @@ namespace Apollo11
         public void PlayLose()
         {
             audioSource.PlayOneShot(loseSound);
+        }
+        public void PlayDeath()
+        {
+            audioSource.PlayOneShot(deathSound); 
         }
         public void PlayTheme(bool play)
         {

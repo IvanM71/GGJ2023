@@ -54,9 +54,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 33bf5d5e266174ff48f69610e12ff437, type: 3}
   - {fileID: 8300000, guid: c2ba90b5c5d5449fcbb832feaa349365, type: 3}
   bucketHits:
-  - {fileID: 8300000, guid: 23766ccba1ee442b09f592fc40b04049, type: 3}
-  - {fileID: 8300000, guid: 60dc62ce6fdf54343b1bdf9414e96981, type: 3}
-  - {fileID: 8300000, guid: 16e36bbe24127488c89ddea5f22498b1, type: 3}
+  - {fileID: 8300000, guid: 5bf87c659c5ebb34f8d17972a8a48a7f, type: 3}
+  - {fileID: 8300000, guid: b469bbf032546844c8877c6cc4afc3df, type: 3}
+  - {fileID: 8300000, guid: 9860c3b538d6f514781fc859e8295b05, type: 3}
   sawHits:
   - {fileID: 8300000, guid: 6f76036743f99487589b34dca0e59ac3, type: 3}
   - {fileID: 8300000, guid: 3adf90992305145348f85613edc75c8c, type: 3}
@@ -74,7 +74,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0ff67d5c7592d4261a1414d806a8ad19, type: 3}
   - {fileID: 8300000, guid: 42ae75a413a974b07b07ccfd3fb4bb30, type: 3}
   - {fileID: 8300000, guid: b6fb68773fbca4f28a4ea6eae3406ea4, type: 3}
-  - {fileID: 8300000, guid: a78201c99eb2744f1b969e33dc4d8c2d, type: 3}
   getDamage:
   - {fileID: 8300000, guid: de3a0f01268f946bf8321b77a82aca93, type: 3}
   - {fileID: 8300000, guid: 434d9caa23cd9491bae659dc8ed59c79, type: 3}
@@ -99,7 +98,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 84712261f648f43c2904f3ee4695b5c0, type: 3}
   - {fileID: 8300000, guid: 0496b03149b6546fe9bb5309017692ce, type: 3}
   - {fileID: 8300000, guid: fbf5af153d02644f4bfa56e9957e1a0c, type: 3}
-  itemOut: {fileID: 8300000, guid: 8dfe128cd708941dabd88899f11d1f73, type: 3}
+  itemOut:
+  - {fileID: 8300000, guid: 102adb2db1830ff4ebc752b2aef8de7c, type: 3}
+  - {fileID: 8300000, guid: f6713d4f0abc9934b985397267823155, type: 3}
+  - {fileID: 8300000, guid: 22384c83d3f17504e80e2b27199fd2a8, type: 3}
   itemIn:
   - {fileID: 8300000, guid: e5c45832978f44674af3353aa0bc8976, type: 3}
   - {fileID: 8300000, guid: 69dd6d57d6ccb41f29ab72cda0e8a151, type: 3}
@@ -121,6 +123,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a75b334d5c60f4cc19064ffc94d21b97, type: 3}
   winSound: {fileID: 8300000, guid: 8c2eca98e885e49058f754f611fc947d, type: 3}
   loseSound: {fileID: 8300000, guid: 74cb870d2465a4ff0b90d545ee9292c2, type: 3}
+  deathSound: {fileID: 8300000, guid: ed580bb8832702042aff5671234d7cce, type: 3}
   theme: {fileID: 8300000, guid: c64cbd72e3d174cf98460d6d86d4e9d3, type: 3}
 --- !u!82 &8344089046650055827
 AudioSource:

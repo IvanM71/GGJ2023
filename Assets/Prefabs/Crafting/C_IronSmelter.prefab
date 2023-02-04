@@ -7,10 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3812539714326883570, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a19564ac770c870448dea09ee22666e0, type: 3}
     - target: {fileID: 4623723311421645604, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 340565f65f9a8ca42af4066b273dbc48, type: 3}
+    - target: {fileID: 8053802989998992904, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053802989998992904, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.013
+      objectReference: {fileID: 0}
     - target: {fileID: 8504110915162822876, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
       propertyPath: itemToGive
       value: 4

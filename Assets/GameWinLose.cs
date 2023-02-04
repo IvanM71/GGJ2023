@@ -1,4 +1,6 @@
 using System;
+using Apollo11.Core;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Apollo11
@@ -20,6 +22,16 @@ namespace Apollo11
         private void OnAllMainRootsDead()
         {
             print("WIN");
+
+            SystemsLocator.Inst.SoundController.PlayTheme(false);
+            
+            var seq = DOTween.Sequence();
+            seq.AppendInterval(2f);
+            seq.AppendCallback(() =>
+            {
+                
+                SystemsLocator.Inst.SoundController.PlayWin();
+            });
         }
     }
 }

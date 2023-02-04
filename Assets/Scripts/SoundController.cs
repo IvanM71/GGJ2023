@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine.Audio;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -126,16 +127,26 @@ namespace Apollo11
         {
             audioSource.PlayOneShot(loseSound);
         }
-        public void PlayTheme()
+        public void PlayTheme(bool play)
         {
-            themeSource.clip = theme;
-            themeSource.loop = true;
-            themeSource.Play();
+            if (play)
+            {
+                themeSource.clip = theme;
+                themeSource.loop = true;
+                themeSource.Play();
+            }
+            else
+            {
+                DOTween.To(value => themeSource.volume = value, 1f, 0f, 1f)
+                    .OnComplete(() => themeSource.Stop());
+                
+            }
+            
         }
 
         private void Start()
         {
-            PlayTheme();
+            PlayTheme(true);
         }
     }
 }

@@ -43,6 +43,7 @@ namespace Apollo11
         {
             BoundsInt bounds = spawnpointsTilemap.cellBounds;
             Vector3 cellSize = spawnpointsTilemap.cellSize;
+            spawnpointsTilemap.gameObject.SetActive(false);
 
             // Create model array
             rootsModel = new RootsModel();

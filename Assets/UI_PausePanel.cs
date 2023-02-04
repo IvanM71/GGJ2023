@@ -13,23 +13,38 @@ namespace Apollo11
             pausePanel.SetActive(false);
         }
 
+        private void OnDestroy()
+        {
+            Time.timeScale = 1f;
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (SystemsLocator.Inst.InPause)
                 {
-                    Time.timeScale = 1f;
-                    pausePanel.SetActive(false);
-                    SystemsLocator.Inst.InPause = false;
+                    Resume();
                 }
                 else
                 {
-                    Time.timeScale = 0f;
-                    pausePanel.SetActive(true);
-                    SystemsLocator.Inst.InPause = true;
+                    Pause();
                 }
             }
+        }
+
+        public void Resume()
+        {
+            Time.timeScale = 1f;
+            pausePanel.SetActive(false);
+            SystemsLocator.Inst.InPause = false;
+        }
+
+        private void Pause()
+        {
+            Time.timeScale = 0f;
+            pausePanel.SetActive(true);
+            SystemsLocator.Inst.InPause = true;
         }
     }
 }

@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 7431822313968496829}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.483, y: -0.352, z: 0}
-  m_LocalScale: {x: 0.8560936, y: 0.89354724, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7431822313927163237}
@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extractor: {fileID: 7431822313968496825}
   extractionWeapon: 4
+  interactionIconOffset: {x: 0, y: 0.5}
 --- !u!114 &6363448528092306926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemToGive: 3
   givesChargesNotItems: 0
-  chargeToGive: 0
+  chargeTypeToGive: 0
   amount: 1
   resourceSpawnPoint: {fileID: 7431822313927163237}
   resourceSpawnRadius: 0.3
@@ -250,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6021680573813886401, guid: 9024ed875e52f0b4084bd7c6efa3ab73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.75
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6021680573813886401, guid: 9024ed875e52f0b4084bd7c6efa3ab73, type: 3}
       propertyPath: m_LocalPosition.z

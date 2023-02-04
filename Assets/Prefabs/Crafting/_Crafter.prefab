@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8819835286579508275}
   - component: {fileID: 8504110915162822876}
   m_Layer: 0
-  m_Name: Smelter
+  m_Name: _Crafter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,5 @@
 using Apollo11.Interaction;
 using Apollo11.Items;
-using Apollo11.Player;
 using Apollo11.WeaponCharges;
 using UnityEngine;
 
@@ -12,9 +11,8 @@ namespace Apollo11.Core
         private void Awake() => Inst = this;
 
 
-        [SerializeField] private PlayerSystems playerSystems;
-        public PlayerSystems PlayerSystems => playerSystems;
-        
+        public PlayerSystems PlayerSystems { get; set; }
+
         [SerializeField] private InteractionSystem interactionSystem;
         public InteractionSystem InteractionSystem => interactionSystem;
 

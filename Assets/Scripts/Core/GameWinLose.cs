@@ -7,17 +7,34 @@ namespace Apollo11.Core
     {
         [SerializeField] private RootsSystem _rootsSystem;
 
-        private void Awake()
+        private void Start()
         {
-            _rootsSystem.OnAllMainRootsDead += OnAllMainRootsDead;
+            _rootsSystem.OnAllMainRootsDead += AtWin;
+            SystemsLocator.Inst.PlayerSystems.PlayerHealth.OnPlayerDead += AtLose;
         }
 
         private void OnDestroy()
         {
-            _rootsSystem.OnAllMainRootsDead -= OnAllMainRootsDead;
+            _rootsSystem.OnAllMainRootsDead -= AtWin;
+            SystemsLocator.Inst.PlayerSystems.PlayerHealth.OnPlayerDead -= AtLose;
         }
 
-        private void OnAllMainRootsDead()
+        private void AtLose()
+        {
+            print("LOSE");
+
+            SystemsLocator.Inst.SoundController.PlayTheme(false);
+            
+            var seq = DOTween.Sequence();
+            seq.AppendInterval(2f);
+            seq.AppendCallback(() =>
+            {
+                
+                SystemsLocator.Inst.SoundController.PlayLose();
+            });
+        }
+
+        private void AtWin()
         {
             print("WIN");
 

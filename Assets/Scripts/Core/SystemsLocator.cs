@@ -1,6 +1,7 @@
 using Apollo11.Interaction;
 using Apollo11.Items;
 using Apollo11.Player;
+using Apollo11.UI;
 using Apollo11.WeaponCharges;
 using UnityEngine;
 
@@ -13,6 +14,11 @@ namespace Apollo11.Core
 
 
         public PlayerSystems PlayerSystems { get; set; }
+        
+        
+        [SerializeField] private UI_HealthPanel healthPanel;
+        public UI_HealthPanel UI_HealthPanel => healthPanel;
+        
 
         [SerializeField] private InteractionSystem interactionSystem;
         public InteractionSystem InteractionSystem => interactionSystem;

@@ -1,12 +1,14 @@
+using System;
 using Apollo11.Core;
 using UnityEngine;
 
 namespace Apollo11
 {
-    public class RootDamageReceiver : MonoBehaviour, IDamagable
+    public class RootTileObject : MonoBehaviour, IDamagable
     {
         public int X { get; set; }
         public int Y { get; set; }
+        
 
         public void TakeDamage(int damage)
         {
@@ -47,6 +49,18 @@ namespace Apollo11
         public Vector2 GetIconPosition()
         {
             return transform.position;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.TryGetComponent<PlayerHealth>(out var playerHealth))
+                playerHealth.RootsPlayerTouches.Add(this);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.TryGetComponent<PlayerHealth>(out var playerHealth))
+                playerHealth.RootsPlayerTouches.Remove(this);
         }
     }
 }

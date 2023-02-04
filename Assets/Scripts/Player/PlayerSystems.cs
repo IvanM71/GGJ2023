@@ -9,6 +9,9 @@ namespace Apollo11.Player
         public PlayerMovement PlayerMovement => playerMovement;
         
         
+        [SerializeField] private PlayerHealth playerHealth;
+        public PlayerHealth PlayerHealth => playerHealth;
+        
         [SerializeField] private PlayerItemCarry playerItemCarry;
         public PlayerItemCarry PlayerItemCarry => playerItemCarry;
         

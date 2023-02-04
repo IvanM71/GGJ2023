@@ -65,8 +65,8 @@ namespace Apollo11
                     {
                         rootsModel.roots[xModel, yModel] = new Root(Enums.RootStages.STAGE_0, Enums.RootType.Unknown);
                         rootsView.roots[xModel, yModel] = Instantiate(rootPrefab, rootPosition, Quaternion.identity, this.transform);
-                        rootsView.roots[xModel, yModel].GetComponent<RootDamageReceiver>().X = xModel;
-                        rootsView.roots[xModel, yModel].GetComponent<RootDamageReceiver>().Y = yModel;
+                        rootsView.roots[xModel, yModel].GetComponent<RootTileObject>().X = xModel;
+                        rootsView.roots[xModel, yModel].GetComponent<RootTileObject>().Y = yModel;
                     }
                     else
                     {

@@ -3351,11 +3351,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: tickTimeTo
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: tickTimeFrom
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4394359302838408528, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: m_Color.a

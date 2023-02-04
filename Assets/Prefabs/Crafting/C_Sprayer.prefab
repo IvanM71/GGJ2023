@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 0d1f9aac58f10834491dbf4a89be1c64, type: 3}
     - target: {fileID: 8504110915162822876, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
       propertyPath: amount
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8504110915162822876, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
       propertyPath: itemToGive
@@ -70,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 8819835286579508233, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
       propertyPath: m_Name
       value: C_Sprayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819835286579508274, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
+      propertyPath: craftingTime
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8819835286579508275, guid: 419f14849f0c44d40a4d3f49e54e000f, type: 3}
       propertyPath: Item1Type

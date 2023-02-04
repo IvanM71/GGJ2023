@@ -182,7 +182,6 @@ GameObject:
   - component: {fileID: 8819835286579508277}
   - component: {fileID: 8819835286579508275}
   - component: {fileID: 8504110915162822876}
-  - component: {fileID: 6508710203938262865}
   m_Layer: 0
   m_Name: _Crafter
   m_TagString: Untagged
@@ -303,17 +302,6 @@ MonoBehaviour:
   amount: 1
   resourceSpawnPoint: {fileID: 8819835287764435583}
   resourceSpawnRadius: 0.3
---- !u!210 &6508710203938262865
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8819835286579508233}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!1 &8819835287479531824
 GameObject:
   m_ObjectHideFlags: 0

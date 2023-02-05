@@ -6,6 +6,8 @@ namespace Apollo11.Core
     public class GameWinLose : MonoBehaviour
     {
         [SerializeField] private RootsSystem _rootsSystem;
+        [SerializeField] private GameObject winPanel;
+        [SerializeField] private GameObject losePanel;
 
         private void Start()
         {
@@ -29,7 +31,7 @@ namespace Apollo11.Core
             seq.AppendInterval(2f);
             seq.AppendCallback(() =>
             {
-                
+                losePanel.gameObject.SetActive(true);
                 SystemsLocator.Inst.SoundController.PlayLose();
             });
         }
@@ -44,7 +46,7 @@ namespace Apollo11.Core
             seq.AppendInterval(2f);
             seq.AppendCallback(() =>
             {
-                
+                winPanel.gameObject.SetActive(true);
                 SystemsLocator.Inst.SoundController.PlayWin();
             });
         }

@@ -44,6 +44,9 @@ TagManager:
   - name: LevelBack
     uniqueID: 4129542773
     locked: 0
+  - name: Decor
+    uniqueID: 2051378453
+    locked: 0
   - name: MachinesShadow
     uniqueID: 2510410649
     locked: 0

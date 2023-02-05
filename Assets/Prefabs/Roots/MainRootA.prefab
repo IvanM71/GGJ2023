@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &6198213805953509948
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +160,7 @@ MonoBehaviour:
   weaponToKill: 1
   rootType: 1
   healthBar: {fileID: 895758215144733113}
+  _startHealth: 0
 --- !u!1001 &6917267112672818298
 PrefabInstance:
   m_ObjectHideFlags: 0

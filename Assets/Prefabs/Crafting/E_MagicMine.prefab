@@ -137,7 +137,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431822313968496829, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}
       propertyPath: m_Name
-      value: MagicMine
+      value: E_MagicMine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525824364778694703, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7249973
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525824364778694703, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.488
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}

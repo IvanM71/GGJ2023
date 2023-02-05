@@ -996,6 +996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundController
       objectReference: {fileID: 0}
+    - target: {fileID: 8344089046650055853, guid: 0a397cebddb7c5947883c440b13e374d, type: 3}
+      propertyPath: playThemeOnStart
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a397cebddb7c5947883c440b13e374d, type: 3}
 --- !u!114 &215587486 stripped

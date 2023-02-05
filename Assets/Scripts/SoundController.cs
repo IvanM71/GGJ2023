@@ -10,7 +10,9 @@ namespace Apollo11
     {
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private AudioSource themeSource;
-
+        
+        [SerializeField] bool playThemeOnStart = true;
+        
         [SerializeField] AudioClip[] axeHits;
         [SerializeField] AudioClip[] bucketHits;
         [SerializeField] AudioClip[] sawHits;
@@ -39,6 +41,15 @@ namespace Apollo11
         [SerializeField] AudioClip deathSound;
 
         [SerializeField] AudioClip theme;
+        
+        private void Start()
+                {
+                    if (playThemeOnStart)
+                    {
+                        PlayTheme(true);
+                    }
+
+                }
 
         
         public void PlayToolHit(Enums.HandWeapon weapon)
@@ -149,9 +160,6 @@ namespace Apollo11
             
         }
 
-        private void Start()
-        {
-            PlayTheme(true);
-        }
+        
     }
 }

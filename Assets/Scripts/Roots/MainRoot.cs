@@ -10,11 +10,12 @@ namespace Apollo11
         [SerializeField] private Enums.RootType rootType;
         [SerializeField] private ProgressBar healthBar;
         public int Health { get; private set; } = 7;
-        private int _startHealth;
+        [SerializeField] private int _startHealth;
 
         private void Awake()
         {
-            _startHealth = Health;
+            Health = _startHealth;
+            //_startHealth = Health;
         }
 
         public void TakeDamage(int dmg)

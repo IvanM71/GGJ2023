@@ -21,6 +21,7 @@ namespace Apollo11
         [SerializeField] AudioClip[] pickaxeHits;
 
         [SerializeField] AudioClip[] getDamage;
+        
         [SerializeField] AudioClip[] steps;
 
         [SerializeField] AudioClip rootDefeated;
@@ -41,15 +42,15 @@ namespace Apollo11
         [SerializeField] AudioClip deathSound;
 
         [SerializeField] AudioClip theme;
-        
-        private void Start()
-                {
-                    if (playThemeOnStart)
-                    {
-                        PlayTheme(true);
-                    }
 
-                }
+        private void Start()
+        {
+            if (playThemeOnStart)
+            {
+                PlayTheme(true);
+            }
+
+        }
 
         
         public void PlayToolHit(Enums.HandWeapon weapon)
@@ -57,22 +58,22 @@ namespace Apollo11
             switch (weapon)
             {
                 case Enums.HandWeapon.Axe:
-                    audioSource.PlayOneShot(axeHits[Random.Range(0, axeHits.Length)]);
+                    audioSource.PlayOneShot(axeHits[Random.Range(0, axeHits.Length)], 0.4f);
                     break;
                 case Enums.HandWeapon.Saw:
-                    audioSource.PlayOneShot(sawHits[Random.Range(0, sawHits.Length)]);
+                    audioSource.PlayOneShot(sawHits[Random.Range(0, sawHits.Length)], 0.4f);
                     break;
                 case Enums.HandWeapon.Shears:
-                    audioSource.PlayOneShot(scissorsHits[Random.Range(0, scissorsHits.Length)]);
+                    audioSource.PlayOneShot(scissorsHits[Random.Range(0, scissorsHits.Length)], 0.4f);
                     break;
                 case Enums.HandWeapon.Pickaxe:
-                    audioSource.PlayOneShot(pickaxeHits[Random.Range(0, pickaxeHits.Length)]);
+                    audioSource.PlayOneShot(pickaxeHits[Random.Range(0, pickaxeHits.Length)], 0.4f);
                     break;
                 case Enums.HandWeapon.Sprayer:
-                    audioSource.PlayOneShot(sprayerHits[Random.Range(0, sprayerHits.Length)]);
+                    audioSource.PlayOneShot(sprayerHits[Random.Range(0, sprayerHits.Length)], 0.4f);
                     break;
                 case Enums.HandWeapon.Bucket:
-                    audioSource.PlayOneShot(bucketHits[Random.Range(0, bucketHits.Length)]);
+                    audioSource.PlayOneShot(bucketHits[Random.Range(0, bucketHits.Length)], 0.4f);
                     break;
                 case Enums.HandWeapon.Unknown:
                     break;
@@ -85,7 +86,7 @@ namespace Apollo11
         
         public void PlayGetDamage()
         {
-            audioSource.PlayOneShot(getDamage[Random.Range(0, getDamage.Length)]);
+            audioSource.PlayOneShot(getDamage[Random.Range(0, getDamage.Length)], 0.6f);
         }
         public void PlayStep()
         {
@@ -93,7 +94,7 @@ namespace Apollo11
         }
         public void PlayRootDefeated()
         {
-            audioSource.PlayOneShot(rootDefeated);
+            audioSource.PlayOneShot(rootDefeated, 0.7f);
         }
         public void PlayRootsGrow()
         {
@@ -101,31 +102,31 @@ namespace Apollo11
         }
         public void PlayRootsImpact()
         { 
-            audioSource.PlayOneShot(rootsImpact[Random.Range(0, rootsImpact.Length)]);
+            audioSource.PlayOneShot(rootsImpact[Random.Range(0, rootsImpact.Length)], 0.4f);
         }
         public void PlayRootsRoar()
         {
-            audioSource.PlayOneShot(rootsRoar[Random.Range(0, rootsRoar.Length)]);
+            audioSource.PlayOneShot(rootsRoar[Random.Range(0, rootsRoar.Length)], 0.6f);
         }
         public void PlayItemOut()
         {
-            audioSource.PlayOneShot(itemOut[Random.Range(0, itemOut.Length)]);
+            audioSource.PlayOneShot(itemOut[Random.Range(0, itemOut.Length)], 0.7f);
         }
         public void PlayItemIn()
         {
-            audioSource.PlayOneShot(itemIn[Random.Range(0, itemIn.Length)]);
+            audioSource.PlayOneShot(itemIn[Random.Range(0, itemIn.Length)], 0.7f);
         }
         public void PlayPickItem()
         { ;
-            audioSource.PlayOneShot(pickItem[Random.Range(0, pickItem.Length)]);
+            audioSource.PlayOneShot(pickItem[Random.Range(0, pickItem.Length)], 0.3f);
         }
         public void PlayThrowItem()
         {
-            audioSource.PlayOneShot(throwItem[Random.Range(0, throwItem.Length)]);
+            audioSource.PlayOneShot(throwItem[Random.Range(0, throwItem.Length)], 0.3f);
         }
         public void PlayToolCrafted()
         {
-            audioSource.PlayOneShot(toolCrafted[Random.Range(0, toolCrafted.Length)]);
+            audioSource.PlayOneShot(toolCrafted[Random.Range(0, toolCrafted.Length)], 0.7f);
         }
         public void PlayToolWoosh()
         {
@@ -133,15 +134,15 @@ namespace Apollo11
         }
         public void PlayWin()
         {
-            audioSource.PlayOneShot(winSound);
+            audioSource.PlayOneShot(winSound, 0.7f);
         }
         public void PlayLose()
         {
-            audioSource.PlayOneShot(loseSound);
+            audioSource.PlayOneShot(loseSound, 0.7f);
         }
         public void PlayDeath()
         {
-            audioSource.PlayOneShot(deathSound); 
+            audioSource.PlayOneShot(deathSound, 0.6f); 
         }
         public void PlayTheme(bool play)
         {
@@ -153,7 +154,7 @@ namespace Apollo11
             }
             else
             {
-                DOTween.To(value => themeSource.volume = value, 1f, 0f, 1f)
+                DOTween.To(value => themeSource.volume = value, 0.9f, 0f, 1f)
                     .OnComplete(() => themeSource.Stop());
                 
             }

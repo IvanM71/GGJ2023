@@ -44,6 +44,9 @@ TagManager:
   - name: LevelBack
     uniqueID: 4129542773
     locked: 0
+  - name: MachinesShadow
+    uniqueID: 2510410649
+    locked: 0
   - name: Roots
     uniqueID: 1251586633
     locked: 0

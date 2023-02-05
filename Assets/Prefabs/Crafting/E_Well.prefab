@@ -161,11 +161,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431822313968496829, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}
       propertyPath: m_Name
-      value: Well
+      value: E_Well
       objectReference: {fileID: 0}
     - target: {fileID: 7431822314386700871, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.724
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525824364778694703, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7032355
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525824364778694703, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.7754462
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525824364778694703, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525824364778694703, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.326
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58e43b893a2b15a4b92508d13e63bc34, type: 3}

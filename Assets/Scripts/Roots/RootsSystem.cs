@@ -83,10 +83,6 @@ namespace Apollo11
                 rootsControllers[i].rootsModel = rootsModel;
             }
 
-            StartCoroutine(IE_Timer());
-        }
-        private void Start()
-        {
             mainRoots = new List<MainRoot>(FindObjectsOfType<MainRoot>());
 
             for (int i = 0; i < mainRoots.Count; i++)
@@ -97,6 +93,8 @@ namespace Apollo11
                 rootsModel.roots[x, y].Stage = RootStages.MAIN;
                 rootsModel.roots[x, y].Type = mainRoots[i].GetRootType();
             }
+
+            StartCoroutine(IE_Timer());
         }
         private IEnumerator IE_Timer()
         {

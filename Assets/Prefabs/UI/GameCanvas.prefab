@@ -608,8 +608,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7800353297138400084}
-        m_TargetAssemblyTypeName: Apollo11.UI.LevelSelector, Assembly-CSharp
-        m_MethodName: OpenLevel
+        m_TargetAssemblyTypeName: Apollo11.UI.SceneSelector, Assembly-CSharp
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -631,7 +631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b430320364a54448c4f0021fa848a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
 --- !u!1 &2732620951950989618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,8 +1457,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1880764934352431396}
-        m_TargetAssemblyTypeName: Apollo11.UI.LevelSelector, Assembly-CSharp
-        m_MethodName: OpenLevel
+        m_TargetAssemblyTypeName: Apollo11.UI.SceneSelector, Assembly-CSharp
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1481,7 +1480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b430320364a54448c4f0021fa848a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
 --- !u!1 &7040685989732804524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,8 +1815,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1333680844463673516}
-        m_TargetAssemblyTypeName: Apollo11.UI.LevelSelector, Assembly-CSharp
-        m_MethodName: OpenLevel
+        m_TargetAssemblyTypeName: Apollo11.UI.SceneSelector, Assembly-CSharp
+        m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1840,7 +1838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b430320364a54448c4f0021fa848a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
 --- !u!1 &9173710108164692039
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,6 +49,8 @@ namespace Apollo11.Core
                 winPanel.gameObject.SetActive(true);
                 SystemsLocator.Inst.SoundController.PlayWin();
             });
+
+            LevelManager.Instance.UnlockNextLevel();
         }
     }
 }

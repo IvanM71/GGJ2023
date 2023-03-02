@@ -68,7 +68,7 @@ namespace Apollo11
 
         private void AtDeath()
         {
-            SystemsLocator.Inst.SoundController.PlayDeath(); //TODO
+            SystemsLocator.Inst.SoundController.PlayDeath();
             SystemsLocator.Inst.PlayerSystems.PlayerMovement.LockMovement = true;
             SystemsLocator.Inst.PlayerSystems.PlayerAnimation.PlayDeath();
             SystemsLocator.Inst.InteractionSystem.InAttack = true;

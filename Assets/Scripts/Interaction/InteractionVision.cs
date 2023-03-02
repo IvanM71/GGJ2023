@@ -18,6 +18,7 @@ namespace Apollo11.Interaction
             var playerPos = transform.position;
             foreach (var element in list)
             {
+                //if (element==null) continue;
                 var elementPos = element.GetPosition();
                 var thisItemDistance = Vector2.Distance(playerPos, elementPos);
                 var closesItemDistance = Vector2.Distance(playerPos, closestElement.GetPosition());

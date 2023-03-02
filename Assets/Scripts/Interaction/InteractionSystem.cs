@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Apollo11.Core;
+using Apollo11.Items;
 using UnityEngine;
 
 namespace Apollo11.Interaction
@@ -10,8 +11,8 @@ namespace Apollo11.Interaction
     {
         [SerializeField] private GameObject interactionIcon;
         [SerializeField] private AttackIcon attackIcon;
-        
-        public Enums.PlayerInteractionState InteractionState { get; private set; }
+
+        private Enums.PlayerInteractionState InteractionState { get; set; }
         public bool InAttack { get; set; }
 
         private InteractionVision _playersInteractionVision;
@@ -48,9 +49,15 @@ namespace Apollo11.Interaction
                     closestDamagable = FindPossibleDamagable(damagablesInVision);
                     break;
                 case Enums.PlayerInteractionState.HoldsItem:
+                    var currentItemInHand = SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.CurrentItem;
                     var suitable2 = interactablesInVision.Where(
-                            inter => inter.GetInteractableType() == Enums.InteractableObjectType.Crafter &&
-                                ((ICraftingInteraction)inter).AcceptsItem(SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.CurrentItem))
+                            inter => 
+                                (inter.GetInteractableType() == Enums.InteractableObjectType.Crafter &&
+                                ((ICraftingInteraction)inter).AcceptsItem(currentItemInHand))
+                                || 
+                                (inter.GetInteractableType() == Enums.InteractableObjectType.Item && 
+                                ((Item)inter).ItemType == currentItemInHand.ItemType)
+                            )
                         .ToList();
                     closestInteractable = _playersInteractionVision.FindClosestFromList(suitable2);
                     closestDamagable = null;
@@ -123,8 +130,10 @@ namespace Apollo11.Interaction
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.DropItem();
-                InteractionState = Enums.PlayerInteractionState.None;
+                var handIsEmpty = SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.DropItem();
+                if (handIsEmpty)
+                    InteractionState = Enums.PlayerInteractionState.None;
+                
                 return;
             }
 
@@ -138,7 +147,15 @@ namespace Apollo11.Interaction
                 else if (closestInteractable.GetInteractableType() == Enums.InteractableObjectType.Item)
                     InteractionState = Enums.PlayerInteractionState.HoldsItem;
                 else if (closestInteractable.GetInteractableType() == Enums.InteractableObjectType.Crafter)
-                    InteractionState = Enums.PlayerInteractionState.None;
+                {
+                    if (SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.CurrentItemAmount == 0)
+                    {
+                        InteractionState = Enums.PlayerInteractionState.None;
+                    }
+                    
+                }
+
+                
             }
             
         }

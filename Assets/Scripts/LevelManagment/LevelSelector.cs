@@ -29,14 +29,12 @@ namespace Apollo11
                 if (i + 1 > maxCompletedLevel)
                 {
                     _lvlButtons[i].interactable = false;
-                    //if (i > 0)
-                    //    _lvlButtons[i].transform.GetChild(1).GetComponent<Image>().enabled = true;
+                    _lvlButtons[i].transform.GetChild(1).GetComponent<Image>().enabled = true;
                 }
                 else
                 {
                     _lvlButtons[i].interactable = true;
-                    //if (i > 0)
-                    //    _lvlButtons[i].transform.GetChild(1).GetComponent<Image>().enabled = false;
+                    _lvlButtons[i].transform.GetChild(1).GetComponent<Image>().enabled = false;
                 }
                 _lvlButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = (i + 1).ToString();
             }

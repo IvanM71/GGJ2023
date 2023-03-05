@@ -24,7 +24,7 @@ namespace Apollo11.Interaction
             attackIcon.ToggleShow(false);
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             var interactablesInVision = _playersInteractionVision.InteractablesInVision;
             var damagablesInVision = _playersInteractionVision.DamagablesInVision;
@@ -71,6 +71,7 @@ namespace Apollo11.Interaction
 
             ShowIcons(closestInteractable, closestDamagable);
             HandleInput(closestInteractable, closestDamagable);
+            SystemsLocator.Inst.GameCanvas.TouchControls.ResetFlags();
         }
 
         private IDamagable FindPossibleDamagable(List<IDamagable> list)
@@ -112,23 +113,29 @@ namespace Apollo11.Interaction
         {
             if (InAttack || SystemsLocator.Inst.InPause) return;
 
+            var GetKeyDownE = Input.GetKeyDown(KeyCode.E) || SystemsLocator.Inst.GameCanvas.TouchControls.PressedEThisFrame;
+            var GetKeyDownF = Input.GetKeyDown(KeyCode.F) || SystemsLocator.Inst.GameCanvas.TouchControls.PressedFThisFrame;
+            var GetKeyDownR = Input.GetKeyDown(KeyCode.R) || SystemsLocator.Inst.GameCanvas.TouchControls.PressedRThisFrame;
+            
+            var GetKeyUpE = Input.GetKeyUp(KeyCode.E) || SystemsLocator.Inst.GameCanvas.TouchControls.ReleasedEThisFrame;
+
             if (InteractionState == Enums.PlayerInteractionState.InLongInteraction)
             {
-                if (Input.GetKeyUp(KeyCode.E))
+                if (GetKeyUpE)
                 {
                     UnlockInteraction();
                     return;
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (GetKeyDownF)
             {
                 
                 SystemsLocator.Inst.AttackSystem.TryAttack(closestDamagable);
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.R))
+            if (GetKeyDownR)
             {
                 var handIsEmpty = SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.DropItem();
                 if (handIsEmpty)
@@ -137,7 +144,7 @@ namespace Apollo11.Interaction
                 return;
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (GetKeyDownE)
             {
                 if (closestInteractable == null) return;
                 closestInteractable.OnInteractionStart();
@@ -157,6 +164,7 @@ namespace Apollo11.Interaction
 
                 
             }
+
             
         }
 

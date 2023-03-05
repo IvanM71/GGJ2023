@@ -49,7 +49,7 @@ namespace Apollo11
                     _isDead = true;
                     AtDeath();
                 }
-                SystemsLocator.Inst.UI_HealthPanel.SetHealth(_health);
+                SystemsLocator.Inst.GameCanvas.UI_HealthPanel.SetHealth(_health);
                 SystemsLocator.Inst.SoundController.PlayGetDamage();
             }
         }
@@ -62,7 +62,7 @@ namespace Apollo11
                 _health++;
                 if (_health > 10) _health = 10;
                 
-                SystemsLocator.Inst.UI_HealthPanel.SetHealth(_health);
+                SystemsLocator.Inst.GameCanvas.UI_HealthPanel.SetHealth(_health);
             }
         }
 

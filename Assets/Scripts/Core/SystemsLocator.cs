@@ -18,8 +18,8 @@ namespace Apollo11.Core
         public PlayerSystems PlayerSystems { get; set; }
         
         
-        [SerializeField] private UI_HealthPanel healthPanel;
-        public UI_HealthPanel UI_HealthPanel => healthPanel;
+        [SerializeField] private GameCanvas gameCanvas;
+        public GameCanvas GameCanvas => gameCanvas;
         
 
         [SerializeField] private InteractionSystem interactionSystem;

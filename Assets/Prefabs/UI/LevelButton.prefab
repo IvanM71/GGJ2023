@@ -335,10 +335,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Apollo11.LevelSelector, Assembly-CSharp
+      - m_Target: {fileID: 603267812288155559}
+        m_TargetAssemblyTypeName: Apollo11.LevelButton, Assembly-CSharp
         m_MethodName: OpenLevel
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -360,4 +360,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockImage: {fileID: 1533571063520404664}
-  levelNumber: {fileID: 8512816715431050554}
+  levelNumber_txt: {fileID: 8512816715431050554}

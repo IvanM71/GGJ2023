@@ -22,5 +22,21 @@ namespace Apollo11.UI
             LevelManager.Instance.currentLevel = level;
             SceneManager.LoadScene(level);
         }
+        public void OpenNextLevel()
+        {
+            if(LevelManager.Instance.currentLevel == SceneManager.sceneCountInBuildSettings)
+                LevelManager.Instance.currentLevel = 1;
+            else
+                LevelManager.Instance.currentLevel++;
+
+            Debug.Log(LevelManager.Instance.currentLevel);
+
+            OpenLevel(LevelManager.Instance.currentLevel);
+        }
+
+        public void RetryLevel()
+        {
+            OpenLevel(LevelManager.Instance.currentLevel);
+        }
     }
 }

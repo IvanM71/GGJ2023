@@ -3751,6 +3751,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 55742294534442521, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 92204564502007024, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 369932879532745158, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: tickTimeTo
       value: 7
@@ -3758,6 +3770,18 @@ PrefabInstance:
     - target: {fileID: 1279114532951847800, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: tickTimeFrom
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794195775549669537, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671052814116716021, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312707167008420980, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4394359302838408528, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: m_Color.a
@@ -5493,6 +5517,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5948463581632074504, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254280418595939086, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285531786427056007, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778736290531090731, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8321594128880076249, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

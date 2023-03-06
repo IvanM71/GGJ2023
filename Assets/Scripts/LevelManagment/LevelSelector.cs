@@ -41,21 +41,5 @@ namespace Apollo11
                 _lvlButtons2[i].SetLevelNumber(i + 1);
             }
         }
-        public void OpenMainMenu()
-        {
-            SceneManager.LoadScene(0);
-        }
-
-        public void OpenLevel(int level)
-        {
-            if (level < 1 || level >= SceneManager.sceneCountInBuildSettings)
-            {
-                Debug.LogError($"Tried to load non existing level ({level})!");
-                OpenMainMenu();
-                return;
-            }
-            LevelManager.Instance.currentLevel = level;
-            SceneManager.LoadScene(level);
-        }
     }
 }

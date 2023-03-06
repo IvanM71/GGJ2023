@@ -644,7 +644,7 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 1958957906}
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenLevel
@@ -947,7 +947,7 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 587512054}
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenLevel
@@ -1104,7 +1104,7 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 1937076502}
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenLevel
@@ -3864,6 +3864,28 @@ Transform:
   m_Father: {fileID: 396193699}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &568860591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 680606740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &587512054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 147587483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &597535511
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,7 +4350,7 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 568860591}
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenLevel
@@ -4814,6 +4836,17 @@ Transform:
   m_Father: {fileID: 419720547}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &786387116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 1196349466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &841936729
 GameObject:
   m_ObjectHideFlags: 0
@@ -4965,6 +4998,17 @@ MonoBehaviour:
   - {fileID: 1958957903}
   - {fileID: 1937076499}
   - {fileID: 671700079}
+  _lvlButtons2:
+  - {fileID: 1204036308}
+  - {fileID: 1758270961}
+  - {fileID: 1889606365}
+  - {fileID: 568860591}
+  - {fileID: 1817871385}
+  - {fileID: 786387116}
+  - {fileID: 587512054}
+  - {fileID: 1958957906}
+  - {fileID: 1937076502}
+  - {fileID: 1119095521}
 --- !u!4 &842965736
 Transform:
   m_ObjectHideFlags: 0
@@ -6172,7 +6216,7 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 1119095521}
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenLevel
@@ -6309,7 +6353,7 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 1889606365}
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenLevel
@@ -6573,12 +6617,35 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1344181128}
+        m_TargetAssemblyTypeName: Apollo11.SettingsManager, Assembly-CSharp
+        m_MethodName: OnEffectsSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1119024183 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3009333634045653196, guid: 3708af16aecaff34184fc36b4cd78f3d, type: 3}
   m_PrefabInstance: {fileID: 3009333632929088763}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1119095521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 1084353949}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1127481041
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7062,7 +7129,7 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 786387116}
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenLevel
@@ -7101,6 +7168,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+--- !u!114 &1204036308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 8512816716115701983}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1207892264
 GameObject:
   m_ObjectHideFlags: 0
@@ -7657,7 +7735,7 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 1817871385}
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenLevel
@@ -8428,6 +8506,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342983592}
   m_CullTransparentMesh: 1
+--- !u!1 &1344181127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344181129}
+  - component: {fileID: 1344181128}
+  m_Layer: 0
+  m_Name: SettingsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1344181128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344181127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5270c264ae6b0f4d9bc8d348e5a90fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 1799968276}
+  effectsSlider: {fileID: 1110498354}
+  touchToggle: {fileID: 1354727895}
+--- !u!4 &1344181129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344181127}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1810.4108, y: 897.0139, z: -15.468646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1354727893
 GameObject:
   m_ObjectHideFlags: 0
@@ -8513,7 +8638,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1344181128}
+        m_TargetAssemblyTypeName: Apollo11.SettingsManager, Assembly-CSharp
+        m_MethodName: OnToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &1356436164
 GameObject:
@@ -10500,6 +10637,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1758270961 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 1904655937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1789598923
 GameObject:
   m_ObjectHideFlags: 0
@@ -10910,7 +11058,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1344181128}
+        m_TargetAssemblyTypeName: Apollo11.SettingsManager, Assembly-CSharp
+        m_MethodName: OnMusicSlider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1808324606
 GameObject:
   m_ObjectHideFlags: 0
@@ -11155,6 +11315,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1817871385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 1294448006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1834029138
 GameObject:
   m_ObjectHideFlags: 0
@@ -11315,6 +11486,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1889606365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 1085874244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1900302934
 GameObject:
   m_ObjectHideFlags: 0
@@ -11719,7 +11901,7 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 1758270961}
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenLevel
@@ -11772,6 +11954,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1937076502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 168824419}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1938690533
@@ -12044,6 +12237,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1958957906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 603267812288155559, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+  m_PrefabInstance: {fileID: 101477365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8df0cb00ad7d4381cc2b4d4260dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1960374964
@@ -13374,7 +13578,11 @@ PrefabInstance:
     - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 842965735}
+      objectReference: {fileID: 1204036308}
+    - target: {fileID: 8512816716168288504, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 8512816716168288505, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

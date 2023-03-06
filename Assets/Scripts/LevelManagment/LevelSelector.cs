@@ -13,10 +13,12 @@ namespace Apollo11
     {
         // Array of level buttons
         [SerializeField] private Button[] _lvlButtons;
+        [SerializeField] private LevelButton[] _lvlButtons2;
 
         // Every time on awake checks max unlocked level and enabling buttons
         private void Awake()
         {
+            
             // Get max unlocked level from PlayerPrefs
             // If not set to 1
             int maxCompletedLevel = PlayerPrefs.GetInt("maxCompletedLevel", 1);
@@ -29,14 +31,14 @@ namespace Apollo11
                 if (i + 1 > maxCompletedLevel)
                 {
                     _lvlButtons[i].interactable = false;
-                    _lvlButtons[i].transform.GetChild(1).GetComponent<Image>().enabled = true;
+                    _lvlButtons2[i].SetImage(true);
                 }
                 else
                 {
                     _lvlButtons[i].interactable = true;
-                    _lvlButtons[i].transform.GetChild(1).GetComponent<Image>().enabled = false;
+                    _lvlButtons2[i].SetImage(false);
                 }
-                _lvlButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = (i + 1).ToString();
+                _lvlButtons2[i].SetLevelNumber(i + 1);
             }
         }
         public void OpenMainMenu()

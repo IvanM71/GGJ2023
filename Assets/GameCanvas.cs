@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Apollo11.UI;
@@ -12,5 +13,9 @@ namespace Apollo11
         
         [SerializeField] private TouchControls touchControls;
         public TouchControls TouchControls => touchControls;
+        private void Awake()
+        {
+            TouchControls.gameObject.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt("touchControls", 1)));
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Apollo11
         {
             musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.9f);
             effectsSlider.value = PlayerPrefs.GetFloat("effectsVolume", 0.5f);
-            touchToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("touchControls", 0));
+            touchToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("touchControls", 1));
         }
 
         public void OnMusicSlider()

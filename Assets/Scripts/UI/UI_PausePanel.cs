@@ -7,6 +7,7 @@ namespace Apollo11
     public class UI_PausePanel : MonoBehaviour
     {
         [SerializeField] private GameObject pausePanel;
+        [SerializeField] private GameObject pauseButton;
 
         private void Awake()
         {
@@ -37,13 +38,15 @@ namespace Apollo11
         {
             Time.timeScale = 1f;
             pausePanel.SetActive(false);
+            pauseButton.SetActive(true);
             SystemsLocator.Inst.InPause = false;
         }
 
-        private void Pause()
+        public void Pause()
         {
             Time.timeScale = 0f;
             pausePanel.SetActive(true);
+            pauseButton.SetActive(false);
             SystemsLocator.Inst.InPause = true;
         }
     }

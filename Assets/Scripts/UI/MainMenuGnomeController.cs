@@ -1,7 +1,7 @@
 using Apollo11.Player;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.UI
 {
     public class MainMenuGnomeController : MonoBehaviour
     {

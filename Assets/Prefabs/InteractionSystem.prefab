@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743798325924144141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.153, y: 0, z: 0}
+  m_LocalPosition: {x: 0.525, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a1ed8f2aa2c7b514183a044fe864e2ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b29f9d07855d1f4cb30c587151cf1d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,9 +155,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 908615463
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 100
-  m_Sprite: {fileID: 21300000, guid: 8824b43fcefca70468a242f588508b57, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 381a60869d328024ab18bfa466ba1015, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -215,11 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 518ed65d20aa9c04997b2e9026d7772a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonSprite: {fileID: 21300000, guid: a1ed8f2aa2c7b514183a044fe864e2ea, type: 3}
   axeIcon: {fileID: 21300000, guid: d4332378d89172a44929ec822ce188b3, type: 3}
   sawIcon: {fileID: 21300000, guid: dbdf9f1cbd246314fa946e20675b50d1, type: 3}
   sprayerIcon: {fileID: 21300000, guid: ee6ffe1531346e543b37220b3779f441, type: 3}
-  buttonSpriteRenderer: {fileID: 4919464123597073223}
   weaponSpriteRenderer: {fileID: 5339375856525274362}
 --- !u!210 &8863757140346867606
 SortingGroup:
@@ -230,7 +228,7 @@ SortingGroup:
   m_GameObject: {fileID: 4661301679415755478}
   m_Enabled: 1
   m_SortingLayerID: 908615463
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 101
 --- !u!1 &4661301679813189114
 GameObject:
@@ -242,6 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4661301679813189115}
   - component: {fileID: 4661301679813189112}
+  - component: {fileID: 1254391361348270334}
   m_Layer: 0
   m_Name: InteractionSystem
   m_TagString: Untagged
@@ -258,7 +257,7 @@ Transform:
   m_GameObject: {fileID: 4661301679813189114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4661301678696161076}
@@ -280,6 +279,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionIcon: {fileID: 4661301678696161079}
   attackIcon: {fileID: 4661301679415755477}
+--- !u!114 &1254391361348270334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4661301679813189114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6398226269b9b844981ae6ea2343ed05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackKeySprite: {fileID: 21300000, guid: 6b29f9d07855d1f4cb30c587151cf1d6, type: 3}
+  AttackIconSprite: {fileID: 21300000, guid: 381a60869d328024ab18bfa466ba1015, type: 3}
+  UseKeySprite: {fileID: 21300000, guid: 26459317bf327b04b82e2f78ef0b2ead, type: 3}
+  UseIconSprite: {fileID: 21300000, guid: a0f8968f2fde9af4785c4404786d0e83, type: 3}
+  attackButtonRenderer: {fileID: 4919464123597073223}
+  useButtonRenderer: {fileID: 4661301678696161077}
 --- !u!1 &4663661072677318218
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,8 +322,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4663661072677318218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.137, y: 0, z: 0}
-  m_LocalScale: {x: 0.2844, y: 0.2844, z: 0.2844}
+  m_LocalPosition: {x: -0.525, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4661301679415755479}

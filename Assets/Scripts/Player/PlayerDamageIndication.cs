@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Player
 {
     public class PlayerDamageIndication : MonoBehaviour
     {

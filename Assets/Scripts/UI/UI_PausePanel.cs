@@ -1,8 +1,7 @@
-using System;
 using Apollo11.Core;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.UI
 {
     public class UI_PausePanel : MonoBehaviour
     {

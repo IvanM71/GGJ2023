@@ -5,18 +5,12 @@ namespace Apollo11.Interaction
 {
     public class AttackIcon : MonoBehaviour
     {
-        [SerializeField] private Sprite buttonSprite;
         [SerializeField] private Sprite axeIcon;
         [SerializeField] private Sprite sawIcon;
         [SerializeField] private Sprite sprayerIcon;
         [Space]
-        [SerializeField] private SpriteRenderer buttonSpriteRenderer;
         [SerializeField] private SpriteRenderer weaponSpriteRenderer;
-
-        private void Awake()
-        {
-            buttonSpriteRenderer.sprite = buttonSprite;
-        }
+        
 
         public void ToggleShow(bool show)
         {

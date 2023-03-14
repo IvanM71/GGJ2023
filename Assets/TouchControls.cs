@@ -1,9 +1,11 @@
-using System;
 using SimpleInputNamespace;
 using UnityEngine;
 
 namespace Apollo11
 {
+    /// <summary>
+    /// This logic is shit, I am sorry
+    /// </summary>
     public class TouchControls : MonoBehaviour
     {
         [SerializeField] private Joystick joystick;
@@ -12,13 +14,6 @@ namespace Apollo11
         [SerializeField] private ButtonWithDownEvent buttonR;
 
         public Joystick Joystick => joystick;
-        /*public event Action OnEPress;
-        public event Action OnFPress;
-        public event Action OnRPress;
-        
-        public event Action OnERelease;
-        public event Action OnFRelease;
-        public event Action OnRRelease;*/
 
         public bool PressedEThisFrame { get; private set; }
         public bool PressedFThisFrame { get; private set; }

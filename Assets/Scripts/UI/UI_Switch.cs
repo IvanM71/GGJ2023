@@ -1,10 +1,9 @@
+using System;
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Apollo11
+namespace Apollo11.UI
 {
     public class UI_Switch : MonoBehaviour
     {
@@ -15,9 +14,10 @@ namespace Apollo11
         [SerializeField] private Color onColor;
         [SerializeField] private Color offColor;
 
-        float handleX;
+        private float handleX;
 
-        bool isOn = true;
+        public bool IsOn { get; private set; }
+        public event Action<bool> OnValueChangedIsOn; 
 
         private void Awake()
         {
@@ -26,14 +26,14 @@ namespace Apollo11
 
         public void OnClick()
         {
-            isOn = !isOn;
+            IsOn = !IsOn;
             
-            handleTransform.DOAnchorPosX(isOn ? handleX: handleX * -1 , 0.4f);
+            handleTransform.DOAnchorPosX(IsOn ? handleX: handleX * -1 , 0.4f);
 
-            handle.DOColor(isOn ? onColor : offColor, 0.4f);
-            background.DOColor(isOn ? onColor : offColor, 0.4f);
+            handle.DOColor(IsOn ? onColor : offColor, 0.4f);
+            background.DOColor(IsOn ? onColor : offColor, 0.4f);
 
-            
+            OnValueChangedIsOn?.Invoke(IsOn);
         }
     }
 }

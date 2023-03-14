@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.UI
 {
     public class MenuHanler : MonoBehaviour
     {

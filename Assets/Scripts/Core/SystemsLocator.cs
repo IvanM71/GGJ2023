@@ -1,7 +1,6 @@
 using Apollo11.Interaction;
 using Apollo11.Items;
 using Apollo11.Player;
-using Apollo11.UI;
 using Apollo11.WeaponCharges;
 using UnityEngine;
 
@@ -10,7 +9,11 @@ namespace Apollo11.Core
     public class SystemsLocator : MonoBehaviour
     {
         public static SystemsLocator Inst;
-        private void Awake() => Inst = this;
+        private void Awake()
+        {
+            Inst = this;
+            settingsManager.Init();
+        }
 
         public bool InPause;
 
@@ -25,7 +28,8 @@ namespace Apollo11.Core
         [SerializeField] private InteractionSystem interactionSystem;
         public InteractionSystem InteractionSystem => interactionSystem;
 
-        
+        [SerializeField] private SettingsManager settingsManager;
+        public SettingsManager SettingsManager => settingsManager;
         
         
         [Space]

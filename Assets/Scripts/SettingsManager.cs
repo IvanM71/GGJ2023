@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using Apollo11.UI;
 
 namespace Apollo11
 {
@@ -9,6 +10,7 @@ namespace Apollo11
         [SerializeField] private Slider musicSlider;
         [SerializeField] private Slider effectsSlider;
         [SerializeField] private Toggle touchToggle;
+        [SerializeField] private UI_Switch touchControlsSwitch;
 
         
         public event Action<bool> OnTouchControlsValueChanged; 
@@ -16,8 +18,9 @@ namespace Apollo11
         public event Action<float> OnSoundValueChanged; 
         
         
-        private void Start()
+        public void Init()
         {
+            touchControlsSwitch.Init();
             musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.9f);
             effectsSlider.value = PlayerPrefs.GetFloat("effectsVolume", 0.5f);
             touchToggle.isOn = Convert.ToBoolean(PlayerPrefs.GetInt("touchControls", 1));
@@ -40,5 +43,6 @@ namespace Apollo11
             PlayerPrefs.SetInt("touchControls", Convert.ToInt32(touchToggle.isOn));
             OnTouchControlsValueChanged?.Invoke(touchToggle.isOn);
         }
+
     }
 }

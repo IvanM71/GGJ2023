@@ -16,7 +16,7 @@ namespace Apollo11.UI
         private float _handleX;
         private bool _isOn = true;
 
-        private void Awake()
+        public void Init()
         {
             _handleX = handleTransform.anchoredPosition.x;
         }
@@ -30,5 +30,7 @@ namespace Apollo11.UI
             handle.DOColor(_isOn ? onColor : offColor, 0.4f);
             background.DOColor(_isOn ? onColor : offColor, 0.4f);
         }
+
+        
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -12,7 +10,13 @@ namespace Apollo11
         [SerializeField] private Slider effectsSlider;
         [SerializeField] private Toggle touchToggle;
 
-        private void Awake()
+        
+        public event Action<bool> OnTouchControlsValueChanged; 
+        public event Action<float> OnMusicValueChanged; 
+        public event Action<float> OnSoundValueChanged; 
+        
+        
+        private void Start()
         {
             musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.9f);
             effectsSlider.value = PlayerPrefs.GetFloat("effectsVolume", 0.5f);
@@ -22,16 +26,19 @@ namespace Apollo11
         public void OnMusicSlider()
         {
             PlayerPrefs.SetFloat("musicVolume", musicSlider.value);
+            OnMusicValueChanged?.Invoke(musicSlider.value);
         }
 
         public void OnEffectsSlider()
         {
             PlayerPrefs.SetFloat("effectsVolume", effectsSlider.value);
+            OnSoundValueChanged?.Invoke(effectsSlider.value);
         }
 
         public void OnToggle()
         {
             PlayerPrefs.SetInt("touchControls", Convert.ToInt32(touchToggle.isOn));
+            OnTouchControlsValueChanged?.Invoke(touchToggle.isOn);
         }
     }
 }

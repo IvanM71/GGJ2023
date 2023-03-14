@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,26 +13,22 @@ namespace Apollo11.UI
         [SerializeField] private Color onColor;
         [SerializeField] private Color offColor;
 
-        private float handleX;
-
-        public bool IsOn { get; private set; }
-        public event Action<bool> OnValueChangedIsOn; 
+        private float _handleX;
+        private bool _isOn = true;
 
         private void Awake()
         {
-            handleX = handleTransform.anchoredPosition.x;
+            _handleX = handleTransform.anchoredPosition.x;
         }
-
+        
         public void OnClick()
         {
-            IsOn = !IsOn;
+            _isOn = !_isOn;
             
-            handleTransform.DOAnchorPosX(IsOn ? handleX: handleX * -1 , 0.4f);
+            handleTransform.DOAnchorPosX(_isOn ? _handleX: _handleX * -1 , 0.4f);
 
-            handle.DOColor(IsOn ? onColor : offColor, 0.4f);
-            background.DOColor(IsOn ? onColor : offColor, 0.4f);
-
-            OnValueChangedIsOn?.Invoke(IsOn);
+            handle.DOColor(_isOn ? onColor : offColor, 0.4f);
+            background.DOColor(_isOn ? onColor : offColor, 0.4f);
         }
     }
 }

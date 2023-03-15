@@ -292,9 +292,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackKeySprite: {fileID: 21300000, guid: 6b29f9d07855d1f4cb30c587151cf1d6, type: 3}
-  AttackIconSprite: {fileID: 21300000, guid: 381a60869d328024ab18bfa466ba1015, type: 3}
-  UseKeySprite: {fileID: 21300000, guid: 26459317bf327b04b82e2f78ef0b2ead, type: 3}
-  UseIconSprite: {fileID: 21300000, guid: a0f8968f2fde9af4785c4404786d0e83, type: 3}
+  AttackIconSprite: {fileID: 21300000, guid: a0f8968f2fde9af4785c4404786d0e83, type: 3}
+  UseKeySprite: {fileID: 21300000, guid: 381a60869d328024ab18bfa466ba1015, type: 3}
+  UseIconSprite: {fileID: 21300000, guid: 26459317bf327b04b82e2f78ef0b2ead, type: 3}
   attackButtonRenderer: {fileID: 4919464123597073223}
   useButtonRenderer: {fileID: 4661301678696161077}
 --- !u!1 &4663661072677318218

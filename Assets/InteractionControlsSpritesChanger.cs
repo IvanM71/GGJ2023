@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Apollo11
@@ -12,8 +13,17 @@ namespace Apollo11
         [SerializeField] private SpriteRenderer attackButtonRenderer;
         [SerializeField] private SpriteRenderer useButtonRenderer;
 
-        
-        
+
+        private void Awake()
+        {
+            ToggleTouchControls( PlayerSettings.Instance.TouchControls);
+            PlayerSettings.Instance.OnTouchControlsValueChanged += ToggleTouchControls;
+        }
+
+        private void OnDestroy()
+        {
+            PlayerSettings.Instance.OnTouchControlsValueChanged -= ToggleTouchControls;
+        }
 
         private void ToggleTouchControls(bool touch)
         {

@@ -1536,8 +1536,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 143
-  m_fontSizeBase: 143
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1979,6 +1979,7 @@ GameObject:
   - component: {fileID: 656391524}
   - component: {fileID: 656391523}
   - component: {fileID: 656391522}
+  - component: {fileID: 656391525}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -2101,6 +2102,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 656391520}
   m_CullTransparentMesh: 1
+--- !u!95 &656391525
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656391520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f1488264f7eb60445b1da909ffb96462, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!224 &670745599 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8512816716168288505, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
@@ -3723,8 +3744,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 125
-  m_fontSizeBase: 125
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4911,7 +4932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7fd4f55e6a6fef47b7d02627f6ebbdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 494961796}
+  object: {fileID: 494961796}
 --- !u!1 &1380359491
 GameObject:
   m_ObjectHideFlags: 0
@@ -5547,7 +5568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9204c58697051438b3ade2351b4a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
 --- !u!4 &1622263460
 Transform:
   m_ObjectHideFlags: 0
@@ -6023,8 +6043,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 145
-  m_fontSizeBase: 145
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6874,7 +6894,7 @@ RectTransform:
   m_GameObject: {fileID: 1974415024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.019617, y: 1.019617, z: 1.019617}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 656391521}
@@ -6885,7 +6905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 685, y: 767.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1974415026

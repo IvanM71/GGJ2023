@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Apollo11.UI;
 using UnityEngine;
 
@@ -15,7 +12,7 @@ namespace Apollo11
         public TouchControls TouchControls => touchControls;
         private void Awake()
         {
-            TouchControls.gameObject.SetActive( PlayerSettings.Instance.TouchControls);
+            AtTouchControlsSettingChanged( PlayerSettings.Instance.TouchControls);
             PlayerSettings.Instance.OnTouchControlsValueChanged += AtTouchControlsSettingChanged;
         }
 

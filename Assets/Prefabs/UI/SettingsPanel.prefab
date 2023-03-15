@@ -435,19 +435,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Apollo11.SettingsManager, Assembly-CSharp
-        m_MethodName: OnEffectsSlider
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8630559056038886679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,19 +1002,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Apollo11.SettingsManager, Assembly-CSharp
-        m_MethodName: OnMusicSlider
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &8630559056597428745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,19 +1681,7 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8630559057666469627}
-        m_TargetAssemblyTypeName: Apollo11.UI_Switch, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
 --- !u!114 &8630559057666469627
 MonoBehaviour:
@@ -1731,6 +1695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d11af631a58dd384bb257cb9dec7cc72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toggle: {fileID: 8630559057666469624}
   background: {fileID: 8630559056597428747}
   handle: {fileID: 8630559057340770445}
   handleTransform: {fileID: 8630559057340770434}

@@ -4,31 +4,29 @@ namespace Apollo11.LevelManagement
 {
     public class LevelManager : MonoBehaviour
     {
-        // Static instance
         public static LevelManager Instance { get; private set; }
 
-        // Field that saves current player level
-        public int currentLevel = 0;
+        public int CurrentLevel { get; set; }
 
-        // Singleton init
         void Awake()
         {
-            if (Instance == null)
+            if (Instance != null)
             {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
+                Debug.LogWarning("Second instance of singleton Awake!");
+                return;
             }
-            else
-                Destroy(gameObject);
+            
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-
-        // Unlocks next level
+        
+        
         public void UnlockNextLevel()
         {
             // If next level number bigger than last already unlocked level - unlock next level
-            if (currentLevel + 1 > PlayerPrefs.GetInt("maxCompletedLevel"))
+            if (CurrentLevel + 1 > PlayerPrefs.GetInt("maxCompletedLevel"))
             {
-                PlayerPrefs.SetInt("maxCompletedLevel", currentLevel + 1);
+                PlayerPrefs.SetInt("maxCompletedLevel", CurrentLevel + 1);
             }
         }
     }

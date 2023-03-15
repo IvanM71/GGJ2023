@@ -20,24 +20,24 @@ namespace Apollo11.UI
                 OpenMainMenu();
                 return;
             }
-            LevelManager.Instance.currentLevel = level;
+            LevelManager.Instance.CurrentLevel = level;
             SceneManager.LoadScene(level);
         }
         public void OpenNextLevel()
         {
-            if(LevelManager.Instance.currentLevel == SceneManager.sceneCountInBuildSettings)
-                LevelManager.Instance.currentLevel = 1;
+            if(LevelManager.Instance.CurrentLevel == SceneManager.sceneCountInBuildSettings)
+                LevelManager.Instance.CurrentLevel = 1;
             else
-                LevelManager.Instance.currentLevel++;
+                LevelManager.Instance.CurrentLevel++;
 
-            Debug.Log(LevelManager.Instance.currentLevel);
+            Debug.Log(LevelManager.Instance.CurrentLevel);
 
-            OpenLevel(LevelManager.Instance.currentLevel);
+            OpenLevel(LevelManager.Instance.CurrentLevel);
         }
 
         public void RetryLevel()
         {
-            OpenLevel(LevelManager.Instance.currentLevel);
+            OpenLevel(LevelManager.Instance.CurrentLevel);
         }
     }
 }

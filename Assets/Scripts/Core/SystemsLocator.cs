@@ -9,11 +9,7 @@ namespace Apollo11.Core
     public class SystemsLocator : MonoBehaviour
     {
         public static SystemsLocator Inst;
-        private void Awake()
-        {
-            Inst = this;
-            settingsManager.Init();
-        }
+        private void Awake() => Inst = this;
 
         public bool InPause;
 

@@ -15,7 +15,18 @@ namespace Apollo11
         public TouchControls TouchControls => touchControls;
         private void Awake()
         {
-            TouchControls.gameObject.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt("touchControls", 1)));
+            TouchControls.gameObject.SetActive( PlayerSettings.Instance.TouchControls);
+            PlayerSettings.Instance.OnTouchControlsValueChanged += AtTouchControlsSettingChanged;
+        }
+
+        private void OnDestroy()
+        {
+            PlayerSettings.Instance.OnTouchControlsValueChanged -= AtTouchControlsSettingChanged;
+        }
+
+        private void AtTouchControlsSettingChanged(bool touch)
+        {
+            TouchControls.gameObject.SetActive(touch);
         }
     }
 }

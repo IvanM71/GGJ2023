@@ -15,16 +15,20 @@ namespace Apollo11.UI
         [SerializeField] private Color offColor;
 
         private float _handleX;
-
-        public void Init(bool startValue)
+        
+        Sequence _animationSequence;
+        
+        public void Init()
         {
             _handleX = handleTransform.anchoredPosition.x;
-            ForceSetValue(startValue);
+            ForceSetValue(toggle.isOn);
             toggle.onValueChanged.AddListener(AtValueChanged);
         }
 
         private void ForceSetValue(bool isOn)
         {
+            _animationSequence?.Kill();
+            
             var vector = handleTransform.anchoredPosition;
             vector.x = isOn ? _handleX : _handleX * -1;
             handleTransform.anchoredPosition = vector;
@@ -35,10 +39,13 @@ namespace Apollo11.UI
 
         private void AtValueChanged(bool isOn)
         {
-            handleTransform.DOAnchorPosX(isOn ? _handleX: _handleX * -1 , 0.4f);
-
-            handle.DOColor(isOn ? onColor : offColor, 0.4f);
-            background.DOColor(isOn ? onColor : offColor, 0.4f);
+            _animationSequence?.Kill();
+            _animationSequence = DOTween.Sequence()
+                .Append(handleTransform.DOAnchorPosX(isOn ? _handleX: _handleX * -1 , 0.4f))
+                .Insert(0, handle.DOColor(isOn ? onColor : offColor, 0.4f))
+                .Insert(0, background.DOColor(isOn ? onColor : offColor, 0.4f))
+                .SetUpdate(UpdateType.Normal, true)
+            ;
         }
 
         

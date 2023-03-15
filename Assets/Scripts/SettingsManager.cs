@@ -20,7 +20,7 @@ namespace Apollo11
             musicSlider.value = _playerSettings.MusicLevel;
             effectsSlider.value = _playerSettings.SoundLevel;
             touchToggle.isOn = _playerSettings.TouchControls;
-            touchControlsSwitch.Init(_playerSettings.TouchControls);
+            touchControlsSwitch.Init();
 
             musicSlider.onValueChanged.AddListener(OnMusicSlider) ;
             effectsSlider.onValueChanged.AddListener(OnEffectsSlider) ;

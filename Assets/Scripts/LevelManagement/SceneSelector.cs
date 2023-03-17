@@ -1,8 +1,7 @@
-using Apollo11.LevelManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Apollo11.UI
+namespace Apollo11.LevelManagement
 {
     public class SceneSelector : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Roots
 {
     public interface IDamagable : IGetPosition, IGetIconPosition
     {

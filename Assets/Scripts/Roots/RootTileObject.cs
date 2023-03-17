@@ -1,9 +1,8 @@
-using System;
 using Apollo11.Core;
 using Apollo11.Player;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Roots
 {
     public class RootTileObject : MonoBehaviour, IDamagable
     {

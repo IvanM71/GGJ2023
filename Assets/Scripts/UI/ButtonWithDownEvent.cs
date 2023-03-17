@@ -2,7 +2,7 @@ using System;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Apollo11
+namespace Apollo11.UI
 {
     public class ButtonWithDownEvent : Button
     {

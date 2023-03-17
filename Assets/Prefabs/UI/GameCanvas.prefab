@@ -1661,7 +1661,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '[WASD] to move
 
-    [E] [F] to interract
+    [E] [F] to interact
 
     [R] to drop item'
   m_isRightToLeft: 0

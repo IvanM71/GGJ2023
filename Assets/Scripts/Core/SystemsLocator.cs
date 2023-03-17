@@ -1,8 +1,11 @@
 using Apollo11.Interaction;
 using Apollo11.Items;
 using Apollo11.Player;
+using Apollo11.Roots;
+using Apollo11.UI;
 using Apollo11.WeaponCharges;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Apollo11.Core
 {
@@ -24,8 +27,8 @@ namespace Apollo11.Core
         [SerializeField] private InteractionSystem interactionSystem;
         public InteractionSystem InteractionSystem => interactionSystem;
 
-        [SerializeField] private SettingsManager settingsManager;
-        public SettingsManager SettingsManager => settingsManager;
+        [FormerlySerializedAs("settingsManager")] [SerializeField] private UI_SettingsManager uiSettingsManager;
+        public UI_SettingsManager UISettingsManager => uiSettingsManager;
         
         
         [Space]

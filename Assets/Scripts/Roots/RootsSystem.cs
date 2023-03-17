@@ -1,13 +1,13 @@
-using Apollo11.Core;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Apollo11.Core;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Apollo11.Enums;
 using Random = UnityEngine.Random;
 
-namespace Apollo11
+namespace Apollo11.Roots
 {
     public class RootsSystem : MonoBehaviour
     {

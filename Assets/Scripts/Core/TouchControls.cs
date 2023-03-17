@@ -1,7 +1,8 @@
+using Apollo11.UI;
 using SimpleInputNamespace;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Core
 {
     /// <summary>
     /// This logic is shit, I am sorry

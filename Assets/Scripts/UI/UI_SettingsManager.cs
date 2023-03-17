@@ -1,10 +1,10 @@
+using Apollo11.Core;
 using UnityEngine;
 using UnityEngine.UI;
-using Apollo11.UI;
 
-namespace Apollo11
+namespace Apollo11.UI
 {
-    public class SettingsManager : MonoBehaviour
+    public class UI_SettingsManager : MonoBehaviour
     {
         [SerializeField] private Slider musicSlider;
         [SerializeField] private Slider effectsSlider;

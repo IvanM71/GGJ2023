@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Apollo11.Core;
 using Apollo11.Items;
+using Apollo11.Roots;
 using UnityEngine;
 
 namespace Apollo11.Interaction

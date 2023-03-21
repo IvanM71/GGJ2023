@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Items
-  - 
+  - FeetCollider
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: MachinesShadow
     uniqueID: 2510410649
+    locked: 0
+  - name: Puzzle
+    uniqueID: 1752342009
     locked: 0
   - name: Roots
     uniqueID: 1251586633

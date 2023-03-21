@@ -18,7 +18,10 @@ namespace Apollo11.UI
 
         private void OnDestroy()
         {
-            PlayerSettings.Instance.OnTouchControlsValueChanged -= AtTouchControlsSettingChanged;
+            if (PlayerSettings.Instance != null)
+            {
+                PlayerSettings.Instance.OnTouchControlsValueChanged -= AtTouchControlsSettingChanged; 
+            }
         }
 
         private void AtTouchControlsSettingChanged(bool touch)

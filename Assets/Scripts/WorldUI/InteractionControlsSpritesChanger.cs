@@ -22,7 +22,11 @@ namespace Apollo11.WorldUI
 
         private void OnDestroy()
         {
-            PlayerSettings.Instance.OnTouchControlsValueChanged -= ToggleTouchControls;
+            if (PlayerSettings.Instance!=null)
+            {
+                PlayerSettings.Instance.OnTouchControlsValueChanged -= ToggleTouchControls;
+            }
+            
         }
 
         private void ToggleTouchControls(bool touch)

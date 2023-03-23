@@ -14,12 +14,17 @@ namespace Apollo11.Puzzles
         private Sprite _symbol;
         private Sprite _symbolActive;
 
+        public int PlateID { get; private set; }
         public event Action<Plate> OnPlatePressed;
 
-        public void Init(Sprite symbolUp, Sprite symbolDown)
+        public void Init(int plateID, Sprite symbolUp, Sprite symbolDown)
         {
+            PlateID = plateID;
             _symbol = symbolUp;
             _symbolActive = symbolDown;
+            
+            plateSpriteRenderer.sprite = plateUp;
+            symbolSpriteRenderer.sprite = _symbol;
         }
 
         private void OnTriggerEnter2D(Collider2D col) => AtEntered();

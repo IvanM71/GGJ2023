@@ -341,7 +341,6 @@ namespace Apollo11.Roots
             {
                 int x = checkNext[i].x;
                 int y = checkNext[i].y;
-                Debug.Log(x+ " " + y);
                 if (x < rootsModel.roots.GetLength(0) - 1)
                 {
                     if (rootsModel.roots[x + 1, y] is not null)

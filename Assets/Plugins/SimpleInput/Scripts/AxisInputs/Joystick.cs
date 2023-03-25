@@ -194,7 +194,7 @@ namespace SimpleInputNamespace
 			m_value = Vector2.zero;
 
 			thumbTR.localPosition = Vector3.zero;
-			if( !isDynamicJoystick && canFollowPointer )
+			//if( !isDynamicJoystick && canFollowPointer )
 				joystickTR.anchoredPosition = joystickInitialPos;
 
 			xAxis.value = 0f;
@@ -209,7 +209,7 @@ namespace SimpleInputNamespace
 			if( joystickHeld )
 				opacity = Mathf.Min( 1f, opacity + Time.unscaledDeltaTime * 4f );
 			else
-				opacity = Mathf.Max( 0f, opacity - Time.unscaledDeltaTime * 4f );
+				opacity = Mathf.Max( 0.5f, opacity - Time.unscaledDeltaTime * 4f );
 
 			Color c = thumb.color;
 			c.a = opacity;

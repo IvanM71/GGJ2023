@@ -11,6 +11,7 @@ namespace Apollo11.Puzzles
         [SerializeField] private List<Sprite> symbolsDown;
         [SerializeField] private List<Plate> plates;
         [SerializeField] private List<Plate> wallSymbols;
+        [SerializeField] private PuzzleProgressBar progressBar;
 
         private int s1, s2, s3; //correct symbols to solve the puzzle
         private List<int> _input = new (3);
@@ -40,6 +41,9 @@ namespace Apollo11.Puzzles
             print($"Pressed plate {plate.PlateID}");
             
             _input.Add(plate.PlateID);
+
+            if(_input.Count == 1)
+                progressBar.SetProgress(0.33f);
 
             if (_input.Count == 3)
             {

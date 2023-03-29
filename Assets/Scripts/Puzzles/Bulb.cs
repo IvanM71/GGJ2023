@@ -10,27 +10,30 @@ namespace Apollo11
         [SerializeField] Sprite bulbOn;
         [SerializeField] Sprite bulbOff;
         [SerializeField] SpriteRenderer bulbSpriteRenderer;
-
+        [Space]
         [SerializeField] float[] sequence;
 
         private bool isSolved = false;
         private bool isCoroutineRunning = false;
         private int rightPressesCount = 0;
         private bool isPressNeeded = false;
+        private List<float[]> sequences = new List<float[]>();
 
         void Start ()
         {
             StartCoroutine(Bulbing());
+            StartCoroutine(SolvingCheck());
+            sequences.Add(new float[] { 3f, 0.3f, 0.3f, 1.5f, 0.3f, 0.3f, 1.5f, 0.5f });
+            sequences.Add(new float[] { 3f, 0.3f, 0.3f, 0.3f, 1.5f, 1.5f, 0.3f, 0.3f, 0.3f, 1.5f, 1.5f });
+            sequences.Add(new float[] { 3f, 1.5f, 0.3f, 0.3f, 0.5f, 1.5f, 0.5f });
+            sequences.Add(new float[] { 3f, 0.8f, 0.8f, 0.8f, 1.2f, 1.5f, 0.5f, 0.5f });
+            sequences.Add(new float[] { 3f, 1f, 1f, 1f, 0.5f, 0.5f, 0.5f, 0.5f });
         }
 
         private void Update()
         {
             if (isSolved)
-            {
-                StopAllCoroutines();
-                AtSolved();
                 return;
-            }
 
             if (!isCoroutineRunning && !isSolved)
             {
@@ -43,16 +46,26 @@ namespace Apollo11
                 isPressNeeded = false;
                 rightPressesCount++;
             }
+
             else if (Input.GetKeyDown(KeyCode.Space) && !isPressNeeded)
             {
                 Debug.Log("Pressed wrong!");
                 rightPressesCount = 0;
             }
+        }
 
-            if(rightPressesCount == 8)
+        IEnumerator SolvingCheck()
+        {
+            while (!isSolved)
             {
-                Debug.Log("SOLVED!");
-                isSolved = true;
+                if (rightPressesCount == sequence.Length - 1)
+                {
+                    Debug.Log("SOLVED!");
+                    isSolved = true;
+                    StopAllCoroutines();
+                    AtSolved();
+                }
+                yield return null;
             }
         }
 

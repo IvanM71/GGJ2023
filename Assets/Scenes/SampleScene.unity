@@ -293,6 +293,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7396531401914182548, guid: f13b76308e2dc074286e4438b838f392, type: 3}
   m_PrefabInstance: {fileID: 1781715482}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &431652085 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 431652085, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+  m_PrefabInstance: {fileID: 6347628072903687479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed389838396749829a1374ea13c172df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &522311259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2717402436440964491, guid: ab384c0da0852e144a304f73f17d4ddb, type: 3}
@@ -5164,6 +5175,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+--- !u!1001 &6347628072903687479
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637060, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347628073277637063, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
+      propertyPath: m_Name
+      value: ObstacleBlock
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8539d7b5a43e10f4f81a5240188d9a4f, type: 3}
 --- !u!1001 &6407552099554164865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5174,6 +5242,34 @@ PrefabInstance:
     - target: {fileID: 6407552100392660328, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
       propertyPath: m_Name
       value: PlatePuzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407552100392660330, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: OnSolved.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407552100392660330, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: OnSolved.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407552100392660330, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: OnSolved.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 431652085}
+    - target: {fileID: 6407552100392660330, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: OnSolved.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407552100392660330, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: OnSolved.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Hide
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407552100392660330, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: OnSolved.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Apollo11.Puzzles.ObstacleBlock, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407552100392660330, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: OnSolved.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6407552100392660331, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
       propertyPath: m_RootOrder

@@ -13,16 +13,18 @@ namespace Apollo11.Puzzles
 
         private Sprite _symbol;
         private Sprite _symbolActive;
+        private PlatePuzzle _platePuzzle;
 
         public int PlateID { get; private set; }
         public event Action<Plate> OnPlatePressed;
 
-        public void Init(int plateID, Sprite symbolUp, Sprite symbolDown)
+        public void Init(int plateID, Sprite symbolUp, Sprite symbolDown, PlatePuzzle platePuzzle)
         {
             PlateID = plateID;
             _symbol = symbolUp;
             _symbolActive = symbolDown;
-            
+            _platePuzzle = platePuzzle;
+
             plateSpriteRenderer.sprite = plateUp;
             symbolSpriteRenderer.sprite = _symbol;
         }
@@ -45,6 +47,12 @@ namespace Apollo11.Puzzles
         {
             plateSpriteRenderer.sprite = up ? plateUp : plateDown;
             symbolSpriteRenderer.sprite = up ? _symbol : _symbolActive;
+
+            if (!up && _platePuzzle.IsSolved)
+                symbolSpriteRenderer.color = Color.gray;
+            else
+                symbolSpriteRenderer.color = Color.white;
+
         }
     }
 }

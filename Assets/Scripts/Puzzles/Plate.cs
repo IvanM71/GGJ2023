@@ -48,11 +48,8 @@ namespace Apollo11.Puzzles
             plateSpriteRenderer.sprite = up ? plateUp : plateDown;
             symbolSpriteRenderer.sprite = up ? _symbol : _symbolActive;
 
-            if (!up && _platePuzzle.IsSolved)
-                symbolSpriteRenderer.color = Color.gray;
-            else
-                symbolSpriteRenderer.color = Color.white;
-
+            if (_platePuzzle.IsSolved)
+                symbolSpriteRenderer.sprite = _symbol;
         }
     }
 }

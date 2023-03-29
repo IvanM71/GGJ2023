@@ -10,6 +10,7 @@ namespace Apollo11.Puzzles
         [SerializeField] private List<Sprite> symbolsUp;
         [SerializeField] private List<Sprite> symbolsDown;
         [SerializeField] private List<Plate> plates;
+        [SerializeField] private List<Plate> wallSymbols;
 
         private int s1, s2, s3; //correct symbols to solve the puzzle
         private List<int> _input = new (3);

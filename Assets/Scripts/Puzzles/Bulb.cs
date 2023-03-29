@@ -1,93 +1,157 @@
-using Apollo11.Puzzles;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Puzzles
 {
     public class Bulb: APuzzle
     {
         [SerializeField] Sprite bulbOn;
         [SerializeField] Sprite bulbOff;
         [SerializeField] SpriteRenderer bulbSpriteRenderer;
+        [SerializeField] AudioSource audioS;
         [Space]
-        [SerializeField] float[] sequence;
-
-        private bool isSolved = false;
-        private bool isCoroutineRunning = false;
+        [SerializeField] float turnedOnTime = 0.25f;
+        [SerializeField] float beforeBlinkTolerance = 0.1f;
+        [SerializeField] float afterBlinkTolerance = 0.1f;
+        [Space]
+        [SerializeField] float shortPauseTime = 0.2f;
+        [SerializeField] float longPauseTime = 0.5f;
+        [SerializeField] float loopDelay = 2f;
+        [Space]
+        [SerializeField] Pause[] sequence;
+        
         private int rightPressesCount = 0;
-        private bool isPressNeeded = false;
-        private List<float[]> sequences = new List<float[]>();
+        private DateTime currentPressDT;
+        private DateTime nextPressDT;
+        private bool currentPressDone;
+        
+        private TimeSpan beforeToleranceTS;
+        private TimeSpan afterToleranceTS;
+        private TimeSpan loopDelayTS;
+        private TimeSpan blinkTS;
+        private WaitForSeconds afterBlinkToleranceWFS;
+
+        private enum Pause
+        {
+            Short,
+            Long
+        }
 
         void Start ()
         {
-            StartCoroutine(Bulbing());
-            StartCoroutine(SolvingCheck());
-            sequences.Add(new float[] { 3f, 0.3f, 0.3f, 1.5f, 0.3f, 0.3f, 1.5f, 0.5f });
-            sequences.Add(new float[] { 3f, 0.3f, 0.3f, 0.3f, 1.5f, 1.5f, 0.3f, 0.3f, 0.3f, 1.5f, 1.5f });
-            sequences.Add(new float[] { 3f, 1.5f, 0.3f, 0.3f, 0.5f, 1.5f, 0.5f });
-            sequences.Add(new float[] { 3f, 0.8f, 0.8f, 0.8f, 1.2f, 1.5f, 0.5f, 0.5f });
-            sequences.Add(new float[] { 3f, 1f, 1f, 1f, 0.5f, 0.5f, 0.5f, 0.5f });
+            beforeToleranceTS = TimeSpan.FromSeconds(beforeBlinkTolerance);
+            afterToleranceTS = TimeSpan.FromSeconds(afterBlinkTolerance);
+            loopDelayTS = TimeSpan.FromSeconds(loopDelay);
+            blinkTS = TimeSpan.FromSeconds(turnedOnTime);
+            afterBlinkToleranceWFS = new WaitForSeconds(afterBlinkTolerance);
+            
+            StartCoroutine(Blinking());
         }
+        
 
         private void Update()
         {
-            if (isSolved)
+            if (IsSolved)
                 return;
 
-            if (!isCoroutineRunning && !isSolved)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                StartCoroutine(Bulbing());
+                AtPlayerInteracts();
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && isPressNeeded)
-            {
-                Debug.Log("Pressed right!");
-                isPressNeeded = false;
-                rightPressesCount++;
-            }
+        }
 
-            else if (Input.GetKeyDown(KeyCode.Space) && !isPressNeeded)
+        private void AtPlayerInteracts()
+        {
+            print("Pressed");
+            var minTime = currentPressDT - beforeToleranceTS;
+            var maxTime = currentPressDT + blinkTS + afterToleranceTS;
+            var currentTime = DateTime.Now;
+
+            if (currentTime > minTime && currentTime < maxTime && !currentPressDone)
+                AtCorrectPress();
+            else
+                AtWrongPress();
+        }
+
+        private void AtCorrectPress()
+        {
+            print("+");
+            currentPressDone = true;
+            rightPressesCount++;
+            CheckIfSolved();
+        }
+
+        private void AtWrongPress()
+        {
+            print("Wrong!");
+            currentPressDone = false;
+            rightPressesCount = 0;
+        }
+
+        void CheckIfSolved()
+        {
+            if (rightPressesCount == sequence.Length - 1)
             {
-                Debug.Log("Pressed wrong!");
+                print("SOLVED!");
+                StopAllCoroutines();
+                AtSolved();
+            }
+        }
+
+        IEnumerator Blinking()
+        {
+            var shortPauseWFS = new WaitForSeconds(shortPauseTime);
+            var longPauseWFS = new WaitForSeconds(longPauseTime);
+            var loopDelayWFS = new WaitForSeconds(loopDelay);
+            var blinkWFS = new WaitForSeconds(turnedOnTime);
+            
+            while (true)
+            {
+                currentPressDT = DateTime.Now + loopDelayTS;
+                yield return loopDelayWFS;
+                
+                for (var i = 0; i < sequence.Length; i++)
+                {
+                    Blink(true);
+                    yield return blinkWFS;
+                    Blink(false);
+                    StartCoroutine(SwapPressDT());
+
+                    if (sequence[i] == Pause.Short)
+                    {
+                        nextPressDT = DateTime.Now + TimeSpan.FromSeconds(shortPauseTime); 
+                        yield return shortPauseWFS;
+                    }
+                    else
+                    {
+                        nextPressDT = DateTime.Now + TimeSpan.FromSeconds(longPauseTime); 
+                        yield return longPauseWFS;
+                    }
+                }
+                
+            }
+        }
+
+        IEnumerator SwapPressDT()
+        {
+            yield return afterBlinkToleranceWFS;
+            currentPressDT = nextPressDT;
+            if (currentPressDone == false)
+            {
+                print("miss");
                 rightPressesCount = 0;
             }
         }
 
-        IEnumerator SolvingCheck()
+        private void Blink(bool on)
         {
-            while (!isSolved)
+            bulbSpriteRenderer.sprite = on ? bulbOn : bulbOff;
+            if (on)
             {
-                if (rightPressesCount == sequence.Length - 1)
-                {
-                    Debug.Log("SOLVED!");
-                    isSolved = true;
-                    StopAllCoroutines();
-                    AtSolved();
-                }
-                yield return null;
+                audioS.PlayOneShot(audioS.clip);
             }
-        }
-
-        IEnumerator Bulbing()
-        {
-            isCoroutineRunning = true;
-            rightPressesCount = 0;
-            for (int i = 0; i < sequence.Length; i++)
-            {
-                Debug.Log("Turn off for " + sequence[i] + " seconds");
-                bulbSpriteRenderer.sprite = bulbOff;
-                isPressNeeded = false;
-
-                yield return new WaitForSeconds(sequence[i]);
-
-                Debug.Log("Turn on");
-                bulbSpriteRenderer.sprite = bulbOn;
-                isPressNeeded = true;
-
-                yield return new WaitForSeconds(1);
-            }
-            isCoroutineRunning = false;
         }
     }
 }

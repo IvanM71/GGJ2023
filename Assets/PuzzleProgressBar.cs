@@ -9,6 +9,7 @@ namespace Apollo11
         [SerializeField] private SpriteRenderer mainRenderer;
         [SerializeField] private SpriteRenderer positiveRenderer;
         [SerializeField] private SpriteRenderer negativeRenderer;
+
         public void SetProgress(float percentage01)
         {
             Debug.Log($"set progress to {percentage01}");

@@ -31,9 +31,10 @@ namespace Apollo11
             animator.Play("ProgressBar", 0, val);
         }
 
-        public void IndicatePositive()
+        public async void IndicatePositive()
         {
-            
+            positiveRenderer.DOColor(Color.green, 0.4f);
+            //positiveRenderer.DOColor(new Color(0, 255, 0, 0), 0.4f);
         }
         
         public void IndicateNegative()

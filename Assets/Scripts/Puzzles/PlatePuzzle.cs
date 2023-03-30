@@ -52,7 +52,10 @@ namespace Apollo11.Puzzles
             {
                 progressBar.SetProgress(0.999f);
                 if (ValidateInput())
+                {
+                    progressBar.IndicatePositive();
                     AtSolved();
+                }
                 else
                     AtSolvedWrong();
             }

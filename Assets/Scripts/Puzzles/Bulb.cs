@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace Apollo11.Puzzles
 {
@@ -19,32 +21,30 @@ namespace Apollo11.Puzzles
         [SerializeField] float longPauseTime = 0.5f;
         [SerializeField] float loopDelay = 2f;
         [Space]
-        [SerializeField] Pause[] sequence;
+        [SerializeField] Pause[] pausesSequence;
         
-        private int rightPressesCount = 0;
-        private DateTime currentPressDT;
-        private DateTime nextPressDT;
-        private bool currentPressDone;
-        
-        private TimeSpan beforeToleranceTS;
-        private TimeSpan afterToleranceTS;
-        private TimeSpan loopDelayTS;
-        private TimeSpan blinkTS;
-        private WaitForSeconds afterBlinkToleranceWFS;
 
         private enum Pause
         {
             Short,
             Long
         }
+        
+        private struct PressSpan
+        {
+            public DateTime start;
+            public DateTime end;
+            public bool pressed;
+        }
+
+        private PressSpan[] _pressSpans;
+        private List<int> _suitableSpansIndexesForNow = new (3);
 
         void Start ()
         {
-            beforeToleranceTS = TimeSpan.FromSeconds(beforeBlinkTolerance);
-            afterToleranceTS = TimeSpan.FromSeconds(afterBlinkTolerance);
-            loopDelayTS = TimeSpan.FromSeconds(loopDelay);
-            blinkTS = TimeSpan.FromSeconds(turnedOnTime);
-            afterBlinkToleranceWFS = new WaitForSeconds(afterBlinkTolerance);
+            _pressSpans = new PressSpan[pausesSequence.Length+1];
+            for (var i = 0; i < pausesSequence.Length+1; i++)
+                _pressSpans[i] = new PressSpan();
             
             StartCoroutine(Blinking());
         }
@@ -64,35 +64,82 @@ namespace Apollo11.Puzzles
 
         private void AtPlayerInteracts()
         {
-            print("Pressed");
-            var minTime = currentPressDT - beforeToleranceTS;
-            var maxTime = currentPressDT + blinkTS + afterToleranceTS;
-            var currentTime = DateTime.Now;
+            //print("Pressed");
 
-            if (currentTime > minTime && currentTime < maxTime && !currentPressDone)
-                AtCorrectPress();
-            else
+            _suitableSpansIndexesForNow.Clear();
+            for (var i = 0; i < _pressSpans.Length; i++)
+            {
+                var span = _pressSpans[i];
+                if (span.start < DateTime.Now && span.end > DateTime.Now && span.pressed == false)
+                {
+                    _suitableSpansIndexesForNow.Add(i);
+                }
+            }
+            
+            if (_suitableSpansIndexesForNow.Count == 0)
+            {
                 AtWrongPress();
+            }
+            else
+            {
+                _pressSpans[_suitableSpansIndexesForNow[0]].pressed = true;
+                AtCorrectPress();
+            }
+            
         }
 
+        private void ResetBlinkCycle()
+        {
+            var nextBlinkDT = DateTime.Now + TimeSpan.FromSeconds(loopDelay);
+            for (var i = 0; i < pausesSequence.Length + 1; i++)
+            {
+                _pressSpans[i].pressed = false;
+                _pressSpans[i].start = nextBlinkDT - TimeSpan.FromSeconds(beforeBlinkTolerance);
+                _pressSpans[i].end = nextBlinkDT + TimeSpan.FromSeconds(turnedOnTime+afterBlinkTolerance);
+                
+                if (i == pausesSequence.Length) continue;
+                var pause = pausesSequence[i];
+                nextBlinkDT += TimeSpan.FromSeconds(turnedOnTime+PauseEnumToSeconds(pause));
+            }
+        }
+        
+        private float PauseEnumToSeconds(Pause pauseEnum)
+        {
+            switch (pauseEnum)
+            {
+                case Pause.Short:
+                    return shortPauseTime;
+                case Pause.Long:
+                    return longPauseTime;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(pauseEnum), pauseEnum, null);
+            }
+        }
+        
         private void AtCorrectPress()
         {
             print("+");
-            currentPressDone = true;
-            rightPressesCount++;
             CheckIfSolved();
         }
 
         private void AtWrongPress()
         {
             print("Wrong!");
-            currentPressDone = false;
-            rightPressesCount = 0;
+            //TODO flag
         }
 
         void CheckIfSolved()
         {
-            if (rightPressesCount == sequence.Length - 1)
+            var hasNotPressedSpan = false;
+            foreach (var span in _pressSpans)
+            {
+                if (span.pressed == false)
+                {
+                    hasNotPressedSpan = true;
+                }
+            }
+
+            if (!hasNotPressedSpan)
             {
                 print("SOLVED!");
                 StopAllCoroutines();
@@ -109,41 +156,25 @@ namespace Apollo11.Puzzles
             
             while (true)
             {
-                currentPressDT = DateTime.Now + loopDelayTS;
+                ResetBlinkCycle();
                 yield return loopDelayWFS;
                 
-                for (var i = 0; i < sequence.Length; i++)
+                for (var i = 0; i < pausesSequence.Length + 1; i++)
                 {
                     Blink(true);
                     yield return blinkWFS;
                     Blink(false);
-                    StartCoroutine(SwapPressDT());
 
-                    if (sequence[i] == Pause.Short)
-                    {
-                        nextPressDT = DateTime.Now + TimeSpan.FromSeconds(shortPauseTime); 
+                    if (i == pausesSequence.Length) continue;
+                    if (pausesSequence[i] == Pause.Short)
                         yield return shortPauseWFS;
-                    }
                     else
-                    {
-                        nextPressDT = DateTime.Now + TimeSpan.FromSeconds(longPauseTime); 
                         yield return longPauseWFS;
-                    }
                 }
                 
             }
         }
-
-        IEnumerator SwapPressDT()
-        {
-            yield return afterBlinkToleranceWFS;
-            currentPressDT = nextPressDT;
-            if (currentPressDone == false)
-            {
-                print("miss");
-                rightPressesCount = 0;
-            }
-        }
+        
 
         private void Blink(bool on)
         {

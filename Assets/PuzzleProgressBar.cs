@@ -6,6 +6,7 @@ namespace Apollo11
 {
     public class PuzzleProgressBar : MonoBehaviour
     {
+        [SerializeField] private float progressAnimationDuration = 0.5f;
         [SerializeField] private Animator animator;
         [SerializeField] private SpriteRenderer mainRenderer;
         [SerializeField] private SpriteRenderer positiveRenderer;
@@ -21,7 +22,7 @@ namespace Apollo11
             Debug.Log($"set progress to {percentage01}");
             
             _tween.Kill();
-            _tween = DOTween.To(()=>_currentVal, SetVisual, percentage01, 0.5f);
+            _tween = DOTween.To(()=>_currentVal, SetVisual, percentage01, progressAnimationDuration);
         }
 
         private void SetVisual(float val)

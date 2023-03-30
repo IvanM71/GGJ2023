@@ -171,11 +171,11 @@ namespace Apollo11.Puzzles
                     else
                         yield return longPauseWFS;
 
-                    if (IsSolved)
+                    /*if (IsSolved)
                     {
                         Blink(false);
                         yield break;
-                    }
+                    }*/
                 }
                 CheckForMisses();
             }

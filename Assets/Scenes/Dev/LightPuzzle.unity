@@ -1732,8 +1732,8 @@ MonoBehaviour:
   bulbSpriteRenderer: {fileID: 1343564100}
   audioS: {fileID: 1343564103}
   turnedOnTime: 0.2
-  beforeBlinkTolerance: 0.1
-  afterBlinkTolerance: 0.1
+  beforeBlinkTolerance: 0.2
+  afterBlinkTolerance: 0.2
   shortPauseTime: 0.2
   longPauseTime: 0.5
   loopDelay: 1

@@ -44,9 +44,13 @@ namespace Apollo11.Puzzles
 
             if(_input.Count == 1)
                 progressBar.SetProgress(0.33f);
+            
+            if(_input.Count == 2)
+                progressBar.SetProgress(0.66f);
 
             if (_input.Count == 3)
             {
+                progressBar.SetProgress(0.999f);
                 if (ValidateInput())
                     AtSolved();
                 else

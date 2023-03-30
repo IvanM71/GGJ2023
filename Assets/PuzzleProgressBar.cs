@@ -12,8 +12,9 @@ namespace Apollo11
         public void SetProgress(float percentage01)
         {
             Debug.Log($"set progress to {percentage01}");
-            animator.speed = 1;
-            animator.Play("ProgressBar", -1, 0.33f);
+            //animator.speed = 1;
+            animator.Play("ProgressBar", -1, percentage01);
+            //animator.CrossFade("ProgressBar", 1, -1, percentage01);
         }
 
         public void IndicatePositive()

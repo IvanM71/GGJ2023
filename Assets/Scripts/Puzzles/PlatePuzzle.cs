@@ -42,8 +42,7 @@ namespace Apollo11.Puzzles
             
             _input.Add(plate.PlateID);
 
-            if(_input.Count == 1)
-                progressBar.SetProgress(0.33f);
+            progressBar.SetProgress((100f / 3f * _input.Count) / 100f);
 
             if (_input.Count == 3)
             {
@@ -52,8 +51,6 @@ namespace Apollo11.Puzzles
                 else
                     AtSolvedWrong();
             }
-
-            
         }
 
         private void AtSolvedWrong()

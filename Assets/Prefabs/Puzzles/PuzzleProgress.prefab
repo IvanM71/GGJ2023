@@ -321,9 +321,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91476b0c35b12124ab004cf36593368d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainRenderer: {fileID: 0}
-  positiveRenderer: {fileID: 0}
-  negativeRenderer: {fileID: 0}
+  animator: {fileID: 655788715359094403}
+  mainRenderer: {fileID: 655788715359094404}
+  positiveRenderer: {fileID: 655788715822366423}
+  negativeRenderer: {fileID: 655788714855177474}
 --- !u!210 &655788716217818343
 SortingGroup:
   m_ObjectHideFlags: 0

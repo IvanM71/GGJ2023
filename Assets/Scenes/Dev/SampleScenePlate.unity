@@ -1419,6 +1419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd50e1b6581d26440ac0208960b14597, type: 3}
+--- !u!212 &964842224 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5695680253440418247, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+  m_PrefabInstance: {fileID: 6407552099554164865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &983716013
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2013,6 +2018,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7396531401914182548, guid: 99783247a7ec4c64298327ef1ae5d804, type: 3}
   m_PrefabInstance: {fileID: 666083272}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1474732083 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5695680252264563218, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+  m_PrefabInstance: {fileID: 6407552099554164865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1481398185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7396531401914182548, guid: bd50e1b6581d26440ac0208960b14597, type: 3}
@@ -2307,6 +2317,11 @@ Transform:
 --- !u!95 &1880362560 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5695680251627608467, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+  m_PrefabInstance: {fileID: 6407552099554164865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1880362561 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5695680251627608468, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
   m_PrefabInstance: {fileID: 6407552099554164865}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2000897515
@@ -4251,6 +4266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PuzzleProgress
       objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818341, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -5496,6 +5515,18 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1880362560}
+    - target: {fileID: 5695680253080863736, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: mainRenderer
+      value: 
+      objectReference: {fileID: 1880362561}
+    - target: {fileID: 5695680253080863736, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: negativeRenderer
+      value: 
+      objectReference: {fileID: 1474732083}
+    - target: {fileID: 5695680253080863736, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: positiveRenderer
+      value: 
+      objectReference: {fileID: 964842224}
     - target: {fileID: 6407552100392660328, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
       propertyPath: m_Name
       value: PlatePuzzle

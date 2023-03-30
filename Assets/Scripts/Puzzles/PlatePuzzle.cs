@@ -42,15 +42,22 @@ namespace Apollo11.Puzzles
             
             _input.Add(plate.PlateID);
 
-            progressBar.SetProgress((100f / 3f * _input.Count) / 100f);
+            if(_input.Count == 1)
+                progressBar.SetProgress(0.33f);
+            
+            if(_input.Count == 2)
+                progressBar.SetProgress(0.66f);
 
             if (_input.Count == 3)
             {
+                progressBar.SetProgress(0.999f);
                 if (ValidateInput())
                     AtSolved();
                 else
                     AtSolvedWrong();
             }
+
+            
         }
 
         private void AtSolvedWrong()

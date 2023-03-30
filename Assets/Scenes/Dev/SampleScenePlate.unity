@@ -5511,6 +5511,22 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5695680252264563218, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695680252264563218, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695680252264563218, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695680252264563218, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5695680253080863736, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
       propertyPath: animator
       value: 
@@ -5527,6 +5543,22 @@ PrefabInstance:
       propertyPath: positiveRenderer
       value: 
       objectReference: {fileID: 964842224}
+    - target: {fileID: 5695680253440418247, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695680253440418247, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695680253440418247, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695680253440418247, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6407552100392660328, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
       propertyPath: m_Name
       value: PlatePuzzle

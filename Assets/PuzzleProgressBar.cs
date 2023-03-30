@@ -31,12 +31,15 @@ namespace Apollo11
 
         public void IndicatePositive()
         {
-            positiveRenderer.DOColor(new Color(0, 200, 0, 125), 0.5f).SetLoops(5).SetEase(Ease.InBack).SetAutoKill(true);
+            positiveRenderer.DOFade(125, 0.3f).SetLoops(4).SetEase(Ease.InBack);
         }
         
         public void IndicateNegative()
         {
-            negativeRenderer.DOColor(new Color(200, 0, 0, 125), 0.5f).SetLoops(5).SetEase(Ease.InBack).SetAutoKill(true);
+            negativeRenderer.DOFade(125, 0.3f).SetLoops(4).SetEase(Ease.InBack).OnComplete(() => { 
+                negativeRenderer.color = new Color(200, 0, 0, 0);
+                SetProgress(0);
+            });
         }
         
     }

@@ -10,7 +10,8 @@ namespace Apollo11.Puzzles
         [SerializeField] private List<Sprite> symbolsUp;
         [SerializeField] private List<Sprite> symbolsDown;
         [SerializeField] private List<Plate> plates;
-        [SerializeField] private List<Plate> wallSymbols;
+        [SerializeField] private List<WallSymbol> wallSymbols;
+        [Space]
         [SerializeField] private PuzzleProgressBar progressBar;
 
         private int s1, s2, s3; //correct symbols to solve the puzzle
@@ -54,6 +55,8 @@ namespace Apollo11.Puzzles
                 if (ValidateInput())
                 {
                     progressBar.IndicatePositive();
+                    foreach(var symbol in wallSymbols)
+                        symbol.OnSolved();
                     AtSolved();
                 }
                 else
@@ -90,7 +93,6 @@ namespace Apollo11.Puzzles
             return combinations.Contains(userInput);
         }
 
-
         private void SelectRandomSymbols()
         {
             int GetRandomSymbol() => Random.Range(0, symbolsUp.Count);
@@ -104,7 +106,11 @@ namespace Apollo11.Puzzles
 
             if (s1 == s2 && s2 == s3)
                 SelectRandomSymbols();
-            
+
+            wallSymbols[0].SetSprites(symbolsUp[s1], symbolsDown[s1]);
+            wallSymbols[1].SetSprites(symbolsUp[s2], symbolsDown[s2]);
+            wallSymbols[2].SetSprites(symbolsUp[s3], symbolsDown[s3]);
+
             print($"Pass: {s1} {s2} {s3}");
         }
     }

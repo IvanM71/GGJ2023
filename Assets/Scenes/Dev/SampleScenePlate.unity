@@ -1492,7 +1492,7 @@ GameObject:
   - component: {fileID: 1109983669}
   - component: {fileID: 1109983668}
   m_Layer: 0
-  m_Name: SymbolBlue
+  m_Name: WallSymbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1558,10 +1558,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109983667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.495, y: 4.625, z: 0}
+  m_LocalPosition: {x: -6.253, y: 6.825, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1522534798}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2044,7 +2045,7 @@ GameObject:
   - component: {fileID: 1522534798}
   - component: {fileID: 1522534797}
   m_Layer: 0
-  m_Name: SymbolBlueActive
+  m_Name: WallSymbolActive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2109,13 +2110,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522534796}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.497, y: 4.624, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0020003319, y: -0.0009999275, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 1109983669}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1547223490
 PrefabInstance:
@@ -4272,7 +4273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5525,7 +5526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5695680252264563218, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.78431374
       objectReference: {fileID: 0}
     - target: {fileID: 5695680253080863736, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
       propertyPath: animator
@@ -5553,7 +5554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5695680253440418247, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.78431374
       objectReference: {fileID: 0}
     - target: {fileID: 5695680253440418247, guid: 3b393c748f87c43418c5de19aff490c9, type: 3}
       propertyPath: m_Color.r

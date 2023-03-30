@@ -23,7 +23,11 @@ namespace Apollo11.Puzzles
         [Space]
         [SerializeField] Pause[] pausesSequence;
         
-
+        private PressSpan[] _pressSpans;
+        private readonly List<int> _suitableSpansIndexesForNow = new (3);
+        private int _correctPresses;
+        private int _neededPresses;
+        
         private enum Pause
         {
             Short,
@@ -37,35 +41,25 @@ namespace Apollo11.Puzzles
             public bool pressed;
         }
 
-        private PressSpan[] _pressSpans;
-        private List<int> _suitableSpansIndexesForNow = new (3);
+        
 
         void Start ()
         {
-            _pressSpans = new PressSpan[pausesSequence.Length+1];
-            for (var i = 0; i < pausesSequence.Length+1; i++)
+            _neededPresses = pausesSequence.Length + 1;
+            
+            _pressSpans = new PressSpan[pausesSequence.Length + 1];
+            for (var i = 0; i < pausesSequence.Length + 1; i++)
                 _pressSpans[i] = new PressSpan();
             
             StartCoroutine(Blinking());
+            StartCoroutine(CheckInput());
         }
         
 
-        private void Update()
-        {
-            if (IsSolved)
-                return;
-
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                AtPlayerInteracts();
-            }
-
-        }
-
         private void AtPlayerInteracts()
         {
-            //print("Pressed");
-
+            if (IsSolved) return;
+            
             _suitableSpansIndexesForNow.Clear();
             for (var i = 0; i < _pressSpans.Length; i++)
             {
@@ -119,30 +113,31 @@ namespace Apollo11.Puzzles
         private void AtCorrectPress()
         {
             print("+");
+            _correctPresses++;
             CheckIfSolved();
         }
 
         private void AtWrongPress()
         {
             print("Wrong!");
+            _correctPresses = 0;
             //TODO flag
+        }
+        
+        private void CheckForMisses()
+        {
+            if (_correctPresses != _neededPresses)
+            {
+                print("Not all pressed!");
+                _correctPresses = 0;
+            }
         }
 
         void CheckIfSolved()
         {
-            var hasNotPressedSpan = false;
-            foreach (var span in _pressSpans)
-            {
-                if (span.pressed == false)
-                {
-                    hasNotPressedSpan = true;
-                }
-            }
-
-            if (!hasNotPressedSpan)
+            if (_correctPresses == _neededPresses)
             {
                 print("SOLVED!");
-                StopAllCoroutines();
                 AtSolved();
             }
         }
@@ -154,7 +149,7 @@ namespace Apollo11.Puzzles
             var loopDelayWFS = new WaitForSeconds(loopDelay);
             var blinkWFS = new WaitForSeconds(turnedOnTime);
             
-            while (true)
+            while (!IsSolved)
             {
                 ResetBlinkCycle();
                 yield return loopDelayWFS;
@@ -170,11 +165,33 @@ namespace Apollo11.Puzzles
                         yield return shortPauseWFS;
                     else
                         yield return longPauseWFS;
+
+                    if (IsSolved)
+                    {
+                        Blink(false);
+                        yield break;
+                    }
                 }
+
+                CheckForMisses();
+            }
+            
+            
+        }
+
+        
+
+        IEnumerator CheckInput()
+        {
+            while (!IsSolved)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                    AtPlayerInteracts();
                 
+                yield return null;
             }
         }
-        
+
 
         private void Blink(bool on)
         {

@@ -18,9 +18,7 @@ namespace Apollo11
         public void SetProgress(float percentage01)
         {
             if (Math.Abs(percentage01 - 1f) < 0.01f) percentage01 = 0.99f;
-            
-            Debug.Log($"set progress to {percentage01}");
-            
+
             _tween.Kill();
             _tween = DOTween.To(()=>_currentVal, SetVisual, percentage01, progressAnimationDuration);
         }

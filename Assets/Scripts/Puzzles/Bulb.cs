@@ -8,6 +8,8 @@ namespace Apollo11.Puzzles
 {
     public class Bulb: APuzzle
     {
+        [SerializeField] private PuzzleProgressBar progressBar;
+        [Space]
         [SerializeField] Sprite bulbOn;
         [SerializeField] Sprite bulbOff;
         [SerializeField] SpriteRenderer bulbSpriteRenderer;
@@ -79,7 +81,9 @@ namespace Apollo11.Puzzles
                 _pressSpans[_suitableSpansIndexesForNow[0]].pressed = true;
                 AtCorrectPress();
             }
-            
+
+            UpdateVisual();
+
         }
 
         private void ResetBlinkCycle()
@@ -130,6 +134,7 @@ namespace Apollo11.Puzzles
             {
                 print("Not all pressed!");
                 _correctPresses = 0;
+                UpdateVisual();
             }
         }
 
@@ -190,6 +195,12 @@ namespace Apollo11.Puzzles
                 
                 yield return null;
             }
+        }
+
+        private void UpdateVisual()
+        {
+            print($"Progress: {(float)_correctPresses/_neededPresses}");
+            progressBar.SetProgress((float)_correctPresses/_neededPresses);
         }
 
 

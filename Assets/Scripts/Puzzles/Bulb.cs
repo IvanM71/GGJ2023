@@ -177,11 +177,8 @@ namespace Apollo11.Puzzles
                         yield break;
                     }
                 }
-
                 CheckForMisses();
             }
-            
-            
         }
 
         

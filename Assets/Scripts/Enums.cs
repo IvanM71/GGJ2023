@@ -15,7 +15,8 @@ namespace Apollo11
             MagicIron,
             Leave,
             Biomass,
-            Water
+            Water,
+            Key
 
         }
         

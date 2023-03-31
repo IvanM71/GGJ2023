@@ -271,6 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plateSpriteRenderer: {fileID: 8977228430005205550}
   symbolSpriteRenderer: {fileID: 5798431738900864566}
+  symbolTransform: {fileID: 1863307373554971399}
+  symbolActiveSpriteRenderer: {fileID: 2174521015488431139}
   plateUp: {fileID: 21300000, guid: 1e0f268cd725ec1499f3e9be6d7d2747, type: 3}
   plateDown: {fileID: 21300000, guid: 155a840d9218eb046af1f05ee8021d3f, type: 3}
 --- !u!61 &3456252653964068881

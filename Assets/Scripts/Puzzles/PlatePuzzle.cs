@@ -1,12 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Apollo11.Puzzles
 {
     public class PlatePuzzle : APuzzle
     {
+        [SerializeField] private float blinkHalfDuration = 0.7f;
+        [SerializeField] private float pauseBetweenBlinks = 2f;
+        [Range(0f, 1f)]
+        [SerializeField] private float blinkIntensity = 0.7f;
+        [Space]
         [SerializeField] private List<Sprite> symbolsUp;
         [SerializeField] private List<Sprite> symbolsDown;
         [SerializeField] private List<Plate> plates;
@@ -16,11 +21,28 @@ namespace Apollo11.Puzzles
 
         private int s1, s2, s3; //correct symbols to solve the puzzle
         private List<int> _input = new (3);
+        private Coroutine _breathCoroutine;
 
         private void Start()
         {
             SetupPlates();
             SelectRandomSymbols();
+            _breathCoroutine = StartCoroutine(IE_Breath());
+        }
+
+        private IEnumerator IE_Breath()
+        {
+            var wfs = new WaitForSeconds(pauseBetweenBlinks + 2 * blinkHalfDuration);
+            while (!IsSolved)
+            {
+                yield return wfs;
+                if (IsSolved)
+                    yield break;
+                foreach (var b in plates)
+                    b.BreathBlink(blinkHalfDuration, blinkIntensity);
+                foreach (var b in wallSymbols)
+                    b.BreathBlink(blinkHalfDuration, blinkIntensity);
+            }
         }
 
         private void SetupPlates()
@@ -55,8 +77,7 @@ namespace Apollo11.Puzzles
                 if (ValidateInput())
                 {
                     progressBar.IndicatePositive();
-                    foreach(var symbol in wallSymbols)
-                        symbol.OnSolved();
+                    StopCoroutine(_breathCoroutine);
                     AtSolved();
                 }
                 else
@@ -95,7 +116,7 @@ namespace Apollo11.Puzzles
 
         private void SelectRandomSymbols()
         {
-            int GetRandomSymbol() => Random.Range(0, symbolsUp.Count);
+            int GetRandomSymbol() => UnityEngine.Random.Range(0, symbolsUp.Count);
             
             if (symbolsUp.Count < 2)
                 throw new Exception("Not enough symbols specified in PlatePuzzle!");

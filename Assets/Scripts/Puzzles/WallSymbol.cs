@@ -1,29 +1,22 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Apollo11
+namespace Apollo11.Puzzles
 {
-    public class WallSymbol : MonoBehaviour
+    public class WallSymbol : MonoBehaviour, IBreathBlinkPuzzle
     {
         [SerializeField] private SpriteRenderer unactiveRenderer;
         [SerializeField] private SpriteRenderer activeRenderer;
-
-        private Tween _tween;
-        private void Start()
-        {
-            _tween = activeRenderer.DOFade(125, 0.7f).SetLoops(-1).SetEase(Ease.InBack, 1, 10);
-        }
-        public void OnSolved()
-        {
-            _tween.Kill();
-            activeRenderer.color = Color.white;
-        }
+        
         public void SetSprites(Sprite unactive, Sprite active)
         {
             unactiveRenderer.sprite = unactive;
             activeRenderer.sprite = active;
+        }
+
+        public void BreathBlink(float halfBreathTime, float intensity01)
+        {
+            activeRenderer.DOFade(intensity01, halfBreathTime).SetEase(Ease.OutQuad).SetLoops(2, LoopType.Yoyo);
         }
     }
 }

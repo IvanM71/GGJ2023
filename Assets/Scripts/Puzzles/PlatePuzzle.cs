@@ -82,7 +82,8 @@ namespace Apollo11.Puzzles
                 }
                 else
                 {
-                    progressBar.IndicateNegative();
+                    progressBar.IndicateNegative(true);
+                    progressBar.SetProgress(0f);
                     AtSolvedWrong();
                 }
             }

@@ -12,15 +12,17 @@ namespace Apollo11
         [SerializeField] private SpriteRenderer positiveRenderer;
         [SerializeField] private SpriteRenderer negativeRenderer;
 
-        private Tween _tween;
+        private Tween _mainRendererColorTween;
+        private Tween _negativeColorTween;
+        private Tween _positiveColorTween;
         private float _currentVal;
-        
+
         public void SetProgress(float percentage01)
         {
             if (Math.Abs(percentage01 - 1f) < 0.01f) percentage01 = 0.99f;
 
-            _tween.Kill();
-            _tween = DOTween.To(()=>_currentVal, SetVisual, percentage01, progressAnimationDuration);
+            _mainRendererColorTween.Kill();
+            _mainRendererColorTween = DOTween.To(()=>_currentVal, SetVisual, percentage01, progressAnimationDuration);
         }
 
         private void SetVisual(float val)
@@ -31,16 +33,34 @@ namespace Apollo11
 
         public void IndicatePositive()
         {
-            positiveRenderer.DOFade(125, 0.3f).SetLoops(4).SetEase(Ease.InBack);
+            _positiveColorTween?.Kill();
+            
+            var posCol = positiveRenderer.color;
+            posCol.a = 0f;
+            positiveRenderer.color = posCol;
+
+            _positiveColorTween = positiveRenderer.DOFade(1, 0.5f)
+                .SetEase(Ease.OutQuad);
         }
         
-        public void IndicateNegative()
+        public void IndicateNegative(bool delayAnimation = false)
         {
-            negativeRenderer.DOFade(125, 0.3f).SetLoops(4).SetEase(Ease.InBack).OnComplete(() => { 
-                negativeRenderer.color = new Color(200, 0, 0, 0);
-                SetProgress(0);
-            });
+            _negativeColorTween?.Kill();
+            
+            var negCol = negativeRenderer.color;
+            negCol.a = 0f;
+            negativeRenderer.color = negCol;
+
+            var seq = DOTween.Sequence()
+                .AppendInterval(delayAnimation ? progressAnimationDuration : 0f)
+                .Append(negativeRenderer.DOFade(1, 0.3f)
+                    .SetLoops(2, LoopType.Yoyo)
+                    .SetEase(Ease.OutQuint));
+            
+            _negativeColorTween = seq;
+
         }
-        
+
+
     }
 }

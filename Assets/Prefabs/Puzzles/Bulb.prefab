@@ -30,7 +30,9 @@ Transform:
   m_LocalPosition: {x: -2.5, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3215059818263870272}
+  - {fileID: 2704406639052492729}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,8 +50,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSolved:
     m_PersistentCalls:
-      m_Calls: []
-  progressBar: {fileID: 0}
+      m_Calls:
+      - m_Target: {fileID: 2704406639052492728}
+        m_TargetAssemblyTypeName: Apollo11.PuzzleButton, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  progressBar: {fileID: 3215059818263870286}
   bulbOn: {fileID: 21300000, guid: 62fe4cf0db7c9f14e9b1d32f6ee11c5e, type: 3}
   bulbOff: {fileID: 21300000, guid: 9a8d2362948a1b34f8c3615213832288, type: 3}
   bulbSpriteRenderer: {fileID: 2704406638758009510}
@@ -209,3 +223,169 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &2704406638011393958
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2704406638758009508}
+    m_Modifications:
+    - target: {fileID: 655788716217818341, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_Name
+      value: PuzzleProgress
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.98292255
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0249743
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 655788716217818344, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+      propertyPath: progressAnimationDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+--- !u!4 &3215059818263870272 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 655788716217818342, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+  m_PrefabInstance: {fileID: 2704406638011393958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3215059818263870286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 655788716217818344, guid: 168508ca0b1678147b0543f9768315f8, type: 3}
+  m_PrefabInstance: {fileID: 2704406638011393958}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91476b0c35b12124ab004cf36593368d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4866170047572431172
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2704406638758009508}
+    m_Modifications:
+    - target: {fileID: 7354343428951236348, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2704406638758009511}
+    - target: {fileID: 7354343428951236348, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AtPlayerInteracts
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236348, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Apollo11.Puzzles.Bulb, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236348, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.031000018
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354343428951236351, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+      propertyPath: m_Name
+      value: PuzzleButton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+--- !u!114 &2704406639052492728 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7354343428951236348, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+  m_PrefabInstance: {fileID: 4866170047572431172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7aa9666af943e54e8a13b9b55229e3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2704406639052492729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7354343428951236349, guid: 5c8be153ea8c39a46856ffa2811081b2, type: 3}
+  m_PrefabInstance: {fileID: 4866170047572431172}
+  m_PrefabAsset: {fileID: 0}

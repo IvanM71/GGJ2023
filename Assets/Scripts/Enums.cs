@@ -75,7 +75,9 @@ namespace Apollo11
         {
             Item,
             LongHoldAction,
-            Crafter
+            Crafter,
+            Action,
+            Inactive,
         }
 
         public enum RootStages

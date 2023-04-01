@@ -44,7 +44,8 @@ namespace Apollo11.Interaction
                 case Enums.PlayerInteractionState.None:
                     var suitable1 = interactablesInVision.Where(
                             inter => inter.GetInteractableType() == Enums.InteractableObjectType.Item ||
-                            inter.GetInteractableType() == Enums.InteractableObjectType.LongHoldAction)
+                            inter.GetInteractableType() == Enums.InteractableObjectType.LongHoldAction ||
+                            inter.GetInteractableType() == Enums.InteractableObjectType.Action)
                         .ToList();
                     closestInteractable = _playersInteractionVision.FindClosestFromList(suitable1);
                     closestDamagable = FindPossibleDamagable(damagablesInVision);
@@ -131,7 +132,6 @@ namespace Apollo11.Interaction
 
             if (GetKeyDownF)
             {
-                
                 SystemsLocator.Inst.AttackSystem.TryAttack(closestDamagable);
                 return;
             }
@@ -147,23 +147,32 @@ namespace Apollo11.Interaction
 
             if (GetKeyDownE)
             {
-                if (closestInteractable == null) return;
+                if (closestInteractable == null)
+                    return;
                 closestInteractable.OnInteractionStart();
-                
-                if (closestInteractable.GetInteractableType() == Enums.InteractableObjectType.LongHoldAction)
-                    LockInteraction(closestInteractable);
-                else if (closestInteractable.GetInteractableType() == Enums.InteractableObjectType.Item)
-                    InteractionState = Enums.PlayerInteractionState.HoldsItem;
-                else if (closestInteractable.GetInteractableType() == Enums.InteractableObjectType.Crafter)
+
+                switch (closestInteractable.GetInteractableType())
                 {
-                    if (SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.CurrentItemAmount == 0)
-                    {
-                        InteractionState = Enums.PlayerInteractionState.None;
-                    }
-                    
+                    case Enums.InteractableObjectType.LongHoldAction:
+                        LockInteraction(closestInteractable);
+                        break;
+                    case Enums.InteractableObjectType.Item:
+                        InteractionState = Enums.PlayerInteractionState.HoldsItem;
+                        break;
+                    case Enums.InteractableObjectType.Crafter:
+                        if (SystemsLocator.Inst.PlayerSystems.PlayerItemCarry.CurrentItemAmount == 0)
+                        {
+                            InteractionState = Enums.PlayerInteractionState.None;
+                        }
+                        break;
+                    case Enums.InteractableObjectType.Action:
+                        break;
+                    case Enums.InteractableObjectType.Inactive:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
 
-                
             }
 
             

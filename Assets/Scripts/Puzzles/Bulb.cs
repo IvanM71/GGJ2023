@@ -54,11 +54,11 @@ namespace Apollo11.Puzzles
                 _pressSpans[i] = new PressSpan();
             
             StartCoroutine(Blinking());
-            StartCoroutine(CheckInput());
+            //StartCoroutine(CheckInput());
         }
         
 
-        private void AtPlayerInteracts()
+        public void AtPlayerInteracts()
         {
             if (IsSolved) return;
             
@@ -143,6 +143,7 @@ namespace Apollo11.Puzzles
             if (_correctPresses == _neededPresses)
             {
                 print("SOLVED!");
+                progressBar.IndicatePositive();
                 AtSolved();
             }
         }
@@ -183,7 +184,7 @@ namespace Apollo11.Puzzles
 
         
 
-        IEnumerator CheckInput()
+        /*IEnumerator CheckInput()
         {
             while (!IsSolved)
             {
@@ -192,7 +193,7 @@ namespace Apollo11.Puzzles
                 
                 yield return null;
             }
-        }
+        }*/
 
         private void UpdateVisual()
         {

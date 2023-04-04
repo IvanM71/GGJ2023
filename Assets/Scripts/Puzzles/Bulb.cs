@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 
@@ -13,7 +15,7 @@ namespace Apollo11.Puzzles
         [SerializeField] Sprite bulbOn;
         [SerializeField] Sprite bulbOff;
         [SerializeField] SpriteRenderer bulbSpriteRenderer;
-        [SerializeField] AudioSource audioS;
+        [SerializeField] EventReference blinkSound;
         [Space]
         [SerializeField] float turnedOnTime = 0.25f;
         [SerializeField] float beforeBlinkTolerance = 0.1f;
@@ -29,6 +31,8 @@ namespace Apollo11.Puzzles
         private readonly List<int> _suitableSpansIndexesForNow = new (3);
         private int _correctPresses;
         private int _neededPresses;
+
+        private EventInstance _blinkSoundEI;
         
         private enum Pause
         {
@@ -47,6 +51,8 @@ namespace Apollo11.Puzzles
 
         void Start ()
         {
+            _blinkSoundEI = RuntimeManager.CreateInstance(blinkSound);
+                
             _neededPresses = pausesSequence.Length + 1;
             
             _pressSpans = new PressSpan[pausesSequence.Length + 1];
@@ -207,7 +213,7 @@ namespace Apollo11.Puzzles
             bulbSpriteRenderer.sprite = on ? bulbOn : bulbOff;
             if (on)
             {
-                audioS.PlayOneShot(audioS.clip);
+                _blinkSoundEI.start();
             }
         }
     }

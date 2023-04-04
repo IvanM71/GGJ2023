@@ -1,4 +1,5 @@
 using System;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
@@ -38,6 +39,8 @@ namespace Apollo11
 
         private float _musicVolume;
         private float _effectsVolume;
+        
+        private EventInstance _mainThemeEI;
 
         private void Awake()
         {
@@ -46,6 +49,7 @@ namespace Apollo11
         }
         private void Start()
         {
+            _mainThemeEI = RuntimeManager.CreateInstance(mainTheme);
             PlayTheme(true);
         }
         public void PlayToolHit(Enums.HandWeapon weapon)
@@ -140,8 +144,14 @@ namespace Apollo11
         }
         public void PlayTheme(bool play)
         {
-            //TODO
-            RuntimeManager.PlayOneShot(mainTheme);
+            //TODO ?
+            _mainThemeEI.start();
+        }
+
+        private void OnDestroy()
+        {
+            _mainThemeEI.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            _mainThemeEI.release();
         }
     }
 }

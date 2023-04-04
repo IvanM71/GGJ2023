@@ -179,6 +179,8 @@ GameObject:
   - component: {fileID: 7764717224537275037}
   - component: {fileID: 6055544967450529765}
   - component: {fileID: 1722328033237172747}
+  - component: {fileID: 2554251473960022080}
+  - component: {fileID: 3372723272033577217}
   m_Layer: 5
   m_Name: PausePanel
   m_TagString: Untagged
@@ -247,6 +249,38 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2554251473960022080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661473918751389467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Parameter: game_state
+  TriggerEvent: 11
+  Value: 4
+--- !u!114 &3372723272033577217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661473918751389467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Parameter: game_state
+  TriggerEvent: 12
+  Value: 1
 --- !u!1 &827874088754952403
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,6 +931,7 @@ GameObject:
   - component: {fileID: 7140619352647579832}
   - component: {fileID: 3619917895286069977}
   - component: {fileID: 3440648506802425249}
+  - component: {fileID: 4775613755920263516}
   m_Layer: 5
   m_Name: LosePanel
   m_TagString: Untagged
@@ -966,6 +1001,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4775613755920263516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2732620951950989618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Parameter: game_state
+  TriggerEvent: 11
+  Value: 3
 --- !u!1 &3507595511010244679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1878,6 +1929,7 @@ GameObject:
   - component: {fileID: 4345384689804957027}
   - component: {fileID: 4324763328043131475}
   - component: {fileID: 178348504959866852}
+  - component: {fileID: 1954415764689743707}
   m_Layer: 5
   m_Name: WinPanel
   m_TagString: Untagged
@@ -1946,6 +1998,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1954415764689743707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653783412871175242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Parameter: game_state
+  TriggerEvent: 11
+  Value: 2
 --- !u!1 &5816618035124159511
 GameObject:
   m_ObjectHideFlags: 0

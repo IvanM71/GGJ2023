@@ -4239,18 +4239,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2386180224461518652, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
-      propertyPath: MaxDistance
-      value: 5.0782514
-      objectReference: {fileID: 0}
-    - target: {fileID: 2386180224461518652, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
-      propertyPath: MinDistance
-      value: 2.6731684
-      objectReference: {fileID: 0}
-    - target: {fileID: 2386180224461518652, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2704406638758009505, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
       propertyPath: m_Name
       value: BulbPuzzle

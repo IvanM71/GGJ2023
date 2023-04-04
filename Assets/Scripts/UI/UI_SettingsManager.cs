@@ -31,11 +31,13 @@ namespace Apollo11.UI
         private void OnMusicSlider(float val)
         {
             _playerSettings.MusicLevel = val;
+            SystemsLocator.Inst.SoundController.AtSettingsUpdated();
         }
 
         private void OnEffectsSlider(float val)
         {
             _playerSettings.SoundLevel = val;
+            SystemsLocator.Inst.SoundController.AtSettingsUpdated();
         }
 
         private void OnToggleTouchControlsSwitch(bool active)

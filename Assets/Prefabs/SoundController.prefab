@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8344089046650055852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2048.998, y: 988.8176, z: -1.2276077}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a84d050ca37c845ae25fd9ff40ce99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVCAName: music_vca
+  sfxVCAName: sfx_vca
   axeHit:
     Guid:
       Data1: 1259583055
@@ -192,7 +194,16 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  playMainTheme: 1
   mainTheme:
+    Guid:
+      Data1: 105594001
+      Data2: 1301528536
+      Data3: -1974619721
+      Data4: 1955654247
+    Path: event:/Music/MX_gameplay
+  playMenuTheme: 0
+  menuTheme:
     Guid:
       Data1: 105594001
       Data2: 1301528536

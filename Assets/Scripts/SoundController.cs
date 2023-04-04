@@ -2,11 +2,15 @@ using System;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Apollo11
 {
     public class SoundController : MonoBehaviour
     {
+        [SerializeField] String musicVCAName;
+        [SerializeField] String sfxVCAName;
+        
         [SerializeField] EventReference axeHit;
         [SerializeField] EventReference bucketHit;
         [SerializeField] EventReference sawHit;
@@ -35,23 +39,50 @@ namespace Apollo11
         [SerializeField] EventReference loseSound;
         [SerializeField] EventReference deathSound;
 
+
+        [SerializeField] private bool playMainTheme = true;
         [SerializeField] EventReference mainTheme;
+        [SerializeField] private bool playMenuTheme;
+        [SerializeField] EventReference menuTheme;
 
         private float _musicVolume;
         private float _effectsVolume;
         
         private EventInstance _mainThemeEI;
+        private EventInstance _menuThemeEI;
+        private VCA _musicVCA;
+        private VCA _sfxVCA;
 
         private void Awake()
         {
-            _musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.9f);
-            _effectsVolume = PlayerPrefs.GetFloat("effectsVolume", 0.5f);
+            _mainThemeEI = RuntimeManager.CreateInstance(mainTheme);
+            _menuThemeEI = RuntimeManager.CreateInstance(menuTheme);
+            
+            _musicVCA = RuntimeManager.GetVCA("vca:/" + musicVCAName);
+            _sfxVCA = RuntimeManager.GetVCA("vca:/" + sfxVCAName);
         }
         private void Start()
         {
-            _mainThemeEI = RuntimeManager.CreateInstance(mainTheme);
-            PlayTheme(true);
+            AtSettingsUpdated();
+
+            if (playMainTheme)
+                PlayMainTheme(true);
+
+            if (playMenuTheme)
+                _menuThemeEI.start();
+
         }
+        
+        public void AtSettingsUpdated()
+        {
+            _musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.9f);
+            _effectsVolume = PlayerPrefs.GetFloat("effectsVolume", 0.5f);
+            
+            _musicVCA.setVolume(_musicVolume);
+            _sfxVCA.setVolume(_effectsVolume);
+        }
+        
+        
         public void PlayToolHit(Enums.HandWeapon weapon)
         {
             switch (weapon)
@@ -142,16 +173,20 @@ namespace Apollo11
         {
             RuntimeManager.PlayOneShot(deathSound);
         }
-        public void PlayTheme(bool play)
+        public void PlayMainTheme(bool play)
         {
-            //TODO ?
-            _mainThemeEI.start();
+            if (play)
+                _mainThemeEI.start();
+            else
+                _mainThemeEI.stop(STOP_MODE.ALLOWFADEOUT);
         }
 
         private void OnDestroy()
         {
-            _mainThemeEI.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            _mainThemeEI.release();
+            _mainThemeEI.stop(STOP_MODE.IMMEDIATE);
+            _menuThemeEI.stop(STOP_MODE.IMMEDIATE);
         }
+
+
     }
 }

@@ -7,7 +7,6 @@ namespace Apollo11.Player
     {
         public void AtAttackDone()
         {
-            print("AtAttackDone");
             if (SystemsLocator.Inst.InteractionSystem.InAttack)
             {
                 SystemsLocator.Inst.PlayerSystems.PlayerAnimation.StopHandWeapon();

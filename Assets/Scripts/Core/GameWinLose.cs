@@ -27,7 +27,7 @@ namespace Apollo11.Core
         {
             print("LOSE");
 
-            SystemsLocator.Inst.SoundController.PlayTheme(false);
+            SystemsLocator.Inst.SoundController.PlayMainTheme(false);
             
             var seq = DOTween.Sequence();
             seq.AppendInterval(2f);
@@ -42,7 +42,7 @@ namespace Apollo11.Core
         {
             print("WIN");
 
-            SystemsLocator.Inst.SoundController.PlayTheme(false);
+            SystemsLocator.Inst.SoundController.PlayMainTheme(false);
             
             var seq = DOTween.Sequence();
             seq.AppendInterval(2f);

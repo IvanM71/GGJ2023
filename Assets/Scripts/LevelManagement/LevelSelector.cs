@@ -8,6 +8,8 @@ namespace Apollo11.LevelManagement
         // Array of level buttons
         [SerializeField] private Button[] _lvlButtons;
         [SerializeField] private LevelButton[] _lvlButtons2;
+        
+        [SerializeField] private int forceUnlockLevelsCount = 0;
 
         // Every time on awake checks max unlocked level and enabling buttons
         private void Awake()
@@ -22,16 +24,17 @@ namespace Apollo11.LevelManagement
             // If locked - unenable and show lock image
             for (int i = 0; i < _lvlButtons.Length; i++)
             {
-                if (i + 1 > maxCompletedLevel)
+                if (i + 1 <= maxCompletedLevel || i+1 <= forceUnlockLevelsCount)
                 {
-                    _lvlButtons[i].interactable = false;
-                    _lvlButtons2[i].SetImage(true);
+                    _lvlButtons[i].interactable = true;
+                    _lvlButtons2[i].ToggleBlockedImage(false);
                 }
                 else
                 {
-                    _lvlButtons[i].interactable = true;
-                    _lvlButtons2[i].SetImage(false);
+                    _lvlButtons[i].interactable = false;
+                    _lvlButtons2[i].ToggleBlockedImage(true);
                 }
+
                 _lvlButtons2[i].SetLevelNumber(i + 1);
             }
         }

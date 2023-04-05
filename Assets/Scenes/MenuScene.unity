@@ -2992,6 +2992,7 @@ MonoBehaviour:
   - {fileID: 1958957906}
   - {fileID: 1937076502}
   - {fileID: 1119095521}
+  forceUnlockLevelsCount: 7
 --- !u!114 &827137553
 MonoBehaviour:
   m_ObjectHideFlags: 0

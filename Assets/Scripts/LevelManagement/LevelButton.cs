@@ -10,9 +10,9 @@ namespace Apollo11.LevelManagement
         [SerializeField] Image blockImage;
         [SerializeField] TextMeshProUGUI levelNumber_txt;
         private int levelNumber;
-        public void SetImage(bool isEnabled)
+        public void ToggleBlockedImage(bool isBlocked)
         {
-            blockImage.enabled = isEnabled;
+            blockImage.enabled = isBlocked;
         }
         public void SetLevelNumber(int levelNum)
         {

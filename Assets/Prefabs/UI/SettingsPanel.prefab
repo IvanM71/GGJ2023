@@ -355,6 +355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8630559055893334196}
   - component: {fileID: 8630559055893334199}
+  - component: {fileID: 7232240068065310471}
   m_Layer: 5
   m_Name: EffectsSlider
   m_TagString: Untagged
@@ -435,7 +436,49 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7232240068065310471}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7232240068065310471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630559055893334197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1201611468
+      Data2: 1302823919
+      Data3: -882495809
+      Data4: 210475536
+    Path: event:/SFX/UI/slider_up
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8630559056038886679
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +965,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8630559056554361494}
   - component: {fileID: 8630559056554361489}
+  - component: {fileID: 6921211776992990335}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -1002,7 +1046,49 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6921211776992990335}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6921211776992990335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630559056554361495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1201611468
+      Data2: 1302823919
+      Data3: -882495809
+      Data4: 210475536
+    Path: event:/SFX/UI/slider_up
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8630559056597428745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,6 +1693,7 @@ GameObject:
   - component: {fileID: 8630559057666469625}
   - component: {fileID: 8630559057666469624}
   - component: {fileID: 8630559057666469627}
+  - component: {fileID: 3617118074591155548}
   m_Layer: 5
   m_Name: Switch
   m_TagString: Untagged
@@ -1681,7 +1768,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3617118074591155548}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!114 &8630559057666469627
 MonoBehaviour:
@@ -1701,6 +1800,36 @@ MonoBehaviour:
   handleTransform: {fileID: 8630559057340770434}
   onColor: {r: 0.9960785, g: 0.9960785, b: 0.9960785, a: 1}
   offColor: {r: 0.4666667, g: 0.5411765, b: 0.6117647, a: 1}
+--- !u!114 &3617118074591155548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630559057666469630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -71921542
+      Data2: 1100379763
+      Data3: 733576088
+      Data4: -2047600631
+    Path: event:/SFX/UI/touch_controls__on
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &8630559057132928817
 PrefabInstance:
   m_ObjectHideFlags: 0

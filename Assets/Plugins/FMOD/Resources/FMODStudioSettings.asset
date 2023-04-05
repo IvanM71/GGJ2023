@@ -585,10 +585,7 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  - Desktop/Master
   Banks:
-  - Desktop/gameplay
-  - Desktop/UI menu
   - gameplay
   - UI menu
   BanksToLoad: []

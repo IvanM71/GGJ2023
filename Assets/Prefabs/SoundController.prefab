@@ -77,11 +77,11 @@ MonoBehaviour:
     Path: event:/SFX/Gameplay/scissors_hit
   sprayerHit:
     Guid:
-      Data1: -8096347
-      Data2: 1262281266
-      Data3: -1003417172
-      Data4: 1153139368
-    Path: event:/SFX/Gameplay/spray_item
+      Data1: -609906103
+      Data2: 1206490729
+      Data3: 1507741095
+      Data4: -1126935325
+    Path: event:/SFX/Gameplay/spray_roots
   pickaxeHit:
     Guid:
       Data1: 1919798155
@@ -109,7 +109,7 @@ MonoBehaviour:
       Data2: 1217039036
       Data3: -1034565503
       Data4: -1736497825
-    Path: event:/SFX/Gameplay/evil_defeaded
+    Path: event:/SFX/Gameplay/evil_defeated
   rootsGrow:
     Guid:
       Data1: -2141222608
@@ -133,11 +133,11 @@ MonoBehaviour:
     Path: event:/SFX/Gameplay/roots_roar
   itemOut:
     Guid:
-      Data1: -2022317979
-      Data2: 1217306799
-      Data3: -1527552845
-      Data4: 260949119
-    Path: event:/SFX/Gameplay/item_out_of_machine
+      Data1: -8096347
+      Data2: 1262281266
+      Data3: -1003417172
+      Data4: 1153139368
+    Path: event:/SFX/Gameplay/throw_item
   itemIn:
     Guid:
       Data1: -1070501050
@@ -154,11 +154,11 @@ MonoBehaviour:
     Path: event:/SFX/Gameplay/pick_item
   throwItem:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -8096347
+      Data2: 1262281266
+      Data3: -1003417172
+      Data4: 1153139368
+    Path: event:/SFX/Gameplay/throw_item
   toolCrafted:
     Guid:
       Data1: -22853226
@@ -175,25 +175,25 @@ MonoBehaviour:
     Path: event:/SFX/Gameplay/tool_whoosh
   winSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 2136617504
+      Data2: 1304607939
+      Data3: 1227224244
+      Data4: 1527506378
+    Path: event:/SFX/Gameplay/win
   loseSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1949713950
+      Data2: 1257181005
+      Data3: 1995186827
+      Data4: 868728619
+    Path: event:/SFX/Gameplay/loose
   deathSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1001128076
+      Data2: 1325449377
+      Data3: 1332497056
+      Data4: 194590321
+    Path: event:/SFX/Gameplay/gnome_death
   playMainTheme: 1
   mainTheme:
     Guid:

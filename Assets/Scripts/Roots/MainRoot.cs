@@ -20,7 +20,7 @@ namespace Apollo11.Roots
 
         public void TakeDamage(int dmg)
         {
-            print("Root takes damage!");
+            //print("Root takes damage!");
             
             SystemsLocator.Inst.SoundController.PlayRootsImpact();
             SystemsLocator.Inst.SoundController.PlayRootsRoar();

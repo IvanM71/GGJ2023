@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8344089046650055826}
   - component: {fileID: 8344089046650055853}
-  - component: {fileID: 4375104764057434057}
   m_Layer: 0
   m_Name: SoundController
   m_TagString: Untagged
@@ -210,19 +209,3 @@ MonoBehaviour:
       Data3: 1949493686
       Data4: -904640517
     Path: event:/Music/MX_UI
---- !u!114 &4375104764057434057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8344089046650055852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Parameter: game_state
-  TriggerEvent: 1
-  Value: 1

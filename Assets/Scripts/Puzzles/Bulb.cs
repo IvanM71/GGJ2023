@@ -11,6 +11,7 @@ namespace Apollo11.Puzzles
     public class Bulb: APuzzle
     {
         [SerializeField] private PuzzleProgressBar progressBar;
+        [SerializeField] private Transform lightTransform;
         [Space]
         [SerializeField] Sprite bulbOn;
         [SerializeField] Sprite bulbOff;
@@ -46,13 +47,12 @@ namespace Apollo11.Puzzles
             public DateTime end;
             public bool pressed;
         }
-
         
-
-        void Start ()
+        private void Start ()
         {
             _blinkSoundEI = RuntimeManager.CreateInstance(blinkSound);
-                
+            _blinkSoundEI.set3DAttributes(lightTransform.To3DAttributes());
+
             _neededPresses = pausesSequence.Length + 1;
             
             _pressSpans = new PressSpan[pausesSequence.Length + 1];
@@ -131,7 +131,7 @@ namespace Apollo11.Puzzles
         {
             print("Wrong!");
             _correctPresses = 0;
-            //TODO flag
+            //TODO flag?
         }
         
         private void CheckForMisses()
@@ -154,7 +154,7 @@ namespace Apollo11.Puzzles
             }
         }
 
-        IEnumerator Blinking()
+        private IEnumerator Blinking()
         {
             var shortPauseWFS = new WaitForSeconds(shortPauseTime);
             var longPauseWFS = new WaitForSeconds(longPauseTime);
@@ -203,7 +203,7 @@ namespace Apollo11.Puzzles
 
         private void UpdateVisual()
         {
-            print($"Progress: {(float)_correctPresses/_neededPresses}");
+            //print($"Progress: {(float)_correctPresses/_neededPresses}");
             progressBar.SetProgress((float)_correctPresses/_neededPresses);
         }
 

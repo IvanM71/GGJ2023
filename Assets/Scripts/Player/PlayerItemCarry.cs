@@ -13,7 +13,9 @@ namespace Apollo11.Player
 
         public Item CurrentItem { get; private set; }
         public int CurrentItemAmount { get; private set; }
-        
+
+        public event Action<int> OnItemsCountChanged; 
+
 
         public void TakeItem(Item item)
         {
@@ -37,7 +39,8 @@ namespace Apollo11.Player
                 item.transform.localPosition = Vector3.zero;
                 item.transform.localRotation = Quaternion.Euler(Vector3.zero);
             }
-
+            
+            OnItemsCountChanged?.Invoke(CurrentItemAmount);
         }
         
         
@@ -57,6 +60,8 @@ namespace Apollo11.Player
                 CurrentItem.transform.localRotation = Quaternion.Euler(Vector3.zero);
 
                 CurrentItem = null;
+                
+                OnItemsCountChanged?.Invoke(CurrentItemAmount);
                 return true;
             }
             else
@@ -66,6 +71,8 @@ namespace Apollo11.Player
                 clone.transform.parent = null;
                 clone.transform.position = transform.position;
                 clone.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                
+                OnItemsCountChanged?.Invoke(CurrentItemAmount);
                 return false;
             }
 
@@ -91,6 +98,8 @@ namespace Apollo11.Player
             {
                 CurrentItemAmount--;
             }
+            
+            OnItemsCountChanged?.Invoke(CurrentItemAmount);
 
             return res;
         }

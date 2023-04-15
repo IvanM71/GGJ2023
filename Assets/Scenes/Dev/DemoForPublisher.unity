@@ -4304,26 +4304,6 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
-      propertyPath: blinkSound.Path
-      value: event:/SFX/UI/start_level
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
-      propertyPath: blinkSound.Guid.Data1
-      value: -831258223
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
-      propertyPath: blinkSound.Guid.Data2
-      value: 1161233316
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
-      propertyPath: blinkSound.Guid.Data3
-      value: 94096565
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
-      propertyPath: blinkSound.Guid.Data4
-      value: -1961988546
-      objectReference: {fileID: 0}
-    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
       propertyPath: pausesSequence.Array.size
       value: 4
       objectReference: {fileID: 0}

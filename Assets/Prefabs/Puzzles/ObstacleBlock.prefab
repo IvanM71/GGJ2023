@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6347628073277637062}
-  collider2D: {fileID: 431652084}
+  col2D: {fileID: 431652084}
   sr: {fileID: 6347628073277637061}
 --- !u!61 &431652084
 BoxCollider2D:
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.307}
-    oldSize: {x: 1, y: 1.5789474}
+    oldSize: {x: 1, y: 1.5802469}
     newSize: {x: 1, y: 1.5789474}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Apollo11.Player
 {
@@ -10,8 +11,12 @@ namespace Apollo11.Player
         [SerializeField] private PlayerWeaponsInHand playerWeaponsInHand;
         [SerializeField] private PlayerItemCarry playerItemCarry;
 
+        public UnityEvent<float> XMirroring;
+        
         private readonly Vector3 moveLeftScale = new (1f, 1f, 1f);
         private readonly Vector3 moveRightScale = new (-1f, 1f, 1f);
+
+        private bool _looksLeft = true;
 
 
         private void Update()
@@ -20,9 +25,19 @@ namespace Apollo11.Player
             
             if (playerMovement.Movement != Vector2.zero)
             {
-                var xMoveDir = playerMovement.Movement.x;
-                if (xMoveDir < 0f) visualToMirror.transform.localScale = moveLeftScale;
-                else if (xMoveDir > 0f) visualToMirror.transform.localScale = moveRightScale;
+                switch (playerMovement.Movement.x)
+                {
+                    case < 0f when !_looksLeft:
+                        visualToMirror.transform.localScale = moveLeftScale;
+                        XMirroring?.Invoke(1f);
+                        _looksLeft = true;
+                        break;
+                    case > 0f when _looksLeft:
+                        visualToMirror.transform.localScale = moveRightScale;
+                        XMirroring?.Invoke(-1f);
+                        _looksLeft = false;
+                        break;
+                }
 
                 animator.SetBool("Walks", true);
             }

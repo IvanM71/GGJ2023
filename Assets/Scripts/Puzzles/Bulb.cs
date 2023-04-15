@@ -5,7 +5,6 @@ using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
-
 namespace Apollo11.Puzzles
 {
     public class Bulb: APuzzle
@@ -60,7 +59,6 @@ namespace Apollo11.Puzzles
                 _pressSpans[i] = new PressSpan();
             
             StartCoroutine(Blinking());
-            //StartCoroutine(CheckInput());
         }
         
 
@@ -131,7 +129,6 @@ namespace Apollo11.Puzzles
         {
             print("Wrong!");
             _correctPresses = 0;
-            //TODO flag?
         }
         
         private void CheckForMisses()
@@ -177,12 +174,6 @@ namespace Apollo11.Puzzles
                         yield return shortPauseWFS;
                     else
                         yield return longPauseWFS;
-
-                    /*if (IsSolved)
-                    {
-                        Blink(false);
-                        yield break;
-                    }*/
                 }
                 CheckForMisses();
             }
@@ -213,6 +204,8 @@ namespace Apollo11.Puzzles
             bulbSpriteRenderer.sprite = on ? bulbOn : bulbOff;
             if (on)
             {
+                _blinkSoundEI.getMemoryUsage(out var memoryUsage);
+                Debug.Log($"Data:{memoryUsage.exclusive}{memoryUsage.inclusive}{memoryUsage.sampledata}");
                 _blinkSoundEI.start();
             }
         }

@@ -2275,6 +2275,7 @@ GameObject:
   - component: {fileID: 656391525}
   - component: {fileID: 656391527}
   - component: {fileID: 656391526}
+  - component: {fileID: 656391528}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -2351,6 +2352,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 656391528}
+        m_TargetAssemblyTypeName: Apollo11.Analytics, Assembly-CSharp
+        m_MethodName: AtPlayButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2476,6 +2489,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &656391528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656391520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8229db4e2a4eaa8617007169b743ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &670745599 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8512816716168288505, guid: 07add4612566d6f4ea58e800a8d43716, type: 3}
@@ -2934,6 +2959,7 @@ GameObject:
   - component: {fileID: 827137549}
   - component: {fileID: 827137551}
   - component: {fileID: 827137553}
+  - component: {fileID: 827137554}
   m_Layer: 0
   m_Name: SYSTEMS
   m_TagString: Untagged
@@ -3014,6 +3040,19 @@ MonoBehaviour:
   itemsPrefabs: {fileID: 0}
   rootsSystem: {fileID: 0}
   soundController: {fileID: 234016960}
+  analytics: {fileID: 827137554}
+--- !u!114 &827137554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827137548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8229db4e2a4eaa8617007169b743ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &864137260
 GameObject:
   m_ObjectHideFlags: 0

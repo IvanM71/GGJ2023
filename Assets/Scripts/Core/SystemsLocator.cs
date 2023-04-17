@@ -50,5 +50,9 @@ namespace Apollo11.Core
         [SerializeField] private SoundController soundController;
         public SoundController SoundController => soundController;
         
+        
+        [SerializeField] private Analytics analytics;
+        public Analytics Analytics => analytics;
+        
     }
 }

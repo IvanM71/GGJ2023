@@ -1,3 +1,4 @@
+using Apollo11.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,6 +23,7 @@ namespace Apollo11.LevelManagement
         public void OpenLevel()
         {
             LevelManager.Instance.CurrentLevel = levelNumber;
+            SystemsLocator.Inst.Analytics.AtLevelStarted(levelNumber);
             SceneManager.LoadScene(levelNumber);
         }
     }

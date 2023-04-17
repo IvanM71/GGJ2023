@@ -1,3 +1,4 @@
+using Apollo11.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,11 +32,13 @@ namespace Apollo11.LevelManagement
 
             Debug.Log(LevelManager.Instance.CurrentLevel);
 
+            SystemsLocator.Inst.Analytics.AtLevelStarted(LevelManager.Instance.CurrentLevel);
             OpenLevel(LevelManager.Instance.CurrentLevel);
         }
 
         public void RetryLevel()
         {
+            SystemsLocator.Inst.Analytics.AtLevelRestart(LevelManager.Instance.CurrentLevel);
             OpenLevel(LevelManager.Instance.CurrentLevel);
         }
     }

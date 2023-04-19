@@ -90,6 +90,7 @@ namespace Apollo11.Roots
                 Vector3Int cellPosition = spawnpointsTilemap.WorldToCell(mainRoots[i].transform.position);
                 int x = cellPosition.y - spawnpointsTilemap.cellBounds.yMin;
                 int y = cellPosition.x - spawnpointsTilemap.cellBounds.xMin;
+                // Destroy(rootsView.roots[x, y].GetComponent<RootTileObject>());
                 rootsModel.roots[x, y].Stage = RootStages.MAIN;
                 rootsModel.roots[x, y].Type = mainRoots[i].GetRootType();
             }

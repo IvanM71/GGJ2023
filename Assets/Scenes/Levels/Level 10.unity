@@ -2044,6 +2044,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
+      propertyPath: turnedOnTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
+      propertyPath: longPauseTime
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
+      propertyPath: shortPauseTime
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
+      propertyPath: afterBlinkTolerance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
+      propertyPath: beforeBlinkTolerance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
       propertyPath: OnSolved.m_PersistentCalls.m_Calls.Array.size
       value: 5
       objectReference: {fileID: 0}

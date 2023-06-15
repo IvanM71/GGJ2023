@@ -31,7 +31,7 @@ namespace Apollo11
             firstScreenshot.SetNativeSize();
             secondScreenshot.sprite = secondScreenList[currentPage];
             secondScreenshot.SetNativeSize();
-            text.text = pageText[currentPage];
+            text.SetText(pageText[currentPage]);
         }
         public void NextPageClick()
         {
@@ -48,7 +48,7 @@ namespace Apollo11
                 firstScreenshot.SetNativeSize();
                 secondScreenshot.sprite = secondScreenList[currentPage];
                 secondScreenshot.SetNativeSize();
-                text.text = pageText[currentPage];
+                text.SetText(pageText[currentPage]);
                 if (currentPage == pageCount - 1)
                 {
                     nextButton.image.sprite = startButtonSprite;

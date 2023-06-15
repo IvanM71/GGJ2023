@@ -19,6 +19,7 @@ namespace Apollo11
         [SerializeField] private Image secondScreenshot;
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private Button nextButton;
+        [SerializeField] private TextMeshProUGUI buttonText;
 
         [SerializeField] private Sprite startButtonSprite;
 
@@ -52,6 +53,7 @@ namespace Apollo11
                 if (currentPage == pageCount - 1)
                 {
                     nextButton.image.sprite = startButtonSprite;
+                    buttonText.SetText("Start");
                     currentPage++;
                 }
             }

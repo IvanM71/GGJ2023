@@ -612,6 +612,17 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!114 &652420829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4357175695892941762, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+  m_PrefabInstance: {fileID: 2897768920440031174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &724496080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9208,6 +9219,10 @@ PrefabInstance:
       propertyPath: pageCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: buttonText
+      value: 
+      objectReference: {fileID: 652420829}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: nextButton
       value: 

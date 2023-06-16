@@ -25,9 +25,10 @@ namespace Apollo11
 
         private int currentPage = 0;
 
-        private void Awake()
+        private void Start()
         {
             SystemsLocator.Inst.InPause = true;
+            Time.timeScale = 0f;
             firstScreenshot.sprite = firstScreenList[currentPage];
             firstScreenshot.SetNativeSize();
             secondScreenshot.sprite = secondScreenList[currentPage];
@@ -41,6 +42,7 @@ namespace Apollo11
             {
                 tutorialPanel.SetActive(false);
                 SystemsLocator.Inst.InPause = false;
+                Time.timeScale = 1f;
             }
             else
             {

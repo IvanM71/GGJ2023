@@ -9304,11 +9304,11 @@ PrefabInstance:
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: firstScreenList.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: fd4fa74d629eb3a4d8f7947ae733fb14, type: 3}
+      objectReference: {fileID: 21300000, guid: 8145c6b6f5a2bc444b732ca5f7bf3dbf, type: 3}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: firstScreenList.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 57f0fc047528c2e4389228da772e628d, type: 3}
+      objectReference: {fileID: 21300000, guid: 07e0a332766ab7a4cb8826c90ebb7333, type: 3}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: firstScreenList.Array.data[4]
       value: 
@@ -9344,11 +9344,11 @@ PrefabInstance:
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: secondScreenList.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: f1352ccfab2325749bce7f41a3acbec3, type: 3}
+      objectReference: {fileID: 21300000, guid: d1d90258348461d41be9e235b94ba2c9, type: 3}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: secondScreenList.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 1741d57f0a5cc5b4c9ded386677f6f9a, type: 3}
+      objectReference: {fileID: 21300000, guid: ed0d5e62ede39f24eb49e7b79e337aae, type: 3}
     - target: {fileID: 4357175696181666679, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

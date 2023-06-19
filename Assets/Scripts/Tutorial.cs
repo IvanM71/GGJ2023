@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMOD.Studio;
+using Unity.VisualScripting;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 namespace Apollo11
 {
@@ -13,6 +16,7 @@ namespace Apollo11
         [SerializeField] private int pageCount;
         [SerializeField] private List<Sprite> firstScreenList;
         [SerializeField] private List<Sprite> secondScreenList;
+        [SerializeField] private List<bool> showScreenshots;
         [SerializeField] private List<string> pageText;
 
         [SerializeField] private Image firstScreenshot;
@@ -20,19 +24,39 @@ namespace Apollo11
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private Button nextButton;
         [SerializeField] private TextMeshProUGUI buttonText;
+        [SerializeField] private GameObject firstScreenshotsPanel;
 
         [SerializeField] private Sprite startButtonSprite;
 
         private int currentPage = 0;
+        private int currentScreenshotsPage = 0;
 
         private void Start()
         {
             SystemsLocator.Inst.InPause = true;
             Time.timeScale = 0f;
-            firstScreenshot.sprite = firstScreenList[currentPage];
-            firstScreenshot.SetNativeSize();
-            secondScreenshot.sprite = secondScreenList[currentPage];
-            secondScreenshot.SetNativeSize();
+            if (showScreenshots[currentPage])
+            {
+                firstScreenshotsPanel.SetActive(true);
+
+                firstScreenshot.sprite = firstScreenList[currentScreenshotsPage];
+                firstScreenshot.SetNativeSize();
+
+                secondScreenshot.sprite = secondScreenList[currentScreenshotsPage];
+                secondScreenshot.SetNativeSize();
+                
+                currentScreenshotsPage++;
+            }
+            else
+            {
+                firstScreenshotsPanel.SetActive(false);
+            }
+
+            for(int i = 0; i < pageText.Count; i++)
+            {
+                pageText[i] = pageText[i].Replace(@"\n", "\n");
+            }
+
             text.SetText(pageText[currentPage]);
         }
         public void NextPageClick()
@@ -47,10 +71,22 @@ namespace Apollo11
             else
             {
                 currentPage++;
-                firstScreenshot.sprite = firstScreenList[currentPage];
-                firstScreenshot.SetNativeSize();
-                secondScreenshot.sprite = secondScreenList[currentPage];
-                secondScreenshot.SetNativeSize();
+                if (showScreenshots[currentPage])
+                {
+                    firstScreenshotsPanel.SetActive(true);
+
+                    firstScreenshot.sprite = firstScreenList[currentScreenshotsPage];
+                    firstScreenshot.SetNativeSize();
+
+                    secondScreenshot.sprite = secondScreenList[currentScreenshotsPage];
+                    secondScreenshot.SetNativeSize();
+
+                    currentScreenshotsPage++;
+                }
+                else
+                {
+                    firstScreenshotsPanel.SetActive(false);
+                }
                 text.SetText(pageText[currentPage]);
                 if (currentPage == pageCount - 1)
                 {

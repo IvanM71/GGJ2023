@@ -967,6 +967,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5608824774341206542, guid: b3008aae73d62d7488b6645bf096293c, type: 3}
   m_PrefabInstance: {fileID: 1378524934}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1387567789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8779602982247191020, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+  m_PrefabInstance: {fileID: 2897768920440031174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1476209665 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4357175696181666679, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
@@ -9217,7 +9222,7 @@ PrefabInstance:
       objectReference: {fileID: 1335681954}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: pageCount
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: buttonText
@@ -9241,40 +9246,109 @@ PrefabInstance:
       objectReference: {fileID: 1807826576}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: pageText.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: firstScreenshotsPanel
+      value: 
+      objectReference: {fileID: 1387567789}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: pageText.Array.data[0]
-      value: Mine and collect the iron ore
+      value: Oh no! Evil roots are attacking! We must destroy them!
       objectReference: {fileID: 0}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: pageText.Array.data[1]
-      value: Smelt it and craft the wapon
+      value: We need materials to craft a weapon. You can find some on the floor.\nUse
+        [E] or MINE/GRAB button to collect items.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: pageText.Array.data[2]
+      value: Near workbench (or smelting furnace) use [E] or MINE/GRAB button again
+        to put items in.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: pageText.Array.data[3]
+      value: We also need to mine ore and smelt it into ingots.\nUse [E] or MINE/GRAB
+        button to mine the ore and coal. Then collect it and put in smelting furnace.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: pageText.Array.data[4]
+      value: After gathering all the materials, you can craft the weapon and fight.
+        Wapon can be broken. If that happends, you can craft it again.\nUse [F] or
+        ATTACK button to hit roots.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: pageText.Array.data[5]
+      value: Now you're ready! Just be careful - the roots can hurt you.
       objectReference: {fileID: 0}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: firstScreenList.Array.size
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: showScreenshots.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: secondScreenList.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: firstScreenList.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 8e9de99f1de4c7441912d6299dc991d6, type: 3}
+      objectReference: {fileID: 21300000, guid: 9defa6b0bd3603042b04bcf53a4ea13c, type: 3}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: firstScreenList.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 6bce796cbc27b7f4db86c50c61cafc08, type: 3}
+      objectReference: {fileID: 21300000, guid: a19e313ad5cec0d43b11bf383f6857a9, type: 3}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: firstScreenList.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: fd4fa74d629eb3a4d8f7947ae733fb14, type: 3}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: firstScreenList.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 57f0fc047528c2e4389228da772e628d, type: 3}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: firstScreenList.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3e4e1fca05e635b41b8a21c03f972717, type: 3}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: firstScreenList.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: b46dc79056f4c4f42b783476f3606453, type: 3}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: showScreenshots.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: showScreenshots.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: showScreenshots.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: showScreenshots.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: secondScreenList.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: bbe95f7e69291c946ad2b931c8b22616, type: 3}
+      objectReference: {fileID: 21300000, guid: 4a8d1e2f80892ad45be83a9656b257bb, type: 3}
     - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: secondScreenList.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 9556a0e4323112149b2516ba7c0bc704, type: 3}
+      objectReference: {fileID: 21300000, guid: 031b3483ceaa0d44bb0bf774926f7972, type: 3}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: secondScreenList.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: f1352ccfab2325749bce7f41a3acbec3, type: 3}
+    - target: {fileID: 2897768920633331445, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: secondScreenList.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 1741d57f0a5cc5b4c9ded386677f6f9a, type: 3}
     - target: {fileID: 4357175696181666679, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -9380,12 +9454,20 @@ PrefabInstance:
       value: text
       objectReference: {fileID: 0}
     - target: {fileID: 8396605901540691368, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396605901540691368, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: m_margin.w
       value: -64.301605
       objectReference: {fileID: 0}
     - target: {fileID: 8396605901540691368, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: m_margin.z
       value: -649.55493
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396605901540691368, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 8396605901540691368, guid: 0c85cadf20318034d9e4bb7e14afdfb2, type: 3}
       propertyPath: m_isRightToLeft

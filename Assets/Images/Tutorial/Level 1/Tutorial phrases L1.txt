@@ -1,0 +1,23 @@
+1
+
+Oh no! Evil roots are attacking! We must destroy them!
+
+2
+
+We need materials to craft a weapon. You can find some on the floor.\nUse [E] or MINE/GRAB button to collect items.
+
+3
+
+Near workbench (or smelting furnace) use [E] or MINE/GRAB button again to put items in.
+
+4
+
+We also need to mine ore and smelt it into ingots.\nUse [E] or MINE/GRAB button to mine the ore and coal. Then collect it and put in smelting furnace.
+
+5
+
+After gathering all the materials, you can craft the weapon and fight. Wapon can be broken. If that happends, you can craft it again.\nUse [F] or ATTACK button to hit roots.
+
+6
+
+Now you're ready! Just be careful - the roots can hurt you.

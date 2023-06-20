@@ -24,7 +24,7 @@ namespace Apollo11
         [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private Button nextButton;
         [SerializeField] private TextMeshProUGUI buttonText;
-        [SerializeField] private GameObject firstScreenshotsPanel;
+        [SerializeField] private GameObject screenshotsPanel;
 
         [SerializeField] private Sprite startButtonSprite;
 
@@ -37,7 +37,7 @@ namespace Apollo11
             Time.timeScale = 0f;
             if (showScreenshots[currentPage])
             {
-                firstScreenshotsPanel.SetActive(true);
+                screenshotsPanel.SetActive(true);
 
                 firstScreenshot.sprite = firstScreenList[currentScreenshotsPage];
                 firstScreenshot.SetNativeSize();
@@ -49,7 +49,7 @@ namespace Apollo11
             }
             else
             {
-                firstScreenshotsPanel.SetActive(false);
+                screenshotsPanel.SetActive(false);
             }
 
             for(int i = 0; i < pageText.Count; i++)
@@ -73,7 +73,7 @@ namespace Apollo11
                 currentPage++;
                 if (showScreenshots[currentPage])
                 {
-                    firstScreenshotsPanel.SetActive(true);
+                    screenshotsPanel.SetActive(true);
 
                     firstScreenshot.sprite = firstScreenList[currentScreenshotsPage];
                     firstScreenshot.SetNativeSize();
@@ -85,7 +85,7 @@ namespace Apollo11
                 }
                 else
                 {
-                    firstScreenshotsPanel.SetActive(false);
+                    screenshotsPanel.SetActive(false);
                 }
                 text.SetText(pageText[currentPage]);
                 if (currentPage == pageCount - 1)

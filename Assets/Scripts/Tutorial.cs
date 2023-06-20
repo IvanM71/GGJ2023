@@ -58,6 +58,13 @@ namespace Apollo11
             }
 
             text.SetText(pageText[currentPage]);
+
+            if (currentPage == pageCount - 1)
+            {
+                nextButton.image.sprite = startButtonSprite;
+                buttonText.SetText("Start");
+                currentPage++;
+            }
         }
         public void NextPageClick()
         {

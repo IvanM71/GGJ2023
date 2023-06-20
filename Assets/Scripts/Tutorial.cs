@@ -33,6 +33,14 @@ namespace Apollo11
 
         private void Start()
         {
+            if (pageCount == 0)
+            {
+                tutorialPanel.SetActive(false);
+                SystemsLocator.Inst.InPause = false;
+                Time.timeScale = 1f;
+                return;
+            }
+
             SystemsLocator.Inst.InPause = true;
             Time.timeScale = 0f;
             if (showScreenshots[currentPage])

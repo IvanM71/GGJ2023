@@ -30285,6 +30285,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5608824774341206542, guid: b3008aae73d62d7488b6645bf096293c, type: 3}
   m_PrefabInstance: {fileID: 1658212733}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1662532460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 246760112952406533, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+  m_PrefabInstance: {fileID: 5948463581446038575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1703734444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2717402436440964491, guid: 2c57acc302f3c2b479b423a986638cd5, type: 3}
@@ -31173,6 +31178,30 @@ PrefabInstance:
     - target: {fileID: 204067524, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067754413991657804, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067754413991657804, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067754413991657804, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067754413991657804, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067754413991657804, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3067754413991657804, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4394359302838408528, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: m_Size.x
@@ -34699,6 +34728,120 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5948463581632074504, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: screenshotsPanel
+      value: 
+      objectReference: {fileID: 1662532460}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: pageText.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: pageText.Array.data[0]
+      value: Here you need to catch the rythm of this bulb.\nPress [E] or MINE/GRAB
+        near the button when light is on.\nBlue symbol on the wall shows will turns
+        green if you pass and drops off if you miss.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: pageText.Array.data[1]
+      value: Now you're ready! Just be careful - the roots can hurt you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: pageText.Array.data[2]
+      value: Now you're ready! Just be careful - the roots can hurt you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: pageText.Array.data[3]
+      value: Now you're ready! Just be careful - the roots can hurt you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: pageText.Array.data[4]
+      value: Now you're ready! Just be careful - the roots can hurt you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: firstScreenList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: showScreenshots.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: secondScreenList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: firstScreenList.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 96f39c9541195164a916dfa7291ca560, type: 3}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: firstScreenList.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 07e0a332766ab7a4cb8826c90ebb7333, type: 3}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: firstScreenList.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 07e0a332766ab7a4cb8826c90ebb7333, type: 3}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: showScreenshots.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: showScreenshots.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: showScreenshots.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: showScreenshots.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: showScreenshots.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: secondScreenList.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6bc8da7805f3b2547831da558147399c, type: 3}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: secondScreenList.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: ed0d5e62ede39f24eb49e7b79e337aae, type: 3}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: secondScreenList.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ed0d5e62ede39f24eb49e7b79e337aae, type: 3}
+    - target: {fileID: 6980600001141258776, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980600001141258776, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980600001141258776, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980600001141258776, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980600001141258776, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980600001141258776, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

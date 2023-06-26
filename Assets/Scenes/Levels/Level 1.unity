@@ -274,6 +274,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 84095205}
     m_Modifications:
+    - target: {fileID: 3162325461544583678, guid: aaa70d8ac333b5f4cad7f42db26e69b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7396531401914182548, guid: aaa70d8ac333b5f4cad7f42db26e69b5, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -9725,6 +9729,17 @@ PrefabInstance:
       propertyPath: screenshotsPanel
       value: 
       objectReference: {fileID: 1387567789}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: pageText.Array.data[2]
+      value: Use [E] or MINE/GRAB button near the workbench or smelting furnace to
+        put the items in.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948463581774933276, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: pageText.Array.data[4]
+      value: After gathering all the materials, craft the weapon and fight!\nUse
+        [F] or ATTACK button to hit the roots.\nHowever, a weapon can be broken.
+        If that happens, craft it again!
+      objectReference: {fileID: 0}
     - target: {fileID: 6980600001141258776, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

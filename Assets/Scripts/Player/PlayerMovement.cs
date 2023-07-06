@@ -13,6 +13,7 @@ namespace Apollo11.Player
         
 
         public bool LockMovement { get; set; }
+        public bool SuperLockMovement { get; set; }
 
         public Vector2 Movement{ get; private set; }
 
@@ -27,7 +28,7 @@ namespace Apollo11.Player
         {
             if (SystemsLocator.Inst.InPause) return;
 
-            if (LockMovement)
+            if (LockMovement || SuperLockMovement)
             {
                 Movement = Vector2.zero;
                 return;

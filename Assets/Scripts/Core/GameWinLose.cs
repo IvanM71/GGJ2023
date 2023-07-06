@@ -44,6 +44,9 @@ namespace Apollo11.Core
 
             SystemsLocator.Inst.SoundController.PlayMainTheme(false);
             
+            SystemsLocator.Inst.PlayerSystems.PlayerHealth.Invincible = true;
+            SystemsLocator.Inst.PlayerSystems.PlayerMovement.SuperLockMovement = true;
+            
             var seq = DOTween.Sequence();
             seq.AppendInterval(2f);
             seq.AppendCallback(() =>

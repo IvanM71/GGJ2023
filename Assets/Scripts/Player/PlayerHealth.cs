@@ -18,6 +18,8 @@ namespace Apollo11.Player
         [NonSerialized] public readonly List<RootTileObject> RootsPlayerTouches = new();
 
         public event Action OnPlayerDead;
+        
+        public bool Invincible { get; set; }
 
         private int _health = 10;
         private double _lastDamageTime;
@@ -27,7 +29,7 @@ namespace Apollo11.Player
 
         private void Update()
         {
-            if (_isDead) return;
+            if (_isDead || Invincible) return;
 
             if (RootsPlayerTouches.Count != 0)
             {

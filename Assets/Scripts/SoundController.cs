@@ -125,10 +125,14 @@ namespace Apollo11
         {
             RuntimeManager.PlayOneShot(rootDefeated);
         }
-        public void PlayRootsGrow()
+        public void PlayRootsGrow(Transform pos)
         {
-            RuntimeManager.PlayOneShot(rootsGrow);
+            var _rootGrowthSoundIE = RuntimeManager.CreateInstance(rootsGrow);
+            _rootGrowthSoundIE.set3DAttributes(pos.To3DAttributes());
+            _rootGrowthSoundIE.start();
         }
+        
+        
         public void PlayRootsImpact()
         { 
             RuntimeManager.PlayOneShot(rootsImpact);

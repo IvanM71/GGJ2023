@@ -893,7 +893,7 @@ MonoBehaviour:
   Path: FMOD banks/UI menu.bank
   Name: UI menu
   StudioPath: bank:/UI menu
-  lastModified: 638233798595728930
+  lastModified: 638252866610000000
   FileSizes: []
   Exists: 1
 --- !u!114 &-743860626987397118
@@ -1015,7 +1015,6 @@ MonoBehaviour:
   - {fileID: 8991201168983206229}
   - {fileID: 1753325245399028109}
   - {fileID: 1316800391778436816}
-  - {fileID: 7658657499415842145}
   - {fileID: -4635231419985111788}
   - {fileID: 8337909066923766996}
   - {fileID: -5127779247279790421}
@@ -1034,12 +1033,13 @@ MonoBehaviour:
   - {fileID: -3672968503605113756}
   - {fileID: 3923973024695988330}
   - {fileID: 236199017936108398}
-  EditorParameters: []
+  EditorParameters:
+  - {fileID: 4810380154168095629}
   MasterBanks:
   - {fileID: 3940456467727152986}
   StringsBanks:
   - {fileID: 8031635802621377565}
-  cacheTime: 638233798595914685
+  cacheTime: 638252866610000000
   cacheVersion: 131601
 --- !u!114 &53049088346758113
 MonoBehaviour:
@@ -1552,7 +1552,7 @@ MonoBehaviour:
   Path: FMOD banks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638233798595662719
+  lastModified: 638252866610000000
   FileSizes: []
   Exists: 1
 --- !u!114 &4084868808588817280
@@ -1638,6 +1638,35 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4810380154168095629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/game_state
+  m_EditorClassIdentifier: 
+  Name: game_state
+  StudioPath: parameter:/game_state
+  Min: 0
+  Max: 4
+  Default: 0
+  ID:
+    data1: 3227860695
+    data2: 2850098308
+  Type: 2
+  IsGlobal: 1
+  Labels:
+  - Intro
+  - Gameplay
+  - Win
+  - Lose
+  - UI
+  Exists: 1
 --- !u!114 &4961965340948560790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1968,33 +1997,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &7658657499415842145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Gameplay/lamp_flashing
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Gameplay/lamp_flashing
-  Guid:
-    Data1: 1033690801
-    Data2: 1222317565
-    Data3: -1306229318
-    Data4: 408958412
-  Banks:
-  - {fileID: 9054592708350964648}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 5
-  Length: 0
 --- !u!114 &8031635802621377565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,10 +2012,10 @@ MonoBehaviour:
   Path: FMOD banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638233798595662719
+  lastModified: 638252866610000000
   FileSizes:
   - Name: 
-    Value: 2940
+    Value: 2936
   Exists: 1
 --- !u!114 &8092855955555307660
 MonoBehaviour:
@@ -2241,7 +2243,7 @@ MonoBehaviour:
   Path: FMOD banks/gameplay.bank
   Name: gameplay
   StudioPath: bank:/gameplay
-  lastModified: 638233798595914685
+  lastModified: 638252866610000000
   FileSizes: []
   Exists: 1
 --- !u!114 &9219908361207464588

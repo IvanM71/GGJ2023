@@ -13,9 +13,9 @@ namespace Apollo11.Roots
     {
         [SerializeField] private float tickTimeFrom = 3f;
         [SerializeField] private float tickTimeTo = 5f;
-        
-        RootsView rootsView;
-        RootsModel rootsModel;
+
+        private RootsView rootsView;
+        private RootsModel rootsModel;
 
         public RootsView RootsView 
         { 
@@ -97,6 +97,7 @@ namespace Apollo11.Roots
 
             StartCoroutine(IE_Timer());
         }
+
         private IEnumerator IE_Timer()
         {
             //var tick = new WaitForSeconds(3f);
@@ -108,7 +109,7 @@ namespace Apollo11.Roots
                     var canStageUp = rootsControllers[i].TryStageUp();
                     if (canStageUp)
                     {
-                        SystemsLocator.Inst.SoundController.PlayRootsGrow();
+                        SystemsLocator.Inst.SoundController.PlayRootsGrow(transform); //TODO
                         isTick = true;
                     }
                 }
@@ -125,7 +126,7 @@ namespace Apollo11.Roots
                     var canGrow = rootsControllers[i].TryGrow();
                     if (canGrow)
                     {
-                        SystemsLocator.Inst.SoundController.PlayRootsGrow();
+                        SystemsLocator.Inst.SoundController.PlayRootsGrow(transform);//TODO
                         if (isLose())
                         {
                             StopAllCoroutines();

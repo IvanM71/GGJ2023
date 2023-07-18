@@ -178,19 +178,7 @@ namespace Apollo11.Puzzles
                 CheckForMisses();
             }
         }
-
         
-
-        /*IEnumerator CheckInput()
-        {
-            while (!IsSolved)
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                    AtPlayerInteracts();
-                
-                yield return null;
-            }
-        }*/
 
         private void UpdateVisual()
         {
@@ -204,8 +192,6 @@ namespace Apollo11.Puzzles
             bulbSpriteRenderer.sprite = on ? bulbOn : bulbOff;
             if (on)
             {
-                _blinkSoundEI.getMemoryUsage(out var memoryUsage);
-                Debug.Log($"Data:{memoryUsage.exclusive}{memoryUsage.inclusive}{memoryUsage.sampledata}");
                 _blinkSoundEI.start();
             }
         }

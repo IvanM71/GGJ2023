@@ -100,9 +100,12 @@ namespace Apollo11.Roots
 
         private IEnumerator IE_Timer()
         {
-            //var tick = new WaitForSeconds(3f);
+            while (SystemsLocator.Inst.InPause)
+                yield return null;
+
             while (true) //or while root is alive
-            {
+            { 
+
                 bool isTick = false;
                 for (int i = 0; i < rootsControllers.Count; i++)
                 {
@@ -126,6 +129,7 @@ namespace Apollo11.Roots
                     var canGrow = rootsControllers[i].TryGrow();
                     if (canGrow)
                     {
+                        Debug.Log(SystemsLocator.Inst.InPause);
                         SystemsLocator.Inst.SoundController.PlayRootsGrow(transform);//TODO
                         if (isLose())
                         {

@@ -98,7 +98,7 @@ MonoBehaviour:
       Data3: -1306229318
       Data4: 408958412
     Path: event:/SFX/Gameplay/lamp_flashing
-  turnedOnTime: 0.2
+  turnedOnTime: 0.35
   beforeBlinkTolerance: 0.2
   afterBlinkTolerance: 0.2
   shortPauseTime: 0.2

@@ -445,8 +445,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1.8000001
-  MaxDistance: 5
+  MinDistance: 0
+  MaxDistance: 8
   Length: 0
 --- !u!114 &-5255939218742785603
 MonoBehaviour:
@@ -920,7 +920,7 @@ MonoBehaviour:
   Path: FMOD banks/UI menu.bank
   Name: UI menu
   StudioPath: bank:/UI menu
-  lastModified: 638255425839342696
+  lastModified: 638255442247652898
   FileSizes: []
   Exists: 1
 --- !u!114 &-743860626987397118
@@ -1066,7 +1066,7 @@ MonoBehaviour:
   - {fileID: 3940456467727152986}
   StringsBanks:
   - {fileID: 8031635802621377565}
-  cacheTime: 638255425839342696
+  cacheTime: 638255442247652898
   cacheVersion: 131601
 --- !u!114 &53049088346758113
 MonoBehaviour:
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   Path: FMOD banks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638255425838534741
+  lastModified: 638255442246928759
   FileSizes: []
   Exists: 1
 --- !u!114 &4084868808588817280
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 2
-  MaxDistance: 8
+  MaxDistance: 10
   Length: 0
 --- !u!114 &6949984102364713088
 MonoBehaviour:
@@ -2010,7 +2010,7 @@ MonoBehaviour:
   Path: FMOD banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638255425838544717
+  lastModified: 638255442246938819
   FileSizes:
   - Name: 
     Value: 2940
@@ -2241,7 +2241,7 @@ MonoBehaviour:
   Path: FMOD banks/gameplay.bank
   Name: gameplay
   StudioPath: bank:/gameplay
-  lastModified: 638255425838484873
+  lastModified: 638255442246888864
   FileSizes: []
   Exists: 1
 --- !u!114 &9219908361207464588

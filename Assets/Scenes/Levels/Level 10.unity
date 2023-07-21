@@ -2048,6 +2048,14 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
+      propertyPath: afterBlinkTolerance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
+      propertyPath: beforeBlinkTolerance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2704406638758009511, guid: a6f5c625184e1cb4f9e3135bab5831b0, type: 3}
       propertyPath: pausesSequence.Array.size
       value: 6
       objectReference: {fileID: 0}

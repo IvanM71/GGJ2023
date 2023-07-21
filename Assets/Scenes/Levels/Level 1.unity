@@ -9732,6 +9732,18 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[74].second.m_TileColorIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5705096127326482369, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_Spacing.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705096127326482369, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_CellSize.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705096127326482369, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
+      propertyPath: m_CellSize.y
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 5708360553028068506, guid: d8da48af1d874a54fbfd564062d13f82, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

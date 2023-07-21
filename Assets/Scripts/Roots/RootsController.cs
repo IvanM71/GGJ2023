@@ -16,10 +16,11 @@ namespace Apollo11.Roots
 
         private Vector2Int mainRootPos = new Vector2Int(-1, -1);
 
-        public bool TryGrow()
+        public Vector2Int? TryGrow()
         {
             List<Root> possibleGrow = new List<Root>();
             List<Vector2Int> checkNext = new List<Vector2Int>();
+            List<Vector2Int> possibleGrowIndexes = new List<Vector2Int>();
             List<Root> isChecked = new List<Root>();
 
             if (mainRootPos.x < 0)
@@ -29,7 +30,7 @@ namespace Apollo11.Roots
                 checkNext.Add(mainRootPos);
 
             while (checkNext.Count > 0)
-                possibleGrow.AddRange(CheckNextGrow(checkNext, isChecked));
+                possibleGrowIndexes.AddRange(CheckNextGrow(checkNext, isChecked));
 
             #region Old algorithm
             //List<int> weights = new List<int>();
@@ -110,20 +111,24 @@ namespace Apollo11.Roots
             //}
             #endregion
 
-            if (possibleGrow.Count > 0)
+            if (possibleGrowIndexes.Count > 0)
             {
-                int index = Random.Range(0, possibleGrow.Count);
-                possibleGrow[index].Stage++;
-                possibleGrow[index].Type = rootType;
-                return true;
+                int index = Random.Range(0, possibleGrowIndexes.Count);
+                int x = possibleGrowIndexes[index].x;
+                int y = possibleGrowIndexes[index].y;
+                rootsModel.roots[x, y].Stage++;
+                rootsModel.roots[x, y].Type = rootType;
+                //possibleGrow[in dex].Stage++;
+                //possibleGrow[index].Type = rootType;
+                return possibleGrowIndexes[index];
             }
             else
-                return false;
+                return null;
         }
 
-        public bool TryStageUp()
+        public Vector2Int? TryStageUp()
         {
-            List<Root> possibleGrow = new List<Root>();
+            List<Vector2Int> possibleGrowIndexes = new List<Vector2Int>();
             List<Vector2Int> checkNext = new List<Vector2Int>();
             List<Root> isChecked = new List<Root>();
 
@@ -134,7 +139,7 @@ namespace Apollo11.Roots
                 checkNext.Add(mainRootPos);
 
             while (checkNext.Count > 0)
-                possibleGrow.AddRange(CheckNextUp(checkNext, isChecked));
+                possibleGrowIndexes.AddRange(CheckNextUp(checkNext, isChecked));
 
             #region Old algorithm
             //List<int> weights = new List<int>();
@@ -247,13 +252,16 @@ namespace Apollo11.Roots
             //}
             #endregion
 
-            if (possibleGrow.Count > 0)
+            if (possibleGrowIndexes.Count > 0)
             {
-                possibleGrow[Random.Range(0, possibleGrow.Count)].Stage++;
-                return true;
+                int index = Random.Range(0, possibleGrowIndexes.Count);
+                int x = possibleGrowIndexes[index].x;
+                int y = possibleGrowIndexes[index].y;
+                rootsModel.roots[x, y].Stage++;
+                return possibleGrowIndexes[index];
             }
             else
-                return false;
+                return null;
         }
 
         private void FindMain()
@@ -271,9 +279,72 @@ namespace Apollo11.Roots
                 }
             }
         }
-        private List<Root> CheckNextGrow(List<Vector2Int> checkNext, List<Root> isChecked)
+
+        //private List<Root> CheckNextGrow(List<Vector2Int> checkNext, List<Root> isChecked)
+        //{
+        //    var possibleGrow = new List<Root>();
+        //    var newCheckNext = new List<Vector2Int>();
+        //    for(int i = 0; i < checkNext.Count; i++)
+        //    {
+        //        int x = checkNext[i].x;
+        //        int y = checkNext[i].y;
+
+        //        if (x < rootsModel.roots.GetLength(0) - 1)
+        //        {
+        //            if (rootsModel.roots[x + 1, y] is not null)
+        //            {
+        //                if (rootsModel.roots[x + 1, y].Stage == Enums.RootStages.STAGE_0)
+        //                    possibleGrow.Add(rootsModel.roots[x + 1, y]);
+        //                else if (rootsModel.roots[x + 1, y].Type == rootType && !isChecked.Contains(rootsModel.roots[x + 1, y]))
+        //                    newCheckNext.Add(new Vector2Int(x + 1, y));
+        //            }
+        //        }
+
+        //        if (x > 0)
+        //        {
+        //            if (rootsModel.roots[x - 1, y] is not null)
+        //            {
+        //                if (rootsModel.roots[x - 1, y].Stage == Enums.RootStages.STAGE_0)
+        //                    possibleGrow.Add(rootsModel.roots[x - 1, y]);
+        //                else if (rootsModel.roots[x - 1, y].Type == rootType && !isChecked.Contains(rootsModel.roots[x - 1, y]))
+        //                    newCheckNext.Add(new Vector2Int(x - 1, y));
+        //            }
+        //        }
+
+
+        //        if (y < rootsModel.roots.GetLength(1) - 1)
+        //        {
+        //            if (rootsModel.roots[x, y + 1] is not null)
+        //            {
+        //                if (rootsModel.roots[x, y + 1].Stage == Enums.RootStages.STAGE_0)
+        //                    possibleGrow.Add(rootsModel.roots[x, y + 1]);
+        //                else if (rootsModel.roots[x, y + 1].Type == rootType && !isChecked.Contains(rootsModel.roots[x, y + 1]))
+        //                    newCheckNext.Add(new Vector2Int(x, y + 1));
+        //            }
+        //        }
+
+        //        if (y > 0)
+        //        {
+        //            if (rootsModel.roots[x, y - 1] is not null)
+        //            {
+        //                if (rootsModel.roots[x, y - 1].Stage == Enums.RootStages.STAGE_0)
+        //                    possibleGrow.Add(rootsModel.roots[x, y - 1]);
+        //                else if (rootsModel.roots[x, y - 1].Type == rootType && !isChecked.Contains(rootsModel.roots[x, y - 1]))
+        //                    newCheckNext.Add(new Vector2Int(x, y - 1));
+        //            }
+        //        }
+
+        //        isChecked.Add(rootsModel.roots[x, y]);
+        //    }
+
+        //    checkNext.Clear();
+        //    checkNext.AddRange(newCheckNext);
+
+        //    return possibleGrow;
+        //}
+        private List<Vector2Int> CheckNextGrow(List<Vector2Int> checkNext, List<Root> isChecked)
         {
-            var possibleGrow = new List<Root>();
+            var possibleGrowIndexes = new List<Vector2Int>();
             var newCheckNext = new List<Vector2Int>();
             for(int i = 0; i < checkNext.Count; i++)
             {
@@ -285,7 +356,7 @@ namespace Apollo11.Roots
                     if (rootsModel.roots[x + 1, y] is not null)
                     {
                         if (rootsModel.roots[x + 1, y].Stage == Enums.RootStages.STAGE_0)
-                            possibleGrow.Add(rootsModel.roots[x + 1, y]);
+                            possibleGrowIndexes.Add(new Vector2Int(x + 1, y));
                         else if (rootsModel.roots[x + 1, y].Type == rootType && !isChecked.Contains(rootsModel.roots[x + 1, y]))
                             newCheckNext.Add(new Vector2Int(x + 1, y));
                     }
@@ -296,7 +367,7 @@ namespace Apollo11.Roots
                     if (rootsModel.roots[x - 1, y] is not null)
                     {
                         if (rootsModel.roots[x - 1, y].Stage == Enums.RootStages.STAGE_0)
-                            possibleGrow.Add(rootsModel.roots[x - 1, y]);
+                            possibleGrowIndexes.Add(new Vector2Int(x - 1, y));
                         else if (rootsModel.roots[x - 1, y].Type == rootType && !isChecked.Contains(rootsModel.roots[x - 1, y]))
                             newCheckNext.Add(new Vector2Int(x - 1, y));
                     }
@@ -308,7 +379,7 @@ namespace Apollo11.Roots
                     if (rootsModel.roots[x, y + 1] is not null)
                     {
                         if (rootsModel.roots[x, y + 1].Stage == Enums.RootStages.STAGE_0)
-                            possibleGrow.Add(rootsModel.roots[x, y + 1]);
+                            possibleGrowIndexes.Add(new Vector2Int(x, y + 1));
                         else if (rootsModel.roots[x, y + 1].Type == rootType && !isChecked.Contains(rootsModel.roots[x, y + 1]))
                             newCheckNext.Add(new Vector2Int(x, y + 1));
                     }
@@ -319,7 +390,7 @@ namespace Apollo11.Roots
                     if (rootsModel.roots[x, y - 1] is not null)
                     {
                         if (rootsModel.roots[x, y - 1].Stage == Enums.RootStages.STAGE_0)
-                            possibleGrow.Add(rootsModel.roots[x, y - 1]);
+                            possibleGrowIndexes.Add(new Vector2Int(x, y - 1));
                         else if (rootsModel.roots[x, y - 1].Type == rootType && !isChecked.Contains(rootsModel.roots[x, y - 1]))
                             newCheckNext.Add(new Vector2Int(x, y - 1));
                     }
@@ -331,11 +402,93 @@ namespace Apollo11.Roots
             checkNext.Clear();
             checkNext.AddRange(newCheckNext);
 
-            return possibleGrow;
+            return possibleGrowIndexes;
         }
-        private List<Root> CheckNextUp(List<Vector2Int> checkNext, List<Root> isChecked)
+
+        //private List<Root> CheckNextUp(List<Vector2Int> checkNext, List<Root> isChecked)
+        //{
+        //    var possibleGrow = new List<Root>();
+        //    var newCheckNext = new List<Vector2Int>();
+        //    for (int i = 0; i < checkNext.Count; i++)
+        //    {
+        //        int x = checkNext[i].x;
+        //        int y = checkNext[i].y;
+        //        if (x < rootsModel.roots.GetLength(0) - 1)
+        //        {
+        //            if (rootsModel.roots[x + 1, y] is not null)
+        //            {
+        //                if (rootsModel.roots[x + 1, y].Stage < Enums.RootStages.STAGE_3
+        //                   && rootsModel.roots[x + 1, y].Stage > Enums.RootStages.STAGE_0
+        //                   && rootsModel.roots[x + 1, y].Type == rootType)
+        //                {
+        //                    possibleGrow.Add(rootsModel.roots[x + 1, y]);
+
+        //                    if (!isChecked.Contains(rootsModel.roots[x + 1, y]))
+        //                        newCheckNext.Add(new Vector2Int(x + 1, y));
+        //                }
+        //            }
+        //        }
+
+        //        if (x > 0)
+        //        {
+        //            if (rootsModel.roots[x - 1, y] is not null)
+        //            {
+        //                if (rootsModel.roots[x - 1, y].Stage < Enums.RootStages.STAGE_3
+        //                   && rootsModel.roots[x - 1, y].Stage > Enums.RootStages.STAGE_0
+        //                   && rootsModel.roots[x - 1, y].Type == rootType)
+        //                {
+        //                    possibleGrow.Add(rootsModel.roots[x - 1, y]);
+
+        //                    if (!isChecked.Contains(rootsModel.roots[x - 1, y]))
+        //                        newCheckNext.Add(new Vector2Int(x - 1, y));
+        //                }
+        //            }
+        //        }
+
+
+        //        if (y < rootsModel.roots.GetLength(1) - 1)
+        //        {
+        //            if (rootsModel.roots[x, y + 1] is not null)
+        //            {
+        //                if (rootsModel.roots[x, y + 1].Stage < Enums.RootStages.STAGE_3
+        //                   && rootsModel.roots[x, y + 1].Stage > Enums.RootStages.STAGE_0
+        //                   && rootsModel.roots[x, y + 1].Type == rootType)
+        //                {
+        //                    possibleGrow.Add(rootsModel.roots[x, y + 1]);
+
+        //                    if (!isChecked.Contains(rootsModel.roots[x, y + 1]))
+        //                        newCheckNext.Add(new Vector2Int(x, y + 1));
+        //                }
+        //            }
+        //        }
+
+        //        if (y > 0)
+        //        {
+        //            if (rootsModel.roots[x, y - 1] is not null)
+        //            {
+        //                if (rootsModel.roots[x, y - 1].Stage < Enums.RootStages.STAGE_3
+        //                   && rootsModel.roots[x, y - 1].Stage > Enums.RootStages.STAGE_0
+        //                   && rootsModel.roots[x, y - 1].Type == rootType)
+        //                {
+        //                    possibleGrow.Add(rootsModel.roots[x, y - 1]);
+
+        //                    if (!isChecked.Contains(rootsModel.roots[x, y - 1]))
+        //                        newCheckNext.Add(new Vector2Int(x , y - 1));
+        //                }
+        //            }
+        //        }
+
+        //        isChecked.Add(rootsModel.roots[x, y]);
+        //    }
+
+        //    checkNext.Clear();
+        //    checkNext.AddRange(newCheckNext);
+
+        //    return possibleGrow;
+        //}
+        private List<Vector2Int> CheckNextUp(List<Vector2Int> checkNext, List<Root> isChecked)
         {
-            var possibleGrow = new List<Root>();
+            var possibleGrow = new List<Vector2Int>();
             var newCheckNext = new List<Vector2Int>();
             for (int i = 0; i < checkNext.Count; i++)
             {
@@ -349,7 +502,7 @@ namespace Apollo11.Roots
                            && rootsModel.roots[x + 1, y].Stage > Enums.RootStages.STAGE_0
                            && rootsModel.roots[x + 1, y].Type == rootType)
                         {
-                            possibleGrow.Add(rootsModel.roots[x + 1, y]);
+                            possibleGrow.Add(new Vector2Int(x + 1, y));
 
                             if (!isChecked.Contains(rootsModel.roots[x + 1, y]))
                                 newCheckNext.Add(new Vector2Int(x + 1, y));
@@ -365,7 +518,7 @@ namespace Apollo11.Roots
                            && rootsModel.roots[x - 1, y].Stage > Enums.RootStages.STAGE_0
                            && rootsModel.roots[x - 1, y].Type == rootType)
                         {
-                            possibleGrow.Add(rootsModel.roots[x - 1, y]);
+                            possibleGrow.Add(new Vector2Int(x - 1, y));
 
                             if (!isChecked.Contains(rootsModel.roots[x - 1, y]))
                                 newCheckNext.Add(new Vector2Int(x - 1, y));
@@ -382,7 +535,7 @@ namespace Apollo11.Roots
                            && rootsModel.roots[x, y + 1].Stage > Enums.RootStages.STAGE_0
                            && rootsModel.roots[x, y + 1].Type == rootType)
                         {
-                            possibleGrow.Add(rootsModel.roots[x, y + 1]);
+                            possibleGrow.Add(new Vector2Int(x, y + 1));
 
                             if (!isChecked.Contains(rootsModel.roots[x, y + 1]))
                                 newCheckNext.Add(new Vector2Int(x, y + 1));
@@ -398,7 +551,7 @@ namespace Apollo11.Roots
                            && rootsModel.roots[x, y - 1].Stage > Enums.RootStages.STAGE_0
                            && rootsModel.roots[x, y - 1].Type == rootType)
                         {
-                            possibleGrow.Add(rootsModel.roots[x, y - 1]);
+                            possibleGrow.Add(new Vector2Int(x, y - 1));
 
                             if (!isChecked.Contains(rootsModel.roots[x, y - 1]))
                                 newCheckNext.Add(new Vector2Int(x , y - 1));

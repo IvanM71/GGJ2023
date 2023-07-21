@@ -116,9 +116,9 @@ namespace Apollo11.Roots
                 for (int i = 0; i < rootsControllers.Count; i++)
                 {
                     var canStageUp = rootsControllers[i].TryStageUp();
-                    if (canStageUp)
+                    if (canStageUp is not null)
                     {
-                        SystemsLocator.Inst.SoundController.PlayRootsGrow(transform); //TODO
+                        SystemsLocator.Inst.SoundController.PlayRootsGrow(rootsView.roots[canStageUp.Value.x, canStageUp.Value.y].transform); //TODO
                         isTick = true;
                     }
                 }
@@ -133,9 +133,9 @@ namespace Apollo11.Roots
                 for (int i = 0; i < rootsControllers.Count; i++)
                 {
                     var canGrow = rootsControllers[i].TryGrow();
-                    if (canGrow)
+                    if (canGrow is not null)
                     {
-                        SystemsLocator.Inst.SoundController.PlayRootsGrow(transform);//TODO
+                        SystemsLocator.Inst.SoundController.PlayRootsGrow(rootsView.roots[canGrow.Value.x, canGrow.Value.y].transform);//TODO
                         if (isLose())
                         {
                             StopAllCoroutines();

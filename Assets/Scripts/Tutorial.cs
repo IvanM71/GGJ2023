@@ -31,7 +31,7 @@ namespace Apollo11
         private int currentPage = 0;
         private int currentScreenshotsPage = 0;
 
-        private void Start()
+        private void Awake()
         {
 
             SystemsLocator.Inst.InPause = true;

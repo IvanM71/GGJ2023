@@ -100,13 +100,19 @@ namespace Apollo11.Roots
 
         private IEnumerator IE_Timer()
         {
-            while (SystemsLocator.Inst.InPause)
-                yield return null;
+
+            bool isTick = true;
+            UpdateView();
 
             while (true) //or while root is alive
-            { 
+            {
+                if (isTick)
+                {
+                    yield return GetTickTime();
+                }
 
-                bool isTick = false;
+                isTick = false;
+
                 for (int i = 0; i < rootsControllers.Count; i++)
                 {
                     var canStageUp = rootsControllers[i].TryStageUp();
@@ -129,7 +135,6 @@ namespace Apollo11.Roots
                     var canGrow = rootsControllers[i].TryGrow();
                     if (canGrow)
                     {
-                        Debug.Log(SystemsLocator.Inst.InPause);
                         SystemsLocator.Inst.SoundController.PlayRootsGrow(transform);//TODO
                         if (isLose())
                         {
@@ -141,11 +146,6 @@ namespace Apollo11.Roots
                 }
 
                 UpdateView();
-
-                if (isTick)
-                {
-                    yield return GetTickTime();
-                }
 
                 yield return null;
             }

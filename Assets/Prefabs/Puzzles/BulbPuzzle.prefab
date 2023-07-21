@@ -93,11 +93,11 @@ MonoBehaviour:
   bulbSpriteRenderer: {fileID: 6219096487291527058}
   blinkSound:
     Guid:
-      Data1: -1678883675
-      Data2: 1250717271
-      Data3: 77361031
-      Data4: 1238399900
-    Path: event:/SFX/Gameplay/pick_item
+      Data1: 1033690801
+      Data2: 1222317565
+      Data3: -1306229318
+      Data4: 408958412
+    Path: event:/SFX/Gameplay/lamp_flashing
   turnedOnTime: 0.2
   beforeBlinkTolerance: 0.2
   afterBlinkTolerance: 0.2

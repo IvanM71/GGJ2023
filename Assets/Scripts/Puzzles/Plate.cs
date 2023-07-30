@@ -1,4 +1,5 @@
 ﻿using System;
+using Apollo11.Core;
 using DG.Tweening;
 using UnityEngine;
 
@@ -55,11 +56,13 @@ namespace Apollo11.Puzzles
         {
             ChangeVisualState(false);
             OnPlatePressed?.Invoke(this);
+            SystemsLocator.Inst.SoundController.PlayPlate(true);
         }
 
         private void AtExited()
         {
             ChangeVisualState(true);
+            SystemsLocator.Inst.SoundController.PlayPlate(false);
         }
 
         private void ChangeVisualState(bool up)

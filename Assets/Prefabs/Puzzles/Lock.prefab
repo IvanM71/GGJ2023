@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5415233809780972093}
   - component: {fileID: 8423896735274777930}
   - component: {fileID: 8716777535433172620}
+  - component: {fileID: 4357591671794581434}
   m_Layer: 0
   m_Name: Lock
   m_TagString: Untagged
@@ -140,9 +141,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSolved:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4357591671794581434}
+        m_TargetAssemblyTypeName: Apollo11.Puzzles.PlayOnSolvedSound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnSolvedWrong:
+    m_PersistentCalls:
       m_Calls: []
   KeyIn: {fileID: 5832169323922117397}
   interactionIconOffset: {x: 0, y: 0.4}
+--- !u!114 &4357591671794581434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4482090867463361392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1dbfad76f242b79ff30d963180f3a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: 1
 --- !u!1 &5832169323922117397
 GameObject:
   m_ObjectHideFlags: 0

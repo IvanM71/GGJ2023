@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Apollo11.Core;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
@@ -129,6 +130,7 @@ namespace Apollo11.Puzzles
         {
             print("Wrong!");
             _correctPresses = 0;
+            SystemsLocator.Inst.SoundController.PlayPuzzleSolvedWrong();
         }
         
         private void CheckForMisses()

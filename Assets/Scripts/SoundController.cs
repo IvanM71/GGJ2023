@@ -38,6 +38,11 @@ namespace Apollo11
         [SerializeField] EventReference winSound;
         [SerializeField] EventReference loseSound;
         [SerializeField] EventReference deathSound;
+        
+        [SerializeField] EventReference plateUp;
+        [SerializeField] EventReference plateDown;
+        [SerializeField] EventReference obstacleDown;
+        [SerializeField] EventReference puzzleSolvedWrong;
 
 
         [SerializeField] private bool playMainTheme = true;
@@ -177,6 +182,21 @@ namespace Apollo11
         {
             RuntimeManager.PlayOneShot(deathSound);
         }
+        
+        public void PlayObstacleDown()
+        {
+            RuntimeManager.PlayOneShot(obstacleDown);
+        }
+        
+        public void PlayPuzzleSolvedWrong()
+        {
+            RuntimeManager.PlayOneShot(puzzleSolvedWrong);
+        }
+        public void PlayPlate(bool down)
+        {
+            RuntimeManager.PlayOneShot(down ? plateDown : plateUp);
+        }
+        
         public void PlayMainTheme(bool play)
         {
             if (play)

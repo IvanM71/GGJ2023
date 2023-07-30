@@ -84,19 +84,15 @@ namespace Apollo11.Puzzles
                 {
                     progressBar.IndicateNegative(true);
                     progressBar.SetProgress(0f);
+                    
                     AtSolvedWrong();
+                    _input.Clear();
                 }
             }
 
             
         }
 
-        private void AtSolvedWrong()
-        {
-            _input.Clear();
-            //indication
-            print("BAD!");
-        }
 
         private bool ValidateInput()
         {

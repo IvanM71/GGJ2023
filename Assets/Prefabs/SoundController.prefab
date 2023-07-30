@@ -193,6 +193,34 @@ MonoBehaviour:
       Data3: 1332497056
       Data4: 194590321
     Path: event:/SFX/Gameplay/gnome_death
+  plateUp:
+    Guid:
+      Data1: 268899488
+      Data2: 1278349401
+      Data3: 235442110
+      Data4: -239562421
+    Path: event:/SFX/Gameplay/unpress_plate
+  plateDown:
+    Guid:
+      Data1: 1413984452
+      Data2: 1142466525
+      Data3: 1616867719
+      Data4: -59190446
+    Path: event:/SFX/Gameplay/press_plate
+  obstacleDown:
+    Guid:
+      Data1: 1712027658
+      Data2: 1159479770
+      Data3: -1270465364
+      Data4: 1696987922
+    Path: event:/SFX/Gameplay/gate_open
+  puzzleSolvedWrong:
+    Guid:
+      Data1: 1529220049
+      Data2: 1145914352
+      Data3: 675156158
+      Data4: -765590688
+    Path: event:/SFX/Gameplay/pressure_plates_puzzle_fail
   playMainTheme: 1
   mainTheme:
     Guid:

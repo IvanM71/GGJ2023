@@ -2769,7 +2769,7 @@ SpriteRenderer:
   m_Size: {x: 1.0457143, y: 1.2771429}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &758970311
@@ -6164,6 +6164,7 @@ GameObject:
   - component: {fileID: 1622263460}
   - component: {fileID: 1622263459}
   - component: {fileID: 1622263461}
+  - component: {fileID: 1622263462}
   m_Layer: 0
   m_Name: SYSTEMS DontDestroy
   m_TagString: Untagged
@@ -6210,6 +6211,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede1661ff5ef34443b5e0e96b332ede0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1622263462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622263458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 7
+  UnloadEvent: 2
+  Banks:
+  - Master.strings
+  - Master
+  - gameplay
+  - UI menu
+  CollisionTag: 
+  PreloadSamples: 1
 --- !u!1 &1644985018
 GameObject:
   m_ObjectHideFlags: 0
@@ -6444,7 +6466,7 @@ SpriteRenderer:
   m_Size: {x: 1.0457143, y: 1.2771429}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1674433999

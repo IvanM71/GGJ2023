@@ -2,11 +2,11 @@
 
 namespace Apollo11
 {
-    public static class JSAPIBridge
+    /*public static class JSAPIBridge
     {
         // Import the javascript function that redirects to another URL
         /*[DllImport("__Internal")]
-        public static extern void RedirectTo();*/
+        public static extern void RedirectTo();#1#
         
         [DllImport("__Internal")]
         public static extern void StartGameEvent();
@@ -16,5 +16,5 @@ namespace Apollo11
         
         [DllImport("__Internal")]
         public static extern void ReplayEvent(int level);
-    }
+    }*/
 }

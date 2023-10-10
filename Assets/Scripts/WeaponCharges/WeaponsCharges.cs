@@ -1,3 +1,4 @@
+using Apollo11.Core;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace Apollo11.WeaponCharges
         [SerializeField] private Vector3Int startCharges;
         [Space]
         [SerializeField] private UI_WeaponsPanel uiPanel;
+
+        
 
         private Dictionary<Enums.RootWeapon, int> data;
 
@@ -26,6 +29,7 @@ namespace Apollo11.WeaponCharges
         public void AddCharges(Enums.RootWeapon type, int amount)
         {
             data[type] += amount;
+            SystemsLocator.Inst.PlayerSystems.ParticleSystemManager.ActivateParticles(type);
             UpdateValues();
         }
 

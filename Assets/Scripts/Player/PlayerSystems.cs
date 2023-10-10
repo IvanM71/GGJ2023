@@ -24,6 +24,9 @@ namespace Apollo11.Player
         
         [SerializeField] private InteractionVision interactionVision;
         public InteractionVision InteractionVision => interactionVision;
+
+        [SerializeField] private ParticleSystemManager particleSystemManager;
+        public ParticleSystemManager ParticleSystemManager => particleSystemManager;
         
         public Transform cameraFollowPoint;
     }

@@ -49,9 +49,6 @@ namespace Apollo11.Crafting
                     //SystemsLocator.Inst.SoundController.PlayThrowItem();
                 }
             }
-            
-            
-            
         }
     }
 }

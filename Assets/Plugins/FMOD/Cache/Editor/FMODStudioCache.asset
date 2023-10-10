@@ -123,7 +123,7 @@ MonoBehaviour:
   Path: FMOD banks/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638321113847935989
+  lastModified: 638255470510527734
   FileSizes: []
   Exists: 1
 --- !u!114 &-7578012149812144257
@@ -276,7 +276,7 @@ MonoBehaviour:
   Path: FMOD banks/gameplay.bank
   Name: gameplay
   StudioPath: bank:/gameplay
-  lastModified: 638321113848204998
+  lastModified: 638263155752598868
   FileSizes: []
   Exists: 1
 --- !u!114 &-5530614414220188369
@@ -639,7 +639,7 @@ MonoBehaviour:
   - {fileID: -7616107663966606804}
   StringsBanks:
   - {fileID: 7134162576102791431}
-  cacheTime: 638321113848204998
+  cacheTime: 638263155752598868
   cacheVersion: 131601
 --- !u!114 &187854716999163931
 MonoBehaviour:
@@ -737,7 +737,7 @@ MonoBehaviour:
   Path: FMOD banks/UI menu.bank
   Name: UI menu
   StudioPath: bank:/UI menu
-  lastModified: 638321113848005801
+  lastModified: 638255470510633528
   FileSizes: []
   Exists: 1
 --- !u!114 &1812810697709991099
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   Path: FMOD banks/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638321113847945704
+  lastModified: 638263155752272594
   FileSizes:
   - Name: 
     Value: 3140

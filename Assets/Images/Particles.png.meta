@@ -120,10 +120,10 @@ TextureImporter:
       name: Particles_0
       rect:
         serializedVersion: 2
-        x: 45
-        y: 45
-        width: 34
-        height: 33
+        x: 0
+        y: 24
+        width: 33
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6534bc9c75edf5941b08258ca606e64d
-      internalID: 1305408542
+      spriteID: 83b56181a95ed9d43bf790457704658a
+      internalID: -1108648414
       vertices: []
       indices: 
       edges: []
@@ -141,10 +141,10 @@ TextureImporter:
       name: Particles_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 43
-        width: 28
-        height: 36
+        x: 35
+        y: 23
+        width: 30
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc05391f0967cae4cb5fa576cc4169a3
-      internalID: 492911881
+      spriteID: c9a8573f456e7944c974a52f8e2a6ac2
+      internalID: 41887260
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
       name: Particles_2
       rect:
         serializedVersion: 2
-        x: 84
-        y: 21
+        x: 65
+        y: 1
         width: 40
         height: 80
       alignment: 0
@@ -173,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3694e47817d3a44cafb348a96b0af7f
-      internalID: 1876959903
+      spriteID: 30855d5068ad4b440adfea14be1742c7
+      internalID: 113768258
       vertices: []
       indices: 
       edges: []
@@ -190,9 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Particles_2: 1876959903
-      Particles_0: 1305408542
-      Particles_1: 492911881
+      Particles_2: 113768258
+      Particles_0: -1108648414
+      Particles_1: 41887260
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -11,7 +11,7 @@ namespace Apollo11
             
             try
             {
-                //JSAPIBridge.StartLevelEvent(level);
+                JSAPIBridge.StartLevelEvent(level);
             }
             catch (Exception e)
             {
@@ -26,7 +26,7 @@ namespace Apollo11
             
             try
             {
-                //JSAPIBridge.ReplayEvent(level);
+                JSAPIBridge.ReplayEvent(level);
             }
             catch (Exception e)
             {
@@ -40,7 +40,7 @@ namespace Apollo11
             
             try
             {
-                //JSAPIBridge.StartGameEvent();
+                JSAPIBridge.StartGameEvent();
             }
             catch (Exception e)
             {

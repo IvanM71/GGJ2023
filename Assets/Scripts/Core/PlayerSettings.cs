@@ -64,7 +64,7 @@ namespace Apollo11.Core
         {
             MusicLevel = PlayerPrefs.GetFloat("musicVolume", 0.9f);
             SoundLevel = PlayerPrefs.GetFloat("effectsVolume", 0.5f);
-            TouchControls = Convert.ToBoolean(PlayerPrefs.GetInt("touchControls", 1));
+            TouchControls = SystemInfo.deviceType == DeviceType.Handheld;
         }
         
     }

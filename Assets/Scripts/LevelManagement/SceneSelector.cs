@@ -22,6 +22,7 @@ namespace Apollo11.LevelManagement
             }
             LevelManager.Instance.CurrentLevel = level;
             SceneManager.LoadScene(level);
+            CoolMathAds.instance.InitiateAds();
         }
         public void OpenNextLevel()
         {
@@ -33,6 +34,7 @@ namespace Apollo11.LevelManagement
             Debug.Log(LevelManager.Instance.CurrentLevel);
 
             SystemsLocator.Inst.Analytics.AtLevelStarted(LevelManager.Instance.CurrentLevel);
+            
             OpenLevel(LevelManager.Instance.CurrentLevel);
         }
 

@@ -15,6 +15,7 @@ namespace Apollo11.Core
         private void Awake() => Inst = this;
 
         public bool InPause;
+        public bool InAdsPause = false;
 
 
         public PlayerSystems PlayerSystems { get; set; }

@@ -2,6 +2,7 @@ using System;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using Apollo11.Core;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Apollo11
@@ -199,7 +200,9 @@ namespace Apollo11
         
         public void PlayMainTheme(bool play)
         {
-            if (play)
+            Debug.Log($"Play Main Theme {play}, {_mainThemeEI.isValid()}, {SystemsLocator.Inst.InAdsPause}");
+
+            if (play && !SystemsLocator.Inst.InAdsPause)
                 _mainThemeEI.start();
             else
                 _mainThemeEI.stop(STOP_MODE.ALLOWFADEOUT);

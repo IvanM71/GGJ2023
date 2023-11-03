@@ -25,6 +25,7 @@ namespace Apollo11.LevelManagement
             LevelManager.Instance.CurrentLevel = levelNumber;
             SystemsLocator.Inst.Analytics.AtLevelStarted(levelNumber);
             SceneManager.LoadScene(levelNumber);
+            CoolMathAds.instance.InitiateAds();
         }
     }
 }

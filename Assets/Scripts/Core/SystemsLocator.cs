@@ -4,6 +4,7 @@ using Apollo11.Player;
 using Apollo11.Roots;
 using Apollo11.UI;
 using Apollo11.WeaponCharges;
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -15,15 +16,11 @@ namespace Apollo11.Core
         private void Awake() => Inst = this;
 
         public bool InPause;
-        public bool InAdsPause = false;
-
 
         public PlayerSystems PlayerSystems { get; set; }
         
-        
         [SerializeField] private GameCanvas gameCanvas;
         public GameCanvas GameCanvas => gameCanvas;
-        
 
         [SerializeField] private InteractionSystem interactionSystem;
         public InteractionSystem InteractionSystem => interactionSystem;
@@ -31,15 +28,12 @@ namespace Apollo11.Core
         [FormerlySerializedAs("settingsManager")] [SerializeField] private UI_SettingsManager uiSettingsManager;
         public UI_SettingsManager UISettingsManager => uiSettingsManager;
         
-        
         [Space]
         [SerializeField] private WeaponsCharges weaponsCharges;
         public WeaponsCharges WeaponsCharges => weaponsCharges;
         
-        
         [SerializeField] private AttackSystem attackSystem;
         public AttackSystem AttackSystem => attackSystem;
-        
         
         [Space]
         [SerializeField] private SO_ItemsPrefabs itemsPrefabs;
@@ -54,6 +48,21 @@ namespace Apollo11.Core
         
         [SerializeField] private Analytics analytics;
         public Analytics Analytics => analytics;
-        
+
+        public event Action OnResume;
+        public event Action OnPause;
+        public void Resume()
+        {
+            Time.timeScale = 1f;
+            Inst.InPause = false;
+            OnResume?.Invoke();
+        }
+
+        public void Pause()
+        {
+            Time.timeScale = 0f;
+            Inst.InPause = true;
+            OnPause?.Invoke();
+        }
     }
 }

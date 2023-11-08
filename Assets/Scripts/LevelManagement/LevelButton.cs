@@ -10,6 +10,7 @@ namespace Apollo11.LevelManagement
     {
         [SerializeField] Image blockImage;
         [SerializeField] TextMeshProUGUI levelNumber_txt;
+        [SerializeField] SceneSelector sceneSelector;
         private int levelNumber;
         public void ToggleBlockedImage(bool isBlocked)
         {
@@ -24,8 +25,7 @@ namespace Apollo11.LevelManagement
         {
             LevelManager.Instance.CurrentLevel = levelNumber;
             SystemsLocator.Inst.Analytics.AtLevelStarted(levelNumber);
-            SceneManager.LoadScene(levelNumber);
-            CoolMathAds.instance.InitiateAds();
+            sceneSelector.OpenLevel(levelNumber);
         }
     }
 }

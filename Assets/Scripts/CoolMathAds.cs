@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Apollo11.Core;
+using FMODUnity;
 
 namespace Apollo11
 {
@@ -28,24 +29,23 @@ namespace Apollo11
 
         public void PauseGame()
         {
-            Debug.Log("PauseGame function called");
-            Time.timeScale = 0f;
-            SystemsLocator.Inst.InAdsPause = true;
-            SystemsLocator.Inst.SoundController.PlayMainTheme(false);
+            Debug.Log("CoolMathAds PauseGame function called");
+            SystemsLocator.Inst.Pause();
+            RuntimeManager.MuteAllEvents(true);
         }
 
         public void ResumeGame()
         {
-            Debug.Log("ResumeGame function called");
-            Time.timeScale = 1.0f;
-            SystemsLocator.Inst.InAdsPause = false;
-            SystemsLocator.Inst.SoundController.PlayMainTheme(true);
+            Debug.Log("CoolMathAds ResumeGame function called");
+            SystemsLocator.Inst.Resume();
+            RuntimeManager.MuteAllEvents(false);
         }
 
         public void InitiateAds()
         {
             Debug.Log("Initiate Ads");
             Application.ExternalCall("triggerAdBreak");
+            //PauseGame();
         }
 
 

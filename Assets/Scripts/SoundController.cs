@@ -59,6 +59,8 @@ namespace Apollo11
         private VCA _musicVCA;
         private VCA _sfxVCA;
 
+
+
         private void Awake()
         {
             _mainThemeEI = RuntimeManager.CreateInstance(mainTheme);
@@ -200,9 +202,9 @@ namespace Apollo11
         
         public void PlayMainTheme(bool play)
         {
-            Debug.Log($"Play Main Theme {play}, {_mainThemeEI.isValid()}, {SystemsLocator.Inst.InAdsPause}");
+            Debug.Log($"Play Main Theme {play}");
 
-            if (play && !SystemsLocator.Inst.InAdsPause)
+            if (play)
                 _mainThemeEI.start();
             else
                 _mainThemeEI.stop(STOP_MODE.ALLOWFADEOUT);

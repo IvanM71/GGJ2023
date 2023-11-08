@@ -13,9 +13,17 @@ namespace Apollo11.UI
             pausePanel.SetActive(false);
         }
 
+        private void Start()
+        {
+            SystemsLocator.Inst.OnPause += ToPauseView;
+            SystemsLocator.Inst.OnResume += ToResumeView;
+        }
+
         private void OnDestroy()
         {
             Time.timeScale = 1f;
+            SystemsLocator.Inst.OnPause -= ToPauseView;
+            SystemsLocator.Inst.OnResume -= ToResumeView;
         }
 
         private void Update()
@@ -35,18 +43,23 @@ namespace Apollo11.UI
 
         public void Resume()
         {
-            Time.timeScale = 1f;
-            pausePanel.SetActive(false);
-            pauseButton.SetActive(true);
-            SystemsLocator.Inst.InPause = false;
+            SystemsLocator.Inst.Resume();
         }
 
         public void Pause()
         {
-            Time.timeScale = 0f;
+            SystemsLocator.Inst.Pause();
+        }
+        public void ToResumeView()
+        {
+            pausePanel.SetActive(false);
+            pauseButton.SetActive(true);
+        }
+
+        public void ToPauseView()
+        {
             pausePanel.SetActive(true);
             pauseButton.SetActive(false);
-            SystemsLocator.Inst.InPause = true;
         }
     }
 }

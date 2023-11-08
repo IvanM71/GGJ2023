@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 8512816716168288502}
   - component: {fileID: 8512816716168288503}
   - component: {fileID: 8512816716168288504}
+  - component: {fileID: 4344454100472896391}
   - component: {fileID: 603267812288155559}
   - component: {fileID: 5771384163601667832}
   - component: {fileID: 7879597517794752224}
@@ -338,7 +339,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 603267812288155559}
-        m_TargetAssemblyTypeName: Apollo11.LevelButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: Apollo11.LevelManagement.LevelButton, Assembly-CSharp
         m_MethodName: OpenLevel
         m_Mode: 1
         m_Arguments:
@@ -349,6 +350,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4344454100472896391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8512816716168288506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b430320364a54448c4f0021fa848a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &603267812288155559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockImage: {fileID: 1533571063520404664}
   levelNumber_txt: {fileID: 8512816715431050554}
+  sceneSelector: {fileID: 4344454100472896391}
 --- !u!114 &5771384163601667832
 MonoBehaviour:
   m_ObjectHideFlags: 0

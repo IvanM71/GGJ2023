@@ -44,10 +44,16 @@ namespace Apollo11.Core
         
         [SerializeField] private SoundController soundController;
         public SoundController SoundController => soundController;
-        
-        
-        [SerializeField] private Analytics analytics;
-        public Analytics Analytics => analytics;
+
+
+        // [SerializeField] private Analytics analytics;
+        // public Analytics Analytics => analytics;
+
+        [SerializeField] private AdsInit adsInit;
+        public AdsInit AdsInit => adsInit;
+
+        [SerializeField] private Interstitial interstitialAd;
+        public Interstitial InterstitialAd => interstitialAd;
 
         public event Action OnResume;
         public event Action OnPause;

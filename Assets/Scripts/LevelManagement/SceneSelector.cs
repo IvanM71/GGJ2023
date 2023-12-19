@@ -21,8 +21,9 @@ namespace Apollo11.LevelManagement
                 return;
             }
             LevelManager.Instance.CurrentLevel = level;
+            SystemsLocator.Inst.InterstitialAd.ShowAd();
             SceneManager.LoadScene(level);
-            CoolMathAds.instance.InitiateAds();
+            // CoolMathAds.instance.InitiateAds();
         }
         public void OpenNextLevel()
         {
@@ -33,14 +34,14 @@ namespace Apollo11.LevelManagement
 
             Debug.Log(LevelManager.Instance.CurrentLevel);
 
-            SystemsLocator.Inst.Analytics.AtLevelStarted(LevelManager.Instance.CurrentLevel);
+            // SystemsLocator.Inst.Analytics.AtLevelStarted(LevelManager.Instance.CurrentLevel);
             
             OpenLevel(LevelManager.Instance.CurrentLevel);
         }
 
         public void RetryLevel()
         {
-            SystemsLocator.Inst.Analytics.AtLevelRestart(LevelManager.Instance.CurrentLevel);
+            // SystemsLocator.Inst.Analytics.AtLevelRestart(LevelManager.Instance.CurrentLevel);
             OpenLevel(LevelManager.Instance.CurrentLevel);
         }
     }

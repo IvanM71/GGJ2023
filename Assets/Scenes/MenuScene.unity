@@ -2960,6 +2960,8 @@ GameObject:
   - component: {fileID: 827137551}
   - component: {fileID: 827137553}
   - component: {fileID: 827137554}
+  - component: {fileID: 827137556}
+  - component: {fileID: 827137555}
   m_Layer: 0
   m_Name: SYSTEMS
   m_TagString: Untagged
@@ -3040,7 +3042,8 @@ MonoBehaviour:
   itemsPrefabs: {fileID: 0}
   rootsSystem: {fileID: 0}
   soundController: {fileID: 234016960}
-  analytics: {fileID: 827137554}
+  adsInit: {fileID: 827137556}
+  interstitialAd: {fileID: 827137555}
 --- !u!114 &827137554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3053,6 +3056,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8229db4e2a4eaa8617007169b743ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &827137555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827137548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e9ee0e4e2df8740a1b3475d4f01aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidAdUnitId: Interstitial_Android
+  _iOsAdUnitId: Interstitial_iOS
+--- !u!114 &827137556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827137548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8ff6267e1494443af4246631f2c254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 5503999
+  _iOSGameId: 5503998
+  _testMode: 1
 --- !u!1 &864137260
 GameObject:
   m_ObjectHideFlags: 0
@@ -8469,6 +8501,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 390362014}
     m_Modifications:
+    - target: {fileID: 4091436808567152047, guid: 024b0807dc7dc7048958f8a8abd4f242, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8630559055684905256, guid: 024b0807dc7dc7048958f8a8abd4f242, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -8576,6 +8612,10 @@ PrefabInstance:
     - target: {fileID: 8630559057083715921, guid: 024b0807dc7dc7048958f8a8abd4f242, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630559057666469630, guid: 024b0807dc7dc7048958f8a8abd4f242, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 024b0807dc7dc7048958f8a8abd4f242, type: 3}

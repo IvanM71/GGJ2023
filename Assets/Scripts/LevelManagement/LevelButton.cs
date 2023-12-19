@@ -24,7 +24,7 @@ namespace Apollo11.LevelManagement
         public void OpenLevel()
         {
             LevelManager.Instance.CurrentLevel = levelNumber;
-            SystemsLocator.Inst.Analytics.AtLevelStarted(levelNumber);
+            // SystemsLocator.Inst.Analytics.AtLevelStarted(levelNumber);
             sceneSelector.OpenLevel(levelNumber);
         }
     }
